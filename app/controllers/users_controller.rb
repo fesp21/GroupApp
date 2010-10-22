@@ -1,4 +1,22 @@
 class UsersController < ApplicationController
+  def login
+    if request.post?
+      user = User.authenticate(params[:name], params[:password])
+      if user
+        session[:user_id] = user.id
+        redirect_to(:action => "index")
+      else
+        flash.now[:notice] = "Invalid user/password combination"
+      end
+    end
+  end
+
+  def logout
+    session[:user_id] = nil
+    flash[:notice] = "Logged out"
+    redirect_to(:action => "login")
+  end
+
   # GET /users
   # GET /users.xml
   def index
@@ -6,6 +24,15 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
+      format.xml  { render :xml => @users }
+    end
+  end
+  
+  def user_manage
+    @users = User.find(:all, :order => :name)
+
+    respond_to do |format|
+      format.html # user_manage.html.erb
       format.xml  { render :xml => @users }
     end
   end
@@ -45,7 +72,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         flash[:notice] = "User #{@user.name} was successfully created."
-        format.html { redirect_to(:action=>'index') }
+        format.html { redirect_to(:action=>'user_manage') }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }
@@ -78,7 +105,7 @@ class UsersController < ApplicationController
     @user.destroy
 
     respond_to do |format|
-      format.html { redirect_to(users_url) }
+      format.html { redirect_to(:action => 'user_manage') }
       format.xml  { head :ok }
     end
   end
