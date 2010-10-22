@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :permissions
+
+  map.resources :userlists
+
   map.resources :groups
 
   map.resources :users, :collection => { :login => :get, :logout => :get, :user_manage => :get }
