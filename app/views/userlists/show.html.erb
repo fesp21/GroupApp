@@ -1,0 +1,13 @@
+<p>
+  <b>Uid:</b>
+  <%=h @userlist.uid %>
+</p>
+
+<p>
+  <b>Permissionid:</b>
+  <%=h @userlist.permissionid %>
+</p>
+
+
+<%= link_to 'Edit', edit_userlist_path(@userlist) %> |
+<%= link_to 'Back', userlists_path %>
