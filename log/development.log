@@ -453,3 +453,15 @@ ActionView::TemplateError (compile error
 Rendered rescues/_trace (46.6ms)
 Rendered rescues/_request_and_response (1.3ms)
 Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-10-21 19:20:11) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 26ms (View: 21, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-10-21 19:20:11) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 13ms (View: 8, DB: 0) | 200 OK [http://localhost/users/new]
