@@ -71,3 +71,59 @@ padding: 0;
 	text-align: center;
 	color: #7d7d7d;
 }
+
+#login
+{
+	margin: 0 auto 0 auto;
+	width: 550px;
+	height: 360px;
+	background: url('../images/login-bg.gif') center;
+}
+
+#login-name
+{
+	padding: 90px 0 0 68px;
+}
+#login-pw
+{
+	padding: 52px 0 0 68px;
+}
+#login-signup
+{
+	padding: 90px 0 0 68px;
+}
+#login-signin
+{
+	margin: -23px 0 0 0;
+	padding: 0 0 0 210px;
+}
+
+#register
+{
+	margin: 0 auto 0 auto;
+	width: 550px;
+	height: 360px;
+	background: url('../images/register-bg.gif') center;
+}
+
+#register-name
+{
+	padding: 78px 0 0 68px;
+}
+#register-pw
+{
+	padding: 42px 0 0 68px;
+}
+#register-pwconfirm
+{
+	padding: 42px 0 0 68px;
+}
+#register-back
+{
+	padding: 46px 0 0 68px;
+}
+#register-signup
+{
+	margin: -23px 0 0 0;
+	padding: 0 0 0 210px;
+}
