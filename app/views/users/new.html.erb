@@ -1,30 +1,22 @@
 <div class="depot-form">
-
-<% form_for(@user) do |f| %>
-  <%= f.error_messages %>
-
-  <fieldset>
-  <legend>Enter User Details</legend>
-
-  <div>
-    <%= f.label :name %><br />
-    <%= f.text_field :name, :size => 40 %>
-  </div>
-  <div>
-    <%= f.label :password, 'Password' %><br />
-    <%= f.password_field :password, :size => 40 %>
-  </div>
-  <div>
-    <%= f.label :password_confirmation, 'Confirm' %>
-    <%= f.password_field :password_confirmation, :size => 40 %>
-  </div>
-  <div>
-    <%= f.submit 'Add User', :class => "submit"%>
-  </div>
-
-  </fieldset>
-<% end %>
-
+	<% form_for(@user) do |f| %>
+	  <%= f.error_messages %>
+		<div id="register">
+			<div id="register-name">
+				<%= f.text_field :name, :size => 30 %>
+			</div>
+			<div id="register-pw">
+				<%= f.password_field :password, :size => 30 %>
+			</div>
+			<div id="register-pwconfirm">
+				<%= f.password_field :password_confirmation, :size => 30 %>
+			</div>
+			<div id="register-back">
+				<%= link_to image_tag("button-back.gif", :border=>0), users_path %>
+			</div>
+			<div id="register-signup">
+				<%= image_submit_tag("button-register.gif") %>
+			</div>
+		</div>
+	<% end %>
 </div>
-
-<%= link_to 'Back', users_path %>
