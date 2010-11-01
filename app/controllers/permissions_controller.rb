@@ -1,8 +1,9 @@
 class PermissionsController < ApplicationController
   # GET /permissions
   # GET /permissions.xml
-  def index
-    @permissions = Permission.all
+  
+  def index(perms = Permission.all)
+    @permissions = perms
 
     respond_to do |format|
       format.html # index.html.erb

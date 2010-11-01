@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many  :groups
 	validates_presence_of :name
 	validates_uniqueness_of :name
 
@@ -6,7 +7,7 @@ class User < ActiveRecord::Base
 	validates_confirmation_of :password
 	
 	validate :password_non_blank
-
+    
   def password
     @password
   end

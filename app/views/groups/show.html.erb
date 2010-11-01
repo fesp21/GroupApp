@@ -1,4 +1,8 @@
 <p>
+  <b>SeshID:</b>
+  <%=h session[:user_id] %>
+</p>
+<p>
   <b>Name:</b>
   <%=h @group.name %>
 </p>
@@ -6,6 +10,10 @@
 <p>
   <b>Description:</b>
   <%=h @group.description %>
+</p>
+
+<p>
+  <%= link_to 'Permissions', permissions_path([@group.permissions]) %>
 </p>
 
 
