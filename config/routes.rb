@@ -1,4 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
+
+  map.resources :posts, :has_many => :comments
+  
   map.resources :chats
 
   map.resources :permissions

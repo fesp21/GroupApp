@@ -15114,3 +15114,171 @@ DEPRECATION WARNING: ActionController::Session::AbstractStore::SessionHash#sessi
 DEPRECATION WARNING: ActionController::Session::AbstractStore::SessionHash#session_id has been deprecated. Please use request.session_options[:id] instead. (called from _run_erb_app47views47chats47index46html46erb at /Users/jasonlclui/Downloads/School/CS 169/GroupApp/app/views/chats/index.html.erb:61)
 DEPRECATION WARNING: ActionController::Session::AbstractStore::SessionHash#session_id has been deprecated. Please use request.session_options[:id] instead. (called from juggernaut at /Users/jasonlclui/Downloads/School/CS 169/GroupApp/vendor/plugins/juggernaut/lib/juggernaut_helper.rb:12)
 Completed in 15ms (View: 6, DB: 0) | 200 OK [http://localhost/chats?send_to_channel=3&listen_to_channel=3]
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20101022014901)
+Migrating to CreateGroups (20101022055643)
+Migrating to CreateUserlists (20101022060356)
+Migrating to CreatePermissions (20101022060532)
+Migrating to CreateChats (20101101005126)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCREATE TABLE "chats" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101101005126')[0m
+Migrating to CreatePosts (20101101014053)
+  [4;35;1mSQL (1.0ms)[0m   [0mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "user" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101101014053')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("chats")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("groups")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("permissions")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("posts")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("userlists")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20101022014901)
+Migrating to CreateGroups (20101022055643)
+Migrating to CreateUserlists (20101022060356)
+Migrating to CreatePermissions (20101022060532)
+Migrating to CreateChats (20101101005126)
+Migrating to CreatePosts (20101101014053)
+Migrating to CreateComments (20101101015844)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "post_id" integer, "body" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101101015844')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("chats")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("comments")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("groups")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("permissions")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("posts")[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mPRAGMA index_list("userlists")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("users")[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-31 19:03:08) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 5) LIMIT 1[0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 126ms (View: 74, DB: 1) | 200 OK [http://localhost/posts]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-10-31 19:03:15) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 5) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 31ms (View: 17, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing GroupsController#index (for 127.0.0.1 at 2010-10-31 19:03:21) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 5) LIMIT 1[0m
+  [4;35;1mGroup Load (1.0ms)[0m   [0mSELECT * FROM "groups" [0m
+Rendering template within layouts/groups
+Rendering groups/index
+Completed in 108ms (View: 24, DB: 2) | 200 OK [http://localhost/groups]
+
+
+Processing GroupsController#show (for 127.0.0.1 at 2010-10-31 19:03:24) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 5) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendering template within layouts/groups
+Rendering groups/show
+  [4;36;1mPermission Load (0.0ms)[0m   [0;1mSELECT * FROM "permissions" WHERE ("permissions".group_id = 1) [0m
+Completed in 33ms (View: 15, DB: 0) | 200 OK [http://localhost/groups/1]
+
+
+Processing ChatsController#index (for 127.0.0.1 at 2010-10-31 19:03:25) [GET]
+  Parameters: {"send_to_channel"=>"1", "listen_to_channel"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 5) LIMIT 1[0m
+Rendering template within layouts/chats
+Rendering chats/index
+DEPRECATION WARNING: ActionController::Session::AbstractStore::SessionHash#session_id has been deprecated. Please use request.session_options[:id] instead. (called from juggernaut at C:/Users/Grant/GroupApp/vendor/plugins/juggernaut/lib/juggernaut_helper.rb:12)
+DEPRECATION WARNING: ActionController::Session::AbstractStore::SessionHash#session_id has been deprecated. Please use request.session_options[:id] instead. (called from _run_erb_app47views47chats47index46html46erb at C:/Users/Grant/GroupApp/app/views/chats/index.html.erb:61)
+DEPRECATION WARNING: ActionController::Session::AbstractStore::SessionHash#session_id has been deprecated. Please use request.session_options[:id] instead. (called from juggernaut at C:/Users/Grant/GroupApp/vendor/plugins/juggernaut/lib/juggernaut_helper.rb:12)
+Completed in 27ms (View: 17, DB: 0) | 200 OK [http://localhost/chats?send_to_channel=1&listen_to_channel=1]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-31 19:03:50) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 5) LIMIT 1[0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 43ms (View: 7, DB: 0) | 200 OK [http://localhost/posts]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-10-31 19:03:57) [GET]
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 127ms (View: 107, DB: 0) | 200 OK [http://localhost/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-10-31 19:04:10) [POST]
+  Parameters: {"commit"=>"Create", "post"=>{"body"=>"Hi, this is a test post", "title"=>"Test Post", "user"=>"grant"}, "authenticity_token"=>"khP/HICoXAZ8+ap6pmSOvsq7mY9hH1r+P5zfh6dWXro="}
+  [4;36;1mPost Create (1.0ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "user") VALUES('2010-11-01 02:04:10', 'Test Post', 'Hi, this is a test post', '2010-11-01 02:04:10', 'grant')[0m
+Redirected to http://localhost:3000/posts/1
+Completed in 185ms (DB: 1) | 302 Found [http://localhost/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-31 19:04:11) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 5) LIMIT 1[0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (3.0ms)
+  [4;35;1mComment Load (0.0ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 58ms (View: 36, DB: 1) | 200 OK [http://localhost/posts/1]
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2010-10-31 19:04:18) [POST]
+  Parameters: {"comment"=>{"body"=>"This is a test comment"}, "commit"=>"Add Comment", "post_id"=>"1", "authenticity_token"=>"khP/HICoXAZ8+ap6pmSOvsq7mY9hH1r+P5zfh6dWXro="}
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;35;1mComment Create (1.0ms)[0m   [0mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id") VALUES('2010-11-01 02:04:19', 'This is a test comment', '2010-11-01 02:04:19', 1)[0m
+Redirected to http://localhost:3000/posts/1
+Completed in 169ms (DB: 1) | 302 Found [http://localhost/posts/1/comments]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-10-31 19:04:19) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 5) LIMIT 1[0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (2.0ms)
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Rendered comments/_comment (54.0ms)
+Completed in 102ms (View: 81, DB: 0) | 200 OK [http://localhost/posts/1]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-10-31 19:04:22) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 5) LIMIT 1[0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (3.0ms)
+Completed in 31ms (View: 8, DB: 0) | 200 OK [http://localhost/posts]
