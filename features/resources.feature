@@ -16,7 +16,7 @@ Feature: Resources Management
 	AND click the “delete” button
 	THEN it should not appear on the resources page after the click
 
-	
+
   Scenario: User downloading a file
 	GIVEN that I am a user
 	WHEN I click on a specific file on the resources page

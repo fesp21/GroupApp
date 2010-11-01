@@ -16,6 +16,10 @@
   <%= link_to 'Permissions', permissions_path([@group.permissions]) %>
 </p>
 
+<p>
+  <%= link_to 'Chat Room', "/chats?send_to_channel=" << @group.id.to_s << "&listen_to_channel=" << @group.id.to_s %>
+</p>
+
 
 <%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'Back', groups_path %>

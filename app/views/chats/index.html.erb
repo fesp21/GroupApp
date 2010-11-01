@@ -1,0 +1,64 @@
+<html> 
+  <head>
+    <%= javascript_include_tag :defaults, :juggernaut %>
+    <script>
+      // firebug console faker, for non-firefox browsers
+
+      window.console = {
+        firebug: '1.0',
+        log:     function() { 
+                   $('console_text').innerHTML = arguments[0] + "\n" + $('console_text').innerHTML;
+                 },
+        clear:   function() {
+                   $('console_text').innerHTML = '';
+                 }
+      }
+
+      function alert() {
+        console.log(arguments[0])
+      }
+
+      function rails_jug_send(obj) {
+        new Ajax.Request('/chats/send_data?send_to_channel=<%=params[:send_to_channel]%>', {
+          asynchronous: true,
+          evalScripts:  true,
+          onComplete:   function(request){
+            $('chat_input').value = ''}, parameters:Form.serialize(obj)
+        });
+        return false;
+      }
+      function js_jug_send() {
+        juggernaut.broadcast("new Insertion.Top('chat_data','"+$('chat_input').value+"\\n')",null,null,['<%=params[:send_to_channel]%>']);
+        $('chat_input').value = '';
+      }
+    </script>
+    <%= juggernaut %>
+  </head>
+  <body>
+    <h1>You are on LISTENING TO CHANNEL: <%= params[:listen_to_channel] %></h1>
+    <h2>You are on SENDING TO CHANNEL: <%= params[:send_to_channel] %></h2>
+    <form action="/chats/send_data?c=100000" method="post">
+      <input id="chat_input" name="chat_input" size="20" type="text" value="" />
+      <input type="button" onclick="rails_jug_send(this.parentNode)" value="RAILS SEND" name="commit" />
+      <input type="button" onclick="js_jug_send()" value="JS SEND" />
+    </form>
+    <fieldset id="chat_data_wrapper" style="position: fixed; bottom: 0; left: 0; width: 45%;height: 200px">
+      <legend>
+        Listen on Channel <%= params[:listen_to_channel] %>
+        <button onclick="$('chat_input').innerHTML=''">clear</button>
+      </legend>
+      <textarea id="chat_data" style="width: 100%; height: 100%"></textarea>
+    </fieldset>
+    <fieldset id="console_wrapper" style="position: fixed; right: 0; bottom: 0; width: 45%;height: 200px">
+      <legend>
+        Private Console
+        <button onclick="console.clear()">clear</button>
+      </legend>
+      <textarea id="console_text" style="width: 100%; height: 100%"></textarea>
+    </fieldset>
+    <%=
+      # this will render the javascript that will 'cause listening to listen_to_channel channel
+      juggernaut(:channels => [params[:listen_to_channel]], :client_id => session.session_id) 
+    %>
+  </body>
+</html>
