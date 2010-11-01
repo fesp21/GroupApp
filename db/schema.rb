@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101101015844) do
+ActiveRecord::Schema.define(:version => 20101101080046) do
 
   create_table "chats", :force => true do |t|
     t.datetime "created_at"
@@ -44,6 +44,18 @@ ActiveRecord::Schema.define(:version => 20101101015844) do
     t.string   "user"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "uploads", :force => true do |t|
+    t.integer  "gid"
+    t.string   "filename"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
   end
 
   create_table "userlists", :force => true do |t|

@@ -15282,3 +15282,268 @@ Rendering template within layouts/posts
 Rendering posts/index
 Rendered posts/_post (3.0ms)
 Completed in 31ms (View: 8, DB: 0) | 200 OK [http://localhost/posts]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20101022014901)
+Migrating to CreateGroups (20101022055643)
+Migrating to CreateUserlists (20101022060356)
+Migrating to CreatePermissions (20101022060532)
+Migrating to CreateChats (20101101005126)
+Migrating to CreatePosts (20101101014053)
+Migrating to CreateComments (20101101015844)
+Migrating to CreateUploads (20101101075939)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCREATE TABLE "uploads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "gid" integer, "filename" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101101075939')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("chats")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("comments")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("groups")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("permissions")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("posts")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("uploads")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("userlists")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20101022014901)
+Migrating to CreateGroups (20101022055643)
+Migrating to CreateUserlists (20101022060356)
+Migrating to CreatePermissions (20101022060532)
+Migrating to CreateChats (20101101005126)
+Migrating to CreatePosts (20101101014053)
+Migrating to CreateComments (20101101015844)
+Migrating to CreateUploads (20101101075939)
+Migrating to AddAttachmentsFileToUpload (20101101080046)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSQLite3::SQLException: no such table: upload: ALTER TABLE "upload" ADD "attachment_file_name" varchar(255)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20101022014901)
+Migrating to CreateGroups (20101022055643)
+Migrating to CreateUserlists (20101022060356)
+Migrating to CreatePermissions (20101022060532)
+Migrating to CreateChats (20101101005126)
+Migrating to CreatePosts (20101101014053)
+Migrating to CreateComments (20101101015844)
+Migrating to CreateUploads (20101101075939)
+Migrating to AddAttachmentsFileToUpload (20101101080046)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mALTER TABLE "uploads" ADD "attachment_file_name" varchar(255)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mALTER TABLE "uploads" ADD "attachment_content_type" varchar(255)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mALTER TABLE "uploads" ADD "attachment_file_size" integer[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mALTER TABLE "uploads" ADD "attachment_updated_at" datetime[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20101101080046')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("chats")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("comments")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("groups")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("permissions")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("posts")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("uploads")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("userlists")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("users")[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-11-01 01:04:44) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" ORDER BY name[0m
+Rendering template within layouts/users
+Rendering users/index
+Completed in 88ms (View: 54, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-11-01 01:04:51) [GET]
+
+ActionController::RoutingError (No route matches "/upload" with {:method=>:get}):
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing UploadsController#index (for 127.0.0.1 at 2010-11-01 01:04:53) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `has_attached_file' for #<Class:0x8fdcd80>):
+  app/models/upload.rb:2
+  app/controllers/uploads_controller.rb:5:in `index'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (49.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UploadsController#index (for 127.0.0.1 at 2010-11-01 01:06:28) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUpload Load (0.0ms)[0m   [0mSELECT * FROM "uploads" [0m
+Rendering template within layouts/uploads
+Rendering uploads/index
+Completed in 51ms (View: 13, DB: 0) | 200 OK [http://localhost/uploads]
+
+
+Processing UploadsController#new (for 127.0.0.1 at 2010-11-01 01:06:29) [GET]
+Rendering template within layouts/uploads
+Rendering uploads/new
+Completed in 20ms (View: 13, DB: 0) | 200 OK [http://localhost/uploads/new]
+
+
+Processing UploadsController#create (for 127.0.0.1 at 2010-11-01 01:08:09) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"gid"=>"2", "attachment"=>#<File:C:/Users/Kevin/AppData/Local/Temp/RackMultipart20101101-4416-fnkfma-0>, "filename"=>"testing file", "description"=>"description here"}, "authenticity_token"=>"K27VnxqW9jpag04edF9rIjnZDPQUWwqYFgbJLeIBtIo="}
+  [4;36;1mUpload Create (1.0ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "gid", "updated_at", "filename", "description", "attachment_updated_at") VALUES('CarryTrades.pdf', '2010-11-01 08:08:09', 'application/pdf', 654385, 2, '2010-11-01 08:08:09', 'testing file', 'description here', '2010-11-01 08:08:09')[0m
+[paperclip] Saving attachments.
+[paperclip] saving C:/Users/Kevin/Desktop/School/Fall 10/CS 169/assignments/project/GroupApp/public/system/attachments/1/original/CarryTrades.pdf
+Redirected to http://localhost:3000/uploads/1
+Completed in 119ms (DB: 1) | 302 Found [http://localhost/uploads]
+
+
+Processing UploadsController#show (for 127.0.0.1 at 2010-11-01 01:08:09) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Load (0.0ms)[0m   [0;1mSELECT * FROM "uploads" WHERE ("uploads"."id" = 1) [0m
+Rendering template within layouts/uploads
+Rendering uploads/show
+Completed in 21ms (View: 7, DB: 0) | 200 OK [http://localhost/uploads/1]
+
+
+Processing UploadsController#index (for 127.0.0.1 at 2010-11-01 01:08:13) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Load (1.0ms)[0m   [0;1mSELECT * FROM "uploads" [0m
+Rendering template within layouts/uploads
+Rendering uploads/index
+Completed in 23ms (View: 10, DB: 2) | 200 OK [http://localhost/uploads]
+
+
+Processing UploadsController#edit (for 127.0.0.1 at 2010-11-01 01:08:17) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Load (0.0ms)[0m   [0;1mSELECT * FROM "uploads" WHERE ("uploads"."id" = 1) [0m
+Rendering template within layouts/uploads
+Rendering uploads/edit
+Completed in 42ms (View: 21, DB: 0) | 200 OK [http://localhost/uploads/1/edit]
+
+
+Processing UploadsController#edit (for 127.0.0.1 at 2010-11-01 01:08:23) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Load (0.0ms)[0m   [0;1mSELECT * FROM "uploads" WHERE ("uploads"."id" = 1) [0m
+Rendering template within layouts/uploads
+Rendering uploads/edit
+Completed in 34ms (View: 15, DB: 0) | 200 OK [http://localhost/uploads/1/edit]
+
+
+Processing UploadsController#index (for 127.0.0.1 at 2010-11-01 01:09:38) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Load (0.0ms)[0m   [0;1mSELECT * FROM "uploads" [0m
+Rendering template within layouts/uploads
+Rendering uploads/index
+Completed in 22ms (View: 9, DB: 0) | 200 OK [http://localhost/uploads]
+
+
+Processing GroupsController#index (for 127.0.0.1 at 2010-11-01 01:09:41) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mGroup Load (1.0ms)[0m   [0;1mSELECT * FROM "groups" [0m
+Rendering template within layouts/groups
+Rendering groups/index
+Completed in 43ms (View: 21, DB: 1) | 200 OK [http://localhost/groups]
+
+
+Processing GroupsController#show (for 127.0.0.1 at 2010-11-01 01:09:43) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendering template within layouts/groups
+Rendering groups/show
+  [4;35;1mPermission Load (0.0ms)[0m   [0mSELECT * FROM "permissions" WHERE ("permissions".group_id = 1) [0m
+Completed in 24ms (View: 11, DB: 0) | 200 OK [http://localhost/groups/1]
+
+
+Processing UploadsController#index (for 127.0.0.1 at 2010-11-01 01:09:44) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUpload Load (0.0ms)[0m   [0mSELECT * FROM "uploads" [0m
+Rendering template within layouts/uploads
+Rendering uploads/index
+Completed in 19ms (View: 5, DB: 1) | 200 OK [http://localhost/uploads]
+
+
+Processing UploadsController#new (for 127.0.0.1 at 2010-11-01 01:09:46) [GET]
+Rendering template within layouts/uploads
+Rendering uploads/new
+Completed in 14ms (View: 7, DB: 0) | 200 OK [http://localhost/uploads/new]
+
+
+Processing UploadsController#create (for 127.0.0.1 at 2010-11-01 01:09:58) [POST]
+  Parameters: {"commit"=>"Create", "upload"=>{"gid"=>"3", "attachment"=>#<File:C:/Users/Kevin/AppData/Local/Temp/RackMultipart20101101-4416-1voz1b1-0>, "filename"=>"testing", "description"=>"blah blah description"}, "authenticity_token"=>"K27VnxqW9jpag04edF9rIjnZDPQUWwqYFgbJLeIBtIo="}
+  [4;36;1mUpload Create (0.0ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "gid", "updated_at", "filename", "description", "attachment_updated_at") VALUES('Building Automated Trading Systems.pdf', '2010-11-01 08:09:58', 'application/pdf', 1233302, 3, '2010-11-01 08:09:58', 'testing', 'blah blah description', '2010-11-01 08:09:58')[0m
+[paperclip] Saving attachments.
+[paperclip] saving C:/Users/Kevin/Desktop/School/Fall 10/CS 169/assignments/project/GroupApp/public/system/attachments/2/original/Building Automated Trading Systems.pdf
+Redirected to http://localhost:3000/uploads/2
+Completed in 174ms (DB: 0) | 302 Found [http://localhost/uploads]
+
+
+Processing UploadsController#show (for 127.0.0.1 at 2010-11-01 01:09:58) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Load (1.0ms)[0m   [0;1mSELECT * FROM "uploads" WHERE ("uploads"."id" = 2) [0m
+Rendering template within layouts/uploads
+Rendering uploads/show
+Completed in 47ms (View: 3, DB: 1) | 200 OK [http://localhost/uploads/2]
+
+
+Processing UploadsController#index (for 127.0.0.1 at 2010-11-01 01:10:01) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Load (0.0ms)[0m   [0;1mSELECT * FROM "uploads" [0m
+Rendering template within layouts/uploads
+Rendering uploads/index
+Completed in 20ms (View: 7, DB: 0) | 200 OK [http://localhost/uploads]
