@@ -1,0 +1,30 @@
+<h1>To-Do List</h1>
+
+<table>
+  <tr>
+	<th>Task</th>
+    <th>Due Date</th>
+    <th>Status</th>
+  </tr>
+
+<% @todos.each do |todo| %>
+  <tr>
+    <td><%=h todo.task %></td>
+	<td><%=h todo.duedate %></td>
+	<td><%= if todo.finished
+			link_to 'unmark finished', :controller => "todos",
+                            :action => "unfinish", :id => todo.id
+		else
+			link_to 'mark finished', :controller => "todos",
+                            :action => "finish", :id => todo.id
+		end %></td>
+	<td><%= link_to 'edit', todo, :action => "edit"%></td>
+    <td>| <%= link_to 'delete', todo, :confirm => 'Are you sure?',
+        :method => :delete %></td>
+  </tr>
+<% end %>
+
+</table>
+<br />
+
+<%= link_to 'New To-Do', new_todo_path %>

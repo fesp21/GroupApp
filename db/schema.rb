@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101101080046) do
+ActiveRecord::Schema.define(:version => 20101101200150) do
 
   create_table "chats", :force => true do |t|
     t.datetime "created_at"
@@ -42,6 +42,14 @@ ActiveRecord::Schema.define(:version => 20101101080046) do
     t.string   "title"
     t.text     "body"
     t.string   "user"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "todos", :force => true do |t|
+    t.string   "task"
+    t.date     "duedate"
+    t.boolean  "finished"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

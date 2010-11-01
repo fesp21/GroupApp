@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :uploads
+  map.resources :todos
 
+  map.resources :uploads
 
   map.resources :posts, :has_many => :comments
   
