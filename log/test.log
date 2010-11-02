@@ -141,3 +141,9 @@ Rendering uploads/index.html.erb
   [4;36;1mUpload Create (0.0ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "gid", "updated_at", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-02 06:33:49', NULL, NULL, NULL, '2010-11-02 06:33:49', NULL, NULL, NULL)[0m
 [paperclip] Saving attachments.
 Rendering uploads/new.html.erb
+Rendering uploads/show.html.erb
+Rendering uploads/edit.html.erb
+Rendering uploads/index.html.erb
+  [4;36;1mUpload Create (0.0ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "gid", "updated_at", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-02 07:55:27', NULL, NULL, NULL, '2010-11-02 07:55:27', NULL, NULL, NULL)[0m
+[paperclip] Saving attachments.
+Rendering uploads/new.html.erb
