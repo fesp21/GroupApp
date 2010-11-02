@@ -1,3 +1,5 @@
+display of output is in GroupApp/coverage/index.html
+
 C:\Users\Kevin\Desktop\GroupApp>rake rcov
 (in C:/Users/Kevin/Desktop/GroupApp)
 Don't know how to build task 'rcov'
