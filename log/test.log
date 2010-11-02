@@ -147,3 +147,57 @@ Rendering uploads/index.html.erb
   [4;36;1mUpload Create (0.0ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "gid", "updated_at", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-02 07:55:27', NULL, NULL, NULL, '2010-11-02 07:55:27', NULL, NULL, NULL)[0m
 [paperclip] Saving attachments.
 Rendering uploads/new.html.erb
+  [4;36;1mUpload Create (0.0ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "gid", "updated_at", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-02 09:05:02', NULL, NULL, NULL, '2010-11-02 09:05:02', NULL, NULL, NULL)[0m
+[paperclip] Saving attachments.
+  [4;35;1mUpload Load (0.0ms)[0m   [0mSELECT * FROM "uploads" [0m
+  [4;36;1mUpload Load (0.0ms)[0m   [0;1mSELECT * FROM "uploads" WHERE ("uploads"."filename" = 'abc.pdf') LIMIT 1[0m
+  [4;35;1mUpload Create (0.0ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "gid", "updated_at", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-02 09:05:02', NULL, NULL, 1, '2010-11-02 09:05:02', 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+Rendering uploads/index.html.erb
+Rendering uploads/edit.html.erb
+Rendering uploads/new.html.erb
+Rendering uploads/show.html.erb
+  [4;36;1mPost Create (1.3ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "user") VALUES('2010-11-02 09:08:47', 'test', 'hi', '2010-11-02 09:08:47', 'bob')[0m
+  [4;35;1mUpload Create (0.0ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "gid", "updated_at", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-02 09:08:47', NULL, NULL, NULL, '2010-11-02 09:08:47', NULL, NULL, NULL)[0m
+[paperclip] Saving attachments.
+  [4;36;1mUpload Load (0.0ms)[0m   [0;1mSELECT * FROM "uploads" [0m
+  [4;35;1mUpload Load (0.0ms)[0m   [0mSELECT * FROM "uploads" WHERE ("uploads"."filename" = 'abc.pdf') LIMIT 1[0m
+  [4;36;1mUpload Create (0.0ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "gid", "updated_at", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-02 09:08:47', NULL, NULL, 1, '2010-11-02 09:08:47', 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+Rendering uploads/edit.html.erb
+Rendering uploads/index.html.erb
+Rendering uploads/new.html.erb
+Rendering uploads/show.html.erb
+  [4;36;1mPost Create (0.0ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "user") VALUES('2010-11-02 09:11:41', 'test', 'hi', '2010-11-02 09:11:41', 'bob')[0m
+  [4;35;1mUpload Create (0.0ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "gid", "updated_at", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-02 09:11:41', NULL, NULL, NULL, '2010-11-02 09:11:41', NULL, NULL, NULL)[0m
+[paperclip] Saving attachments.
+  [4;36;1mUpload Load (0.0ms)[0m   [0;1mSELECT * FROM "uploads" [0m
+  [4;35;1mUpload Load (0.0ms)[0m   [0mSELECT * FROM "uploads" WHERE ("uploads"."filename" = 'abc.pdf') LIMIT 1[0m
+  [4;36;1mUpload Create (2.5ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "gid", "updated_at", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-02 09:11:41', NULL, NULL, 1, '2010-11-02 09:11:41', 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+Rendering uploads/edit.html.erb
+Rendering uploads/index.html.erb
+Rendering uploads/new.html.erb
+Rendering uploads/show.html.erb
+  [4;36;1mPost Create (0.0ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "user") VALUES('2010-11-02 09:20:02', 'test', 'hi', '2010-11-02 09:20:02', 'bob')[0m
+  [4;35;1mUpload Create (2.5ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "gid", "updated_at", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-02 09:20:02', NULL, NULL, NULL, '2010-11-02 09:20:02', NULL, NULL, NULL)[0m
+[paperclip] Saving attachments.
+  [4;36;1mUpload Load (0.0ms)[0m   [0;1mSELECT * FROM "uploads" [0m
+  [4;35;1mUpload Load (0.0ms)[0m   [0mSELECT * FROM "uploads" WHERE ("uploads"."filename" = 'abc.pdf') LIMIT 1[0m
+  [4;36;1mUpload Create (0.0ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "gid", "updated_at", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-02 09:20:02', NULL, NULL, 1, '2010-11-02 09:20:02', 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+Rendering uploads/edit.html.erb
+Rendering uploads/index.html.erb
+Rendering uploads/new.html.erb
+Rendering uploads/show.html.erb
+  [4;36;1mPost Create (1.0ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "user") VALUES('2010-11-02 09:24:09', 'test', 'hi', '2010-11-02 09:24:09', 'bob')[0m
+  [4;35;1mUpload Create (0.0ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "gid", "updated_at", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-02 09:24:09', NULL, NULL, NULL, '2010-11-02 09:24:09', NULL, NULL, NULL)[0m
+[paperclip] Saving attachments.
+  [4;36;1mUpload Load (0.0ms)[0m   [0;1mSELECT * FROM "uploads" [0m
+  [4;35;1mUpload Load (0.0ms)[0m   [0mSELECT * FROM "uploads" WHERE ("uploads"."filename" = 'abc.pdf') LIMIT 1[0m
+  [4;36;1mUpload Create (1.0ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "gid", "updated_at", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-02 09:24:09', NULL, NULL, 1, '2010-11-02 09:24:09', 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+Rendering uploads/edit.html.erb
+Rendering uploads/index.html.erb
+Rendering uploads/new.html.erb
+Rendering uploads/show.html.erb

@@ -1,0 +1,24 @@
+C:\Users\Kevin\Desktop\GroupApp>rake rcov
+(in C:/Users/Kevin/Desktop/GroupApp)
+Don't know how to build task 'rcov'
+
+
+C:\Users\Kevin\Desktop\GroupApp>rake rcov:all
+(in C:/Users/Kevin/Desktop/GroupApp)
+rm coverage.data
+C:/Ruby187/bin/ruby.exe -I "C:/Ruby187/lib/ruby/gems/1.8/gems/cucumber-0.8.5/lib
+;lib" -S rcov --rails --exclude osx\/objc,gems\/,spec\/,features\/ --aggregate c
+overage.data -o "coverage" "C:/Ruby187/lib/ruby/gems/1.8/gems/cucumber-0.8.5/bin
+/cucumber" --
+Using the default profile...
+...................
+
+11 scenarios (11 passed)
+19 steps (19 passed)
+0m12.094s
+rm -r coverage
+.................
+
+Finished in 0.533 seconds
+
+17 examples, 0 failures

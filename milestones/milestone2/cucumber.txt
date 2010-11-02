@@ -1,0 +1,11 @@
+C:\Users\Kevin\Desktop\GroupApp>rake cucumber
+(in C:/Users/Kevin/Desktop/GroupApp)
+C:/Ruby187/bin/ruby.exe -I "C:/Ruby187/lib/ruby/gems/1.8/gems/cucumber-0.8.5/lib
+;lib" "C:/Ruby187/lib/ruby/gems/1.8/gems/cucumber-0.8.5/bin/cucumber"  --profile
+ default
+Using the default profile...
+...................
+
+11 scenarios (11 passed)
+19 steps (19 passed)
+0m6.461s

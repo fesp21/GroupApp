@@ -1,0 +1,7 @@
+C:\Users\Kevin\Desktop\GroupApp>rake spec
+(in C:/Users/Kevin/Desktop/GroupApp)
+.................
+
+Finished in 0.5575 seconds
+
+17 examples, 0 failures

@@ -1,15 +1,21 @@
 Feature: User Communication
-
-  User can communicate with each other
-
+In order to communicate
+As a user
+I want to be able to use posts and comments
   
   Scenario: Administrator deleting bad post
-    GIVEN that I am an administrator
-	WHEN I see a bad post
-	THEN I should be able to delete it
+    Given that I am an administrator
+	When I see a bad post
+	Then I should be able to delete it
 
 
   Scenario: User posting a message
-	GIVEN that I am a user
-	WHEN I post a message
-	THEN I should be able to see it in the group home page
+	Given that I am a post user
+	When I post a message
+	Then I should be able to see it on the post page
+	
+	
+  Scenario: User posts a comment on a post
+	Given that I am a post user
+	When I see a post
+	Then I should be able to comment on it
