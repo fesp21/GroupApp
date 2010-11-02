@@ -5,4 +5,5 @@ It's <%= Time.now %>
 Your ID is <%= session[:user_id] %>
 <p>
 <%= link_to 'User Management', :controller => 'users', :action => 'user_manage' %>   
+<%= link_to 'Groups', :controller => 'groups', :action => 'index' %>   
 <%= link_to 'Logout', :controller => 'users', :action => 'logout' %>
