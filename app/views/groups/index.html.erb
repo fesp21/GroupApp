@@ -2,14 +2,12 @@
 
 <table>
   <tr>
-    <th>GroupID</th>
     <th>Name</th>
     <th>Description</th>
   </tr>
 
 <% @groups.each do |group| %>
   <tr>
-    <td><%=h group.id %></td>
     <td><%=h group.name %></td>
     <td><%=h group.description %></td>
     <td><%= link_to 'Show', group %></td>
@@ -22,3 +20,4 @@
 <br />
 
 <%= link_to 'New group', new_group_path %>
+<%= link_to 'Back', users_path %>
