@@ -3,6 +3,7 @@ class Group < ActiveRecord::Base
   has_many :permissions
   has_many :uploads, :dependent => :destroy
   has_many :todos, :dependent => :destroy
+  has_many :posts, :dependent => :destroy
   
   /
   def after_create
