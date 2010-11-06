@@ -1,12 +1,7 @@
 <h1>Editing upload</h1>
 
-<% form_for(@upload) do |f| %>
+<% form_for [@group, @upload] do |f| %>
   <%= f.error_messages %>
-
-  <p>
-    <%= f.label :gid %><br />
-    <%= f.text_field :gid %>
-  </p>
   <p>
     <%= f.label :filename %><br />
     <%= f.text_field :filename %>
@@ -16,9 +11,12 @@
     <%= f.text_area :description %>
   </p>
   <p>
+	<%= f.file_field :attachment %>
+  </p>
+  <p>
     <%= f.submit 'Update' %>
   </p>
 <% end %>
 
-<%= link_to 'Show', @upload %> |
-<%= link_to 'Back', uploads_path %>
+<%= link_to 'Show', [@group, @upload] %> |
+<%= link_to 'Back', group_uploads_path(@group) %>

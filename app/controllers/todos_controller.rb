@@ -1,13 +1,15 @@
 class TodosController < ApplicationController
+  before_filter :get_group
+  
   def finish
-     @todo = Todo.find(params[:id])
+     @todo = @group.todos.find(params[:id])
      new = {:finished => true}
      @todo.update_attributes(new)
      redirect_to :action => "index"
   end
 
   def unfinish
-    @todo = Todo.find(params[:id])
+    @todo = @group.todos.find(params[:id])
     new = {:finished => false}
     @todo.update_attributes(new)
     redirect_to :action => "index"
@@ -16,7 +18,7 @@ class TodosController < ApplicationController
   # GET /todos
   # GET /todos.xml
   def index
-    @todos = Todo.all
+    @todos = @group.todos
 
     respond_to do |format|
       format.html # index.html.erb
@@ -27,7 +29,7 @@ class TodosController < ApplicationController
   # GET /todos/1
   # GET /todos/1.xml
   def show
-    @todo = Todo.find(params[:id])
+    @todo = @group.todos.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -38,7 +40,7 @@ class TodosController < ApplicationController
   # GET /todos/new
   # GET /todos/new.xml
   def new
-    @todo = Todo.new
+    @todo = @group.todos.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -48,17 +50,17 @@ class TodosController < ApplicationController
 
   # GET /todos/1/edit
   def edit
-    @todo = Todo.find(params[:id])
+    @todo = @group.todos.find(params[:id])
   end
 
   # POST /todos
   # POST /todos.xml
   def create
-    @todo = Todo.new(params[:todo])
+    @todo = @group.todos.build(params[:todo])
 
     respond_to do |format|
       if @todo.save
-        format.html { redirect_to(@todo, :notice => 'Todo was successfully created.') }
+        format.html { redirect_to([@group, @todo], :notice => 'Todo was successfully created.') }
         format.xml  { render :xml => @todo, :status => :created, :location => @todo }
       else
         format.html { render :action => "new" }
@@ -70,11 +72,11 @@ class TodosController < ApplicationController
   # PUT /todos/1
   # PUT /todos/1.xml
   def update
-    @todo = Todo.find(params[:id])
+    @todo = @group.todos.find(params[:id])
 
     respond_to do |format|
       if @todo.update_attributes(params[:todo])
-        format.html { redirect_to(@todo, :notice => 'Todo was successfully updated.') }
+        format.html { redirect_to([@group, @todo], :notice => 'Todo was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -86,7 +88,7 @@ class TodosController < ApplicationController
   # DELETE /todos/1
   # DELETE /todos/1.xml
   def destroy
-    @todo = Todo.find(params[:id])
+    @todo = @group.todos.find(params[:id])
     @todo.destroy
 
     respond_to do |format|
@@ -94,4 +96,9 @@ class TodosController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+	def get_group
+	  @group=Group.find(params[:group_id])
+	end
 end
