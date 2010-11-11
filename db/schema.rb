@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101106041329) do
+ActiveRecord::Schema.define(:version => 20101110234740) do
 
   create_table "chats", :force => true do |t|
     t.datetime "created_at"
@@ -26,6 +26,13 @@ ActiveRecord::Schema.define(:version => 20101106041329) do
   create_table "groups", :force => true do |t|
     t.string   "name"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "memberships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "group_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
