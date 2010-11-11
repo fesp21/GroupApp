@@ -7,3 +7,8 @@ Your ID is <%= session[:user_id] %>
 <%= link_to 'User Management', :controller => 'users', :action => 'user_manage' %>   
 <%= link_to 'Groups', :controller => 'groups', :action => 'index' %>   
 <%= link_to 'Logout', :controller => 'users', :action => 'logout' %>
+
+<% @user.groups.each do |group| %>
+	<br />
+	<%=h group.name %>
+<% end %>
