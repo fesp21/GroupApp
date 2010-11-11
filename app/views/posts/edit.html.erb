@@ -1,6 +1,6 @@
 <h1>Editing post</h1>
 
-<% form_for(@post) do |f| %>
+<% form_for [@group,@post] do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -20,5 +20,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Show', [@group, @post] %> |
+<%= link_to 'Back', group_posts_path(@group) %>

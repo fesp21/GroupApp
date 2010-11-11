@@ -54,7 +54,7 @@ class CommentsController < ApplicationController
 	
 	@post = Post.find(params[:post_id])
 	@comment = @post.comments.create!(params[:comment])
-	redirect_to @post
+	redirect_to [@post.group, @post]
   end
 
   # PUT /comments/1
