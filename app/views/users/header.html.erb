@@ -1,0 +1,18 @@
+<div id="navcontainer">
+					<ul id="groupnav">
+						<li><a href="#">My Groups</a>
+						  <ul class="sub">
+							 <% @user.groups.each do |group| %>
+								<li><%= link_to group.name, group %></li>
+							 <% end %>
+						  </ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="content-container">
+			<div id="content-container2">
+				<div id="content-container3">
+					<div id="content">
+						<p style="color: green"><%= notice %></p>

@@ -2,6 +2,7 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.xml
   def index
+    @user = User.find(session[:user_id])
     @groups = Group.all
 
     respond_to do |format|
@@ -13,12 +14,16 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.xml
   def show
+    @user = User.find(session[:user_id])
     @group = Group.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @group }
-    end
+	if !@group.users.member?(User.find(session[:user_id]))
+		redirect_to(groups_url)
+	else
+		respond_to do |format|
+		  format.html # show.html.erb
+		  format.xml  { render :xml => @group }
+		end
+	end
   end
 
   def join
@@ -34,6 +39,7 @@ class GroupsController < ApplicationController
   # GET /groups/new
   # GET /groups/new.xml
   def new
+    @user = User.find(session[:user_id])
     @group = Group.new
     
 
@@ -45,6 +51,7 @@ class GroupsController < ApplicationController
 
   # GET /groups/1/edit
   def edit
+    @user = User.find(session[:user_id])
     @group = Group.find(params[:id])
   end
 

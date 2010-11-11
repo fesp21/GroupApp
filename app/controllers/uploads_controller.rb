@@ -4,6 +4,7 @@ class UploadsController < ApplicationController
   # GET /uploads
   # GET /uploads.xml
   def index
+    @user = User.find(session[:user_id])
     @uploads = @group.uploads
 
     respond_to do |format|
@@ -15,6 +16,7 @@ class UploadsController < ApplicationController
   # GET /uploads/1
   # GET /uploads/1.xml
   def show
+    @user = User.find(session[:user_id])
     @upload = @group.uploads.find(params[:id])
 
     respond_to do |format|
@@ -26,6 +28,7 @@ class UploadsController < ApplicationController
   # GET /uploads/new
   # GET /uploads/new.xml
   def new
+    @user = User.find(session[:user_id])
     @upload = @group.uploads.build
 
     respond_to do |format|
@@ -36,6 +39,7 @@ class UploadsController < ApplicationController
 
   # GET /uploads/1/edit
   def edit
+    @user = User.find(session[:user_id])
     @upload = @group.uploads.find(params[:id])
   end
 

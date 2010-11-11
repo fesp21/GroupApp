@@ -14,6 +14,7 @@ padding: 0;
 
 #header
 {
+	text-align: center;
 	margin: 0 auto 0 auto;
 	height: 141px;
 	min-width: 1000px;
@@ -126,4 +127,81 @@ padding: 0;
 {
 	margin: -23px 0 0 0;
 	padding: 0 0 0 210px;
+}
+
+
+
+
+div#navcontainer {
+	width: 200px;
+	height: 100px;
+	margin: 0 auto 0 auto;
+	padding: 0 0 0 800px;
+}
+
+ul#groupnav {
+	position: relative;
+	top: 50px;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+
+ul#groupnav li a {
+	display: block;
+	font-weight: bold;
+	padding: 2px 10px;
+	background:#f9f9f9;
+}
+
+ul#groupnav li a:hover{
+	background:#888;
+	color:#fff;
+	}
+	
+ul#groupnav li {
+	list-style: none;
+	float: left;
+	position: relative;
+	width: 100px;
+	text-align: center;
+	margin-right:5px;
+	border:1px solid #ccc;
+
+}
+
+ul#groupnav li.current a{
+	background:#ddd;
+	}
+
+ul#groupnav li.current a:hover{
+	background:#888;
+	}
+
+li ul {
+	display: none;
+	position: absolute;
+	width:100px;
+	top: 0;
+	left: 0;
+	font-weight: normal;
+	padding: 1px 0 10px 0;
+	margin-left:-1px;
+}
+
+ul#groupnav li ul.sub li{
+	border-width:0 1px 1px 1px!important;
+}
+
+ul#groupnav li ul.sub li a{
+	font-weight: normal!important;	
+}
+li>ul {
+	top: auto;
+	left: auto;
+}
+
+li:hover ul, li.over ul {
+	display: block;
 }

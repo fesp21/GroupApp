@@ -1,3 +1,5 @@
+<%= render :file => 'users/header.html.erb' %>
+
 <h1>Listing groups</h1>
 
 <table>
@@ -11,12 +13,10 @@
     <td><%=h group.name %></td>
     <td><%=h group.description %></td>
     <td><%= link_to 'Show', group %></td>
-    <td><%= link_to 'Edit', edit_group_path(group) %></td>
     <td><%= link_to 'Destroy', group, :confirm => 'Are you sure?', :method => :delete %></td>
 	<td><% if group.users.member?(User.find(session[:user_id]))%>
 		<%= link_to 'Unjoin', :id => group.id, :controller => "groups", :action => "unjoin"%>
 		<% else %>
-		<%=h "NOT" %>
 		<%= link_to 'Join', :id => group.id, :controller => "groups", :action => "join"%>
 		<% end %></td>
 	

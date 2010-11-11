@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   # GET /users.xml
   def index
     @user = User.find(session[:user_id])
+	flash.now[:group_list] = "blah blah blah"
   end
   
   def user_manage

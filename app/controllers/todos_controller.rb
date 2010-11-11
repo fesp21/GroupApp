@@ -18,6 +18,7 @@ class TodosController < ApplicationController
   # GET /todos
   # GET /todos.xml
   def index
+    @user = User.find(session[:user_id])
     @todos = @group.todos
 
     respond_to do |format|
@@ -29,6 +30,7 @@ class TodosController < ApplicationController
   # GET /todos/1
   # GET /todos/1.xml
   def show
+    @user = User.find(session[:user_id])
     @todo = @group.todos.find(params[:id])
 
     respond_to do |format|
@@ -40,6 +42,7 @@ class TodosController < ApplicationController
   # GET /todos/new
   # GET /todos/new.xml
   def new
+    @user = User.find(session[:user_id])
     @todo = @group.todos.build
 
     respond_to do |format|
@@ -50,6 +53,7 @@ class TodosController < ApplicationController
 
   # GET /todos/1/edit
   def edit
+    @user = User.find(session[:user_id])
     @todo = @group.todos.find(params[:id])
   end
 
