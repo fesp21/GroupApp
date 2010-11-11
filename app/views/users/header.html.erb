@@ -1,6 +1,6 @@
 <div id="navcontainer">
 					<ul id="groupnav">
-						<li><a href="#">My Groups</a>
+						<li>My Groups
 						  <ul class="sub">
 							 <% @user.groups.each do |group| %>
 								<li><%= link_to group.name, group %></li>
