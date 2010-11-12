@@ -46,7 +46,9 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.xml
   def create
+	@user = User.find(session[:user_id])
     @post = @group.posts.build(params[:post])
+	@post.user = @user.name
 
     respond_to do |format|
       if @post.save
