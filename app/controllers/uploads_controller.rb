@@ -6,11 +6,14 @@ class UploadsController < ApplicationController
   def index
     @user = User.find(session[:user_id])
     @uploads = @group.uploads
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @uploads }
-    end
+	if !@group.users.member?(User.find(session[:user_id]))
+		redirect_to(users_url)
+	else
+		respond_to do |format|
+		  format.html # index.html.erb
+		  format.xml  { render :xml => @uploads }
+		end
+	end
   end
 
   # GET /uploads/1
