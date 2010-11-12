@@ -60158,3 +60158,1561 @@ Rendering template within layouts/groups
 Rendering groups/show
   [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
 Completed in 27ms (View: 5, DB: 1) | 200 OK [http://localhost/groups/6]
+
+
+Processing GroupsController#index (for 127.0.0.1 at 2010-11-11 19:20:20) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) LIMIT 1[0m
+Redirected to http://localhost:3000/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 30ms (DB: 0) | 302 Found [http://localhost/groups]
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-11 19:20:20) [GET]
+Rendering template within layouts/users
+Rendering users/login
+Completed in 23ms (View: 20, DB: 0) | 200 OK [http://localhost/users/login]
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-11 19:20:26) [POST]
+  Parameters: {"name"=>"gzhu", "x"=>"0", "y"=>"0", "authenticity_token"=>"04NC6HTHwDUwGpvBosd6ziiphJnbC7YnbQlDLbna/6I=", "password"=>"a1234"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'gzhu') LIMIT 1[0m
+Redirected to http://localhost:3000/users
+Completed in 8ms (DB: 0) | 302 Found [http://localhost/users/login]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-11-11 19:20:26) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;36;1mGroup Load (1.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+Completed in 36ms (View: 27, DB: 3) | 200 OK [http://localhost/users]
+
+
+Processing GroupsController#index (for 127.0.0.1 at 2010-11-11 19:20:29) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mGroup Load (1.0ms)[0m   [0mSELECT * FROM "groups" [0m
+Rendering template within layouts/groups
+Rendering groups/index
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 2)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 3)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 4)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 5)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 6)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 8)) [0m
+Completed in 70ms (View: 52, DB: 1) | 200 OK [http://localhost/groups]
+
+
+Processing GroupsController#show (for 127.0.0.1 at 2010-11-11 19:20:31) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+Rendering template within layouts/groups
+Rendering groups/show
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+Completed in 37ms (View: 12, DB: 1) | 200 OK [http://localhost/groups/1]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-11-11 19:20:41) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mGroup Load (1.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".group_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (4.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (3.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (3.0ms)
+Completed in 61ms (View: 36, DB: 1) | 200 OK [http://localhost/groups/1/posts]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-11-11 19:20:49) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;35;1mGroup Load (1.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+Rendering template within layouts/posts
+Rendering posts/new
+  [4;35;1mGroup Load (1.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+Completed in 74ms (View: 50, DB: 2) | 200 OK [http://localhost/groups/1/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-11-11 19:21:04) [POST]
+  Parameters: {"commit"=>"Create", "post"=>{"body"=>"LOLOLOL", "title"=>"Dude, another test"}, "authenticity_token"=>"04NC6HTHwDUwGpvBosd6ziiphJnbC7YnbQlDLbna/6I=", "group_id"=>"1"}
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mPost Create (1.0ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user") VALUES('2010-11-12 03:21:04', 'Dude, another test', 'LOLOLOL', '2010-11-12 03:21:04', 1, 'gzhu')[0m
+Redirected to http://localhost:3000/groups/1/posts/14
+Completed in 87ms (DB: 1) | 302 Found [http://localhost/groups/1/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-11-11 19:21:05) [GET]
+  Parameters: {"group_id"=>"1", "id"=>"14"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 14 AND ("posts".group_id = 1)) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+  [4;35;1mComment Load (0.0ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 14) [0m
+Completed in 38ms (View: 19, DB: 1) | 200 OK [http://localhost/groups/1/posts/14]
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2010-11-11 19:21:15) [POST]
+  Parameters: {"comment"=>{"body"=>"LOLOLOLOL"}, "commit"=>"Add Comment", "post_id"=>"14", "authenticity_token"=>"04NC6HTHwDUwGpvBosd6ziiphJnbC7YnbQlDLbna/6I="}
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 14) [0m
+  [4;35;1mComment Create (1.0ms)[0m   [0mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id") VALUES('2010-11-12 03:21:15', 'LOLOLOLOL', '2010-11-12 03:21:15', 14)[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Redirected to http://localhost:3000/groups/1/posts/14
+Completed in 194ms (DB: 2) | 302 Found [http://localhost/posts/14/comments]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-11-11 19:21:15) [GET]
+  Parameters: {"group_id"=>"1", "id"=>"14"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 14 AND ("posts".group_id = 1)) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+  [4;35;1mComment Load (0.0ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 14) [0m
+Rendered comments/_comment (22.0ms)
+Completed in 66ms (View: 46, DB: 0) | 200 OK [http://localhost/groups/1/posts/14]
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (69.0ms)[0m   [0;1mCREATE TABLE "chats" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (90.0ms)[0m   [0;1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "post_id" integer, "body" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (38.0ms)[0m   [0;1mCREATE TABLE "groups" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (51.0ms)[0m   [0;1mCREATE TABLE "memberships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "group_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (57.0ms)[0m   [0;1mCREATE TABLE "permissions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (54.0ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "user" varchar(255), "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (74.0ms)[0m   [0;1mCREATE TABLE "todos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "task" varchar(255), "duedate" date, "finished" boolean, "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (67.0ms)[0m   [0;1mCREATE TABLE "uploads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "filename" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime, "attachment_file_name" varchar(255), "attachment_content_type" varchar(255), "attachment_file_size" integer, "attachment_updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (73.0ms)[0m   [0;1mCREATE TABLE "userlists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "uid" integer, "permissionid" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (65.0ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "hash_password" varchar(255), "salt" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (66.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (83.0ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (116.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101111072209')[0m
+  [4;36;1mSQL (66.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101022014901')[0m
+  [4;35;1mSQL (75.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101022055643')[0m
+  [4;36;1mSQL (64.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101022060356')[0m
+  [4;35;1mSQL (75.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101022060532')[0m
+  [4;36;1mSQL (66.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101005126')[0m
+  [4;35;1mSQL (66.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101014053')[0m
+  [4;36;1mSQL (75.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101015844')[0m
+  [4;35;1mSQL (67.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101075939')[0m
+  [4;36;1mSQL (75.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101080046')[0m
+  [4;35;1mSQL (67.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101200150')[0m
+  [4;36;1mSQL (75.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101106020926')[0m
+  [4;35;1mSQL (66.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101106041329')[0m
+  [4;36;1mSQL (75.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101110234740')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (83.0ms)[0m   [0;1mCREATE TABLE "chats" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (49.0ms)[0m   [0;1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "post_id" integer, "body" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (49.0ms)[0m   [0;1mCREATE TABLE "groups" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (49.0ms)[0m   [0;1mCREATE TABLE "memberships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "group_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (49.0ms)[0m   [0;1mCREATE TABLE "permissions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (57.0ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "user" varchar(255), "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (106.0ms)[0m   [0;1mCREATE TABLE "todos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "task" varchar(255), "duedate" date, "finished" boolean, "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (70.0ms)[0m   [0;1mCREATE TABLE "uploads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "filename" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime, "attachment_file_name" varchar(255), "attachment_content_type" varchar(255), "attachment_file_size" integer, "attachment_updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (56.0ms)[0m   [0;1mCREATE TABLE "userlists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "uid" integer, "permissionid" integer) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (57.0ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "hash_password" varchar(255), "salt" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (57.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (77.0ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (57.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101111072209')[0m
+  [4;36;1mSQL (69.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101022014901')[0m
+  [4;35;1mSQL (56.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101022055643')[0m
+  [4;36;1mSQL (67.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101022060356')[0m
+  [4;35;1mSQL (69.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101022060532')[0m
+  [4;36;1mSQL (56.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101005126')[0m
+  [4;35;1mSQL (69.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101014053')[0m
+  [4;36;1mSQL (56.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101015844')[0m
+  [4;35;1mSQL (61.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101075939')[0m
+  [4;36;1mSQL (66.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101080046')[0m
+  [4;35;1mSQL (57.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101200150')[0m
+  [4;36;1mSQL (64.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101106020926')[0m
+  [4;35;1mSQL (68.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101106041329')[0m
+  [4;36;1mSQL (68.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101110234740')[0m
+
+
+Processing TodosController#index (for 127.0.0.1 at 2010-11-11 19:22:51) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+Rendering template within layouts/todos
+Rendering todos/index
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;36;1mTodo Load (1.0ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos".group_id = 1) [0m
+Completed in 38ms (View: 20, DB: 1) | 200 OK [http://localhost/groups/1/todos]
+
+
+Processing GroupsController#show (for 127.0.0.1 at 2010-11-11 19:22:57) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 6)) [0m
+Rendering template within layouts/groups
+Rendering groups/show
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+Completed in 21ms (View: 4, DB: 2) | 200 OK [http://localhost/groups/6]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2010-11-11 19:22:59) [GET]
+  Parameters: {"group_id"=>"6"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 6) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+Rendering template within layouts/todos
+Rendering todos/index
+  [4;36;1mGroup Load (1.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;35;1mTodo Load (0.0ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos".group_id = 6) [0m
+Completed in 29ms (View: 11, DB: 1) | 200 OK [http://localhost/groups/6/todos]
+
+
+Processing TodosController#new (for 127.0.0.1 at 2010-11-11 19:23:06) [GET]
+  Parameters: {"group_id"=>"6"}
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 6) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+Rendering template within layouts/todos
+Rendering todos/new
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+Completed in 33ms (View: 16, DB: 0) | 200 OK [http://localhost/groups/6/todos/new]
+
+
+Processing TodosController#create (for 127.0.0.1 at 2010-11-11 19:23:15) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"04NC6HTHwDUwGpvBosd6ziiphJnbC7YnbQlDLbna/6I=", "group_id"=>"6", "todo"=>{"duedate(1i)"=>"2010", "duedate(2i)"=>"11", "duedate(3i)"=>"12", "task"=>"test todo", "finished"=>"0"}}
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 6) [0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 6) LIMIT 1[0m
+  [4;35;1mTodo Create (1.0ms)[0m   [0mINSERT INTO "todos" ("created_at", "updated_at", "group_id", "duedate", "task", "finished") VALUES('2010-11-12 03:23:15', '2010-11-12 03:23:15', 6, '2010-11-12', 'test todo', 'f')[0m
+Redirected to http://localhost:3000/groups/6/todos/11
+Completed in 114ms (DB: 1) | 302 Found [http://localhost/groups/6/todos]
+
+
+Processing TodosController#show (for 127.0.0.1 at 2010-11-11 19:23:15) [GET]
+  Parameters: {"group_id"=>"6", "id"=>"11"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;35;1mGroup Load (1.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 6) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mTodo Load (0.0ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 11 AND ("todos".group_id = 6)) [0m
+Rendering template within layouts/todos
+Rendering todos/show
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+Completed in 31ms (View: 12, DB: 2) | 200 OK [http://localhost/groups/6/todos/11]
+
+
+Processing GroupsController#show (for 127.0.0.1 at 2010-11-11 19:23:20) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mGroup Load (1.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+Rendering template within layouts/groups
+Rendering groups/show
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+Completed in 23ms (View: 4, DB: 1) | 200 OK [http://localhost/groups/1]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2010-11-11 19:23:22) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+Rendering template within layouts/todos
+Rendering todos/index
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;35;1mTodo Load (1.0ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos".group_id = 1) [0m
+Completed in 30ms (View: 12, DB: 2) | 200 OK [http://localhost/groups/1/todos]
+
+
+Processing GroupsController#show (for 127.0.0.1 at 2010-11-11 19:23:30) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 6)) [0m
+Rendering template within layouts/groups
+Rendering groups/show
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+Completed in 22ms (View: 4, DB: 1) | 200 OK [http://localhost/groups/6]
+
+
+Processing UploadsController#index (for 127.0.0.1 at 2010-11-11 19:23:53) [GET]
+  Parameters: {"group_id"=>"6"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 6) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 6)) [0m
+Rendering template within layouts/uploads
+Rendering uploads/index
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;36;1mUpload Load (0.0ms)[0m   [0;1mSELECT * FROM "uploads" WHERE ("uploads".group_id = 6) [0m
+Completed in 43ms (View: 15, DB: 1) | 200 OK [http://localhost/groups/6/uploads]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-11-11 19:23:55) [GET]
+  Parameters: {"group_id"=>"6"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 6) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".group_id = 6) [0m
+Completed in 32ms (View: 10, DB: 1) | 200 OK [http://localhost/groups/6/posts]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-11-11 19:23:58) [GET]
+  Parameters: {"group_id"=>"6"}
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 6) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+Rendering template within layouts/posts
+Rendering posts/new
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+Completed in 35ms (View: 14, DB: 0) | 200 OK [http://localhost/groups/6/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-11-11 19:24:25) [POST]
+  Parameters: {"commit"=>"Create", "post"=>{"body"=>"hiahsdifhalkje;fkj", "title"=>"Another test post"}, "authenticity_token"=>"04NC6HTHwDUwGpvBosd6ziiphJnbC7YnbQlDLbna/6I=", "group_id"=>"6"}
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 6) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mPost Create (1.0ms)[0m   [0mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user") VALUES('2010-11-12 03:24:25', 'Another test post', 'hiahsdifhalkje;fkj', '2010-11-12 03:24:25', 6, 'gzhu')[0m
+Redirected to http://localhost:3000/groups/6/posts/15
+Completed in 87ms (DB: 1) | 302 Found [http://localhost/groups/6/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-11-11 19:24:26) [GET]
+  Parameters: {"group_id"=>"6", "id"=>"15"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 6) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 15 AND ("posts".group_id = 6)) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 6) [0m
+Rendered posts/_post (2.0ms)
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 15) [0m
+Completed in 37ms (View: 18, DB: 0) | 200 OK [http://localhost/groups/6/posts/15]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-11-11 19:24:35) [GET]
+  Parameters: {"group_id"=>"6"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 6) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".group_id = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 6) [0m
+Rendered posts/_post (2.0ms)
+Completed in 32ms (View: 13, DB: 1) | 200 OK [http://localhost/groups/6/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-11-11 19:32:07) [GET]
+  Parameters: {"group_id"=>"6"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mGroup Load (1.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 6) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".group_id = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 6) [0m
+Rendered posts/_post (1.0ms)
+Completed in 29ms (View: 11, DB: 1) | 200 OK [http://localhost/groups/6/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-11-11 19:32:15) [GET]
+  Parameters: {"group_id"=>"6", "id"=>"15"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 6) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 15 AND ("posts".group_id = 6)) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 6) [0m
+Rendered posts/_post (2.0ms)
+  [4;35;1mComment Load (0.0ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 15) [0m
+Completed in 38ms (View: 19, DB: 0) | 200 OK [http://localhost/groups/6/posts/15]
+
+
+Processing UploadsController#index (for 127.0.0.1 at 2010-11-11 19:32:39) [GET]
+  Parameters: {"group_id"=>"6"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 6) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 6)) [0m
+Rendering template within layouts/uploads
+Rendering uploads/index
+  [4;35;1mGroup Load (1.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;36;1mUpload Load (1.0ms)[0m   [0;1mSELECT * FROM "uploads" WHERE ("uploads".group_id = 6) [0m
+Completed in 36ms (View: 6, DB: 2) | 200 OK [http://localhost/groups/6/uploads]
+
+
+Processing GroupsController#show (for 127.0.0.1 at 2010-11-11 19:32:43) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+Rendering template within layouts/groups
+Rendering groups/show
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+Completed in 30ms (View: 6, DB: 2) | 200 OK [http://localhost/groups/1]
+
+
+Processing GroupsController#show (for 127.0.0.1 at 2010-11-11 19:32:45) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 6) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 6)) [0m
+Rendering template within layouts/groups
+Rendering groups/show
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+Completed in 29ms (View: 6, DB: 0) | 200 OK [http://localhost/groups/6]
+
+
+Processing GroupsController#show (for 127.0.0.1 at 2010-11-11 19:32:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mGroup Load (1.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+Rendering template within layouts/groups
+Rendering groups/show
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+Completed in 61ms (View: 36, DB: 1) | 200 OK [http://localhost/groups/1]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-11-11 19:32:49) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mGroup Load (1.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".group_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (3.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+Completed in 45ms (View: 21, DB: 2) | 200 OK [http://localhost/groups/1/posts]
+
+
+Processing UploadsController#index (for 127.0.0.1 at 2010-11-11 19:34:03) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+Rendering template within layouts/uploads
+Rendering uploads/index
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;36;1mUpload Load (0.0ms)[0m   [0;1mSELECT * FROM "uploads" WHERE ("uploads".group_id = 1) [0m
+Completed in 33ms (View: 9, DB: 0) | 200 OK [http://localhost/groups/1/uploads]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-11-11 19:34:14) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".group_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (1.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (1.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (1.0ms)
+Completed in 34ms (View: 17, DB: 0) | 200 OK [http://localhost/groups/1/posts]
+
+
+Processing GroupsController#show (for 127.0.0.1 at 2010-11-11 19:34:23) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mGroup Load (1.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 6)) [0m
+Rendering template within layouts/groups
+Rendering groups/show
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+Completed in 23ms (View: 4, DB: 2) | 200 OK [http://localhost/groups/6]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-11-11 19:34:25) [GET]
+  Parameters: {"group_id"=>"6"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 6) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mGroup Load (1.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".group_id = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 6) [0m
+Rendered posts/_post (2.0ms)
+Completed in 28ms (View: 10, DB: 2) | 200 OK [http://localhost/groups/6/posts]
+
+
+Processing GroupsController#show (for 127.0.0.1 at 2010-11-11 19:34:33) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+Rendering template within layouts/groups
+Rendering groups/show
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+Completed in 22ms (View: 4, DB: 1) | 200 OK [http://localhost/groups/1]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-11-11 19:34:34) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mGroup Load (1.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".group_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (3.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (3.0ms)
+Completed in 76ms (View: 21, DB: 2) | 200 OK [http://localhost/groups/1/posts]
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-11-11 19:34:36) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+Rendering template within layouts/posts
+Rendering posts/new
+  [4;35;1mGroup Load (1.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+Completed in 35ms (View: 12, DB: 2) | 200 OK [http://localhost/groups/1/posts/new]
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-11-11 19:34:41) [POST]
+  Parameters: {"commit"=>"Create", "post"=>{"body"=>"oasijd", "title"=>"test"}, "authenticity_token"=>"04NC6HTHwDUwGpvBosd6ziiphJnbC7YnbQlDLbna/6I=", "group_id"=>"1"}
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mPost Create (1.0ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user") VALUES('2010-11-12 03:34:41', 'test', 'oasijd', '2010-11-12 03:34:41', 1, 'gzhu')[0m
+Redirected to http://localhost:3000/groups/1/posts/16
+Completed in 91ms (DB: 1) | 302 Found [http://localhost/groups/1/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-11-11 19:34:42) [GET]
+  Parameters: {"group_id"=>"1", "id"=>"16"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 16 AND ("posts".group_id = 1)) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+  [4;35;1mComment Load (0.0ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 16) [0m
+Completed in 67ms (View: 49, DB: 0) | 200 OK [http://localhost/groups/1/posts/16]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-11-11 19:34:45) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".group_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (1.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (1.0ms)
+Completed in 36ms (View: 17, DB: 1) | 200 OK [http://localhost/groups/1/posts]
+
+
+Processing UploadsController#index (for 127.0.0.1 at 2010-11-11 19:35:57) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+Rendering template within layouts/uploads
+Rendering uploads/index
+  [4;35;1mGroup Load (1.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;36;1mUpload Load (0.0ms)[0m   [0;1mSELECT * FROM "uploads" WHERE ("uploads".group_id = 1) [0m
+Completed in 30ms (View: 7, DB: 2) | 200 OK [http://localhost/groups/1/uploads]
+
+
+Processing UploadsController#edit (for 127.0.0.1 at 2010-11-11 19:36:07) [GET]
+  Parameters: {"group_id"=>"1", "id"=>"6"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mUpload Load (0.0ms)[0m   [0;1mSELECT * FROM "uploads" WHERE ("uploads"."id" = 6 AND ("uploads".group_id = 1)) [0m
+Rendering template within layouts/uploads
+Rendering uploads/edit
+  [4;35;1mGroup Load (1.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+Completed in 65ms (View: 46, DB: 1) | 200 OK [http://localhost/groups/1/uploads/6/edit]
+
+
+Processing UploadsController#show (for 127.0.0.1 at 2010-11-11 19:36:12) [GET]
+  Parameters: {"group_id"=>"1", "id"=>"6"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mUpload Load (0.0ms)[0m   [0mSELECT * FROM "uploads" WHERE ("uploads"."id" = 6 AND ("uploads".group_id = 1)) [0m
+Rendering template within layouts/uploads
+Rendering uploads/show
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+Completed in 30ms (View: 12, DB: 0) | 200 OK [http://localhost/groups/1/uploads/6]
+
+
+Processing UploadsController#index (for 127.0.0.1 at 2010-11-11 19:36:17) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+Rendering template within layouts/uploads
+Rendering uploads/index
+  [4;36;1mGroup Load (1.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;35;1mUpload Load (0.0ms)[0m   [0mSELECT * FROM "uploads" WHERE ("uploads".group_id = 1) [0m
+Completed in 30ms (View: 7, DB: 2) | 200 OK [http://localhost/groups/1/uploads]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-11-11 19:37:27) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".group_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (1.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (1.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (1.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (1.0ms)
+Completed in 67ms (View: 49, DB: 1) | 200 OK [http://localhost/groups/1/posts]
+
+
+Processing UploadsController#index (for 127.0.0.1 at 2010-11-11 19:37:36) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+Rendering template within layouts/uploads
+Rendering uploads/index
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;36;1mUpload Load (0.0ms)[0m   [0;1mSELECT * FROM "uploads" WHERE ("uploads".group_id = 1) [0m
+Completed in 31ms (View: 8, DB: 1) | 200 OK [http://localhost/groups/1/uploads]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-11-11 19:37:41) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mGroup Load (1.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".group_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (1.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (1.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (1.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (1.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (1.0ms)
+Completed in 35ms (View: 17, DB: 1) | 200 OK [http://localhost/groups/1/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-11-11 19:38:52) [GET]
+  Parameters: {"group_id"=>"1", "id"=>"6"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 6 AND ("posts".group_id = 1)) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (1.0ms)
+  [4;35;1mComment Load (0.0ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 6) [0m
+Rendered comments/_comment (3.0ms)
+Rendered comments/_comment (1.0ms)
+Completed in 75ms (View: 56, DB: 1) | 200 OK [http://localhost/groups/1/posts/6]
+
+
+Processing UploadsController#index (for 127.0.0.1 at 2010-11-11 19:39:08) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+Rendering template within layouts/uploads
+Rendering uploads/index
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;36;1mUpload Load (0.0ms)[0m   [0;1mSELECT * FROM "uploads" WHERE ("uploads".group_id = 1) [0m
+Completed in 31ms (View: 9, DB: 0) | 200 OK [http://localhost/groups/1/uploads]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-11-11 19:39:16) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".group_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (1.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (1.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+Completed in 38ms (View: 19, DB: 1) | 200 OK [http://localhost/groups/1/posts]
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (57.0ms)[0m   [0;1mCREATE TABLE "chats" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (40.0ms)[0m   [0;1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "post_id" integer, "body" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (49.0ms)[0m   [0;1mCREATE TABLE "groups" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (58.0ms)[0m   [0;1mCREATE TABLE "memberships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "group_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (65.0ms)[0m   [0;1mCREATE TABLE "permissions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (48.0ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "user" varchar(255), "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (50.0ms)[0m   [0;1mCREATE TABLE "todos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "task" varchar(255), "duedate" date, "finished" boolean, "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (80.0ms)[0m   [0;1mCREATE TABLE "uploads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "filename" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime, "attachment_file_name" varchar(255), "attachment_content_type" varchar(255), "attachment_file_size" integer, "attachment_updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (75.0ms)[0m   [0;1mCREATE TABLE "userlists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "uid" integer, "permissionid" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (72.0ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "hash_password" varchar(255), "salt" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (75.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (101.0ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (82.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101111072209')[0m
+  [4;36;1mSQL (82.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101022014901')[0m
+  [4;35;1mSQL (76.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101022055643')[0m
+  [4;36;1mSQL (83.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101022060356')[0m
+  [4;35;1mSQL (75.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101022060532')[0m
+  [4;36;1mSQL (141.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101005126')[0m
+  [4;35;1mSQL (84.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101014053')[0m
+  [4;36;1mSQL (83.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101015844')[0m
+  [4;35;1mSQL (75.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101075939')[0m
+  [4;36;1mSQL (83.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101080046')[0m
+  [4;35;1mSQL (75.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101200150')[0m
+  [4;36;1mSQL (83.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101106020926')[0m
+  [4;35;1mSQL (75.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101106041329')[0m
+  [4;36;1mSQL (83.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101110234740')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (59.0ms)[0m   [0;1mCREATE TABLE "chats" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (66.0ms)[0m   [0;1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "post_id" integer, "body" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (57.0ms)[0m   [0;1mCREATE TABLE "groups" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (73.0ms)[0m   [0;1mCREATE TABLE "memberships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "group_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (82.0ms)[0m   [0;1mCREATE TABLE "permissions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (73.0ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "user" varchar(255), "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (82.0ms)[0m   [0;1mCREATE TABLE "todos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "task" varchar(255), "duedate" date, "finished" boolean, "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (98.0ms)[0m   [0;1mCREATE TABLE "uploads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "filename" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime, "attachment_file_name" varchar(255), "attachment_content_type" varchar(255), "attachment_file_size" integer, "attachment_updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (82.0ms)[0m   [0;1mCREATE TABLE "userlists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "uid" integer, "permissionid" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (73.0ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "hash_password" varchar(255), "salt" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (74.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (108.0ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (90.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101111072209')[0m
+  [4;36;1mSQL (84.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101022014901')[0m
+  [4;35;1mSQL (74.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101022055643')[0m
+  [4;36;1mSQL (91.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101022060356')[0m
+  [4;35;1mSQL (77.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101022060532')[0m
+  [4;36;1mSQL (107.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101005126')[0m
+  [4;35;1mSQL (74.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101014053')[0m
+  [4;36;1mSQL (74.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101015844')[0m
+  [4;35;1mSQL (74.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101075939')[0m
+  [4;36;1mSQL (66.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101080046')[0m
+  [4;35;1mSQL (67.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101200150')[0m
+  [4;36;1mSQL (75.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101106020926')[0m
+  [4;35;1mSQL (67.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101106041329')[0m
+  [4;36;1mSQL (66.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101110234740')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (50.0ms)[0m   [0;1mCREATE TABLE "chats" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (41.0ms)[0m   [0;1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "post_id" integer, "body" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (52.0ms)[0m   [0;1mCREATE TABLE "groups" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (46.0ms)[0m   [0;1mCREATE TABLE "memberships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "group_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (68.0ms)[0m   [0;1mCREATE TABLE "permissions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (57.0ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "user" varchar(255), "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (65.0ms)[0m   [0;1mCREATE TABLE "todos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "task" varchar(255), "duedate" date, "finished" boolean, "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (82.0ms)[0m   [0;1mCREATE TABLE "uploads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "filename" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime, "attachment_file_name" varchar(255), "attachment_content_type" varchar(255), "attachment_file_size" integer, "attachment_updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (65.0ms)[0m   [0;1mCREATE TABLE "userlists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "uid" integer, "permissionid" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (63.0ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "hash_password" varchar(255), "salt" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (58.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (94.0ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (72.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101111072209')[0m
+  [4;36;1mSQL (69.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101022014901')[0m
+  [4;35;1mSQL (66.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101022055643')[0m
+  [4;36;1mSQL (75.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101022060356')[0m
+  [4;35;1mSQL (67.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101022060532')[0m
+  [4;36;1mSQL (78.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101005126')[0m
+  [4;35;1mSQL (127.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101014053')[0m
+  [4;36;1mSQL (61.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101015844')[0m
+  [4;35;1mSQL (66.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101075939')[0m
+  [4;36;1mSQL (76.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101080046')[0m
+  [4;35;1mSQL (74.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101200150')[0m
+  [4;36;1mSQL (75.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101106020926')[0m
+  [4;35;1mSQL (67.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101106041329')[0m
+  [4;36;1mSQL (75.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101110234740')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (56.0ms)[0m   [0;1mCREATE TABLE "chats" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (48.0ms)[0m   [0;1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "post_id" integer, "body" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (57.0ms)[0m   [0;1mCREATE TABLE "groups" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (49.0ms)[0m   [0;1mCREATE TABLE "memberships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "group_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (66.0ms)[0m   [0;1mCREATE TABLE "permissions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (57.0ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "user" varchar(255), "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (60.0ms)[0m   [0;1mCREATE TABLE "todos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "task" varchar(255), "duedate" date, "finished" boolean, "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (81.0ms)[0m   [0;1mCREATE TABLE "uploads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "filename" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime, "attachment_file_name" varchar(255), "attachment_content_type" varchar(255), "attachment_file_size" integer, "attachment_updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (56.0ms)[0m   [0;1mCREATE TABLE "userlists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "uid" integer, "permissionid" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (66.0ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "hash_password" varchar(255), "salt" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (55.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (94.0ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (72.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101111072209')[0m
+  [4;36;1mSQL (76.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101022014901')[0m
+  [4;35;1mSQL (66.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101022055643')[0m
+  [4;36;1mSQL (75.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101022060356')[0m
+  [4;35;1mSQL (58.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101022060532')[0m
+  [4;36;1mSQL (75.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101005126')[0m
+  [4;35;1mSQL (66.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101014053')[0m
+  [4;36;1mSQL (66.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101015844')[0m
+  [4;35;1mSQL (67.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101075939')[0m
+  [4;36;1mSQL (75.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101080046')[0m
+  [4;35;1mSQL (67.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101200150')[0m
+  [4;36;1mSQL (158.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101106020926')[0m
+  [4;35;1mSQL (75.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101106041329')[0m
+  [4;36;1mSQL (83.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101110234740')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (95.0ms)[0m   [0;1mCREATE TABLE "chats" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (117.0ms)[0m   [0;1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "post_id" integer, "body" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (65.0ms)[0m   [0;1mCREATE TABLE "groups" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (73.0ms)[0m   [0;1mCREATE TABLE "memberships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "group_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (107.0ms)[0m   [0;1mCREATE TABLE "permissions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (89.0ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "user" varchar(255), "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (73.0ms)[0m   [0;1mCREATE TABLE "todos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "task" varchar(255), "duedate" date, "finished" boolean, "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (73.0ms)[0m   [0;1mCREATE TABLE "uploads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "filename" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime, "attachment_file_name" varchar(255), "attachment_content_type" varchar(255), "attachment_file_size" integer, "attachment_updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (82.0ms)[0m   [0;1mCREATE TABLE "userlists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "uid" integer, "permissionid" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (82.0ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "hash_password" varchar(255), "salt" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (82.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (108.0ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (80.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101111072209')[0m
+  [4;36;1mSQL (84.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101022014901')[0m
+  [4;35;1mSQL (75.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101022055643')[0m
+  [4;36;1mSQL (83.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101022060356')[0m
+  [4;35;1mSQL (75.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101022060532')[0m
+  [4;36;1mSQL (83.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101005126')[0m
+  [4;35;1mSQL (75.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101014053')[0m
+  [4;36;1mSQL (83.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101015844')[0m
+  [4;35;1mSQL (83.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101075939')[0m
+  [4;36;1mSQL (83.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101080046')[0m
+  [4;35;1mSQL (75.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101200150')[0m
+  [4;36;1mSQL (84.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101106020926')[0m
+  [4;35;1mSQL (75.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101106041329')[0m
+  [4;36;1mSQL (66.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101110234740')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (77.0ms)[0m   [0;1mCREATE TABLE "chats" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (66.0ms)[0m   [0;1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "post_id" integer, "body" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (76.0ms)[0m   [0;1mCREATE TABLE "groups" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (83.0ms)[0m   [0;1mCREATE TABLE "memberships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "group_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (90.0ms)[0m   [0;1mCREATE TABLE "permissions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (80.0ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "user" varchar(255), "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (73.0ms)[0m   [0;1mCREATE TABLE "todos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "task" varchar(255), "duedate" date, "finished" boolean, "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (92.0ms)[0m   [0;1mCREATE TABLE "uploads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "filename" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime, "attachment_file_name" varchar(255), "attachment_content_type" varchar(255), "attachment_file_size" integer, "attachment_updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (70.0ms)[0m   [0;1mCREATE TABLE "userlists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "uid" integer, "permissionid" integer) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (157.0ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "hash_password" varchar(255), "salt" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (65.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (94.0ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (88.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101111072209')[0m
+  [4;36;1mSQL (58.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101022014901')[0m
+  [4;35;1mSQL (75.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101022055643')[0m
+  [4;36;1mSQL (75.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101022060356')[0m
+  [4;35;1mSQL (91.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101022060532')[0m
+  [4;36;1mSQL (75.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101005126')[0m
+  [4;35;1mSQL (75.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101014053')[0m
+  [4;36;1mSQL (75.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101015844')[0m
+  [4;35;1mSQL (128.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101075939')[0m
+  [4;36;1mSQL (71.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101080046')[0m
+  [4;35;1mSQL (75.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101200150')[0m
+  [4;36;1mSQL (66.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101106020926')[0m
+  [4;35;1mSQL (75.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101106041329')[0m
+  [4;36;1mSQL (67.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101110234740')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (48.0ms)[0m   [0;1mCREATE TABLE "chats" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (57.0ms)[0m   [0;1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "post_id" integer, "body" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (57.0ms)[0m   [0;1mCREATE TABLE "groups" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (45.0ms)[0m   [0;1mCREATE TABLE "memberships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "group_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (61.0ms)[0m   [0;1mCREATE TABLE "permissions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (65.0ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "user" varchar(255), "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (66.0ms)[0m   [0;1mCREATE TABLE "todos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "task" varchar(255), "duedate" date, "finished" boolean, "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (74.0ms)[0m   [0;1mCREATE TABLE "uploads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "filename" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime, "attachment_file_name" varchar(255), "attachment_content_type" varchar(255), "attachment_file_size" integer, "attachment_updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (54.0ms)[0m   [0;1mCREATE TABLE "userlists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "uid" integer, "permissionid" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (49.0ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "hash_password" varchar(255), "salt" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (58.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (87.0ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (64.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101111072209')[0m
+  [4;36;1mSQL (68.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101022014901')[0m
+  [4;35;1mSQL (65.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101022055643')[0m
+  [4;36;1mSQL (68.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101022060356')[0m
+  [4;35;1mSQL (66.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101022060532')[0m
+  [4;36;1mSQL (57.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101005126')[0m
+  [4;35;1mSQL (69.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101014053')[0m
+  [4;36;1mSQL (56.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101015844')[0m
+  [4;35;1mSQL (68.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101075939')[0m
+  [4;36;1mSQL (56.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101080046')[0m
+  [4;35;1mSQL (59.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101200150')[0m
+  [4;36;1mSQL (68.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101106020926')[0m
+  [4;35;1mSQL (65.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101106041329')[0m
+  [4;36;1mSQL (143.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101110234740')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (43.0ms)[0m   [0;1mCREATE TABLE "chats" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (49.0ms)[0m   [0;1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "post_id" integer, "body" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (61.0ms)[0m   [0;1mCREATE TABLE "groups" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (49.0ms)[0m   [0;1mCREATE TABLE "memberships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "group_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (112.0ms)[0m   [0;1mCREATE TABLE "permissions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (66.0ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "user" varchar(255), "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (65.0ms)[0m   [0;1mCREATE TABLE "todos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "task" varchar(255), "duedate" date, "finished" boolean, "created_at" datetime, "updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (73.0ms)[0m   [0;1mCREATE TABLE "uploads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "filename" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime, "attachment_file_name" varchar(255), "attachment_content_type" varchar(255), "attachment_file_size" integer, "attachment_updated_at" datetime, "group_id" integer) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (66.0ms)[0m   [0;1mCREATE TABLE "userlists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "uid" integer, "permissionid" integer) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (65.0ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "hash_password" varchar(255), "salt" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (74.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (78.0ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (61.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101111072209')[0m
+  [4;36;1mSQL (67.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101022014901')[0m
+  [4;35;1mSQL (66.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101022055643')[0m
+  [4;36;1mSQL (67.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101022060356')[0m
+  [4;35;1mSQL (67.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101022060532')[0m
+  [4;36;1mSQL (66.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101005126')[0m
+  [4;35;1mSQL (66.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101014053')[0m
+  [4;36;1mSQL (67.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101015844')[0m
+  [4;35;1mSQL (66.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101075939')[0m
+  [4;36;1mSQL (66.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101080046')[0m
+  [4;35;1mSQL (67.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101200150')[0m
+  [4;36;1mSQL (66.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101106020926')[0m
+  [4;35;1mSQL (74.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101106041329')[0m
+  [4;36;1mSQL (67.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101110234740')[0m

@@ -207,3 +207,9 @@ Rendering uploads/index.html.erb
 Rendering uploads/edit.html.erb
   [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" IS NULL) LIMIT 1[0m
   [4;35;1mPost Create (0.0ms)[0m   [0mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user") VALUES('2010-11-11 22:15:09', 'test', 'hi', '2010-11-11 22:15:09', NULL, 'bob')[0m
+Rendering uploads/show.html.erb
+Rendering uploads/new.html.erb
+Rendering uploads/index.html.erb
+Rendering uploads/edit.html.erb
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" IS NULL) LIMIT 1[0m
+  [4;35;1mPost Create (1.0ms)[0m   [0mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user") VALUES('2010-11-12 03:22:16', 'test', 'hi', '2010-11-12 03:22:16', NULL, 'bob')[0m
