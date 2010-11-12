@@ -1,0 +1,26 @@
+<div id="navcontainer">
+					<ul id="groupnav">
+						<li>My Groups
+						  <ul class="sub">
+							 <% @user.groups.each do |group| %>
+								<li><%= link_to group.name, group %></li>
+							 <% end %>
+						  </ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="content-container">
+			<div id="content-container2">
+				<div id="content-container3">
+					<div id="content">
+						<div id="menu">
+							<ul>
+								<li><%= link_to 'To-Do List', group_todos_path(@group) %></li>
+								<li><%= link_to 'Files', group_uploads_path(@group) %></li>
+								<li><%= link_to 'Posts', group_posts_path(@group) %></li>
+								<li><%= link_to 'Chat Room', "/chats?send_to_channel=" << @group.id.to_s << "&listen_to_channel=" << @group.id.to_s %></li>
+							</ul>
+						</div>
+						<div id="maincontent">

@@ -209,3 +209,48 @@ li>ul {
 li:hover ul, li.over ul {
 	display: block;
 }
+
+#menu{
+	width: 180px;
+	border-style: solid solid none solid;
+	border-color: #94AA74;
+	border-size: 1px;
+	border-width: 1px;
+}
+
+#menu ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+	
+#menu li a{
+	font: bold 12px Verdana, Arial, Helvetica, sans-serif;
+	display: block;
+	background: transparent url('../images/menu.gif') 100% 0;
+	height: 24px;
+	padding: 4px 0 4px 10px;
+	line-height: 24px;
+	text-decoration: none;
+}	
+	
+#menu li a:link, #menu li a:visited {
+	color: #000000;
+}
+
+#menu li a:hover{
+	color: #fff;
+	background-position: 100% -32px;
+}
+
+	
+#menu li a.selected{
+	color: #26370A;
+	background-position: 100% -64px;
+}
+
+#maincontent{
+	position: relative;
+	left: 200px;
+	top: -130px;
+}
