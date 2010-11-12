@@ -61716,3 +61716,379 @@ Completed in 38ms (View: 19, DB: 1) | 200 OK [http://localhost/groups/1/posts]
   [4;36;1mSQL (66.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101106020926')[0m
   [4;35;1mSQL (74.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101106041329')[0m
   [4;36;1mSQL (67.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101110234740')[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-11-11 20:40:34) [GET]
+  Parameters: {"group_id"=>"1", "id"=>"6"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 6 AND ("posts".group_id = 1)) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+  [4;35;1mComment Load (0.0ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 6) [0m
+Rendered comments/_comment (3.0ms)
+Rendered comments/_comment (0.0ms)
+Completed in 77ms (View: 23, DB: 0) | 200 OK [http://localhost/groups/1/posts/6]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-11-11 20:40:49) [GET]
+  Parameters: {"group_id"=>"1", "id"=>"6"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 6 AND ("posts".group_id = 1)) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mGroup Load (1.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 6) [0m
+Rendered comments/_comment (3.0ms)
+Rendered comments/_comment (1.0ms)
+Completed in 41ms (View: 21, DB: 1) | 200 OK [http://localhost/groups/1/posts/6]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-11-11 20:42:55) [GET]
+  Parameters: {"group_id"=>"1", "id"=>"6"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 6 AND ("posts".group_id = 1)) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mGroup Load (1.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+
+ActionView::TemplateError (undefined method `by' for #<ActionView::Base:0x92edc28>) on line #3 of app/views/posts/_post.html.erb:
+1: <%div_for post do %>
+2: 	<h2><%= link_to_unless_current h(post.title), [post.group, post] %></h2>
+3: 	<h3><%= by h(post.user) %></h3>
+4: 	<%= simple_format h(post.body) %>
+5: <% end %>
+
+    app/views/posts/_post.html.erb:3
+    app/views/posts/_post.html.erb:1
+    app/views/posts/show.html.erb:3
+    app/controllers/posts_controller.rb:22:in `show'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (61.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-11-11 20:43:12) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".group_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+
+ActionView::TemplateError (undefined method `by' for #<ActionView::Base:0x925ea20>) on line #3 of app/views/posts/_post.html.erb:
+1: <%div_for post do %>
+2: 	<h2><%= link_to_unless_current h(post.title), [post.group, post] %></h2>
+3: 	<h3><%= h( by post.user) %></h3>
+4: 	<%= simple_format h(post.body) %>
+5: <% end %>
+
+    app/views/posts/_post.html.erb:3
+    app/views/posts/_post.html.erb:1
+    app/views/posts/index.html.erb:5
+    app/controllers/posts_controller.rb:10:in `index'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (47.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-11-11 20:44:01) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mGroup Load (1.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".group_id = 1) [0m
+ERROR: compiling _run_erb_app47views47posts47_post46html46erb_locals_object_post_post_counter RAISED compile error
+C:/Users/Grant/GroupApp/app/views/posts/_post.html.erb:3: syntax error, unexpected tIDENTIFIER, expecting ')'
+...output_buffer.concat(( "by " h(post.user) ).to_s); @output_b...
+                              ^
+Function body:           def _run_erb_app47views47posts47_post46html46erb_locals_object_post_post_counter(local_assigns)
+            old_output_buffer = output_buffer;post_counter = local_assigns[:post_counter];post = local_assigns[:post];object = local_assigns[:object];;@output_buffer = '';  __in_erb_template=true ; div_for post do ; @output_buffer.concat "\n\t<h2>"
+; @output_buffer.concat(( link_to_unless_current h(post.title), [post.group, post] ).to_s); @output_buffer.concat "</h2>\n\t<h3>"
+; @output_buffer.concat(( "by " h(post.user) ).to_s); @output_buffer.concat "</h3>\n\t"
+; @output_buffer.concat(( simple_format h(post.body) ).to_s); @output_buffer.concat "\n"
+;  end ; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: C:/Users/Grant/GroupApp/app/views/posts/_post.html.erb:8:in `compile!'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:61:in `compile'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:28:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable_partial.rb:20:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:26:in `benchmark'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby187/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:26:in `benchmark'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable_partial.rb:19:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable_partial.rb:44:in `render_partial'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/partials.rb:222:in `render_partial_collection'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/associations/association_collection.rb:369:in `method_missing'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/associations/association_proxy.rb:215:in `map'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/associations/association_proxy.rb:215:in `send'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/associations/association_proxy.rb:215:in `method_missing'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/associations/association_collection.rb:369:in `method_missing'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/partials.rb:216:in `render_partial_collection'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/partials.rb:195:in `render_partial'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:267:in `render_without_juggernaut'
+C:/Users/Grant/GroupApp/vendor/plugins/juggernaut/lib/juggernaut.rb:151:in `render'
+C:/Users/Grant/GroupApp/app/views/posts/index.html.erb:5:in `_run_erb_app47views47posts47index46html46erb'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:34:in `send'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:34:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:306:in `with_template'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:30:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:265:in `render_without_juggernaut'
+C:/Users/Grant/GroupApp/vendor/plugins/juggernaut/lib/juggernaut.rb:151:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:348:in `_render_with_layout'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:262:in `render_without_juggernaut'
+C:/Users/Grant/GroupApp/vendor/plugins/juggernaut/lib/juggernaut.rb:151:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1250:in `render_for_file'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:942:in `render_without_benchmark'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render_without_juggernaut'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby187/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render_without_juggernaut'
+C:/Users/Grant/GroupApp/vendor/plugins/juggernaut/lib/juggernaut.rb:151:in `render'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:135:in `send'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:135:in `custom'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:179:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:179:in `respond'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:173:in `each'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:173:in `respond'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:107:in `respond_to'
+C:/Users/Grant/GroupApp/app/controllers/posts_controller.rb:10:in `index'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1331:in `send'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1331:in `perform_action_without_filters'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby187/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+C:/Ruby187/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+C:/Ruby187/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+C:/Ruby187/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+C:/Users/Grant/GroupApp/app/views/posts/_post.html.erb:3: syntax error, unexpected tIDENTIFIER, expecting ')'
+...output_buffer.concat(( "by " h(post.user) ).to_s); @output_b...
+                              ^) on line #3 of app/views/posts/_post.html.erb:
+1: <%div_for post do %>
+2: 	<h2><%= link_to_unless_current h(post.title), [post.group, post] %></h2>
+3: 	<h3><%= "by " h(post.user) %></h3>
+4: 	<%= simple_format h(post.body) %>
+5: <% end %>
+
+    app/views/posts/_post.html.erb:8:in `compile!'
+    app/views/posts/index.html.erb:5
+    app/controllers/posts_controller.rb:10:in `index'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (87.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-11-11 20:44:11) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;35;1mGroup Load (1.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mGroup Load (1.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".group_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (3.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (3.0ms)
+Completed in 55ms (View: 31, DB: 2) | 200 OK [http://localhost/groups/1/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-11-11 20:46:36) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".group_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (3.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (1.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (1.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (1.0ms)
+Completed in 76ms (View: 22, DB: 1) | 200 OK [http://localhost/groups/1/posts]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-11-11 20:47:09) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;35;1mGroup Load (1.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".group_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (1.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (1.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (1.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (1.0ms)
+Completed in 38ms (View: 19, DB: 2) | 200 OK [http://localhost/groups/1/posts]
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-11-11 20:48:09) [GET]
+  Parameters: {"group_id"=>"1", "id"=>"6"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 6 AND ("posts".group_id = 1)) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 6) [0m
+Rendered comments/_comment (3.0ms)
+Rendered comments/_comment (1.0ms)
+Completed in 72ms (View: 22, DB: 0) | 200 OK [http://localhost/groups/1/posts/6]
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-11-11 20:48:44) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) LIMIT 1[0m
+  [4;36;1mGroup Load (1.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 9) [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 9)) [0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".group_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (3.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (1.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+Completed in 51ms (View: 30, DB: 1) | 200 OK [http://localhost/groups/1/posts]
