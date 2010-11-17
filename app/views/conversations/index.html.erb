@@ -1,0 +1,24 @@
+<h1>Listing conversations</h1>
+
+<table>
+  <tr>
+    <th>Origin</th>
+    <th>Target</th>
+    <th>Message</th>
+  </tr>
+
+<% @conversations.each do |conversation| %>
+  <tr>
+    <td><%=h conversation.origin %></td>
+    <td><%=h conversation.target %></td>
+    <td><%=h conversation.message %></td>
+    <td><%= link_to 'Show', conversation %></td>
+    <td><%= link_to 'Edit', edit_conversation_path(conversation) %></td>
+    <td><%= link_to 'Destroy', conversation, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New conversation', new_conversation_path %>

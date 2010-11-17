@@ -1,0 +1,18 @@
+<p>
+  <b>Origin:</b>
+  <%=h @conversation.origin %>
+</p>
+
+<p>
+  <b>Target:</b>
+  <%=h @conversation.target %>
+</p>
+
+<p>
+  <b>Message:</b>
+  <%=h @conversation.message %>
+</p>
+
+
+<%= link_to 'Edit', edit_conversation_path(@conversation) %> |
+<%= link_to 'Back', conversations_path %>
