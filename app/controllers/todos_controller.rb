@@ -64,6 +64,7 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       if @todo.save
+        Newsfeed.create!(:descriptions => 'Todo ' + @todo.id.to_s() + ' created', :time => @todo.created_at, :group_id => @group.id)
         format.html { redirect_to([@group, @todo], :notice => 'Todo was successfully created.') }
         format.xml  { render :xml => @todo, :status => :created, :location => @todo }
       else
@@ -80,6 +81,7 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       if @todo.update_attributes(params[:todo])
+        Newsfeed.create!(:descriptions => 'Todo ' + @todo.id.to_s() + ' updated', :time => @todo.updated_at, :group_id => @group.id)
         format.html { redirect_to([@group, @todo], :notice => 'Todo was successfully updated.') }
         format.xml  { head :ok }
       else
@@ -93,6 +95,7 @@ class TodosController < ApplicationController
   # DELETE /todos/1.xml
   def destroy
     @todo = @group.todos.find(params[:id])
+    Newsfeed.create!(:descriptions => 'Todo ' + @todo.id.to_s() + ' destroyed', :group_id => @group.id)
     @todo.destroy
 
     respond_to do |format|
