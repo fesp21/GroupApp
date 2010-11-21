@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
   def login
+    if session[:user_id] != nil
+      @user = User.find(session[:user_id])
+      redirect_to(:action => "show", :id => @user.id)
+    end
     if request.post?
       user = User.authenticate(params[:name], params[:password])
       if user
@@ -20,7 +24,11 @@ class UsersController < ApplicationController
   # GET /users.xml
   def index
     @user = User.find(session[:user_id])
-	flash.now[:group_list] = "blah blah blah"
+	  @group=Group.find(params[:group_id])
+	  @member = Membership.find_by_user_id_and_group_id(@user.id, @group.id)
+	  if @member.permission==0
+	    @admin=true
+	  end
   end
   
   def user_manage
@@ -35,7 +43,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.xml
   def show
-    @user = User.find(params[:id])
+    @user = User.find(session[:user_id])
 
     respond_to do |format|
       format.html # show.html.erb

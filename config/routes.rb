@@ -1,12 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
-  map.calendar '/calendar/:year/:month', :controller => 'calendar', :action => 'index', :requirements => {:year => /d{4}/, :month => /d{1,2}/}, :year => nil, :month => nil
   map.resources :newsfeeds
 
   map.resources :conversations
-
-  map.resources :memberships
-
-
+  
   map.resources :posts, :has_many => :comments
   
   map.resources :chats
@@ -15,7 +11,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :userlists
 
-  map.resources :groups, :has_many => [:uploads, :todos, :posts, :newsfeeds, :users]
+  map.resources :groups, :has_many => [:uploads, :todos, :posts, :newsfeeds, :users, :memberships]
 
   map.resources :users, :collection => { :login => :get, :logout => :get, :user_manage => :get }
   # The priority is based upon order of creation: first created -> highest priority.
@@ -57,7 +53,9 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing or commenting them out if you're using named routes and resources.
-  map.root :controller => "users"
+
+  map.root :controller => 'users', :action => 'login'
+  
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 end

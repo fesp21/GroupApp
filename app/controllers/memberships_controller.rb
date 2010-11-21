@@ -72,11 +72,12 @@ class MembershipsController < ApplicationController
   # DELETE /memberships/1
   # DELETE /memberships/1.xml
   def destroy
+    @group=Group.find(params[:group_id])
     @membership = Membership.find(params[:id])
     @membership.destroy
 
     respond_to do |format|
-      format.html { redirect_to(memberships_url) }
+      format.html { redirect_to(group_users_path(@group)) }
       format.xml  { head :ok }
     end
   end
