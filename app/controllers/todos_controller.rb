@@ -3,16 +3,16 @@ class TodosController < ApplicationController
   
   def finish
     @todo = @group.todos.find(params[:id])
-    new = {:finished => true}
-    @todo.update_attributes(new)
-    redirect_to :action => "index"
+    @todo.finished = true
+    @todo.save
+    redirect_to(group_todos_path(@group))
   end
 
   def unfinish
     @todo = @group.todos.find(params[:id])
-    new = {:finished => false}
-    @todo.update_attributes(new)
-    redirect_to :action => "index"
+    @todo.finished = false
+    @todo.save
+    redirect_to(group_todos_path(@group))
   end
       
   # GET /todos
@@ -96,7 +96,7 @@ class TodosController < ApplicationController
     @todo.destroy
 
     respond_to do |format|
-      format.html { redirect_to(todos_url) }
+      format.html { redirect_to(group_todos_path(@group)) }
       format.xml  { head :ok }
     end
   end
