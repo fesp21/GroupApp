@@ -24,10 +24,12 @@
 					<div id="content">
 						<div id="menu">
 							<ul>
+								<li><%= link_to 'Home', group_path(@group) %></li>
 								<li><%= link_to 'To-Do List', group_todos_path(@group) %></li>
 								<li><%= link_to 'Files', group_uploads_path(@group) %></li>
 								<li><%= link_to 'Posts', group_posts_path(@group) %></li>
 								<li><%= link_to 'Chat Room', "/chats?send_to_channel=" << @group.id.to_s << "&listen_to_channel=" << @group.id.to_s %></li>
+								<li><%= link_to 'Members', group_users_path(@group)%></li>
 							</ul>
 						</div>
 						<div id="maincontent">

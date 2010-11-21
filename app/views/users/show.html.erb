@@ -1,5 +1,10 @@
-<%= render :file => 'users/header-nogroups.html.erb' %>
+<%= render :file => 'users/header.html.erb' %>
 
+<h1>Welcome</h1>
+
+It's <%= Time.now %>
+<p>
+Your ID is <%= session[:user_id] %>
 <p>
   <b>Name:</b>
   <%=h @user.name %>
@@ -15,6 +20,7 @@
   <%=h @user.salt %>
 </p>
 
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+</p>
+<%= link_to 'User Management', :controller => 'users', :action => 'user_manage' %>   
+<%= link_to 'Groups', :controller => 'groups', :action => 'index' %>   
+<%= link_to 'Logout', :controller => 'users', :action => 'logout' %>
