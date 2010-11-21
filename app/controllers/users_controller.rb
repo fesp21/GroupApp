@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   def login
-
+    if session[:user_id] != nil
+      @user = User.find(session[:user_id])
+      redirect_to(:action => "show", :id => @user.id)
+    end
     if request.post?
       user = User.authenticate(params[:name], params[:password])
       if user
