@@ -16,6 +16,7 @@ class GroupsController < ApplicationController
   def show
     @user = User.find(session[:user_id])
     @group = Group.find(params[:id])
+    @member = Membership.find_by_user_id_and_group_id(@user.id, @group.id)
 	if !@group.users.member?(User.find(session[:user_id]))
 		redirect_to(groups_url)
 	else
@@ -27,7 +28,7 @@ class GroupsController < ApplicationController
   end
 
   def join
-    Membership.create!(:user_id => session[:user_id], :group_id => params[:id])
+    Membership.create!(:user_id => session[:user_id], :group_id => params[:id], :permission => "1")
     redirect_to(groups_url)
   end
   
@@ -62,6 +63,7 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.save
+        Membership.create!(:user_id => session[:user_id], :group_id => @group.id, :permission => "0")
         format.html { redirect_to(@group, :notice => 'Group was successfully created.') }
         format.xml  { render :xml => @group, :status => :created, :location => @group }
       else
