@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101121070214) do
+ActiveRecord::Schema.define(:version => 20101121221703) do
 
   create_table "calendars", :force => true do |t|
     t.string   "name"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20101121070214) do
     t.integer  "group_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "permission"
   end
 
   create_table "newsfeeds", :force => true do |t|
