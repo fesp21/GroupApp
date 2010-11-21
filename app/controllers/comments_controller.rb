@@ -52,8 +52,11 @@ class CommentsController < ApplicationController
       # end
     # end
 	
+	@user = User.find(session[:user_id])
 	@post = Post.find(params[:post_id])
 	@comment = @post.comments.create!(params[:comment])
+	@comment.user_id = @user.id
+	@comment.save
 	redirect_to [@post.group, @post]
   end
 
@@ -76,12 +79,18 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.xml
   def destroy
-    @comment = Comment.find(params[:id])
-    @comment.destroy
+    # @comment = Comment.find(params[:id])
+    # @comment.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(comments_url) }
-      format.xml  { head :ok }
-    end
+    # respond_to do |format|
+      # format.html { redirect_to(comments_url) }
+      # format.xml  { head :ok }
+    # end
+	
+	@post = Post.find(params[:post_id])
+	@comment = @post.comments.find(params[:id])
+	@comment.destroy
+	redirect_to [@post.group, @post]
+	
   end
 end
