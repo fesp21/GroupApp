@@ -11,7 +11,9 @@
 					<ul id="usercontrol">
 						<li>User
 							<ul>
-								<li><%= link_to 'Logout', :controller => 'users', :action => 'logout'%>
+								<li><%= link_to 'Home', @user%></li>
+								<li><%= link_to 'Settings', edit_user_path(@user)%></li>
+								<li><%= link_to 'Logout', :controller => 'users', :action => 'logout'%></li>
 							</ul>
 						</li>
 					</ul>
