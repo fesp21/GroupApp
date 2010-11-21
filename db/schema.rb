@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101121062213) do
+ActiveRecord::Schema.define(:version => 20101121070214) do
 
   create_table "calendars", :force => true do |t|
     t.string   "name"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20101121062213) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "group_id"
+    t.integer  "user_id"
   end
 
   create_table "todos", :force => true do |t|
