@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :newsfeeds
+
   map.resources :conversations
 
   map.resources :memberships
