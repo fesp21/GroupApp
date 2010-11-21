@@ -49,6 +49,7 @@ class PostsController < ApplicationController
 	@user = User.find(session[:user_id])
     @post = @group.posts.build(params[:post])
 	@post.user = @user.name
+	@post.user_id = @user.id
 
     respond_to do |format|
       if @post.save
