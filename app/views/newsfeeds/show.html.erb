@@ -1,0 +1,13 @@
+<p>
+  <b>Descriptions:</b>
+  <%=h @newsfeed.descriptions %>
+</p>
+
+<p>
+  <b>Time:</b>
+  <%=h @newsfeed.time %>
+</p>
+
+
+<%= link_to 'Edit', edit_newsfeed_path(@newsfeed) %> |
+<%= link_to 'Back', newsfeeds_path %>
