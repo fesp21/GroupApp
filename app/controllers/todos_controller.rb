@@ -2,10 +2,10 @@ class TodosController < ApplicationController
   before_filter :get_group
   
   def finish
-     @todo = @group.todos.find(params[:id])
-     new = {:finished => true}
-     @todo.update_attributes(new)
-     redirect_to :action => "index"
+    @todo = @group.todos.find(params[:id])
+    new = {:finished => true}
+    @todo.update_attributes(new)
+    redirect_to :action => "index"
   end
 
   def unfinish

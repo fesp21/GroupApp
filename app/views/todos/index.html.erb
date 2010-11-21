@@ -15,10 +15,10 @@
 	<td><%=h todo.duedate %></td>
 	<td><%= if todo.finished
 			link_to 'unmark finished', :controller => "todos",
-                            :action => "unfinish", :id => todo.id
+                            :action => "unfinish", :id => todo.id, :group_id => @group.id
 		else
 			link_to 'mark finished', :controller => "todos",
-                            :action => "finish", :id => todo.id
+                            :action => "finish", :id => todo.id, :group_id => @group.id
 		end %></td>
 	<td><%= link_to 'edit', edit_group_todo_path(@group, todo) %></td>
     <td><%= link_to 'delete', [@group, todo], :confirm => 'Are you sure?', :method => :delete %></td>
