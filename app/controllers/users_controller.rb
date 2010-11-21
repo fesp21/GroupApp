@@ -25,10 +25,11 @@ class UsersController < ApplicationController
   def index
     @user = User.find(session[:user_id])
 	  @group=Group.find(params[:group_id])
-	  @member = Membership.find_by_user_id_and_group_id(@user.id, @group.id)
-	  if @member.permission==0
-	    @admin=true
-	  end
+	  if Membership.find_by_user_id_and_group_id(@user.id, @group.id).permission==0
+      @admin = true
+    else
+      @admin = false
+    end
   end
   
   def user_manage
