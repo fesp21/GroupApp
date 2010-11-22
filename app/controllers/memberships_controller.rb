@@ -1,4 +1,21 @@
 class MembershipsController < ApplicationController
+  
+  def makeAdmin
+    @group = Group.find(params[:group_id])
+    @membership = Membership.find(params[:id])
+    @membership.permission = 0
+    @membership.save
+    redirect_to(group_users_path(@group))
+  end
+
+  def unmakeAdmin
+    @group = Group.find(params[:group_id])
+    @membership = Membership.find(params[:id])
+    @membership.permission = 1
+    @membership.save
+    redirect_to(group_users_path(@group))
+  end
+  
   # GET /memberships
   # GET /memberships.xml
   def index

@@ -9,13 +9,6 @@
   <b>Group Description:</b>
   <%=h @group.description %>
 </p>
-<p>
-<% if @member.permission==0 %>
-<%=h "You are an admin" %>
-<% else %>
-<%=h "You are a normal user"%>
-<% end %>
-</p>
 
 <table>
   <tr>

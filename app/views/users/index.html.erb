@@ -19,8 +19,12 @@
 		<% end %>
 	</td>
 	<% if @admin %>
-		<td><%= link_to 'Remove User', [@group, Membership.find_by_user_id_and_group_id(user.id, @group.id)], :confirm => 'Are you sure?', :method => :delete %></td>
-		<td>Make Administrator</td>
+		<% @membership = Membership.find_by_user_id_and_group_id(user.id, @group.id) %>
+		<% if @membership.permission != 0%>
+		<td><%= link_to 'Remove User', [@group, @membership], :confirm => 'Are you sure?', :method => :delete %></td>
+		<td><%= link_to 'Make Administrator', :controller => "memberships",
+                        :action => "makeAdmin", :id => @membership.id, :group_id => @group.id %></td>
+		<% end %>
 	<% end %>
 	
   </tr>
