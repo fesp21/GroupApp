@@ -106,11 +106,15 @@ class UsersController < ApplicationController
   # DELETE /users/1.xml
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(:action => 'user_manage') }
-      format.xml  { head :ok }
-    end
+	if session[:user_id]==@user.id
+		redirect_to(:action => "logout")
+		@user.destroy
+	else
+	@user.destroy
+		respond_to do |format|
+		  format.html { redirect_to(:action => 'user_manage') }
+		  format.xml  { head :ok }
+		end
+	end
   end
 end
