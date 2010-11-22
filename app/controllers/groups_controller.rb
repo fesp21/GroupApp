@@ -26,6 +26,11 @@ class GroupsController < ApplicationController
 		end
 	end
   end
+  
+  def search
+    @user = User.find(session[:user_id])
+    @groups = Group.search params[:search]
+  end
 
   def join
     Membership.create!(:user_id => session[:user_id], :group_id => params[:id], :permission => "1")

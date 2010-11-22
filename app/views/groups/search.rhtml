@@ -1,0 +1,8 @@
+<%= render :file => 'users/header.html.erb' %>
+<ul>
+  <% @groups.each do |group| %>
+  <li><%= link_to group.name,
+  :action => 'show', :id => group.id %></li>
+  <td><%=h group.description %></td>
+<% end %>
+</ul>
