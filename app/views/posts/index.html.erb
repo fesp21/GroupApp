@@ -1,8 +1,12 @@
 <%= render :file => 'groups/header.html.erb' %>
+<div id="maincontent-box">
+	<div id="maincontent-head">
+		<strong><%=h @group.name %> - Posts</strong>
+	</div>
+	<div id="maincontent-body">
+		<%= render :partial => @posts %>
 
-<h1>Listing posts</h1>
-
-<%= render :partial => @posts %>
-
-<%= link_to 'New post', new_group_post_path(@group) %>
-<%= link_to 'Back', @group %>
+		<%= link_to 'New post', new_group_post_path(@group) %>
+		<%= link_to 'Back', @group %>
+	</div>
+</div>

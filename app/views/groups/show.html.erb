@@ -1,31 +1,35 @@
 <%= render :file => 'groups/header.html.erb' %>
+<div id="maincontent-box">
+	<div id="maincontent-head">
+		<strong><%=h @group.name %></strong>
+	</div>
+	<div id="maincontent-body">
+			<p>
+			  <b>Group Description:</b>
+			  <%=h @group.description %>
+			</p>
+			<br/>
+			<%= link_to 'Back', groups_path %>
+	</div>
+</div>
+<div id="maincontent-box">
+	<div id="maincontent-head">
+		<strong>News Feed</strong>
+	</div>
+	<div id="maincontent-body">
+		<table>
+		  <tr>
+			<th>Description</th>
+			<th>Time</th>
+		  </tr>
 
-<p>
-  <b>Group Name:</b>
-  <%=h @group.name %>
-</p>
+		<% @group.newsfeeds.each do |newsfeed| %>
+		  <tr>
+			<td><%=h newsfeed.descriptions %></td>
+			<td><%=h newsfeed.time %></td>
+		  </tr>
+		<% end %>
 
-<p>
-  <b>Group Description:</b>
-  <%=h @group.description %>
-</p>
-
-<table>
-  <tr>
-	<th>Description</th>
-    <th>Time</th>
-  </tr>
-
-<% @group.newsfeeds.each do |newsfeed| %>
-  <tr>
-    <td><%=h newsfeed.descriptions %></td>
-	<td><%=h newsfeed.time %></td>
-	<td><%= link_to 'edit', edit_group_newsfeed_path(@group, newsfeed) %></td>
-    <td><%= link_to 'delete', [@group, newsfeed], :confirm => 'Are you sure?', :method => :delete%></td>
-  </tr>
-<% end %>
-
-</table>
-
-<br/>
-<%= link_to 'Back', groups_path %>
+		</table>
+	</div>
+</div>

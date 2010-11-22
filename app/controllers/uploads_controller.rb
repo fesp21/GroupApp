@@ -7,7 +7,7 @@ class UploadsController < ApplicationController
     @user = User.find(session[:user_id])
     @uploads = @group.uploads
 	if !@group.users.member?(User.find(session[:user_id]))
-		redirect_to(users_url)
+		redirect_to(:controller => 'users', :action => 'login')
 	else
 		respond_to do |format|
 		  format.html # index.html.erb
@@ -54,7 +54,7 @@ class UploadsController < ApplicationController
     respond_to do |format|
       if @upload.save
         Newsfeed.create!(:descriptions => 'Uplodad ' + @upload.id.to_s() + ' created', :time => @upload.created_at, :group_id => @group.id)
-        format.html { redirect_to([@group, @upload], :notice => 'Upload was successfully created.') }
+        format.html { redirect_to(group_uploads_path(@group)) }
         format.xml  { render :xml => @upload, :status => :created, :location => @upload }
       else
         format.html { render :action => "new" }
@@ -71,7 +71,7 @@ class UploadsController < ApplicationController
     respond_to do |format|
       if @upload.update_attributes(params[:upload])
         Newsfeed.create!(:descriptions => 'Uplodad ' + @upload.id.to_s() + ' updated', :time => @upload.updated_at, :group_id => @group.id)
-        format.html { redirect_to([@group, @upload], :notice => 'Upload was successfully updated.') }
+        format.html { redirect_to(group_uploads_path(@group)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

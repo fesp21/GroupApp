@@ -65,7 +65,7 @@ class TodosController < ApplicationController
     respond_to do |format|
       if @todo.save
         Newsfeed.create!(:descriptions => 'Todo ' + @todo.id.to_s() + ' created', :time => @todo.created_at, :group_id => @group.id)
-        format.html { redirect_to([@group, @todo], :notice => 'Todo was successfully created.') }
+        format.html { redirect_to(group_todos_path(@group)) }
         format.xml  { render :xml => @todo, :status => :created, :location => @todo }
       else
         format.html { render :action => "new" }
@@ -82,7 +82,7 @@ class TodosController < ApplicationController
     respond_to do |format|
       if @todo.update_attributes(params[:todo])
         Newsfeed.create!(:descriptions => 'Todo ' + @todo.id.to_s() + ' updated', :time => @todo.updated_at, :group_id => @group.id)
-        format.html { redirect_to([@group, @todo], :notice => 'Todo was successfully updated.') }
+        format.html { redirect_to(group_todos_path(@group)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

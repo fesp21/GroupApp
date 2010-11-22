@@ -1,32 +1,37 @@
 <%= render :file => 'groups/header.html.erb' %>
+<div id="maincontent-box">
+	<div id="maincontent-head">
+		<strong><%=h @group.name %> - Members</strong>
+	</div>
+	<div id="maincontent-body">
+		<table>
+		  <tr>
+			<th>Name</th>
+			<th>Position</th>
+		  </tr>
 
-<h1>Members</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-	<th>Position</th>
-  </tr>
-
-<% for user in @group.users %>
-  <tr>
-    <td><%=h user.name %></td>
-	<td>
-		<% if Membership.find_by_user_id_and_group_id(user.id, @group.id).permission==0 %>
-		<%=h "Administrator" %>
-		<% else %>
-		<%=h "User"%>
+		<% for user in @group.users %>
+		  <tr>
+			<td><%=h user.name %></td>
+			<td>
+				<% if Membership.find_by_user_id_and_group_id(user.id, @group.id).permission==0 %>
+				<%=h "Administrator" %>
+				<% else %>
+				<%=h "User"%>
+				<% end %>
+			</td>
+			<% if @admin %>
+				<% @membership = Membership.find_by_user_id_and_group_id(user.id, @group.id) %>
+				<% if @membership.permission != 0%>
+				<td><%= link_to 'Remove User', [@group, @membership], :confirm => 'Are you sure?', :method => :delete %></td>
+				<td><%= link_to 'Make Administrator', :controller => "memberships",
+								:action => "makeAdmin", :id => @membership.id, :group_id => @group.id %></td>
+				<% end %>
+			<% end %>
+			
+		  </tr>
 		<% end %>
-	</td>
-	<% if @admin %>
-		<% @membership = Membership.find_by_user_id_and_group_id(user.id, @group.id) %>
-		<% if @membership.permission != 0%>
-		<td><%= link_to 'Remove User', [@group, @membership], :confirm => 'Are you sure?', :method => :delete %></td>
-		<td><%= link_to 'Make Administrator', :controller => "memberships",
-                        :action => "makeAdmin", :id => @membership.id, :group_id => @group.id %></td>
-		<% end %>
-	<% end %>
-	
-  </tr>
-<% end %>
-</table>
+		</table>
+	</div>
+</div>
+

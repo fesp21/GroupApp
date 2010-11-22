@@ -1,23 +1,27 @@
 <%= render :file => 'groups/header.html.erb' %>
+<div id="maincontent-box">
+	<div id="maincontent-head">
+		<strong><%=h @group.name %> - Files</strong>
+	</div>
+	<div id="maincontent-body">
+		<% form_for [@group, @upload], :html => {:multipart => true} do |f| %>
+		  <%= f.error_messages %>
+		  <p>
+			<%= f.label :filename %><br />
+			<%= f.text_field :filename %>
+		  </p>
+		  <p>
+			<%= f.label :description %><br />
+			<%= f.text_area :description %>
+		  </p>
+		  <p>
+			<%= f.file_field :attachment %>
+		  </p>
+		  <p>
+			<%= f.submit 'Create' %>
+		  </p>
+		<% end %>
 
-<h1>New upload</h1>
-
-<% form_for [@group, @upload], :html => {:multipart => true} do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :filename %><br />
-    <%= f.text_field :filename %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </p>
-  <p>
-	<%= f.file_field :attachment %>
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
-<% end %>
-
-<%= link_to 'Back', group_uploads_path(@group) %>
+		<%= link_to 'Back', group_uploads_path(@group) %>
+	</div>
+</div>

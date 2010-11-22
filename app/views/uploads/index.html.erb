@@ -1,24 +1,28 @@
 <%= render :file => 'groups/header.html.erb' %>
+<div id="maincontent-box">
+	<div id="maincontent-head">
+		<strong><%=h @group.name %> - Files</strong>
+	</div>
+	<div id="maincontent-body">
+		<table>
+		  <tr>
+			<th>Filename</th>
+			<th>Description</th>
+		  </tr>
 
-<h1>Listing uploads for <%=h @group.name %></h1>
+		<% @uploads.each do |upload| %>
+		  <tr>
+			<td><%=h upload.filename %></td>
+			<td><%=h upload.description %></td>
+			<td><%= link_to 'Edit', edit_group_upload_path(@group, upload) %></td>
+			<td><%= link_to 'Download', upload.attachment.url%></td>
+			<td><%= link_to 'Destroy', [@group, upload], :confirm => 'Are you sure?', :method => :delete %></td>
+		  </tr>
+		<% end %>
+		</table>
 
-<table>
-  <tr>
-    <th>Filename</th>
-    <th>Description</th>
-  </tr>
-
-<% @uploads.each do |upload| %>
-  <tr>
-    <td><%=h upload.filename %></td>
-    <td><%=h upload.description %></td>
-	<td><%= link_to 'Edit', edit_group_upload_path(@group, upload) %></td>
-    <td><%= link_to 'Download', upload.attachment.url%></td>
-    <td><%= link_to 'Destroy', [@group, upload], :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-<%= link_to 'Back', @group %>
-<%= link_to 'New upload', new_group_upload_path(@group) %>
+		<br />
+		<%= link_to 'Back', @group %>
+		<%= link_to 'New upload', new_group_upload_path(@group) %>
+	</div>
+</div>
