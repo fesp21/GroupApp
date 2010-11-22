@@ -1,8 +1,34 @@
 <%= render :file => 'users/header.html.erb' %>
-<ul>
-  <% @groups.each do |group| %>
-  <li><%= link_to group.name,
-  :action => 'show', :id => group.id %></li>
-  <td><%=h group.description %></td>
+<h1>Groups</h1>
+<div id="search">
+    <%= render :partial => 'groups/search' %>
+</div>
+<% if @groups.length>0 %>
+	<table>
+	  <tr>
+		<th>Name</th>
+		<th>Description</th>
+	  </tr>
+
+	<% @groups.each do |group| %>
+	  <tr>
+		<td><%=h group.name %></td>
+		<td><%=h group.description %></td>
+		<td><%= link_to 'Show', group %></td>
+		<td><% if group.users.member?(User.find(session[:user_id]))%>
+			<%= link_to 'Unjoin', :id => group.id, :controller => "groups", :action => "unjoin"%>
+			<% else %>
+			<%= link_to 'Join', :id => group.id, :controller => "groups", :action => "join"%>
+			<% end %></td>
+		
+	  </tr>
+	<% end %>
+	</table>
+<% else %>
+	<br />
+	<%=h "Search returned no results." %>
+	<br />
 <% end %>
-</ul>
+<br />
+<%= link_to 'New group', new_group_path %>
+<%= link_to 'Back', @user %>
