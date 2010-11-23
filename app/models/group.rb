@@ -1,6 +1,4 @@
 class Group < ActiveRecord::Base
-  has_one :userlist
-  has_many :permissions
   has_many :uploads, :dependent => :destroy
   has_many :todos, :dependent => :destroy
   has_many :posts

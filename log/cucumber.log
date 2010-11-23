@@ -18202,3 +18202,7 @@ Rendering template within layouts/users
 Rendering users/index
   [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
 Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/users]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m

@@ -9,15 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101121231349) do
-
-  create_table "calendars", :force => true do |t|
-    t.string   "name"
-    t.datetime "start_at"
-    t.datetime "end_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20101123000028) do
 
   create_table "chats", :force => true do |t|
     t.datetime "created_at"
@@ -63,13 +55,6 @@ ActiveRecord::Schema.define(:version => 20101121231349) do
     t.integer  "group_id"
   end
 
-  create_table "permissions", :force => true do |t|
-    t.string   "name"
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "body"
@@ -99,11 +84,6 @@ ActiveRecord::Schema.define(:version => 20101121231349) do
     t.integer  "attachment_file_size"
     t.datetime "attachment_updated_at"
     t.integer  "group_id"
-  end
-
-  create_table "userlists", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
