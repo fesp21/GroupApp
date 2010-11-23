@@ -1,0 +1,47 @@
+>rake spec SPEC_OPTS="--format nested"
+NewsfeedsHelper
+  is included in the helper object
+UploadsHelper
+  is included in the helper object
+Comment
+  should create a new instance given valid attributes
+  should delete a post when a user wants to delete it
+Group
+  should create a group given valid attributes
+  should be able to have admins
+  should be able to have normal users
+Newsfeed
+  should create a new instance given valid attributes
+Post
+  should create a new instance given valid attributes
+  should delete a post when a user wants to delete it
+Todo
+  should create a todo given that a user wants to create a todo
+  should delete a todo given that a user wants to delete a todo
+  should be finished given that a user wants to mark it as finished
+  should be unfinished given that a user wants to mark it as unfinished
+Upload
+  should delete a file given that a user wants to delete a file
+  should create a file given that a user wants to create a file
+  should let the user download a file
+NewsfeedsController
+  routing
+    recognizes and generates #index
+    recognizes and generates #new
+    recognizes and generates #show
+    recognizes and generates #edit
+    recognizes and generates #create
+    recognizes and generates #update
+    recognizes and generates #destroy
+/newsfeeds/edit.html.erb
+  renders the edit newsfeed form
+/newsfeeds/index.html.erb
+  renders a list of newsfeeds
+/newsfeeds/new.html.erb
+  renders new newsfeed form
+/newsfeeds/show.html.erb
+  renders attributes in <p>
+
+Finished in 0.901 seconds
+
+28 examples, 0 failures
