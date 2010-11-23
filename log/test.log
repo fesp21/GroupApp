@@ -3511,3 +3511,536 @@ Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds]
   [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" [0m
   [4;35;1mComment Destroy (0.0ms)[0m   [0mDELETE FROM "comments" WHERE "id" = 1[0m
   [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments"."body" = 'hi') LIMIT 1[0m
+
+
+Processing NewsfeedsController#destroy (for 0.0.0.0 at 2010-11-22 22:39:51) [DELETE]
+  Parameters: {"id"=>"37"}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 3ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37]
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing NewsfeedsController#destroy (for 0.0.0.0 at 2010-11-22 22:39:51) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 22:39:51) [PUT]
+  Parameters: {"id"=>"37", "newsfeed"=>{"these"=>"params"}}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37?newsfeed%5Bthese%5D=params]
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 22:39:51) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 71ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 22:39:51) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 22:39:51) [PUT]
+  Parameters: {"id"=>"37", "newsfeed"=>{"these"=>"params"}}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37?newsfeed%5Bthese%5D=params]
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 22:39:51) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 22:39:51) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 22:39:51) [POST]
+  Parameters: {"newsfeed"=>{"these"=>"params"}}
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 22:39:51) [POST]
+  Parameters: {"newsfeed"=>{}}
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 22:39:51) [POST]
+  Parameters: {"newsfeed"=>{"these"=>"params"}}
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 22:39:51) [POST]
+  Parameters: {"newsfeed"=>{}}
+
+
+Processing NewsfeedsController#edit (for 0.0.0.0 at 2010-11-22 22:39:51) [GET]
+  Parameters: {"id"=>"37"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37/edit]
+
+
+Processing NewsfeedsController#new (for 0.0.0.0 at 2010-11-22 22:39:51) [GET]
+
+
+Processing NewsfeedsController#show (for 0.0.0.0 at 2010-11-22 22:39:51) [GET]
+  Parameters: {"id"=>"37"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37]
+
+
+Processing NewsfeedsController#index (for 0.0.0.0 at 2010-11-22 22:39:51) [GET]
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds]
+Rendering newsfeeds/show.html.erb
+Rendering newsfeeds/new.html.erb
+Rendering newsfeeds/index.html.erb
+Rendering newsfeeds/edit.html.erb
+  [4;36;1mNewsfeed Create (0.5ms)[0m   [0;1mINSERT INTO "newsfeeds" ("descriptions", "created_at", "updated_at", "time", "group_id") VALUES('value for descriptions', '2010-11-23 06:39:51', '2010-11-23 06:39:51', '2010-11-23 06:39:51', NULL)[0m
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:39:51', '2010-11-23 06:39:51', 'description')[0m
+  [4;36;1mGroup Load (0.1ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mUpload Create (0.2ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 06:39:51', NULL, NULL, '2010-11-23 06:39:51', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;36;1mUpload Load (0.2ms)[0m   [0;1mSELECT * FROM "uploads" [0m
+[paperclip] Deleting attachments.
+  [4;35;1mUpload Destroy (0.1ms)[0m   [0mDELETE FROM "uploads" WHERE "id" = 1[0m
+  [4;36;1mUpload Load (0.1ms)[0m   [0;1mSELECT * FROM "uploads" WHERE ("uploads"."filename" = 'abc.pdf') LIMIT 1[0m
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:39:51', '2010-11-23 06:39:51', 'description')[0m
+  [4;36;1mGroup Load (0.1ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mUpload Create (0.1ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 06:39:51', NULL, NULL, '2010-11-23 06:39:51', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;36;1mGroup Create (0.3ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:39:51', '2010-11-23 06:39:51', 'description')[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Create (0.1ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 06:39:51', NULL, NULL, '2010-11-23 06:39:51', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:39:51', '2010-11-23 06:39:51', 'description')[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'username') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '21707345400.360958334077837', '2010-11-23 06:39:51', 'c97388dd85308a235309bcb8e567de7d23e7b207', '2010-11-23 06:39:51')[0m
+  [4;36;1mGroup Create (0.1ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:39:51', '2010-11-23 06:39:51', 'description')[0m
+  [4;35;1mMembership Create (0.1ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 06:39:51', '2010-11-23 06:39:51', 1, 1, 0)[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'username') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '21706420400.310954545510086', '2010-11-23 06:39:51', '490d125d888db36a5b8ba083ee616b9c3ac9fef9', '2010-11-23 06:39:51')[0m
+  [4;36;1mGroup Create (0.1ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:39:51', '2010-11-23 06:39:51', 'description')[0m
+  [4;35;1mMembership Create (0.1ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 06:39:51', '2010-11-23 06:39:51', 1, 1, 1)[0m
+  [4;36;1mPost Create (0.4ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 06:39:51', 'test', 'hi', '2010-11-23 06:39:51', 1, 1, 'bob')[0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."title" = 'test') LIMIT 1[0m
+  [4;36;1mPost Create (0.4ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 06:39:51', 'test', 'hi', '2010-11-23 06:39:51', 1, 1, 'bob')[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM "posts" [0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mPost Destroy (0.1ms)[0m   [0mDELETE FROM "posts" WHERE "id" = 1[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."title" = 'test') LIMIT 1[0m
+  [4;35;1mComment Create (0.3ms)[0m   [0mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id", "user_id") VALUES('2010-11-23 06:39:51', 'hi', '2010-11-23 06:39:51', 1, 1)[0m
+  [4;36;1mComment Load (0.2ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments"."body" = 'hi') LIMIT 1[0m
+  [4;35;1mComment Create (0.3ms)[0m   [0mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id", "user_id") VALUES('2010-11-23 06:39:51', 'hi', '2010-11-23 06:39:51', 1, 1)[0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM "comments" [0m
+  [4;35;1mComment Destroy (0.1ms)[0m   [0mDELETE FROM "comments" WHERE "id" = 1[0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments"."body" = 'hi') LIMIT 1[0m
+  [4;35;1mGroup Load (0.2ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" IS NULL) LIMIT 1[0m
+  [4;36;1mGroup Create (0.3ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:39:51', '2010-11-23 06:39:51', 'description')[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" IS NULL) LIMIT 1[0m
+  [4;36;1mGroup Create (0.3ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:39:51', '2010-11-23 06:39:51', 'description')[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" IS NULL) LIMIT 1[0m
+  [4;36;1mGroup Create (0.3ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:39:51', '2010-11-23 06:39:51', 'description')[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" IS NULL) LIMIT 1[0m
+Rendering newsfeeds/show.html.erb
+Rendering newsfeeds/new.html.erb
+Rendering newsfeeds/index.html.erb
+Rendering newsfeeds/edit.html.erb
+  [4;36;1mNewsfeed Create (0.5ms)[0m   [0;1mINSERT INTO "newsfeeds" ("descriptions", "created_at", "updated_at", "time", "group_id") VALUES('value for descriptions', '2010-11-23 06:49:31', '2010-11-23 06:49:31', '2010-11-23 06:49:31', NULL)[0m
+  [4;35;1mGroup Create (0.4ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:49:31', '2010-11-23 06:49:31', 'description')[0m
+  [4;36;1mGroup Load (0.1ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mUpload Create (0.1ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 06:49:31', NULL, NULL, '2010-11-23 06:49:31', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;36;1mUpload Load (0.1ms)[0m   [0;1mSELECT * FROM "uploads" [0m
+[paperclip] Deleting attachments.
+  [4;35;1mUpload Destroy (0.1ms)[0m   [0mDELETE FROM "uploads" WHERE "id" = 1[0m
+  [4;36;1mUpload Load (0.1ms)[0m   [0;1mSELECT * FROM "uploads" WHERE ("uploads"."filename" = 'abc.pdf') LIMIT 1[0m
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:49:31', '2010-11-23 06:49:31', 'description')[0m
+  [4;36;1mGroup Load (0.1ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mUpload Create (0.1ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 06:49:31', NULL, NULL, '2010-11-23 06:49:31', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;36;1mGroup Create (0.3ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:49:31', '2010-11-23 06:49:31', 'description')[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Create (0.1ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 06:49:31', NULL, NULL, '2010-11-23 06:49:31', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:49:31', '2010-11-23 06:49:31', 'description')[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'username') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '21719208000.833929581974861', '2010-11-23 06:49:31', '4686c7a91c884f229002ccdc5b6116cf3b72caf1', '2010-11-23 06:49:31')[0m
+  [4;36;1mGroup Create (0.1ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:49:31', '2010-11-23 06:49:31', 'description')[0m
+  [4;35;1mMembership Create (0.1ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 06:49:31', '2010-11-23 06:49:31', 1, 1, 0)[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'username') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '21717762000.724065468523988', '2010-11-23 06:49:31', '8a2d919556ed5500a169e58bd24bed5797b9b331', '2010-11-23 06:49:31')[0m
+  [4;36;1mGroup Create (0.1ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:49:31', '2010-11-23 06:49:31', 'description')[0m
+  [4;35;1mMembership Create (0.2ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 06:49:31', '2010-11-23 06:49:31', 1, 1, 1)[0m
+  [4;36;1mComment Create (0.3ms)[0m   [0;1mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id", "user_id") VALUES('2010-11-23 06:49:31', 'hi', '2010-11-23 06:49:31', 1, 1)[0m
+  [4;35;1mComment Load (0.2ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments"."body" = 'hi') LIMIT 1[0m
+  [4;36;1mComment Create (0.3ms)[0m   [0;1mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id", "user_id") VALUES('2010-11-23 06:49:31', 'hi', '2010-11-23 06:49:31', 1, 1)[0m
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM "comments" [0m
+  [4;36;1mComment Destroy (0.1ms)[0m   [0;1mDELETE FROM "comments" WHERE "id" = 1[0m
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments"."body" = 'hi') LIMIT 1[0m
+  [4;36;1mPost Create (0.3ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 06:49:31', 'test', 'hi', '2010-11-23 06:49:31', 1, 1, 'bob')[0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."title" = 'test') LIMIT 1[0m
+  [4;36;1mPost Create (0.3ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 06:49:31', 'test', 'hi', '2010-11-23 06:49:31', 1, 1, 'bob')[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM "posts" [0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mPost Destroy (0.1ms)[0m   [0mDELETE FROM "posts" WHERE "id" = 1[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."title" = 'test') LIMIT 1[0m
+  [4;35;1mGroup Load (0.2ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" IS NULL) LIMIT 1[0m
+  [4;36;1mGroup Create (0.3ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:49:31', '2010-11-23 06:49:31', 'description')[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" IS NULL) LIMIT 1[0m
+  [4;36;1mGroup Create (0.3ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:49:31', '2010-11-23 06:49:31', 'description')[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" IS NULL) LIMIT 1[0m
+  [4;36;1mGroup Create (0.3ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:49:31', '2010-11-23 06:49:31', 'description')[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" IS NULL) LIMIT 1[0m
+Rendering newsfeeds/show.html.erb
+Rendering newsfeeds/new.html.erb
+Rendering newsfeeds/index.html.erb
+Rendering newsfeeds/edit.html.erb
+  [4;36;1mNewsfeed Create (0.5ms)[0m   [0;1mINSERT INTO "newsfeeds" ("descriptions", "created_at", "updated_at", "time", "group_id") VALUES('value for descriptions', '2010-11-23 06:50:31', '2010-11-23 06:50:31', '2010-11-23 06:50:31', NULL)[0m
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:50:31', '2010-11-23 06:50:31', 'description')[0m
+  [4;36;1mGroup Load (0.1ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mUpload Create (0.2ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 06:50:31', NULL, NULL, '2010-11-23 06:50:31', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;36;1mUpload Load (0.2ms)[0m   [0;1mSELECT * FROM "uploads" [0m
+[paperclip] Deleting attachments.
+  [4;35;1mUpload Destroy (0.1ms)[0m   [0mDELETE FROM "uploads" WHERE "id" = 1[0m
+  [4;36;1mUpload Load (0.1ms)[0m   [0;1mSELECT * FROM "uploads" WHERE ("uploads"."filename" = 'abc.pdf') LIMIT 1[0m
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:50:31', '2010-11-23 06:50:31', 'description')[0m
+  [4;36;1mGroup Load (0.1ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mUpload Create (0.1ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 06:50:31', NULL, NULL, '2010-11-23 06:50:31', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;36;1mGroup Create (0.3ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:50:31', '2010-11-23 06:50:31', 'description')[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Create (0.1ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 06:50:31', NULL, NULL, '2010-11-23 06:50:31', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:50:31', '2010-11-23 06:50:31', 'description')[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'username') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '21724535000.287952169580184', '2010-11-23 06:50:31', '1bdf93867f7f6917203f5485f11aa13e2a2dd802', '2010-11-23 06:50:31')[0m
+  [4;36;1mGroup Create (0.1ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:50:31', '2010-11-23 06:50:31', 'description')[0m
+  [4;35;1mMembership Create (0.1ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 06:50:31', '2010-11-23 06:50:31', 1, 1, 0)[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'username') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '21723129200.967184534320984', '2010-11-23 06:50:31', 'f6787fc9b6b6bd5d513b35c29560b20d1d8c39e5', '2010-11-23 06:50:31')[0m
+  [4;36;1mGroup Create (0.1ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:50:31', '2010-11-23 06:50:31', 'description')[0m
+  [4;35;1mMembership Create (0.1ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 06:50:31', '2010-11-23 06:50:31', 1, 1, 1)[0m
+  [4;36;1mPost Create (0.4ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 06:50:31', 'test', 'hi', '2010-11-23 06:50:31', 1, 1, 'bob')[0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."title" = 'test') LIMIT 1[0m
+  [4;36;1mPost Create (0.3ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 06:50:31', 'test', 'hi', '2010-11-23 06:50:31', 1, 1, 'bob')[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM "posts" [0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mPost Destroy (0.1ms)[0m   [0mDELETE FROM "posts" WHERE "id" = 1[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."title" = 'test') LIMIT 1[0m
+  [4;35;1mGroup Load (0.2ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" IS NULL) LIMIT 1[0m
+  [4;36;1mGroup Create (0.3ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:50:31', '2010-11-23 06:50:31', 'description')[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" IS NULL) LIMIT 1[0m
+  [4;36;1mGroup Create (0.3ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:50:31', '2010-11-23 06:50:31', 'description')[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" IS NULL) LIMIT 1[0m
+  [4;36;1mGroup Create (0.3ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:50:31', '2010-11-23 06:50:31', 'description')[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" IS NULL) LIMIT 1[0m
+  [4;36;1mComment Create (0.4ms)[0m   [0;1mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id", "user_id") VALUES('2010-11-23 06:50:31', 'hi', '2010-11-23 06:50:31', 1, 1)[0m
+  [4;35;1mComment Load (0.2ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments"."body" = 'hi') LIMIT 1[0m
+  [4;36;1mComment Create (0.3ms)[0m   [0;1mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id", "user_id") VALUES('2010-11-23 06:50:31', 'hi', '2010-11-23 06:50:31', 1, 1)[0m
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM "comments" [0m
+  [4;36;1mComment Destroy (0.1ms)[0m   [0;1mDELETE FROM "comments" WHERE "id" = 1[0m
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments"."body" = 'hi') LIMIT 1[0m
+Rendering newsfeeds/show.html.erb
+Rendering newsfeeds/new.html.erb
+Rendering newsfeeds/index.html.erb
+Rendering newsfeeds/edit.html.erb
+  [4;36;1mNewsfeed Create (0.5ms)[0m   [0;1mINSERT INTO "newsfeeds" ("descriptions", "created_at", "updated_at", "time", "group_id") VALUES('value for descriptions', '2010-11-23 06:51:58', '2010-11-23 06:51:58', '2010-11-23 06:51:58', NULL)[0m
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:51:58', '2010-11-23 06:51:58', 'description')[0m
+  [4;36;1mGroup Load (0.2ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mUpload Create (0.1ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 06:51:58', NULL, NULL, '2010-11-23 06:51:58', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;36;1mUpload Load (0.1ms)[0m   [0;1mSELECT * FROM "uploads" [0m
+[paperclip] Deleting attachments.
+  [4;35;1mUpload Destroy (0.1ms)[0m   [0mDELETE FROM "uploads" WHERE "id" = 1[0m
+  [4;36;1mUpload Load (0.1ms)[0m   [0;1mSELECT * FROM "uploads" WHERE ("uploads"."filename" = 'abc.pdf') LIMIT 1[0m
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:51:58', '2010-11-23 06:51:58', 'description')[0m
+  [4;36;1mGroup Load (0.1ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mUpload Create (0.1ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 06:51:58', NULL, NULL, '2010-11-23 06:51:58', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;36;1mGroup Create (0.3ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:51:58', '2010-11-23 06:51:58', 'description')[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Create (0.1ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 06:51:58', NULL, NULL, '2010-11-23 06:51:58', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:51:58', '2010-11-23 06:51:58', 'description')[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'username') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '21719207800.592679358803617', '2010-11-23 06:51:58', 'eb0d124a7357a00cb0d79e4ff139a23206e52bbf', '2010-11-23 06:51:58')[0m
+  [4;36;1mGroup Create (0.1ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:51:58', '2010-11-23 06:51:58', 'description')[0m
+  [4;35;1mMembership Create (0.2ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 06:51:58', '2010-11-23 06:51:58', 1, 1, 0)[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'username') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '21717761800.107992242544312', '2010-11-23 06:51:58', 'ec5ce0b9d2d937b8664d64b71d1b953c39dced51', '2010-11-23 06:51:58')[0m
+  [4;36;1mGroup Create (0.1ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:51:58', '2010-11-23 06:51:58', 'description')[0m
+  [4;35;1mMembership Create (0.1ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 06:51:58', '2010-11-23 06:51:58', 1, 1, 1)[0m
+  [4;36;1mPost Create (0.4ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 06:51:58', 'test', 'hi', '2010-11-23 06:51:58', 1, 1, 'bob')[0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."title" = 'test') LIMIT 1[0m
+  [4;36;1mPost Create (0.3ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 06:51:58', 'test', 'hi', '2010-11-23 06:51:58', 1, 1, 'bob')[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM "posts" [0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mPost Destroy (0.1ms)[0m   [0mDELETE FROM "posts" WHERE "id" = 1[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."title" = 'test') LIMIT 1[0m
+  [4;35;1mComment Create (0.4ms)[0m   [0mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id", "user_id") VALUES('2010-11-23 06:51:58', 'hi', '2010-11-23 06:51:58', 1, 1)[0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments"."body" = 'hi') LIMIT 1[0m
+  [4;35;1mComment Create (0.3ms)[0m   [0mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id", "user_id") VALUES('2010-11-23 06:51:58', 'hi', '2010-11-23 06:51:58', 1, 1)[0m
+  [4;36;1mComment Load (0.2ms)[0m   [0;1mSELECT * FROM "comments" [0m
+  [4;35;1mComment Destroy (0.1ms)[0m   [0mDELETE FROM "comments" WHERE "id" = 1[0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments"."body" = 'hi') LIMIT 1[0m
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:51:58', '2010-11-23 06:51:58', 'description')[0m
+  [4;36;1mGroup Load (0.1ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" IS NULL) LIMIT 1[0m
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:51:58', '2010-11-23 06:51:58', 'description')[0m
+  [4;36;1mGroup Load (0.1ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" IS NULL) LIMIT 1[0m
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:51:58', '2010-11-23 06:51:58', 'description')[0m
+  [4;36;1mGroup Load (0.1ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" IS NULL) LIMIT 1[0m
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:51:58', '2010-11-23 06:51:58', 'description')[0m
+  [4;36;1mGroup Load (0.1ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" IS NULL) LIMIT 1[0m
+Rendering newsfeeds/show.html.erb
+Rendering newsfeeds/new.html.erb
+Rendering newsfeeds/index.html.erb
+Rendering newsfeeds/edit.html.erb
+  [4;36;1mNewsfeed Create (0.5ms)[0m   [0;1mINSERT INTO "newsfeeds" ("descriptions", "created_at", "updated_at", "time", "group_id") VALUES('value for descriptions', '2010-11-23 06:52:54', '2010-11-23 06:52:54', '2010-11-23 06:52:54', NULL)[0m
+  [4;35;1mGroup Create (0.4ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:52:54', '2010-11-23 06:52:54', 'description')[0m
+  [4;36;1mGroup Load (0.1ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mUpload Create (0.2ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 06:52:54', NULL, NULL, '2010-11-23 06:52:54', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;36;1mUpload Load (0.1ms)[0m   [0;1mSELECT * FROM "uploads" [0m
+[paperclip] Deleting attachments.
+  [4;35;1mUpload Destroy (0.1ms)[0m   [0mDELETE FROM "uploads" WHERE "id" = 1[0m
+  [4;36;1mUpload Load (0.1ms)[0m   [0;1mSELECT * FROM "uploads" WHERE ("uploads"."filename" = 'abc.pdf') LIMIT 1[0m
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:52:54', '2010-11-23 06:52:54', 'description')[0m
+  [4;36;1mGroup Load (0.1ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mUpload Create (0.1ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 06:52:54', NULL, NULL, '2010-11-23 06:52:54', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;36;1mGroup Create (0.3ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:52:54', '2010-11-23 06:52:54', 'description')[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Create (0.1ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 06:52:54', NULL, NULL, '2010-11-23 06:52:54', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:52:54', '2010-11-23 06:52:54', 'description')[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'username') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '21719215200.212062002229355', '2010-11-23 06:52:54', 'e0b4bf58cdb5646fc0b09e41540bb260b16c3f4a', '2010-11-23 06:52:54')[0m
+  [4;36;1mGroup Create (0.1ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:52:54', '2010-11-23 06:52:54', 'description')[0m
+  [4;35;1mMembership Create (0.2ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 06:52:54', '2010-11-23 06:52:54', 1, 1, 0)[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'username') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '21717769800.128161124434167', '2010-11-23 06:52:54', 'a92a5318c86f5d3dd7c6e2724d754f2b8896f0bd', '2010-11-23 06:52:54')[0m
+  [4;36;1mGroup Create (0.1ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:52:54', '2010-11-23 06:52:54', 'description')[0m
+  [4;35;1mMembership Create (0.1ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 06:52:54', '2010-11-23 06:52:54', 1, 1, 1)[0m
+  [4;36;1mPost Create (0.4ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 06:52:54', 'test', 'hi', '2010-11-23 06:52:54', 1, 1, 'bob')[0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."title" = 'test') LIMIT 1[0m
+  [4;36;1mPost Create (0.3ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 06:52:54', 'test', 'hi', '2010-11-23 06:52:54', 1, 1, 'bob')[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM "posts" [0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mPost Destroy (0.1ms)[0m   [0mDELETE FROM "posts" WHERE "id" = 1[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."title" = 'test') LIMIT 1[0m
+  [4;35;1mComment Create (0.3ms)[0m   [0mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id", "user_id") VALUES('2010-11-23 06:52:54', 'hi', '2010-11-23 06:52:54', 1, 1)[0m
+  [4;36;1mComment Load (0.2ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments"."body" = 'hi') LIMIT 1[0m
+  [4;35;1mComment Create (0.3ms)[0m   [0mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id", "user_id") VALUES('2010-11-23 06:52:54', 'hi', '2010-11-23 06:52:54', 1, 1)[0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM "comments" [0m
+  [4;35;1mComment Destroy (0.1ms)[0m   [0mDELETE FROM "comments" WHERE "id" = 1[0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments"."body" = 'hi') LIMIT 1[0m
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:52:54', '2010-11-23 06:52:54', 'description')[0m
+  [4;36;1mGroup Create (0.3ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:52:54', '2010-11-23 06:52:54', 'description')[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" IS NULL) LIMIT 1[0m
+  [4;36;1mGroup Create (0.4ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:52:54', '2010-11-23 06:52:54', 'description')[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" IS NULL) LIMIT 1[0m
+  [4;36;1mGroup Create (0.3ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:52:54', '2010-11-23 06:52:54', 'description')[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" IS NULL) LIMIT 1[0m
+Rendering newsfeeds/show.html.erb
+Rendering newsfeeds/new.html.erb
+Rendering newsfeeds/index.html.erb
+Rendering newsfeeds/edit.html.erb
+  [4;36;1mNewsfeed Create (0.5ms)[0m   [0;1mINSERT INTO "newsfeeds" ("descriptions", "created_at", "updated_at", "time", "group_id") VALUES('value for descriptions', '2010-11-23 06:54:04', '2010-11-23 06:54:04', '2010-11-23 06:54:04', NULL)[0m
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:54:04', '2010-11-23 06:54:04', 'description')[0m
+  [4;36;1mGroup Load (0.1ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mUpload Create (0.1ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 06:54:04', NULL, NULL, '2010-11-23 06:54:04', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;36;1mUpload Load (0.1ms)[0m   [0;1mSELECT * FROM "uploads" [0m
+[paperclip] Deleting attachments.
+  [4;35;1mUpload Destroy (0.1ms)[0m   [0mDELETE FROM "uploads" WHERE "id" = 1[0m
+  [4;36;1mUpload Load (0.1ms)[0m   [0;1mSELECT * FROM "uploads" WHERE ("uploads"."filename" = 'abc.pdf') LIMIT 1[0m
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:54:04', '2010-11-23 06:54:04', 'description')[0m
+  [4;36;1mGroup Load (0.1ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mUpload Create (0.1ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 06:54:04', NULL, NULL, '2010-11-23 06:54:04', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;36;1mGroup Create (0.3ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:54:04', '2010-11-23 06:54:04', 'description')[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Create (0.1ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 06:54:04', NULL, NULL, '2010-11-23 06:54:04', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:54:04', '2010-11-23 06:54:04', 'description')[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'username') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '21719215400.950486827700535', '2010-11-23 06:54:04', 'ce771c43b87e4e0b8570c0117f2846c75637e3c1', '2010-11-23 06:54:04')[0m
+  [4;36;1mGroup Create (0.1ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:54:04', '2010-11-23 06:54:04', 'description')[0m
+  [4;35;1mMembership Create (0.2ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 06:54:04', '2010-11-23 06:54:04', 1, 1, 0)[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'username') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '21717770000.669274765713489', '2010-11-23 06:54:04', '81ad5ba885e5e979974be6971af14c2d88a39e9f', '2010-11-23 06:54:04')[0m
+  [4;36;1mGroup Create (0.1ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:54:04', '2010-11-23 06:54:04', 'description')[0m
+  [4;35;1mMembership Create (0.1ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 06:54:04', '2010-11-23 06:54:04', 1, 1, 1)[0m
+  [4;36;1mPost Create (0.4ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 06:54:04', 'test', 'hi', '2010-11-23 06:54:04', 1, 1, 'bob')[0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."title" = 'test') LIMIT 1[0m
+  [4;36;1mPost Create (0.3ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 06:54:04', 'test', 'hi', '2010-11-23 06:54:04', 1, 1, 'bob')[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM "posts" [0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mPost Destroy (0.1ms)[0m   [0mDELETE FROM "posts" WHERE "id" = 1[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."title" = 'test') LIMIT 1[0m
+  [4;35;1mComment Create (0.3ms)[0m   [0mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id", "user_id") VALUES('2010-11-23 06:54:04', 'hi', '2010-11-23 06:54:04', 1, 1)[0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments"."body" = 'hi') LIMIT 1[0m
+  [4;35;1mComment Create (0.3ms)[0m   [0mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id", "user_id") VALUES('2010-11-23 06:54:04', 'hi', '2010-11-23 06:54:04', 1, 1)[0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM "comments" [0m
+  [4;35;1mComment Destroy (0.1ms)[0m   [0mDELETE FROM "comments" WHERE "id" = 1[0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments"."body" = 'hi') LIMIT 1[0m
+Rendering newsfeeds/show.html.erb
+Rendering newsfeeds/new.html.erb
+Rendering newsfeeds/index.html.erb
+Rendering newsfeeds/edit.html.erb
+  [4;36;1mNewsfeed Create (0.5ms)[0m   [0;1mINSERT INTO "newsfeeds" ("descriptions", "created_at", "updated_at", "time", "group_id") VALUES('value for descriptions', '2010-11-23 06:55:49', '2010-11-23 06:55:49', '2010-11-23 06:55:49', NULL)[0m
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:55:49', '2010-11-23 06:55:49', 'description')[0m
+  [4;36;1mGroup Load (0.2ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mUpload Create (0.1ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 06:55:49', NULL, NULL, '2010-11-23 06:55:49', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;36;1mUpload Load (0.1ms)[0m   [0;1mSELECT * FROM "uploads" [0m
+[paperclip] Deleting attachments.
+  [4;35;1mUpload Destroy (0.1ms)[0m   [0mDELETE FROM "uploads" WHERE "id" = 1[0m
+  [4;36;1mUpload Load (0.1ms)[0m   [0;1mSELECT * FROM "uploads" WHERE ("uploads"."filename" = 'abc.pdf') LIMIT 1[0m
+  [4;35;1mGroup Create (0.4ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:55:49', '2010-11-23 06:55:49', 'description')[0m
+  [4;36;1mGroup Load (0.1ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mUpload Create (0.1ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 06:55:49', NULL, NULL, '2010-11-23 06:55:49', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;36;1mGroup Create (0.3ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:55:49', '2010-11-23 06:55:49', 'description')[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Create (0.1ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 06:55:49', NULL, NULL, '2010-11-23 06:55:49', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:55:49', '2010-11-23 06:55:49', 'description')[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'username') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '21724458200.352378078808305', '2010-11-23 06:55:49', '95b6e53ef8984b73bd8a04ba01785e6d48194833', '2010-11-23 06:55:49')[0m
+  [4;36;1mGroup Create (0.1ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:55:49', '2010-11-23 06:55:49', 'description')[0m
+  [4;35;1mMembership Create (0.2ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 06:55:49', '2010-11-23 06:55:49', 1, 1, 0)[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'username') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '21723012800.66128205510358', '2010-11-23 06:55:49', '534ba310a37e118ab41898bb0df6f60655461d15', '2010-11-23 06:55:49')[0m
+  [4;36;1mGroup Create (0.1ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:55:49', '2010-11-23 06:55:49', 'description')[0m
+  [4;35;1mMembership Create (0.1ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 06:55:49', '2010-11-23 06:55:49', 1, 1, 1)[0m
+  [4;36;1mPost Create (0.4ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 06:55:49', 'test', 'hi', '2010-11-23 06:55:49', 1, 1, 'bob')[0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."title" = 'test') LIMIT 1[0m
+  [4;36;1mPost Create (0.3ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 06:55:49', 'test', 'hi', '2010-11-23 06:55:49', 1, 1, 'bob')[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM "posts" [0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mPost Destroy (0.1ms)[0m   [0mDELETE FROM "posts" WHERE "id" = 1[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."title" = 'test') LIMIT 1[0m
+  [4;35;1mComment Create (0.3ms)[0m   [0mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id", "user_id") VALUES('2010-11-23 06:55:49', 'hi', '2010-11-23 06:55:49', 1, 1)[0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments"."body" = 'hi') LIMIT 1[0m
+  [4;35;1mComment Create (0.3ms)[0m   [0mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id", "user_id") VALUES('2010-11-23 06:55:49', 'hi', '2010-11-23 06:55:49', 1, 1)[0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM "comments" [0m
+  [4;35;1mComment Destroy (0.1ms)[0m   [0mDELETE FROM "comments" WHERE "id" = 1[0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments"."body" = 'hi') LIMIT 1[0m
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:55:49', '2010-11-23 06:55:49', 'description')[0m
+  [4;36;1mGroup Load (0.1ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mTodo Create (0.1ms)[0m   [0mINSERT INTO "todos" ("created_at", "updated_at", "group_id", "duedate", "task", "finished") VALUES('2010-11-23 06:55:49', '2010-11-23 06:55:49', 1, '2010-11-22 22:55:49', 'Milestone', 'f')[0m
+  [4;36;1mGroup Create (0.3ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:55:49', '2010-11-23 06:55:49', 'description')[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mTodo Create (0.1ms)[0m   [0;1mINSERT INTO "todos" ("created_at", "updated_at", "group_id", "duedate", "task", "finished") VALUES('2010-11-23 06:55:49', '2010-11-23 06:55:49', 1, '2010-11-22 22:55:49', 'Milestone', 'f')[0m
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:55:49', '2010-11-23 06:55:49', 'description')[0m
+  [4;36;1mGroup Load (0.1ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mTodo Create (0.1ms)[0m   [0mINSERT INTO "todos" ("created_at", "updated_at", "group_id", "duedate", "task", "finished") VALUES('2010-11-23 06:55:49', '2010-11-23 06:55:49', 1, '2010-11-22 22:55:49', 'Milestone', 'f')[0m
+  [4;36;1mGroup Load (0.1ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mTodo Update (0.1ms)[0m   [0mUPDATE "todos" SET "updated_at" = '2010-11-23 06:55:49', "finished" = 't' WHERE "id" = 1[0m
+  [4;36;1mGroup Create (0.3ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:55:49', '2010-11-23 06:55:49', 'description')[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mTodo Create (0.1ms)[0m   [0;1mINSERT INTO "todos" ("created_at", "updated_at", "group_id", "duedate", "task", "finished") VALUES('2010-11-23 06:55:49', '2010-11-23 06:55:49', 1, '2010-11-22 22:55:49', 'Milestone', 't')[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mTodo Update (0.1ms)[0m   [0;1mUPDATE "todos" SET "updated_at" = '2010-11-23 06:55:49', "finished" = 'f' WHERE "id" = 1[0m
+Rendering newsfeeds/show.html.erb
+Rendering newsfeeds/new.html.erb
+Rendering newsfeeds/index.html.erb
+Rendering newsfeeds/edit.html.erb
+  [4;36;1mNewsfeed Create (0.5ms)[0m   [0;1mINSERT INTO "newsfeeds" ("descriptions", "created_at", "updated_at", "time", "group_id") VALUES('value for descriptions', '2010-11-23 06:56:16', '2010-11-23 06:56:16', '2010-11-23 06:56:16', NULL)[0m
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:56:16', '2010-11-23 06:56:16', 'description')[0m
+  [4;36;1mGroup Load (0.2ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mUpload Create (0.1ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 06:56:16', NULL, NULL, '2010-11-23 06:56:16', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;36;1mUpload Load (0.1ms)[0m   [0;1mSELECT * FROM "uploads" [0m
+[paperclip] Deleting attachments.
+  [4;35;1mUpload Destroy (0.1ms)[0m   [0mDELETE FROM "uploads" WHERE "id" = 1[0m
+  [4;36;1mUpload Load (0.1ms)[0m   [0;1mSELECT * FROM "uploads" WHERE ("uploads"."filename" = 'abc.pdf') LIMIT 1[0m
+  [4;35;1mGroup Create (0.4ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:56:16', '2010-11-23 06:56:16', 'description')[0m
+  [4;36;1mGroup Load (0.1ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mUpload Create (0.1ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 06:56:16', NULL, NULL, '2010-11-23 06:56:16', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;36;1mGroup Create (0.3ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:56:16', '2010-11-23 06:56:16', 'description')[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Create (0.1ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 06:56:16', NULL, NULL, '2010-11-23 06:56:16', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:56:16', '2010-11-23 06:56:16', 'description')[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'username') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '21719207800.394647825814562', '2010-11-23 06:56:16', '4a588a9388bd0acad573fd3e9a9fb49236639109', '2010-11-23 06:56:16')[0m
+  [4;36;1mGroup Create (0.1ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:56:16', '2010-11-23 06:56:16', 'description')[0m
+  [4;35;1mMembership Create (0.2ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 06:56:16', '2010-11-23 06:56:16', 1, 1, 0)[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'username') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '21717761800.126099164385061', '2010-11-23 06:56:16', '3c31338ad1f957940cf4722ab922ad4df56c8b19', '2010-11-23 06:56:16')[0m
+  [4;36;1mGroup Create (0.1ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:56:16', '2010-11-23 06:56:16', 'description')[0m
+  [4;35;1mMembership Create (0.1ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 06:56:16', '2010-11-23 06:56:16', 1, 1, 1)[0m
+  [4;36;1mPost Create (0.3ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 06:56:16', 'test', 'hi', '2010-11-23 06:56:16', 1, 1, 'bob')[0m
+  [4;35;1mPost Load (0.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."title" = 'test') LIMIT 1[0m
+  [4;36;1mPost Create (0.3ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 06:56:16', 'test', 'hi', '2010-11-23 06:56:16', 1, 1, 'bob')[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM "posts" [0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mPost Destroy (0.1ms)[0m   [0mDELETE FROM "posts" WHERE "id" = 1[0m
+  [4;36;1mPost Load (0.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."title" = 'test') LIMIT 1[0m
+  [4;35;1mComment Create (0.3ms)[0m   [0mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id", "user_id") VALUES('2010-11-23 06:56:16', 'hi', '2010-11-23 06:56:16', 1, 1)[0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments"."body" = 'hi') LIMIT 1[0m
+  [4;35;1mComment Create (0.3ms)[0m   [0mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id", "user_id") VALUES('2010-11-23 06:56:16', 'hi', '2010-11-23 06:56:16', 1, 1)[0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM "comments" [0m
+  [4;35;1mComment Destroy (0.1ms)[0m   [0mDELETE FROM "comments" WHERE "id" = 1[0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments"."body" = 'hi') LIMIT 1[0m
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:56:16', '2010-11-23 06:56:16', 'description')[0m
+  [4;36;1mGroup Load (0.2ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mTodo Create (0.1ms)[0m   [0mINSERT INTO "todos" ("created_at", "updated_at", "group_id", "duedate", "task", "finished") VALUES('2010-11-23 06:56:16', '2010-11-23 06:56:16', 1, '2010-11-22 22:56:16', 'Milestone', 'f')[0m
+  [4;36;1mGroup Create (0.3ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:56:16', '2010-11-23 06:56:16', 'description')[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mTodo Create (0.1ms)[0m   [0;1mINSERT INTO "todos" ("created_at", "updated_at", "group_id", "duedate", "task", "finished") VALUES('2010-11-23 06:56:16', '2010-11-23 06:56:16', 1, '2010-11-22 22:56:16', 'Milestone', 'f')[0m
+  [4;35;1mTodo Load (0.2ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1) LIMIT 1[0m
+  [4;36;1mTodo Destroy (0.1ms)[0m   [0;1mDELETE FROM "todos" WHERE "id" = 1[0m
+  [4;35;1mTodo Load (0.1ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."task" = 'Milestone') LIMIT 1[0m
+  [4;36;1mGroup Create (0.3ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:56:16', '2010-11-23 06:56:16', 'description')[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mTodo Create (0.1ms)[0m   [0;1mINSERT INTO "todos" ("created_at", "updated_at", "group_id", "duedate", "task", "finished") VALUES('2010-11-23 06:56:16', '2010-11-23 06:56:16', 1, '2010-11-22 22:56:16', 'Milestone', 'f')[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mTodo Update (0.1ms)[0m   [0;1mUPDATE "todos" SET "updated_at" = '2010-11-23 06:56:16', "finished" = 't' WHERE "id" = 1[0m
+  [4;35;1mGroup Create (0.3ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 06:56:16', '2010-11-23 06:56:16', 'description')[0m
+  [4;36;1mGroup Load (0.4ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mTodo Create (0.1ms)[0m   [0mINSERT INTO "todos" ("created_at", "updated_at", "group_id", "duedate", "task", "finished") VALUES('2010-11-23 06:56:16', '2010-11-23 06:56:16', 1, '2010-11-22 22:56:16', 'Milestone', 't')[0m
+  [4;36;1mGroup Load (0.1ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mTodo Update (0.1ms)[0m   [0mUPDATE "todos" SET "updated_at" = '2010-11-23 06:56:16', "finished" = 'f' WHERE "id" = 1[0m
