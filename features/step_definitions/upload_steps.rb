@@ -37,7 +37,7 @@ When /^I try to edit a file named "([^"]*)"$/ do |arg1|
 end
 
 Then /^I should be in the edit page for "([^"]*)"$/ do |arg1|
-  response.should contain("Editing")
+  response.should contain("edit")
 end
 
 When /^I try to download a file named "([^"]*)" to a group that I am not in$/ do |arg1|
@@ -62,4 +62,8 @@ When /^I try to edit a file named "([^"]*)" in a group that I am not in$/ do |ar
   @group = Group.create!(:name => "GroupName2", :description => "description2")
   @file = Upload.create!(:filename => "a.pdf", :description => "a file", :group_id => @group.id)
   visit group_uploads_url(@group.id)
+end
+
+Then /^I should not be on the download page$/ do
+	response.should_not contain("Download")
 end

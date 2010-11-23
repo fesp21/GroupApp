@@ -213,3 +213,132 @@ Rendering uploads/index.html.erb
 Rendering uploads/edit.html.erb
   [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" IS NULL) LIMIT 1[0m
   [4;35;1mPost Create (1.0ms)[0m   [0mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user") VALUES('2010-11-12 03:22:16', 'test', 'hi', '2010-11-12 03:22:16', NULL, 'bob')[0m
+Rendering uploads/show.html.erb
+Rendering uploads/new.html.erb
+Rendering uploads/index.html.erb
+Rendering uploads/edit.html.erb
+Rendering newsfeeds/show.html.erb
+Rendering newsfeeds/new.html.erb
+Rendering newsfeeds/index.html.erb
+Rendering newsfeeds/edit.html.erb
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" IS NULL) LIMIT 1[0m
+  [4;35;1mPost Create (0.0ms)[0m   [0mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 00:05:40', 'test', 'hi', '2010-11-23 00:05:40', NULL, NULL, 'bob')[0m
+  [4;36;1mNewsfeed Create (1.2ms)[0m   [0;1mINSERT INTO "newsfeeds" ("descriptions", "created_at", "updated_at", "time", "group_id") VALUES('value for descriptions', '2010-11-23 00:05:40', '2010-11-23 00:05:40', '2010-11-23 00:05:40', NULL)[0m
+
+
+Processing NewsfeedsController#destroy (for 0.0.0.0 at 2010-11-22 16:05:40) [DELETE]
+  Parameters: {"id"=>"37"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 3ms (DB: 1) | 302 Found [http://test.host/newsfeeds/37]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing NewsfeedsController#destroy (for 0.0.0.0 at 2010-11-22 16:05:40) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 0ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 16:05:40) [PUT]
+  Parameters: {"id"=>"37", "newsfeed"=>{"these"=>"params"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37?newsfeed%5Bthese%5D=params]
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 16:05:40) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 16:05:40) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 16:05:40) [PUT]
+  Parameters: {"id"=>"37", "newsfeed"=>{"these"=>"params"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37?newsfeed%5Bthese%5D=params]
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 16:05:40) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 16:05:40) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 1) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 16:05:40) [POST]
+  Parameters: {"newsfeed"=>{"these"=>"params"}}
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 16:05:40) [POST]
+  Parameters: {"newsfeed"=>{}}
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 16:05:40) [POST]
+  Parameters: {"newsfeed"=>{"these"=>"params"}}
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 16:05:40) [POST]
+  Parameters: {"newsfeed"=>{}}
+
+
+Processing NewsfeedsController#edit (for 0.0.0.0 at 2010-11-22 16:05:40) [GET]
+  Parameters: {"id"=>"37"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37/edit]
+
+
+Processing NewsfeedsController#new (for 0.0.0.0 at 2010-11-22 16:05:40) [GET]
+
+
+Processing NewsfeedsController#show (for 0.0.0.0 at 2010-11-22 16:05:40) [GET]
+  Parameters: {"id"=>"37"}
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 1) | 302 Found [http://test.host/newsfeeds/37]
+
+
+Processing NewsfeedsController#index (for 0.0.0.0 at 2010-11-22 16:05:40) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 0ms (DB: 0) | 302 Found [http://test.host/newsfeeds]

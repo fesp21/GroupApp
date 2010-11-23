@@ -31,22 +31,22 @@ Feature: Resources Management
   Scenario: User failing to download a file from a group they are not in
     Given that I am a user
 	When I try to download a file named "a.pdf" to a group that I am not in
-	Then I should be on the users page
+	Then I should not be on the download page
 	
 	
   Scenario: User failing to delete a file from a group they are not in
     Given that I am a user
 	When I try to delete a file named "a.pdf" to a group that I am not in
-	Then I should be on the users page
+	Then I should not be on the download page
 	
 	
   Scenario: User failing to add a file from a group they are not in
     Given that I am a user
 	When I try to add a file named "a.pdf" to a group that I am not in
-	Then I should be on the users page
+	Then I should not be on the download page
 	
 	
   Scenario: User failing to edit a file from a group that they are not in
 	Given that I am a user
 	When I try to edit a file named "a.pdf" in a group that I am not in
-	Then I should be on the users page
+	Then I should not be on the download page
