@@ -1,0 +1,15 @@
+>rake rcov:all
+rm coverage.data
+C:/Ruby187/bin/ruby.exe -I "C:/Ruby187/lib/ruby/gems/1.8/gems/cucumber-0.8.5/lib;lib" -S rcov --rails --exclude osx\/objc,gems\/,spec\/,features\/ --aggregate coverage.data -o "coverage" "C:/Ruby187/lib/ruby/gems/1.8/gems/cucumber-0.8.5/bin/cucumber" --
+Using the default profile...
+...............................................................
+
+22 scenarios (22 passed)
+63 steps (63 passed)
+0m15.058s
+rm -r coverage
+............................
+
+Finished in 1.188 seconds
+
+28 examples, 0 failures
