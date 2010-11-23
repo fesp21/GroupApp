@@ -28,7 +28,7 @@ Your ID is <%= session[:user_id] %>
 		<td><bold>FROM:</bold></td>
 	    <td><%=h conversation.origin %></td>
 	    <td><%=h conversation.message %></td>
-	    <td><%= link_to 'x', conversation, :confirm => 'Are you sure you want to delete this message?', :method => :delete %></td>
+	    <td><%= link_to 'x', conversation, :method => :delete %></td>
 	  </tr>
 	  <% end %>
 	<% end %>
