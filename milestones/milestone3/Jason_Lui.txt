@@ -1,0 +1,6 @@
+I've looked into the beatmap team's project, and the feature that I 
+particularly liked was mapping restaurants and other shops on a google 
+map not only on location, but also with a indicator, using a red dot 
+with varying degrees of concentration, to indicate what places are more 
+popular. One thing they can improve on though, is to scale this red dot 
+acoording to google map's zoom level.
