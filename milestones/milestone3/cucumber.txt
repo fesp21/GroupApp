@@ -1,0 +1,135 @@
+Using the default profile...
+Feature: Chatting
+  Users can communicate with each other in a group chat room setting
+
+  Scenario: User entering chat room                      # features/chat.feature:5
+    GIVEN that I'm a user
+    WHEN I click on "chat room" for a group
+    THEN I should be able to enter the group's chat room
+
+Feature: User Communication
+  In order to communicate
+  As a user
+  I want to be able to use posts and comments
+
+  Scenario: Administrator deleting bad post # features/communication.feature:6
+    Given that I am an administrator        # features/step_definitions/communication_steps.rb:1
+    When I see a bad post                   # features/step_definitions/communication_steps.rb:11
+    Then I should be able to delete it      # features/step_definitions/communication_steps.rb:16
+
+  Scenario: User posting a message                   # features/communication.feature:12
+    Given that I am a post user                      # features/step_definitions/communication_steps.rb:22
+    When I post a message                            # features/step_definitions/communication_steps.rb:32
+    Then I should be able to see it on the post page # features/step_definitions/communication_steps.rb:38
+
+  Scenario: User posts a comment on a post # features/communication.feature:18
+    Given that I am a post user            # features/step_definitions/communication_steps.rb:22
+    When I see a post                      # features/step_definitions/communication_steps.rb:43
+    Then I should be able to comment on it # features/step_definitions/communication_steps.rb:49
+
+  Scenario: User deletes a comment              # features/communication.feature:23
+    Given that I am a comment user              # features/step_definitions/communication_steps.rb:56
+    When I see a comment that is mine           # features/step_definitions/communication_steps.rb:66
+    Then I should be able to delete the comment # features/step_definitions/communication_steps.rb:74
+
+Feature: User Permissions Management
+  Administrator can manage user permissions
+  Administrators can remove users from their group
+  Normal users cannot manage user permissions
+  Normal users cannot remvoe users from their group
+
+  Scenario: Administrator changing access level # features/permissions.feature:8
+    Given that I am an administrator in a group # features/step_definitions/permissions_steps.rb:1
+    When I try to change someones access level  # features/step_definitions/permissions_steps.rb:25
+    Then I should be able to change it          # features/step_definitions/permissions_steps.rb:11
+
+  Scenario: Administrator removing user from group # features/permissions.feature:13
+    Given that I am an administrator in a group    # features/step_definitions/permissions_steps.rb:1
+    When I try to remove a user                    # features/step_definitions/permissions_steps.rb:31
+    Then I should be able to remove them           # features/step_definitions/permissions_steps.rb:37
+
+  Scenario: Regular member trying to change access level # features/permissions.feature:18
+    Given that I am regular member in a group            # features/step_definitions/permissions_steps.rb:15
+    When I try to change someones access level           # features/step_definitions/permissions_steps.rb:25
+    Then it will not allow me to change their level      # features/step_definitions/permissions_steps.rb:41
+
+  Scenario: Regular member trying to remove user from their group # features/permissions.feature:23
+    Given that I am regular member in a group                     # features/step_definitions/permissions_steps.rb:15
+    When I try to remove a user                                   # features/step_definitions/permissions_steps.rb:31
+    Then it will not allow me to remove them                      # features/step_definitions/permissions_steps.rb:45
+
+Feature: Todo List
+  User can add, delete, edit, mark finish, and mark unfinished todos in groups that they belong in
+
+  Scenario: User deleting a todo                # features/todos.feature:5
+    Given that I am a user                      # features/step_definitions/upload_steps.rb:1
+    When I click the "todos" link for the group # features/step_definitions/todos_steps.rb:1
+    Then I should be able to delete the todo    # features/step_definitions/todos_steps.rb:10
+
+  Scenario: User adding a todo                              # features/todos.feature:11
+    Given that I am a user                                  # features/step_definitions/upload_steps.rb:1
+    When I add a new todo with description "Milestone"      # features/step_definitions/todos_steps.rb:6
+    Then I should see "Milestone" in the group's todos page # features/step_definitions/todos_steps.rb:14
+
+  Scenario: User editing a todo                     # features/todos.feature:17
+    Given that I am a user                          # features/step_definitions/upload_steps.rb:1
+    When I try to edit a todo named "Milestone"     # features/step_definitions/todos_steps.rb:19
+    Then I should see the edit page for "Milestone" # features/step_definitions/todos_steps.rb:24
+
+  Scenario: User marking a todo finished          # features/todos.feature:23
+    Given that I am a user                        # features/step_definitions/upload_steps.rb:1
+    When I mark a todo finished                   # features/step_definitions/todos_steps.rb:29
+    Then I should see the todo marked as finished # features/step_definitions/todos_steps.rb:35
+
+  Scenario: User marking a todo unfinished          # features/todos.feature:29
+    Given that I am a user                          # features/step_definitions/upload_steps.rb:1
+    When I mark a todo unfinished                   # features/step_definitions/todos_steps.rb:39
+    Then I should see the todo marked as unfinished # features/step_definitions/todos_steps.rb:45
+
+Feature: Resources Management
+  User can store, download, edit, and delete files in groups that they belong in
+  User cannot store, download, edit, and delete files in groups that they do not belong in
+
+  Scenario: User downloading a file                            # features/uploads.feature:7
+    Given that I am a user                                     # features/step_definitions/upload_steps.rb:1
+    When I click on "Download" for "a.pdf" on the uploads page # features/step_definitions/upload_steps.rb:11
+    Then I should be prompted to download the file             # features/step_definitions/upload_steps.rb:16
+
+  Scenario: User deleting a file                              # features/uploads.feature:13
+    Given that I am a user                                    # features/step_definitions/upload_steps.rb:1
+    When I click on "Destroy" for "a.pdf" on the uploads page # features/step_definitions/upload_steps.rb:11
+    Then I should be prompted to destroy the file             # features/step_definitions/upload_steps.rb:20
+
+  Scenario: User adding a file                         # features/uploads.feature:19
+    Given that I am a user                             # features/step_definitions/upload_steps.rb:1
+    When I add a file named "a.pdf"                    # features/step_definitions/upload_steps.rb:24
+    Then I should see "a.pdf" in the index upload page # features/step_definitions/upload_steps.rb:28
+
+  Scenario: User editing a file                   # features/uploads.feature:25
+    Given that I am a user                        # features/step_definitions/upload_steps.rb:1
+    When I try to edit a file named "a.pdf"       # features/step_definitions/upload_steps.rb:33
+    Then I should be in the edit page for "a.pdf" # features/step_definitions/upload_steps.rb:39
+
+  Scenario: User failing to download a file from a group they are not in    # features/uploads.feature:31
+    Given that I am a user                                                  # features/step_definitions/upload_steps.rb:1
+    When I try to download a file named "a.pdf" to a group that I am not in # features/step_definitions/upload_steps.rb:43
+    Then I should not be on the download page                               # features/step_definitions/upload_steps.rb:67
+
+  Scenario: User failing to delete a file from a group they are not in    # features/uploads.feature:37
+    Given that I am a user                                                # features/step_definitions/upload_steps.rb:1
+    When I try to delete a file named "a.pdf" to a group that I am not in # features/step_definitions/upload_steps.rb:49
+    Then I should not be on the download page                             # features/step_definitions/upload_steps.rb:67
+
+  Scenario: User failing to add a file from a group they are not in    # features/uploads.feature:43
+    Given that I am a user                                             # features/step_definitions/upload_steps.rb:1
+    When I try to add a file named "a.pdf" to a group that I am not in # features/step_definitions/upload_steps.rb:55
+    Then I should not be on the download page                          # features/step_definitions/upload_steps.rb:67
+
+  Scenario: User failing to edit a file from a group that they are not in # features/uploads.feature:49
+    Given that I am a user                                                # features/step_definitions/upload_steps.rb:1
+    When I try to edit a file named "a.pdf" in a group that I am not in   # features/step_definitions/upload_steps.rb:61
+    Then I should not be on the download page                             # features/step_definitions/upload_steps.rb:67
+
+22 scenarios (22 passed)
+63 steps (63 passed)
+0m3.779s

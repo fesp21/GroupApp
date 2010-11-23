@@ -1,2 +1,4 @@
 uploads.feature
 todos.feature
+communication.feature
+permissions.feature

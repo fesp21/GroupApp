@@ -1,0 +1,17 @@
+(in /Users/Yaqiao/GroupApp)
+** Invoke spec (first_time)
+** Invoke db:test:prepare (first_time)
+** Invoke db:abort_if_pending_migrations (first_time)
+** Invoke environment (first_time)
+** Execute environment
+** Execute db:abort_if_pending_migrations
+** Execute db:test:prepare
+** Invoke db:test:load (first_time)
+** Invoke db:test:purge (first_time)
+** Invoke environment 
+** Execute db:test:purge
+** Execute db:test:load
+** Invoke db:schema:load (first_time)
+** Invoke environment 
+** Execute db:schema:load
+** Execute spec
