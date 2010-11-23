@@ -48149,3 +48149,1471 @@ Rendering users/show
   [4;35;1mGroup Load (0.2ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
   [4;36;1mConversation Load (0.1ms)[0m   [0;1mSELECT * FROM "conversations" [0m
 Completed in 7ms (View: 4, DB: 1) | 200 OK [http://www.example.com/users/1]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+  [4;35;1mUser Create (1.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('UserName', '803570040.208242480042319', '2010-11-23 07:55:26', 'c027c520538e6fff01176e2c7540fd695eee6d79', '2010-11-23 07:55:26')[0m
+  [4;36;1mGroup Create (0.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 07:55:26', '2010-11-23 07:55:26', 'description')[0m
+  [4;35;1mMembership Create (0.0ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 07:55:26', '2010-11-23 07:55:26', 1, 1, NULL)[0m
+REQUESTING PAGE: GET http://www.example.com/users with {} and HTTP headers {}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-11-22 23:55:26) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://www.example.com/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 11546ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/login with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:37) [GET]
+Rendering template within layouts/users
+Rendering users/login
+Completed in 15ms (View: 12, DB: 0) | 200 OK [http://www.example.com/users/login]
+REQUESTING PAGE: POST /users/login with {"name"=>"UserName", "password"=>"pass"} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/login"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:37) [POST]
+  Parameters: {"name"=>"UserName", "password"=>"pass"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+Redirected to http://www.example.com/users/1
+Completed in 4ms (DB: 0) | 302 Found [http://www.example.com/users/login]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users/login"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-22 23:55:37) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mConversation Load (0.0ms)[0m   [0mSELECT * FROM "conversations" [0m
+Completed in 10ms (View: 8, DB: 1) | 200 OK [http://www.example.com/users/1]
+  [4;36;1mPost Create (0.0ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 07:55:37', 'test post', 'Hi', '2010-11-23 07:55:37', 1, 1, 1)[0m
+REQUESTING PAGE: GET http://www.example.com/groups/1/posts with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/1"}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-11-22 23:55:37) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mGroup Load (1.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".group_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (3.0ms)
+Completed in 17ms (View: 11, DB: 1) | 200 OK [http://www.example.com/groups/1/posts]
+REQUESTING PAGE: GET /groups/1/posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/groups/1/posts"}
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-11-22 23:55:37) [GET]
+  Parameters: {"id"=>"1", "group_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1 AND ("posts".group_id = 1)) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+  [4;35;1mComment Load (0.0ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 19ms (View: 15, DB: 0) | 200 OK [http://www.example.com/groups/1/posts/1]
+REQUESTING PAGE: DELETE /groups/1/posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/groups/1/posts/1"}
+
+
+Processing PostsController#destroy (for 127.0.0.1 at 2010-11-22 23:55:37) [DELETE]
+  Parameters: {"id"=>"1", "group_id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1 AND ("posts".group_id = 1)) [0m
+  [4;35;1mComment Load (0.0ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;36;1mPost Destroy (0.0ms)[0m   [0;1mDELETE FROM "posts" WHERE "id" = 1[0m
+  [4;35;1mNewsfeed Create (0.0ms)[0m   [0mINSERT INTO "newsfeeds" ("descriptions", "created_at", "updated_at", "time", "group_id") VALUES('Post 1 destroyed', '2010-11-23 07:55:37', '2010-11-23 07:55:37', NULL, 1)[0m
+Redirected to http://www.example.com/groups/1/posts
+Completed in 9ms (DB: 1) | 302 Found [http://www.example.com/groups/1/posts/1]
+REQUESTING PAGE: GET http://www.example.com/groups/1/posts with {} and HTTP headers {"HTTP_REFERER"=>"/groups/1/posts/1"}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-11-22 23:55:37) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".group_id = 1) [0m
+Completed in 8ms (View: 5, DB: 0) | 200 OK [http://www.example.com/groups/1/posts]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+  [4;36;1mUser Create (1.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('UserName', '806326320.264669419735044', '2010-11-23 07:55:37', '267f398b686adbf214f1de70bdd8acd606645ead', '2010-11-23 07:55:37')[0m
+  [4;35;1mGroup Create (0.0ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 07:55:37', '2010-11-23 07:55:37', 'description')[0m
+  [4;36;1mMembership Create (0.0ms)[0m   [0;1mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 07:55:37', '2010-11-23 07:55:37', 1, 1, NULL)[0m
+REQUESTING PAGE: GET http://www.example.com/users with {} and HTTP headers {}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-11-22 23:55:37) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://www.example.com/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/login with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:37) [GET]
+Rendering template within layouts/users
+Rendering users/login
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/users/login]
+REQUESTING PAGE: POST /users/login with {"name"=>"UserName", "password"=>"pass"} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/login"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:37) [POST]
+  Parameters: {"name"=>"UserName", "password"=>"pass"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+Redirected to http://www.example.com/users/1
+Completed in 2ms (DB: 0) | 302 Found [http://www.example.com/users/login]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users/login"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-22 23:55:37) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mGroup Load (1.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mConversation Load (0.0ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 9ms (View: 3, DB: 1) | 200 OK [http://www.example.com/users/1]
+  [4;35;1mPost Create (0.0ms)[0m   [0mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 07:55:37', 'test', 'Hi', '2010-11-23 07:55:37', 1, NULL, 1)[0m
+REQUESTING PAGE: GET http://www.example.com/groups/1/posts with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/1"}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-11-22 23:55:37) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mPost Load (1.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".group_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+Completed in 13ms (View: 8, DB: 1) | 200 OK [http://www.example.com/groups/1/posts]
+REQUESTING PAGE: GET /groups/1/posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/groups/1/posts"}
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+  Parameters: {"id"=>"1", "group_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1 AND ("posts".group_id = 1)) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (1.0ms)
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 14ms (View: 10, DB: 1) | 200 OK [http://www.example.com/groups/1/posts/1]
+REQUESTING PAGE: GET http://www.example.com/groups/1/posts with {} and HTTP headers {"HTTP_REFERER"=>"/groups/1/posts/1"}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".group_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (3.0ms)
+Completed in 12ms (View: 9, DB: 0) | 200 OK [http://www.example.com/groups/1/posts]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+  [4;36;1mUser Create (1.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('UserName', '810047280.677872317829772', '2010-11-23 07:55:38', '2a8e4e7fa36ad91cd5f7f94f3f124ec8e7730087', '2010-11-23 07:55:38')[0m
+  [4;35;1mGroup Create (0.0ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 07:55:38', '2010-11-23 07:55:38', 'description')[0m
+  [4;36;1mMembership Create (0.0ms)[0m   [0;1mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 07:55:38', '2010-11-23 07:55:38', 1, 1, NULL)[0m
+REQUESTING PAGE: GET http://www.example.com/users with {} and HTTP headers {}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://www.example.com/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 3ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/login with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+Rendering template within layouts/users
+Rendering users/login
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/users/login]
+REQUESTING PAGE: POST /users/login with {"name"=>"UserName", "password"=>"pass"} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/login"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:38) [POST]
+  Parameters: {"name"=>"UserName", "password"=>"pass"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+Redirected to http://www.example.com/users/1
+Completed in 2ms (DB: 0) | 302 Found [http://www.example.com/users/login]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users/login"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mConversation Load (0.0ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 7ms (View: 4, DB: 0) | 200 OK [http://www.example.com/users/1]
+  [4;35;1mPost Create (0.0ms)[0m   [0mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 07:55:38', 'test', 'Hi', '2010-11-23 07:55:38', 1, 1, 'bob')[0m
+REQUESTING PAGE: GET http://www.example.com/groups/1/posts with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/1"}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".group_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+Completed in 12ms (View: 8, DB: 0) | 200 OK [http://www.example.com/groups/1/posts]
+  [4;36;1mComment Create (0.0ms)[0m   [0;1mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id", "user_id") VALUES('2010-11-23 07:55:38', 'cool', '2010-11-23 07:55:38', 1, 1)[0m
+REQUESTING PAGE: GET http://www.example.com/groups/1/posts with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/groups/1/posts"}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mPost Load (1.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts".group_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+Completed in 12ms (View: 7, DB: 1) | 200 OK [http://www.example.com/groups/1/posts]
+REQUESTING PAGE: GET /groups/1/posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/groups/1/posts"}
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+  Parameters: {"id"=>"1", "group_id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1 AND ("posts".group_id = 1)) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;35;1mGroup Load (1.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (1.0ms)
+  [4;35;1mComment Load (0.0ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendered comments/_comment (20.0ms)
+Completed in 37ms (View: 32, DB: 2) | 200 OK [http://www.example.com/groups/1/posts/1]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('UserName', '813406680.321283808403488', '2010-11-23 07:55:38', 'c5a13915978f5f858d8a8bfc868a3492ab599ab7', '2010-11-23 07:55:38')[0m
+  [4;36;1mGroup Create (0.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 07:55:38', '2010-11-23 07:55:38', 'description')[0m
+  [4;35;1mMembership Create (0.0ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 07:55:38', '2010-11-23 07:55:38', 1, 1, NULL)[0m
+REQUESTING PAGE: GET http://www.example.com/users with {} and HTTP headers {}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://www.example.com/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/login with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+Rendering template within layouts/users
+Rendering users/login
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/users/login]
+REQUESTING PAGE: POST /users/login with {"name"=>"UserName", "password"=>"pass"} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/login"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:38) [POST]
+  Parameters: {"name"=>"UserName", "password"=>"pass"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+Redirected to http://www.example.com/users/1
+Completed in 2ms (DB: 0) | 302 Found [http://www.example.com/users/login]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users/login"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mConversation Load (0.0ms)[0m   [0mSELECT * FROM "conversations" [0m
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://www.example.com/users/1]
+  [4;36;1mPost Create (0.0ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 07:55:38', 'test', 'Hi', '2010-11-23 07:55:38', 1, 1, 'bob')[0m
+  [4;35;1mComment Create (0.0ms)[0m   [0mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id", "user_id") VALUES('2010-11-23 07:55:38', 'cool', '2010-11-23 07:55:38', 1, 1)[0m
+REQUESTING PAGE: GET http://www.example.com/groups/1/posts with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/1"}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".group_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://www.example.com/groups/1/posts]
+REQUESTING PAGE: GET /groups/1/posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/groups/1/posts"}
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+  Parameters: {"id"=>"1", "group_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mGroup Load (1.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1 AND ("posts".group_id = 1)) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendered posts/_post (2.0ms)
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendered comments/_comment (4.0ms)
+Completed in 22ms (View: 15, DB: 1) | 200 OK [http://www.example.com/groups/1/posts/1]
+REQUESTING PAGE: DELETE /groups/1/posts/1 with {} and HTTP headers {"HTTP_REFERER"=>"/groups/1/posts/1"}
+
+
+Processing PostsController#destroy (for 127.0.0.1 at 2010-11-22 23:55:38) [DELETE]
+  Parameters: {"id"=>"1", "group_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1 AND ("posts".group_id = 1)) [0m
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mComment Destroy (0.0ms)[0m   [0mDELETE FROM "comments" WHERE "id" = 1[0m
+  [4;36;1mPost Destroy (1.0ms)[0m   [0;1mDELETE FROM "posts" WHERE "id" = 1[0m
+  [4;35;1mNewsfeed Create (0.0ms)[0m   [0mINSERT INTO "newsfeeds" ("descriptions", "created_at", "updated_at", "time", "group_id") VALUES('Post 1 destroyed', '2010-11-23 07:55:38', '2010-11-23 07:55:38', NULL, 1)[0m
+Redirected to http://www.example.com/groups/1/posts
+Completed in 8ms (DB: 1) | 302 Found [http://www.example.com/groups/1/posts/1]
+REQUESTING PAGE: GET http://www.example.com/groups/1/posts with {} and HTTP headers {"HTTP_REFERER"=>"/groups/1/posts/1"}
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mGroup Load (1.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/index
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts".group_id = 1) [0m
+Completed in 8ms (View: 5, DB: 1) | 200 OK [http://www.example.com/groups/1/posts]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+  [4;36;1mUser Create (1.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('UserName', '814994760.401251573046565', '2010-11-23 07:55:38', 'e6130d74133d47bb612f4a00272f450987692ca7', '2010-11-23 07:55:38')[0m
+  [4;35;1mGroup Create (0.0ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 07:55:38', '2010-11-23 07:55:38', 'description')[0m
+  [4;36;1mMembership Create (1.0ms)[0m   [0;1mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 07:55:38', '2010-11-23 07:55:38', 1, 1, 0)[0m
+REQUESTING PAGE: GET http://www.example.com/users with {} and HTTP headers {}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://www.example.com/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/login with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+Rendering template within layouts/users
+Rendering users/login
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/users/login]
+REQUESTING PAGE: POST /users/login with {"name"=>"UserName", "password"=>"pass"} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/login"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:38) [POST]
+  Parameters: {"name"=>"UserName", "password"=>"pass"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+Redirected to http://www.example.com/users/1
+Completed in 1ms (DB: 0) | 302 Found [http://www.example.com/users/login]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users/login"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mConversation Load (0.0ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 6ms (View: 4, DB: 1) | 200 OK [http://www.example.com/users/1]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."name" = 'UserName2') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('UserName2', '806556720.232684786027252', '2010-11-23 07:55:38', '9ccba5f9956d36c37790dc80cea43214efccf7fa', '2010-11-23 07:55:38')[0m
+  [4;35;1mMembership Create (0.0ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 07:55:38', '2010-11-23 07:55:38', 1, 2, 1)[0m
+REQUESTING PAGE: GET http://www.example.com/groups/1/users with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/1"}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mGroup Load (1.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mMembership Load (0.0ms)[0m   [0mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 1 AND "memberships"."group_id" = 1) LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;36;1mGroup Load (1.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 1 AND "memberships"."group_id" = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 1 AND "memberships"."group_id" = 1) LIMIT 1[0m
+  [4;36;1mMembership Load (0.0ms)[0m   [0;1mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 2 AND "memberships"."group_id" = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 2 AND "memberships"."group_id" = 1) LIMIT 1[0m
+Completed in 16ms (View: 9, DB: 4) | 200 OK [http://www.example.com/groups/1/users]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('UserName', '802643280.829226594748389', '2010-11-23 07:55:38', '0eb25851f01c5c5a739524b4c3a23e7f90662f89', '2010-11-23 07:55:38')[0m
+  [4;36;1mGroup Create (0.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 07:55:38', '2010-11-23 07:55:38', 'description')[0m
+  [4;35;1mMembership Create (0.0ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 07:55:38', '2010-11-23 07:55:38', 1, 1, 0)[0m
+REQUESTING PAGE: GET http://www.example.com/users with {} and HTTP headers {}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://www.example.com/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/login with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+Rendering template within layouts/users
+Rendering users/login
+Completed in 2ms (View: 2, DB: 0) | 200 OK [http://www.example.com/users/login]
+REQUESTING PAGE: POST /users/login with {"name"=>"UserName", "password"=>"pass"} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/login"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:38) [POST]
+  Parameters: {"name"=>"UserName", "password"=>"pass"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+Redirected to http://www.example.com/users/1
+Completed in 1ms (DB: 1) | 302 Found [http://www.example.com/users/login]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users/login"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mConversation Load (0.0ms)[0m   [0mSELECT * FROM "conversations" [0m
+Completed in 8ms (View: 4, DB: 2) | 200 OK [http://www.example.com/users/1]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'UserName2') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('UserName2', '819368040.836910251503165', '2010-11-23 07:55:38', 'cca12fddca299421ac489932b0b2a112ad0696fb', '2010-11-23 07:55:38')[0m
+  [4;36;1mMembership Create (0.0ms)[0m   [0;1mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 07:55:38', '2010-11-23 07:55:38', 1, 2, 1)[0m
+REQUESTING PAGE: GET http://www.example.com/groups/1/users with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/1"}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mMembership Load (0.0ms)[0m   [0;1mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 1 AND "memberships"."group_id" = 1) LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 1 AND "memberships"."group_id" = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 1 AND "memberships"."group_id" = 1) LIMIT 1[0m
+  [4;35;1mMembership Load (0.0ms)[0m   [0mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 2 AND "memberships"."group_id" = 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 2 AND "memberships"."group_id" = 1) LIMIT 1[0m
+Completed in 12ms (View: 8, DB: 1) | 200 OK [http://www.example.com/groups/1/users]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+  [4;36;1mUser Create (1.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('UserName', '812170920.347006128373843', '2010-11-23 07:55:38', '6ca12734980ca7aac06798270a6587bdcaecacf1', '2010-11-23 07:55:38')[0m
+  [4;35;1mGroup Create (0.0ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 07:55:38', '2010-11-23 07:55:38', 'description')[0m
+  [4;36;1mMembership Create (0.0ms)[0m   [0;1mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 07:55:38', '2010-11-23 07:55:38', 1, 1, 1)[0m
+REQUESTING PAGE: GET http://www.example.com/users with {} and HTTP headers {}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://www.example.com/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/login with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+Rendering template within layouts/users
+Rendering users/login
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/users/login]
+REQUESTING PAGE: POST /users/login with {"name"=>"UserName", "password"=>"pass"} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/login"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:38) [POST]
+  Parameters: {"name"=>"UserName", "password"=>"pass"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+Redirected to http://www.example.com/users/1
+Completed in 2ms (DB: 0) | 302 Found [http://www.example.com/users/login]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users/login"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mConversation Load (0.0ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 7ms (View: 4, DB: 0) | 200 OK [http://www.example.com/users/1]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."name" = 'UserName2') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('UserName2', '804449760.470734758007387', '2010-11-23 07:55:38', '3698f548fcf4ba0eb2858ac7647a8b0611ab648c', '2010-11-23 07:55:38')[0m
+  [4;35;1mMembership Create (0.0ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 07:55:38', '2010-11-23 07:55:38', 1, 2, 1)[0m
+REQUESTING PAGE: GET http://www.example.com/groups/1/users with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/1"}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mMembership Load (0.0ms)[0m   [0mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 1 AND "memberships"."group_id" = 1) LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;36;1mGroup Load (1.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 1 AND "memberships"."group_id" = 1) LIMIT 1[0m
+  [4;35;1mMembership Load (0.0ms)[0m   [0mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 2 AND "memberships"."group_id" = 1) LIMIT 1[0m
+Completed in 10ms (View: 5, DB: 1) | 200 OK [http://www.example.com/groups/1/users]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('UserName', '802326600.608559082514584', '2010-11-23 07:55:38', 'fa3b71ebb5ab266e2e697b78b1affdd7b771f697', '2010-11-23 07:55:38')[0m
+  [4;36;1mGroup Create (0.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 07:55:38', '2010-11-23 07:55:38', 'description')[0m
+  [4;35;1mMembership Create (0.0ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 07:55:38', '2010-11-23 07:55:38', 1, 1, 1)[0m
+REQUESTING PAGE: GET http://www.example.com/users with {} and HTTP headers {}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://www.example.com/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 2ms (DB: 0) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/login with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+Rendering template within layouts/users
+Rendering users/login
+Completed in 2ms (View: 2, DB: 0) | 200 OK [http://www.example.com/users/login]
+REQUESTING PAGE: POST /users/login with {"name"=>"UserName", "password"=>"pass"} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/login"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:38) [POST]
+  Parameters: {"name"=>"UserName", "password"=>"pass"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+Redirected to http://www.example.com/users/1
+Completed in 1ms (DB: 0) | 302 Found [http://www.example.com/users/login]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users/login"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mGroup Load (1.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mConversation Load (0.0ms)[0m   [0mSELECT * FROM "conversations" [0m
+Completed in 8ms (View: 4, DB: 1) | 200 OK [http://www.example.com/users/1]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'UserName2') LIMIT 1[0m
+  [4;35;1mUser Create (1.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('UserName2', '818016120.326833806650829', '2010-11-23 07:55:38', '0c322ab79feea071f35d2d3844a9acdd84796a64', '2010-11-23 07:55:38')[0m
+  [4;36;1mMembership Create (0.0ms)[0m   [0;1mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 07:55:38', '2010-11-23 07:55:38', 1, 2, 1)[0m
+REQUESTING PAGE: GET http://www.example.com/groups/1/users with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/1"}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-11-22 23:55:38) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mMembership Load (0.0ms)[0m   [0;1mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 1 AND "memberships"."group_id" = 1) LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/index
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 1 AND "memberships"."group_id" = 1) LIMIT 1[0m
+  [4;36;1mMembership Load (0.0ms)[0m   [0;1mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 2 AND "memberships"."group_id" = 1) LIMIT 1[0m
+Completed in 11ms (View: 6, DB: 1) | 200 OK [http://www.example.com/groups/1/users]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+  [4;36;1mUser Create (1.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('UserName', '812083800.233960432573342', '2010-11-23 07:55:39', 'ae8f608663a2a9fa02215dc5784e13326db346a7', '2010-11-23 07:55:39')[0m
+  [4;35;1mGroup Create (0.0ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 07:55:39', '2010-11-23 07:55:39', 'description')[0m
+  [4;36;1mMembership Create (0.0ms)[0m   [0;1mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 07:55:39', '2010-11-23 07:55:39', 1, 1, NULL)[0m
+REQUESTING PAGE: GET http://www.example.com/users with {} and HTTP headers {}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://www.example.com/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/login with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+Rendering template within layouts/users
+Rendering users/login
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/users/login]
+REQUESTING PAGE: POST /users/login with {"name"=>"UserName", "password"=>"pass"} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/login"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:39) [POST]
+  Parameters: {"name"=>"UserName", "password"=>"pass"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+Redirected to http://www.example.com/users/1
+Completed in 2ms (DB: 0) | 302 Found [http://www.example.com/users/login]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users/login"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mConversation Load (0.0ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://www.example.com/users/1]
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mTodo Create (0.0ms)[0m   [0;1mINSERT INTO "todos" ("created_at", "updated_at", "group_id", "duedate", "task", "finished") VALUES('2010-11-23 07:55:39', '2010-11-23 07:55:39', 1, '2010-11-22 23:55:39', 'milestone', 'f')[0m
+REQUESTING PAGE: GET http://www.example.com/groups/1/todos with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/1"}
+
+
+Processing TodosController#index (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/index
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mTodo Load (0.0ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos".group_id = 1) [0m
+Completed in 16ms (View: 11, DB: 1) | 200 OK [http://www.example.com/groups/1/todos]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+  [4;35;1mUser Create (1.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('UserName', '801548160.58517643865678', '2010-11-23 07:55:39', '23e4ebabe406c6c09a898939e0de6d50431b70b8', '2010-11-23 07:55:39')[0m
+  [4;36;1mGroup Create (0.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 07:55:39', '2010-11-23 07:55:39', 'description')[0m
+  [4;35;1mMembership Create (0.0ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 07:55:39', '2010-11-23 07:55:39', 1, 1, NULL)[0m
+REQUESTING PAGE: GET http://www.example.com/users with {} and HTTP headers {}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://www.example.com/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/login with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+Rendering template within layouts/users
+Rendering users/login
+Completed in 2ms (View: 2, DB: 0) | 200 OK [http://www.example.com/users/login]
+REQUESTING PAGE: POST /users/login with {"name"=>"UserName", "password"=>"pass"} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/login"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:39) [POST]
+  Parameters: {"name"=>"UserName", "password"=>"pass"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+Redirected to http://www.example.com/users/1
+Completed in 1ms (DB: 0) | 302 Found [http://www.example.com/users/login]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users/login"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mConversation Load (0.0ms)[0m   [0mSELECT * FROM "conversations" [0m
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://www.example.com/users/1]
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mTodo Create (1.0ms)[0m   [0mINSERT INTO "todos" ("created_at", "updated_at", "group_id", "duedate", "task", "finished") VALUES('2010-11-23 07:55:39', '2010-11-23 07:55:39', 1, '2010-11-22 23:55:39', 'Milestone', 'f')[0m
+REQUESTING PAGE: GET http://www.example.com/groups/1/todos with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/1"}
+
+
+Processing TodosController#index (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mGroup Load (1.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/index
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mTodo Load (1.0ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos".group_id = 1) [0m
+Completed in 12ms (View: 7, DB: 4) | 200 OK [http://www.example.com/groups/1/todos]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('UserName', '811224840.0903627093050513', '2010-11-23 07:55:39', '6612f03b5066dded637b95c2a4b025c562bbaa32', '2010-11-23 07:55:39')[0m
+  [4;35;1mGroup Create (0.0ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 07:55:39', '2010-11-23 07:55:39', 'description')[0m
+  [4;36;1mMembership Create (0.0ms)[0m   [0;1mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 07:55:39', '2010-11-23 07:55:39', 1, 1, NULL)[0m
+REQUESTING PAGE: GET http://www.example.com/users with {} and HTTP headers {}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://www.example.com/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/login with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+Rendering template within layouts/users
+Rendering users/login
+Completed in 2ms (View: 2, DB: 0) | 200 OK [http://www.example.com/users/login]
+REQUESTING PAGE: POST /users/login with {"name"=>"UserName", "password"=>"pass"} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/login"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:39) [POST]
+  Parameters: {"name"=>"UserName", "password"=>"pass"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+Redirected to http://www.example.com/users/1
+Completed in 2ms (DB: 0) | 302 Found [http://www.example.com/users/login]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users/login"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mConversation Load (0.0ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 7ms (View: 5, DB: 1) | 200 OK [http://www.example.com/users/1]
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mTodo Create (1.0ms)[0m   [0;1mINSERT INTO "todos" ("created_at", "updated_at", "group_id", "duedate", "task", "finished") VALUES('2010-11-23 07:55:39', '2010-11-23 07:55:39', 1, '2010-11-22 23:55:39', 'Milestone', 'f')[0m
+REQUESTING PAGE: GET http://www.example.com/groups/1/todos with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/1"}
+
+
+Processing TodosController#index (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/index
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mTodo Load (0.0ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos".group_id = 1) [0m
+Completed in 10ms (View: 7, DB: 1) | 200 OK [http://www.example.com/groups/1/todos]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+  [4;35;1mUser Create (1.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('UserName', '801877200.0758657384283913', '2010-11-23 07:55:39', '5a9e2f41decbfc4179ab6446e398b61a318d876f', '2010-11-23 07:55:39')[0m
+  [4;36;1mGroup Create (1.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 07:55:39', '2010-11-23 07:55:39', 'description')[0m
+  [4;35;1mMembership Create (0.0ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 07:55:39', '2010-11-23 07:55:39', 1, 1, NULL)[0m
+REQUESTING PAGE: GET http://www.example.com/users with {} and HTTP headers {}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://www.example.com/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 3) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/login with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+Rendering template within layouts/users
+Rendering users/login
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/users/login]
+REQUESTING PAGE: POST /users/login with {"name"=>"UserName", "password"=>"pass"} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/login"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:39) [POST]
+  Parameters: {"name"=>"UserName", "password"=>"pass"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+Redirected to http://www.example.com/users/1
+Completed in 1ms (DB: 0) | 302 Found [http://www.example.com/users/login]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users/login"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mConversation Load (0.0ms)[0m   [0mSELECT * FROM "conversations" [0m
+Completed in 9ms (View: 6, DB: 0) | 200 OK [http://www.example.com/users/1]
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mTodo Create (0.0ms)[0m   [0mINSERT INTO "todos" ("created_at", "updated_at", "group_id", "duedate", "task", "finished") VALUES('2010-11-23 07:55:39', '2010-11-23 07:55:39', 1, '2010-11-22 23:55:39', 'Mileston', 'f')[0m
+REQUESTING PAGE: GET http://www.example.com/groups/1/todos with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/1"}
+
+
+Processing TodosController#index (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/index
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mTodo Load (1.0ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos".group_id = 1) [0m
+Completed in 12ms (View: 7, DB: 1) | 200 OK [http://www.example.com/groups/1/todos]
+REQUESTING PAGE: GET /todos/finish/1?group_id=1 with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/groups/1/todos"}
+
+
+Processing TodosController#finish (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  Parameters: {"id"=>"1", "group_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mTodo Load (0.0ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 1 AND ("todos".group_id = 1)) [0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mTodo Update (0.0ms)[0m   [0mUPDATE "todos" SET "updated_at" = '2010-11-23 07:55:39', "finished" = 't' WHERE "id" = 1[0m
+Redirected to http://www.example.com/groups/1/todos
+Completed in 6ms (DB: 0) | 302 Found [http://www.example.com/todos/finish/1?group_id=1]
+REQUESTING PAGE: GET http://www.example.com/groups/1/todos with {} and HTTP headers {"HTTP_REFERER"=>"/todos/finish/1?group_id=1"}
+
+
+Processing TodosController#index (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/index
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mTodo Load (0.0ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos".group_id = 1) [0m
+Completed in 12ms (View: 8, DB: 0) | 200 OK [http://www.example.com/groups/1/todos]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('UserName', '806000160.714607965019464', '2010-11-23 07:55:39', '0287618713238864054ba2b9036fd793dbbf9e2d', '2010-11-23 07:55:39')[0m
+  [4;35;1mGroup Create (0.0ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 07:55:39', '2010-11-23 07:55:39', 'description')[0m
+  [4;36;1mMembership Create (0.0ms)[0m   [0;1mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 07:55:39', '2010-11-23 07:55:39', 1, 1, NULL)[0m
+REQUESTING PAGE: GET http://www.example.com/users with {} and HTTP headers {}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://www.example.com/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/login with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+Rendering template within layouts/users
+Rendering users/login
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/users/login]
+REQUESTING PAGE: POST /users/login with {"name"=>"UserName", "password"=>"pass"} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/login"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:39) [POST]
+  Parameters: {"name"=>"UserName", "password"=>"pass"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+Redirected to http://www.example.com/users/1
+Completed in 2ms (DB: 0) | 302 Found [http://www.example.com/users/login]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users/login"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mConversation Load (0.0ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 9ms (View: 5, DB: 0) | 200 OK [http://www.example.com/users/1]
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mTodo Create (0.0ms)[0m   [0;1mINSERT INTO "todos" ("created_at", "updated_at", "group_id", "duedate", "task", "finished") VALUES('2010-11-23 07:55:39', '2010-11-23 07:55:39', 1, '2010-11-22 23:55:39', 'Mileston', 't')[0m
+REQUESTING PAGE: GET http://www.example.com/groups/1/todos with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/1"}
+
+
+Processing TodosController#index (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mGroup Load (1.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/index
+  [4;36;1mGroup Load (1.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mTodo Load (0.0ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos".group_id = 1) [0m
+Completed in 13ms (View: 8, DB: 2) | 200 OK [http://www.example.com/groups/1/todos]
+REQUESTING PAGE: GET /todos/unfinish/1?group_id=1 with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/groups/1/todos"}
+
+
+Processing TodosController#unfinish (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  Parameters: {"id"=>"1", "group_id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mTodo Load (0.0ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1 AND ("todos".group_id = 1)) [0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mTodo Update (0.0ms)[0m   [0;1mUPDATE "todos" SET "updated_at" = '2010-11-23 07:55:39', "finished" = 'f' WHERE "id" = 1[0m
+Redirected to http://www.example.com/groups/1/todos
+Completed in 7ms (DB: 1) | 302 Found [http://www.example.com/todos/unfinish/1?group_id=1]
+REQUESTING PAGE: GET http://www.example.com/groups/1/todos with {} and HTTP headers {"HTTP_REFERER"=>"/todos/unfinish/1?group_id=1"}
+
+
+Processing TodosController#index (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/index
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mTodo Load (0.0ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos".group_id = 1) [0m
+Completed in 10ms (View: 7, DB: 1) | 200 OK [http://www.example.com/groups/1/todos]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+  [4;35;1mUser Create (1.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('UserName', '809990400.458206406581435', '2010-11-23 07:55:39', 'ca7353ee6c93ac2e84700f996b860765f2a42b5b', '2010-11-23 07:55:39')[0m
+  [4;36;1mGroup Create (0.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 07:55:39', '2010-11-23 07:55:39', 'description')[0m
+  [4;35;1mMembership Create (0.0ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 07:55:39', '2010-11-23 07:55:39', 1, 1, NULL)[0m
+REQUESTING PAGE: GET http://www.example.com/users with {} and HTTP headers {}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://www.example.com/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/login with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+Rendering template within layouts/users
+Rendering users/login
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/users/login]
+REQUESTING PAGE: POST /users/login with {"name"=>"UserName", "password"=>"pass"} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/login"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:39) [POST]
+  Parameters: {"name"=>"UserName", "password"=>"pass"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+Redirected to http://www.example.com/users/1
+Completed in 2ms (DB: 0) | 302 Found [http://www.example.com/users/login]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users/login"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mConversation Load (0.0ms)[0m   [0mSELECT * FROM "conversations" [0m
+Completed in 8ms (View: 5, DB: 0) | 200 OK [http://www.example.com/users/1]
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mUpload Create (0.0ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 07:55:39', NULL, NULL, '2010-11-23 07:55:39', 1, 'a.pdf', 'a file', NULL)[0m
+[paperclip] Saving attachments.
+REQUESTING PAGE: GET http://www.example.com/groups/1/uploads with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/1"}
+
+
+Processing UploadsController#index (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+Rendering template within layouts/uploads
+Rendering uploads/index
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mUpload Load (1.0ms)[0m   [0;1mSELECT * FROM "uploads" WHERE ("uploads".group_id = 1) [0m
+Completed in 16ms (View: 7, DB: 1) | 200 OK [http://www.example.com/groups/1/uploads]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('UserName', '800632320.0346281209730621', '2010-11-23 07:55:39', '7febf52441352b60f4708d96bfe65bb5a77341d7', '2010-11-23 07:55:39')[0m
+  [4;35;1mGroup Create (1.0ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 07:55:39', '2010-11-23 07:55:39', 'description')[0m
+  [4;36;1mMembership Create (0.0ms)[0m   [0;1mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 07:55:39', '2010-11-23 07:55:39', 1, 1, NULL)[0m
+REQUESTING PAGE: GET http://www.example.com/users with {} and HTTP headers {}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://www.example.com/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/login with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+Rendering template within layouts/users
+Rendering users/login
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/users/login]
+REQUESTING PAGE: POST /users/login with {"name"=>"UserName", "password"=>"pass"} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/login"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:39) [POST]
+  Parameters: {"name"=>"UserName", "password"=>"pass"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+Redirected to http://www.example.com/users/1
+Completed in 2ms (DB: 0) | 302 Found [http://www.example.com/users/login]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users/login"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mConversation Load (0.0ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://www.example.com/users/1]
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Create (0.0ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 07:55:39', NULL, NULL, '2010-11-23 07:55:39', 1, 'a.pdf', 'a file', NULL)[0m
+[paperclip] Saving attachments.
+REQUESTING PAGE: GET http://www.example.com/groups/1/uploads with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/1"}
+
+
+Processing UploadsController#index (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+Rendering template within layouts/uploads
+Rendering uploads/index
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mUpload Load (0.0ms)[0m   [0mSELECT * FROM "uploads" WHERE ("uploads".group_id = 1) [0m
+Completed in 12ms (View: 7, DB: 1) | 200 OK [http://www.example.com/groups/1/uploads]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+  [4;35;1mUser Create (1.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('UserName', '809530080.397161972560082', '2010-11-23 07:55:39', '97b17a12864adf2b00c2aea22ac6f21b11a02b21', '2010-11-23 07:55:39')[0m
+  [4;36;1mGroup Create (0.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 07:55:39', '2010-11-23 07:55:39', 'description')[0m
+  [4;35;1mMembership Create (1.0ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 07:55:39', '2010-11-23 07:55:39', 1, 1, NULL)[0m
+REQUESTING PAGE: GET http://www.example.com/users with {} and HTTP headers {}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://www.example.com/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/login with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+Rendering template within layouts/users
+Rendering users/login
+Completed in 2ms (View: 2, DB: 0) | 200 OK [http://www.example.com/users/login]
+REQUESTING PAGE: POST /users/login with {"name"=>"UserName", "password"=>"pass"} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/login"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:39) [POST]
+  Parameters: {"name"=>"UserName", "password"=>"pass"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+Redirected to http://www.example.com/users/1
+Completed in 2ms (DB: 0) | 302 Found [http://www.example.com/users/login]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users/login"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mConversation Load (0.0ms)[0m   [0mSELECT * FROM "conversations" [0m
+Completed in 8ms (View: 5, DB: 0) | 200 OK [http://www.example.com/users/1]
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mUpload Create (0.0ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 07:55:39', NULL, NULL, '2010-11-23 07:55:39', 1, 'a.pdf', 'a file', NULL)[0m
+[paperclip] Saving attachments.
+REQUESTING PAGE: GET http://www.example.com/groups/1/uploads with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/1"}
+
+
+Processing UploadsController#index (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+Rendering template within layouts/uploads
+Rendering uploads/index
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mUpload Load (1.0ms)[0m   [0;1mSELECT * FROM "uploads" WHERE ("uploads".group_id = 1) [0m
+Completed in 12ms (View: 7, DB: 3) | 200 OK [http://www.example.com/groups/1/uploads]
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('UserName', '800967600.0808278455644419', '2010-11-23 07:55:39', '3759de4a82d04af40714989c21d3848c1c229507', '2010-11-23 07:55:39')[0m
+  [4;35;1mGroup Create (0.0ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 07:55:39', '2010-11-23 07:55:39', 'description')[0m
+  [4;36;1mMembership Create (1.0ms)[0m   [0;1mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 07:55:39', '2010-11-23 07:55:39', 1, 1, NULL)[0m
+REQUESTING PAGE: GET http://www.example.com/users with {} and HTTP headers {}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-11-22 23:55:39) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://www.example.com/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/login with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:40) [GET]
+Rendering template within layouts/users
+Rendering users/login
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/users/login]
+REQUESTING PAGE: POST /users/login with {"name"=>"UserName", "password"=>"pass"} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/login"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:40) [POST]
+  Parameters: {"name"=>"UserName", "password"=>"pass"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+Redirected to http://www.example.com/users/1
+Completed in 2ms (DB: 0) | 302 Found [http://www.example.com/users/login]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users/login"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-22 23:55:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mConversation Load (0.0ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 8ms (View: 5, DB: 0) | 200 OK [http://www.example.com/users/1]
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Create (0.0ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 07:55:40', NULL, NULL, '2010-11-23 07:55:40', 1, 'a.pdf', 'a file', NULL)[0m
+[paperclip] Saving attachments.
+REQUESTING PAGE: GET http://www.example.com/groups/1/uploads with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/1"}
+
+
+Processing UploadsController#index (for 127.0.0.1 at 2010-11-22 23:55:40) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+Rendering template within layouts/uploads
+Rendering uploads/index
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mUpload Load (0.0ms)[0m   [0mSELECT * FROM "uploads" WHERE ("uploads".group_id = 1) [0m
+Completed in 12ms (View: 8, DB: 0) | 200 OK [http://www.example.com/groups/1/uploads]
+REQUESTING PAGE: GET /groups/1/uploads/1/edit with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/groups/1/uploads"}
+
+
+Processing UploadsController#edit (for 127.0.0.1 at 2010-11-22 23:55:40) [GET]
+  Parameters: {"id"=>"1", "group_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUpload Load (0.0ms)[0m   [0mSELECT * FROM "uploads" WHERE ("uploads"."id" = 1 AND ("uploads".group_id = 1)) [0m
+Rendering template within layouts/uploads
+Rendering uploads/edit
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+Completed in 12ms (View: 8, DB: 0) | 200 OK [http://www.example.com/groups/1/uploads/1/edit]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('UserName', '806009040.601955416181455', '2010-11-23 07:55:40', '9290e509cae378886c5b0b110e28438f90122f4a', '2010-11-23 07:55:40')[0m
+  [4;35;1mGroup Create (0.0ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 07:55:40', '2010-11-23 07:55:40', 'description')[0m
+  [4;36;1mMembership Create (0.0ms)[0m   [0;1mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 07:55:40', '2010-11-23 07:55:40', 1, 1, NULL)[0m
+REQUESTING PAGE: GET http://www.example.com/users with {} and HTTP headers {}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-11-22 23:55:40) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://www.example.com/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 2ms (DB: 0) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/login with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:40) [GET]
+Rendering template within layouts/users
+Rendering users/login
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://www.example.com/users/login]
+REQUESTING PAGE: POST /users/login with {"name"=>"UserName", "password"=>"pass"} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/login"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:40) [POST]
+  Parameters: {"name"=>"UserName", "password"=>"pass"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+Redirected to http://www.example.com/users/1
+Completed in 2ms (DB: 0) | 302 Found [http://www.example.com/users/login]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users/login"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-22 23:55:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mConversation Load (0.0ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 7ms (View: 4, DB: 0) | 200 OK [http://www.example.com/users/1]
+  [4;35;1mGroup Create (0.0ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName2', '2010-11-23 07:55:40', '2010-11-23 07:55:40', 'description2')[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 2) LIMIT 1[0m
+  [4;35;1mUpload Create (1.0ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 07:55:40', NULL, NULL, '2010-11-23 07:55:40', 2, 'a.pdf', 'a file', NULL)[0m
+[paperclip] Saving attachments.
+REQUESTING PAGE: GET http://www.example.com/groups/2/uploads with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/1"}
+
+
+Processing UploadsController#index (for 127.0.0.1 at 2010-11-22 23:55:40) [GET]
+  Parameters: {"group_id"=>"2"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mGroup Load (1.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 2) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 2)) [0m
+Redirected to http://www.example.com/users/login
+Completed in 65ms (DB: 3) | 302 Found [http://www.example.com/groups/2/uploads]
+REQUESTING PAGE: GET http://www.example.com/users/login with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/groups/2/uploads"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:40) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Redirected to http://www.example.com/users/1
+Completed in 2ms (DB: 0) | 302 Found [http://www.example.com/users/login]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/login"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-22 23:55:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mConversation Load (0.0ms)[0m   [0mSELECT * FROM "conversations" [0m
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://www.example.com/users/1]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+  [4;35;1mUser Create (1.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('UserName', '814511040.113461131708192', '2010-11-23 07:55:40', '34f5edd8adabaca46d71dd145c68b8cd9e46ffdf', '2010-11-23 07:55:40')[0m
+  [4;36;1mGroup Create (0.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 07:55:40', '2010-11-23 07:55:40', 'description')[0m
+  [4;35;1mMembership Create (1.0ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 07:55:40', '2010-11-23 07:55:40', 1, 1, NULL)[0m
+REQUESTING PAGE: GET http://www.example.com/users with {} and HTTP headers {}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-11-22 23:55:40) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://www.example.com/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/login with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:40) [GET]
+Rendering template within layouts/users
+Rendering users/login
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://www.example.com/users/login]
+REQUESTING PAGE: POST /users/login with {"name"=>"UserName", "password"=>"pass"} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/login"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:40) [POST]
+  Parameters: {"name"=>"UserName", "password"=>"pass"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+Redirected to http://www.example.com/users/1
+Completed in 2ms (DB: 0) | 302 Found [http://www.example.com/users/login]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users/login"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-22 23:55:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mConversation Load (0.0ms)[0m   [0mSELECT * FROM "conversations" [0m
+Completed in 7ms (View: 4, DB: 0) | 200 OK [http://www.example.com/users/1]
+  [4;36;1mGroup Create (0.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName2', '2010-11-23 07:55:40', '2010-11-23 07:55:40', 'description2')[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 2) LIMIT 1[0m
+  [4;36;1mUpload Create (0.0ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 07:55:40', NULL, NULL, '2010-11-23 07:55:40', 2, 'a.pdf', 'a file', NULL)[0m
+[paperclip] Saving attachments.
+REQUESTING PAGE: GET http://www.example.com/groups/2/uploads with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/1"}
+
+
+Processing UploadsController#index (for 127.0.0.1 at 2010-11-22 23:55:40) [GET]
+  Parameters: {"group_id"=>"2"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 2) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 2)) [0m
+Redirected to http://www.example.com/users/login
+Completed in 4ms (DB: 0) | 302 Found [http://www.example.com/groups/2/uploads]
+REQUESTING PAGE: GET http://www.example.com/users/login with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/groups/2/uploads"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:40) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Redirected to http://www.example.com/users/1
+Completed in 2ms (DB: 0) | 302 Found [http://www.example.com/users/login]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/login"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-22 23:55:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mConversation Load (0.0ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 8ms (View: 5, DB: 0) | 200 OK [http://www.example.com/users/1]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+  [4;36;1mUser Create (1.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('UserName', '801570480.592660964492291', '2010-11-23 07:55:40', '9a613b97e4ddec4296731a70fa0d675280c82f6b', '2010-11-23 07:55:40')[0m
+  [4;35;1mGroup Create (0.0ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 07:55:40', '2010-11-23 07:55:40', 'description')[0m
+  [4;36;1mMembership Create (0.0ms)[0m   [0;1mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 07:55:40', '2010-11-23 07:55:40', 1, 1, NULL)[0m
+REQUESTING PAGE: GET http://www.example.com/users with {} and HTTP headers {}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-11-22 23:55:40) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://www.example.com/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/login with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:40) [GET]
+Rendering template within layouts/users
+Rendering users/login
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/users/login]
+REQUESTING PAGE: POST /users/login with {"name"=>"UserName", "password"=>"pass"} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/login"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:40) [POST]
+  Parameters: {"name"=>"UserName", "password"=>"pass"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+Redirected to http://www.example.com/users/1
+Completed in 2ms (DB: 0) | 302 Found [http://www.example.com/users/login]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users/login"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-22 23:55:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mConversation Load (0.0ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://www.example.com/users/1]
+  [4;35;1mGroup Create (0.0ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName2', '2010-11-23 07:55:40', '2010-11-23 07:55:40', 'description2')[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 2) LIMIT 1[0m
+  [4;35;1mUpload Create (0.0ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 07:55:40', NULL, NULL, '2010-11-23 07:55:40', 2, 'a.pdf', 'a file', NULL)[0m
+[paperclip] Saving attachments.
+REQUESTING PAGE: GET http://www.example.com/groups/2/uploads with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/1"}
+
+
+Processing UploadsController#index (for 127.0.0.1 at 2010-11-22 23:55:40) [GET]
+  Parameters: {"group_id"=>"2"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mGroup Load (1.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 2) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 2)) [0m
+Redirected to http://www.example.com/users/login
+Completed in 4ms (DB: 1) | 302 Found [http://www.example.com/groups/2/uploads]
+REQUESTING PAGE: GET http://www.example.com/users/login with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/groups/2/uploads"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:40) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Redirected to http://www.example.com/users/1
+Completed in 1ms (DB: 0) | 302 Found [http://www.example.com/users/login]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/login"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-22 23:55:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mConversation Load (0.0ms)[0m   [0mSELECT * FROM "conversations" [0m
+Completed in 6ms (View: 4, DB: 1) | 200 OK [http://www.example.com/users/1]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+  [4;35;1mUser Create (1.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('UserName', '807886800.971085099486795', '2010-11-23 07:55:40', 'e1deb3d7caf6e535d1e8e37b7ae41236144bb71b', '2010-11-23 07:55:40')[0m
+  [4;36;1mGroup Create (0.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 07:55:40', '2010-11-23 07:55:40', 'description')[0m
+  [4;35;1mMembership Create (0.0ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 07:55:40', '2010-11-23 07:55:40', 1, 1, NULL)[0m
+REQUESTING PAGE: GET http://www.example.com/users with {} and HTTP headers {}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-11-22 23:55:40) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://www.example.com/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 1) | 302 Found [http://www.example.com/users]
+REQUESTING PAGE: GET http://www.example.com/users/login with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:40) [GET]
+Rendering template within layouts/users
+Rendering users/login
+Completed in 3ms (View: 3, DB: 0) | 200 OK [http://www.example.com/users/login]
+REQUESTING PAGE: POST /users/login with {"name"=>"UserName", "password"=>"pass"} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/login"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:40) [POST]
+  Parameters: {"name"=>"UserName", "password"=>"pass"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."name" = 'UserName') LIMIT 1[0m
+Redirected to http://www.example.com/users/1
+Completed in 1ms (DB: 0) | 302 Found [http://www.example.com/users/login]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"/users/login"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-22 23:55:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mConversation Load (0.0ms)[0m   [0mSELECT * FROM "conversations" [0m
+Completed in 6ms (View: 4, DB: 1) | 200 OK [http://www.example.com/users/1]
+  [4;36;1mGroup Create (0.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName2', '2010-11-23 07:55:40', '2010-11-23 07:55:40', 'description2')[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 2) LIMIT 1[0m
+  [4;36;1mUpload Create (0.0ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 07:55:40', NULL, NULL, '2010-11-23 07:55:40', 2, 'a.pdf', 'a file', NULL)[0m
+[paperclip] Saving attachments.
+REQUESTING PAGE: GET http://www.example.com/groups/2/uploads with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/1"}
+
+
+Processing UploadsController#index (for 127.0.0.1 at 2010-11-22 23:55:40) [GET]
+  Parameters: {"group_id"=>"2"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 2) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 2)) [0m
+Redirected to http://www.example.com/users/login
+Completed in 5ms (DB: 0) | 302 Found [http://www.example.com/groups/2/uploads]
+REQUESTING PAGE: GET http://www.example.com/users/login with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/groups/2/uploads"}
+
+
+Processing UsersController#login (for 127.0.0.1 at 2010-11-22 23:55:40) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Redirected to http://www.example.com/users/1
+Completed in 2ms (DB: 0) | 302 Found [http://www.example.com/users/login]
+REQUESTING PAGE: GET http://www.example.com/users/1 with {} and HTTP headers {"HTTP_REFERER"=>"http://www.example.com/users/login"}
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-11-22 23:55:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mConversation Load (0.0ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://www.example.com/users/1]
