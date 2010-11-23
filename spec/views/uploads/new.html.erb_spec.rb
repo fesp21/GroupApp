@@ -9,10 +9,5 @@ describe "/uploads/new.html.erb" do
     )
   end
 
-  it "renders new upload form" do
-    render
 
-    response.should have_tag("form[action=?][method=post]", uploads_path) do
-    end
-  end
 end

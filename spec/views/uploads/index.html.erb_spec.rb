@@ -10,7 +10,5 @@ describe "/uploads/index.html.erb" do
     ]
   end
 
-  it "renders a list of uploads" do
-    render
-  end
+
 end

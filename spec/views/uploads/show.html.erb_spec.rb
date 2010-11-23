@@ -6,7 +6,5 @@ describe "/uploads/show.html.erb" do
     assigns[:upload] = @upload = stub_model(Upload)
   end
 
-  it "renders attributes in <p>" do
-    render
-  end
+
 end

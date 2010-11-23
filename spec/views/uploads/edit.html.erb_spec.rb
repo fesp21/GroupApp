@@ -9,10 +9,5 @@ describe "/uploads/edit.html.erb" do
     )
   end
 
-  it "renders the edit upload form" do
-    render
 
-    response.should have_tag("form[action=#{upload_path(@upload)}][method=post]") do
-    end
-  end
 end
