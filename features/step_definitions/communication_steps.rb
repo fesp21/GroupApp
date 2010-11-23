@@ -9,7 +9,7 @@ Given /^that I am an administrator$/ do
 end
 
 When /^I see a bad post$/ do
-  @post = Post.create!(:title => "test post", :body => "Hi", :user => @user, :group_id => @group.id)
+  @post = Post.create!(:title => "test post", :body => "Hi", :user => @user, :group_id => @group.id, :user_id => @user.id)
   visit group_posts_url(@group)
 end
 
@@ -41,14 +41,37 @@ Then /^I should be able to see it on the post page$/ do
 end
 
 When /^I see a post$/ do
-  @post = Post.create!(:title => "test", :body => "Hi", :user => "bob", :group_id => @group.id)
+  @post = Post.create!(:title => "test", :body => "Hi", :user => "bob", :group_id => @group.id, :user_id => @user.id)
   visit group_posts_url(@group)
   assert_contain "test"
 end
 
 Then /^I should be able to comment on it$/ do
-  @comment = @post.comments.create!(:body => "cool")
+  @comment = @post.comments.create!(:body => "cool", :user_id => @user.id)
   visit group_posts_url(@group)
   click_link "test"
   assert_contain "cool"
+end
+
+Given /^that I am a comment user$/ do
+  @user = User.create!(:name => "UserName", :password => "pass")
+  @group = Group.create!(:name => "GroupName", :description => "description")
+  @membership = Membership.create!(:group_id => @group.id, :user_id => @user.id)
+  visit users_url
+  fill_in "name", :with => "UserName"
+  fill_in "password", :with => "pass"
+  click_button "submit"
+end
+
+When /^I see a comment that is mine$/ do
+  @post = Post.create!(:title => "test", :body => "Hi", :user => "bob", :group_id => @group.id, :user_id => @user.id)
+  @comment = @post.comments.create!(:body => "cool", :user_id => @user.id)
+  visit group_posts_url(@group)
+  click_link "test"
+  assert_contain "cool"
+end
+
+Then /^I should be able to delete the comment$/ do
+  click_link "Destroy"
+  response.should_not contain("cool")
 end

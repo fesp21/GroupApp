@@ -19,3 +19,8 @@ I want to be able to use posts and comments
 	Given that I am a post user
 	When I see a post
 	Then I should be able to comment on it
+	
+  Scenario: User deletes a comment
+    Given that I am a comment user
+	When I see a comment that is mine
+	Then I should be able to delete the comment

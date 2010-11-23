@@ -2598,3 +2598,916 @@ Rendering newsfeeds/edit.html.erb
   [4;36;1mUser Create (2.5ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '553974600.0374643562005621', '2010-11-23 01:00:15', 'c90b794bbd4b5dfab611bf83224c6c2cdb625042', '2010-11-23 01:00:15')[0m
   [4;35;1mGroup Create (0.0ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 01:00:15', '2010-11-23 01:00:15', 'description')[0m
   [4;36;1mMembership Create (0.0ms)[0m   [0;1mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 01:00:15', '2010-11-23 01:00:15', 1, 1, 1)[0m
+Rendering newsfeeds/show.html.erb
+Rendering newsfeeds/new.html.erb
+Rendering newsfeeds/index.html.erb
+Rendering newsfeeds/edit.html.erb
+  [4;36;1mGroup Create (1.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:16:31', '2010-11-23 04:16:31', 'description')[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Create (0.0ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 04:16:31', NULL, NULL, '2010-11-23 04:16:31', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;35;1mUpload Load (0.0ms)[0m   [0mSELECT * FROM "uploads" [0m
+[paperclip] Deleting attachments.
+  [4;36;1mUpload Destroy (0.0ms)[0m   [0;1mDELETE FROM "uploads" WHERE "id" = 1[0m
+  [4;35;1mUpload Load (0.0ms)[0m   [0mSELECT * FROM "uploads" WHERE ("uploads"."filename" = 'abc.pdf') LIMIT 1[0m
+  [4;36;1mGroup Create (0.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:16:31', '2010-11-23 04:16:31', 'description')[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Create (0.0ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 04:16:31', NULL, NULL, '2010-11-23 04:16:31', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;35;1mGroup Create (0.0ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:16:31', '2010-11-23 04:16:31', 'description')[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mUpload Create (0.0ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 04:16:31', NULL, NULL, '2010-11-23 04:16:31', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;36;1mPost Create (1.0ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 04:16:31', 'test', 'hi', '2010-11-23 04:16:31', NULL, NULL, 'bob')[0m
+  [4;35;1mNewsfeed Create (0.0ms)[0m   [0mINSERT INTO "newsfeeds" ("descriptions", "created_at", "updated_at", "time", "group_id") VALUES('value for descriptions', '2010-11-23 04:16:31', '2010-11-23 04:16:31', '2010-11-23 04:16:31', NULL)[0m
+  [4;36;1mGroup Create (0.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:16:31', '2010-11-23 04:16:31', 'description')[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."name" = 'username') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '597185160.174617604926402', '2010-11-23 04:16:31', '01047299b6c9dae1014f02aab6a2ad6cbb98aa0a', '2010-11-23 04:16:31')[0m
+  [4;35;1mGroup Create (0.0ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:16:31', '2010-11-23 04:16:31', 'description')[0m
+  [4;36;1mMembership Create (0.0ms)[0m   [0;1mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 04:16:31', '2010-11-23 04:16:31', 1, 1, 0)[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."name" = 'username') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '595393440.785460088700714', '2010-11-23 04:16:31', '5cd267c8277a2d8a28b222a5a3d17ba693fff768', '2010-11-23 04:16:31')[0m
+  [4;35;1mGroup Create (0.0ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:16:31', '2010-11-23 04:16:31', 'description')[0m
+  [4;36;1mMembership Create (0.0ms)[0m   [0;1mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 04:16:31', '2010-11-23 04:16:31', 1, 1, 1)[0m
+
+
+Processing NewsfeedsController#destroy (for 0.0.0.0 at 2010-11-22 20:16:31) [DELETE]
+  Parameters: {"id"=>"37"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/newsfeeds/37]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing NewsfeedsController#destroy (for 0.0.0.0 at 2010-11-22 20:16:31) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 0ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:16:31) [PUT]
+  Parameters: {"id"=>"37", "newsfeed"=>{"these"=>"params"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37?newsfeed%5Bthese%5D=params]
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:16:31) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:16:31) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:16:31) [PUT]
+  Parameters: {"id"=>"37", "newsfeed"=>{"these"=>"params"}}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37?newsfeed%5Bthese%5D=params]
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:16:31) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 0ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:16:31) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 0ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 20:16:31) [POST]
+  Parameters: {"newsfeed"=>{"these"=>"params"}}
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 20:16:31) [POST]
+  Parameters: {"newsfeed"=>{}}
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 20:16:31) [POST]
+  Parameters: {"newsfeed"=>{"these"=>"params"}}
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 20:16:31) [POST]
+  Parameters: {"newsfeed"=>{}}
+
+
+Processing NewsfeedsController#edit (for 0.0.0.0 at 2010-11-22 20:16:31) [GET]
+  Parameters: {"id"=>"37"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37/edit]
+
+
+Processing NewsfeedsController#new (for 0.0.0.0 at 2010-11-22 20:16:31) [GET]
+
+
+Processing NewsfeedsController#show (for 0.0.0.0 at 2010-11-22 20:16:31) [GET]
+  Parameters: {"id"=>"37"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 0ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37]
+
+
+Processing NewsfeedsController#index (for 0.0.0.0 at 2010-11-22 20:16:31) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 0ms (DB: 0) | 302 Found [http://test.host/newsfeeds]
+Rendering newsfeeds/show.html.erb
+Rendering newsfeeds/new.html.erb
+Rendering newsfeeds/index.html.erb
+Rendering newsfeeds/edit.html.erb
+  [4;36;1mGroup Create (1.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:29:56', '2010-11-23 04:29:56', 'description')[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Create (0.0ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 04:29:56', NULL, NULL, '2010-11-23 04:29:56', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;35;1mUpload Load (1.0ms)[0m   [0mSELECT * FROM "uploads" [0m
+[paperclip] Deleting attachments.
+  [4;36;1mUpload Destroy (0.0ms)[0m   [0;1mDELETE FROM "uploads" WHERE "id" = 1[0m
+  [4;35;1mUpload Load (0.0ms)[0m   [0mSELECT * FROM "uploads" WHERE ("uploads"."filename" = 'abc.pdf') LIMIT 1[0m
+  [4;36;1mGroup Create (0.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:29:56', '2010-11-23 04:29:56', 'description')[0m
+  [4;35;1mGroup Load (1.0ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Create (0.0ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 04:29:56', NULL, NULL, '2010-11-23 04:29:56', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;35;1mGroup Create (0.0ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:29:56', '2010-11-23 04:29:56', 'description')[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mUpload Create (0.0ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 04:29:56', NULL, NULL, '2010-11-23 04:29:56', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+
+
+Processing NewsfeedsController#destroy (for 0.0.0.0 at 2010-11-22 20:29:56) [DELETE]
+  Parameters: {"id"=>"37"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 2ms (DB: 3) | 302 Found [http://test.host/newsfeeds/37]
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing NewsfeedsController#destroy (for 0.0.0.0 at 2010-11-22 20:29:56) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:29:56) [PUT]
+  Parameters: {"id"=>"37", "newsfeed"=>{"these"=>"params"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 0ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37?newsfeed%5Bthese%5D=params]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:29:56) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:29:56) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:29:56) [PUT]
+  Parameters: {"id"=>"37", "newsfeed"=>{"these"=>"params"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37?newsfeed%5Bthese%5D=params]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:29:56) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:29:56) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 20:29:56) [POST]
+  Parameters: {"newsfeed"=>{"these"=>"params"}}
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 20:29:56) [POST]
+  Parameters: {"newsfeed"=>{}}
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 20:29:56) [POST]
+  Parameters: {"newsfeed"=>{"these"=>"params"}}
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 20:29:56) [POST]
+  Parameters: {"newsfeed"=>{}}
+
+
+Processing NewsfeedsController#edit (for 0.0.0.0 at 2010-11-22 20:29:56) [GET]
+  Parameters: {"id"=>"37"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37/edit]
+
+
+Processing NewsfeedsController#new (for 0.0.0.0 at 2010-11-22 20:29:56) [GET]
+
+
+Processing NewsfeedsController#show (for 0.0.0.0 at 2010-11-22 20:29:56) [GET]
+  Parameters: {"id"=>"37"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37]
+
+
+Processing NewsfeedsController#index (for 0.0.0.0 at 2010-11-22 20:29:56) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds]
+  [4;36;1mNewsfeed Create (1.0ms)[0m   [0;1mINSERT INTO "newsfeeds" ("descriptions", "created_at", "updated_at", "time", "group_id") VALUES('value for descriptions', '2010-11-23 04:29:56', '2010-11-23 04:29:56', '2010-11-23 04:29:56', NULL)[0m
+  [4;35;1mGroup Create (0.0ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:29:56', '2010-11-23 04:29:56', 'description')[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'username') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '600779760.0188755208154399', '2010-11-23 04:29:56', '0203793d0021783a3135ae25501934e9c76a92e7', '2010-11-23 04:29:56')[0m
+  [4;36;1mGroup Create (0.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:29:56', '2010-11-23 04:29:56', 'description')[0m
+  [4;35;1mMembership Create (0.0ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 04:29:56', '2010-11-23 04:29:56', 1, 1, 0)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'username') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '597557760.61959555928141', '2010-11-23 04:29:56', 'ffb8d89749f857087ec73d2a2c89476529f2cfec', '2010-11-23 04:29:56')[0m
+  [4;36;1mGroup Create (0.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:29:56', '2010-11-23 04:29:56', 'description')[0m
+  [4;35;1mMembership Create (0.0ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 04:29:56', '2010-11-23 04:29:56', 1, 1, 1)[0m
+  [4;36;1mGroup Create (1.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:29:56', '2010-11-23 04:29:56', 'description')[0m
+  [4;35;1mGroup Create (0.0ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:29:56', '2010-11-23 04:29:56', 'description')[0m
+  [4;36;1mPost Create (1.0ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 04:29:56', 'test', 'hi', '2010-11-23 04:29:56', 1, NULL, 'bob')[0m
+Rendering newsfeeds/show.html.erb
+Rendering newsfeeds/new.html.erb
+Rendering newsfeeds/index.html.erb
+Rendering newsfeeds/edit.html.erb
+  [4;36;1mGroup Create (0.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:37:22', '2010-11-23 04:37:22', 'description')[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Create (0.0ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 04:37:22', NULL, NULL, '2010-11-23 04:37:22', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;35;1mUpload Load (0.0ms)[0m   [0mSELECT * FROM "uploads" [0m
+[paperclip] Deleting attachments.
+  [4;36;1mUpload Destroy (0.0ms)[0m   [0;1mDELETE FROM "uploads" WHERE "id" = 1[0m
+  [4;35;1mUpload Load (0.0ms)[0m   [0mSELECT * FROM "uploads" WHERE ("uploads"."filename" = 'abc.pdf') LIMIT 1[0m
+  [4;36;1mGroup Create (1.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:37:22', '2010-11-23 04:37:22', 'description')[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Create (0.0ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 04:37:22', NULL, NULL, '2010-11-23 04:37:22', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;35;1mGroup Create (1.0ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:37:22', '2010-11-23 04:37:22', 'description')[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mUpload Create (1.0ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 04:37:22', NULL, NULL, '2010-11-23 04:37:22', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+
+
+Processing NewsfeedsController#destroy (for 0.0.0.0 at 2010-11-22 20:37:22) [DELETE]
+  Parameters: {"id"=>"37"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 2ms (DB: 3) | 302 Found [http://test.host/newsfeeds/37]
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing NewsfeedsController#destroy (for 0.0.0.0 at 2010-11-22 20:37:22) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 0ms (DB: 1) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:37:22) [PUT]
+  Parameters: {"id"=>"37", "newsfeed"=>{"these"=>"params"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37?newsfeed%5Bthese%5D=params]
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:37:22) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 0ms (DB: 1) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:37:22) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 0ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:37:22) [PUT]
+  Parameters: {"id"=>"37", "newsfeed"=>{"these"=>"params"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37?newsfeed%5Bthese%5D=params]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:37:22) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:37:22) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 20:37:22) [POST]
+  Parameters: {"newsfeed"=>{"these"=>"params"}}
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 20:37:22) [POST]
+  Parameters: {"newsfeed"=>{}}
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 20:37:22) [POST]
+  Parameters: {"newsfeed"=>{"these"=>"params"}}
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 20:37:22) [POST]
+  Parameters: {"newsfeed"=>{}}
+
+
+Processing NewsfeedsController#edit (for 0.0.0.0 at 2010-11-22 20:37:22) [GET]
+  Parameters: {"id"=>"37"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 0ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37/edit]
+
+
+Processing NewsfeedsController#new (for 0.0.0.0 at 2010-11-22 20:37:22) [GET]
+
+
+Processing NewsfeedsController#show (for 0.0.0.0 at 2010-11-22 20:37:22) [GET]
+  Parameters: {"id"=>"37"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37]
+
+
+Processing NewsfeedsController#index (for 0.0.0.0 at 2010-11-22 20:37:22) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds]
+  [4;36;1mNewsfeed Create (1.0ms)[0m   [0;1mINSERT INTO "newsfeeds" ("descriptions", "created_at", "updated_at", "time", "group_id") VALUES('value for descriptions', '2010-11-23 04:37:22', '2010-11-23 04:37:22', '2010-11-23 04:37:22', NULL)[0m
+  [4;35;1mGroup Create (0.0ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:37:22', '2010-11-23 04:37:22', 'description')[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'username') LIMIT 1[0m
+  [4;35;1mUser Create (1.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '573783120.0113013591246471', '2010-11-23 04:37:22', 'd2bb94e83accff1e1f625828e0555c4210e9308c', '2010-11-23 04:37:22')[0m
+  [4;36;1mGroup Create (0.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:37:22', '2010-11-23 04:37:22', 'description')[0m
+  [4;35;1mMembership Create (0.0ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 04:37:22', '2010-11-23 04:37:22', 1, 1, 0)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'username') LIMIT 1[0m
+  [4;35;1mUser Create (1.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '572848440.50777967031804', '2010-11-23 04:37:22', '14c4ecbb357d0ae8d12e7c537b6a0afc35d5adfd', '2010-11-23 04:37:22')[0m
+  [4;36;1mGroup Create (0.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:37:22', '2010-11-23 04:37:22', 'description')[0m
+  [4;35;1mMembership Create (0.0ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 04:37:22', '2010-11-23 04:37:22', 1, 1, 1)[0m
+  [4;36;1mPost Create (0.0ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 04:37:22', 'test', 'hi', '2010-11-23 04:37:22', NULL, NULL, 'bob')[0m
+Rendering newsfeeds/show.html.erb
+Rendering newsfeeds/new.html.erb
+Rendering newsfeeds/index.html.erb
+Rendering newsfeeds/edit.html.erb
+  [4;36;1mGroup Create (1.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:39:18', '2010-11-23 04:39:18', 'description')[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Create (1.0ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 04:39:18', NULL, NULL, '2010-11-23 04:39:18', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;35;1mUpload Load (0.0ms)[0m   [0mSELECT * FROM "uploads" [0m
+[paperclip] Deleting attachments.
+  [4;36;1mUpload Destroy (1.0ms)[0m   [0;1mDELETE FROM "uploads" WHERE "id" = 1[0m
+  [4;35;1mUpload Load (0.0ms)[0m   [0mSELECT * FROM "uploads" WHERE ("uploads"."filename" = 'abc.pdf') LIMIT 1[0m
+  [4;36;1mGroup Create (0.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:39:18', '2010-11-23 04:39:18', 'description')[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Create (0.0ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 04:39:18', NULL, NULL, '2010-11-23 04:39:18', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;35;1mGroup Create (1.0ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:39:18', '2010-11-23 04:39:18', 'description')[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mUpload Create (0.0ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 04:39:18', NULL, NULL, '2010-11-23 04:39:18', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+
+
+Processing NewsfeedsController#destroy (for 0.0.0.0 at 2010-11-22 20:39:18) [DELETE]
+  Parameters: {"id"=>"37"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 4) | 302 Found [http://test.host/newsfeeds/37]
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing NewsfeedsController#destroy (for 0.0.0.0 at 2010-11-22 20:39:18) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:39:18) [PUT]
+  Parameters: {"id"=>"37", "newsfeed"=>{"these"=>"params"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37?newsfeed%5Bthese%5D=params]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:39:18) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:39:18) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:39:18) [PUT]
+  Parameters: {"id"=>"37", "newsfeed"=>{"these"=>"params"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37?newsfeed%5Bthese%5D=params]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:39:18) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:39:18) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 1) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 20:39:18) [POST]
+  Parameters: {"newsfeed"=>{"these"=>"params"}}
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 20:39:18) [POST]
+  Parameters: {"newsfeed"=>{}}
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 20:39:18) [POST]
+  Parameters: {"newsfeed"=>{"these"=>"params"}}
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 20:39:18) [POST]
+  Parameters: {"newsfeed"=>{}}
+
+
+Processing NewsfeedsController#edit (for 0.0.0.0 at 2010-11-22 20:39:18) [GET]
+  Parameters: {"id"=>"37"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37/edit]
+
+
+Processing NewsfeedsController#new (for 0.0.0.0 at 2010-11-22 20:39:18) [GET]
+
+
+Processing NewsfeedsController#show (for 0.0.0.0 at 2010-11-22 20:39:18) [GET]
+  Parameters: {"id"=>"37"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37]
+
+
+Processing NewsfeedsController#index (for 0.0.0.0 at 2010-11-22 20:39:18) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 0ms (DB: 0) | 302 Found [http://test.host/newsfeeds]
+  [4;36;1mNewsfeed Create (1.0ms)[0m   [0;1mINSERT INTO "newsfeeds" ("descriptions", "created_at", "updated_at", "time", "group_id") VALUES('value for descriptions', '2010-11-23 04:39:18', '2010-11-23 04:39:18', '2010-11-23 04:39:18', NULL)[0m
+  [4;35;1mGroup Create (0.0ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:39:18', '2010-11-23 04:39:18', 'description')[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'username') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '581926200.0137565959004599', '2010-11-23 04:39:18', '4ec69e62f09b9775dd63477e60478c7c51c33b32', '2010-11-23 04:39:18')[0m
+  [4;36;1mGroup Create (0.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:39:18', '2010-11-23 04:39:18', 'description')[0m
+  [4;35;1mMembership Create (0.0ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 04:39:18', '2010-11-23 04:39:18', 1, 1, 0)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'username') LIMIT 1[0m
+  [4;35;1mUser Create (1.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '581002200.0209265969799758', '2010-11-23 04:39:18', '6986abd6cb3e9d00450da5f3bde9cb6a01a03111', '2010-11-23 04:39:18')[0m
+  [4;36;1mGroup Create (0.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:39:18', '2010-11-23 04:39:18', 'description')[0m
+  [4;35;1mMembership Create (0.0ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 04:39:18', '2010-11-23 04:39:18', 1, 1, 1)[0m
+  [4;36;1mPost Create (0.0ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 04:39:18', 'test', 'hi', '2010-11-23 04:39:18', 1, 1, 'bob')[0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."title" = 'test') LIMIT 1[0m
+Rendering newsfeeds/show.html.erb
+Rendering newsfeeds/new.html.erb
+Rendering newsfeeds/index.html.erb
+Rendering newsfeeds/edit.html.erb
+  [4;36;1mGroup Create (1.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:40:39', '2010-11-23 04:40:39', 'description')[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Create (0.0ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 04:40:39', NULL, NULL, '2010-11-23 04:40:39', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;35;1mUpload Load (0.0ms)[0m   [0mSELECT * FROM "uploads" [0m
+[paperclip] Deleting attachments.
+  [4;36;1mUpload Destroy (0.0ms)[0m   [0;1mDELETE FROM "uploads" WHERE "id" = 1[0m
+  [4;35;1mUpload Load (0.0ms)[0m   [0mSELECT * FROM "uploads" WHERE ("uploads"."filename" = 'abc.pdf') LIMIT 1[0m
+  [4;36;1mGroup Create (0.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:40:39', '2010-11-23 04:40:39', 'description')[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Create (0.0ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 04:40:39', NULL, NULL, '2010-11-23 04:40:39', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;35;1mGroup Create (1.0ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:40:39', '2010-11-23 04:40:39', 'description')[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mUpload Create (0.0ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 04:40:39', NULL, NULL, '2010-11-23 04:40:39', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+
+
+Processing NewsfeedsController#destroy (for 0.0.0.0 at 2010-11-22 20:40:39) [DELETE]
+  Parameters: {"id"=>"37"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 2) | 302 Found [http://test.host/newsfeeds/37]
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing NewsfeedsController#destroy (for 0.0.0.0 at 2010-11-22 20:40:39) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 1) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:40:39) [PUT]
+  Parameters: {"id"=>"37", "newsfeed"=>{"these"=>"params"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 0ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37?newsfeed%5Bthese%5D=params]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:40:39) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:40:39) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 1) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:40:39) [PUT]
+  Parameters: {"id"=>"37", "newsfeed"=>{"these"=>"params"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 1) | 302 Found [http://test.host/newsfeeds/37?newsfeed%5Bthese%5D=params]
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:40:39) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 0ms (DB: 1) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:40:39) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 0ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 20:40:40) [POST]
+  Parameters: {"newsfeed"=>{"these"=>"params"}}
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 20:40:40) [POST]
+  Parameters: {"newsfeed"=>{}}
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 20:40:40) [POST]
+  Parameters: {"newsfeed"=>{"these"=>"params"}}
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 20:40:40) [POST]
+  Parameters: {"newsfeed"=>{}}
+
+
+Processing NewsfeedsController#edit (for 0.0.0.0 at 2010-11-22 20:40:40) [GET]
+  Parameters: {"id"=>"37"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37/edit]
+
+
+Processing NewsfeedsController#new (for 0.0.0.0 at 2010-11-22 20:40:40) [GET]
+
+
+Processing NewsfeedsController#show (for 0.0.0.0 at 2010-11-22 20:40:40) [GET]
+  Parameters: {"id"=>"37"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 0ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37]
+
+
+Processing NewsfeedsController#index (for 0.0.0.0 at 2010-11-22 20:40:40) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds]
+  [4;36;1mNewsfeed Create (0.0ms)[0m   [0;1mINSERT INTO "newsfeeds" ("descriptions", "created_at", "updated_at", "time", "group_id") VALUES('value for descriptions', '2010-11-23 04:40:40', '2010-11-23 04:40:40', '2010-11-23 04:40:40', NULL)[0m
+  [4;35;1mGroup Create (1.0ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:40:40', '2010-11-23 04:40:40', 'description')[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'username') LIMIT 1[0m
+  [4;35;1mUser Create (1.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '595336560.862852981893181', '2010-11-23 04:40:40', 'f26eca89de771d0d04a8e50a7d290b22105f4d82', '2010-11-23 04:40:40')[0m
+  [4;36;1mGroup Create (0.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:40:40', '2010-11-23 04:40:40', 'description')[0m
+  [4;35;1mMembership Create (0.0ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 04:40:40', '2010-11-23 04:40:40', 1, 1, 0)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'username') LIMIT 1[0m
+  [4;35;1mUser Create (1.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '592130160.0932102969391239', '2010-11-23 04:40:40', 'dfd54c89c39584dddd124e4ae0d4b44c16dffb0f', '2010-11-23 04:40:40')[0m
+  [4;36;1mGroup Create (0.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:40:40', '2010-11-23 04:40:40', 'description')[0m
+  [4;35;1mMembership Create (0.0ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 04:40:40', '2010-11-23 04:40:40', 1, 1, 1)[0m
+  [4;36;1mPost Create (0.0ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 04:40:40', 'test', 'hi', '2010-11-23 04:40:40', 1, 1, 'bob')[0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."title" = 'test') LIMIT 1[0m
+  [4;36;1mPost Create (1.0ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 04:40:40', 'test', 'hi', '2010-11-23 04:40:40', 1, 1, 'bob')[0m
+  [4;35;1mPost Delete all (0.0ms)[0m   [0mDELETE FROM "posts" WHERE 1=1[0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."title" = 'test') LIMIT 1[0m
+Rendering newsfeeds/show.html.erb
+Rendering newsfeeds/new.html.erb
+Rendering newsfeeds/index.html.erb
+Rendering newsfeeds/edit.html.erb
+  [4;36;1mNewsfeed Create (0.0ms)[0m   [0;1mINSERT INTO "newsfeeds" ("descriptions", "created_at", "updated_at", "time", "group_id") VALUES('value for descriptions', '2010-11-23 04:44:45', '2010-11-23 04:44:45', '2010-11-23 04:44:45', NULL)[0m
+  [4;35;1mGroup Create (1.0ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:44:45', '2010-11-23 04:44:45', 'description')[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'username') LIMIT 1[0m
+  [4;35;1mUser Create (1.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '575031840.362809147881342', '2010-11-23 04:44:45', '7c693f3aef8b5e3363862bf8cc1f121c36198f36', '2010-11-23 04:44:45')[0m
+  [4;36;1mGroup Create (0.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:44:45', '2010-11-23 04:44:45', 'description')[0m
+  [4;35;1mMembership Create (1.0ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 04:44:45', '2010-11-23 04:44:45', 1, 1, 0)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'username') LIMIT 1[0m
+  [4;35;1mUser Create (1.0ms)[0m   [0mINSERT INTO "users" ("name", "salt", "created_at", "hash_password", "updated_at") VALUES('username', '574422000.533306230693943', '2010-11-23 04:44:45', '1dc0b43c248b89d9f84063b0e5899ee7a06c4ccb', '2010-11-23 04:44:45')[0m
+  [4;36;1mGroup Create (0.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:44:45', '2010-11-23 04:44:45', 'description')[0m
+  [4;35;1mMembership Create (0.0ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "user_id", "permission") VALUES('2010-11-23 04:44:45', '2010-11-23 04:44:45', 1, 1, 1)[0m
+
+
+Processing NewsfeedsController#destroy (for 0.0.0.0 at 2010-11-22 20:44:45) [DELETE]
+  Parameters: {"id"=>"37"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 2ms (DB: 4) | 302 Found [http://test.host/newsfeeds/37]
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing NewsfeedsController#destroy (for 0.0.0.0 at 2010-11-22 20:44:45) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:44:45) [PUT]
+  Parameters: {"id"=>"37", "newsfeed"=>{"these"=>"params"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 1) | 302 Found [http://test.host/newsfeeds/37?newsfeed%5Bthese%5D=params]
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:44:45) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 1) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:44:45) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 0ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:44:45) [PUT]
+  Parameters: {"id"=>"37", "newsfeed"=>{"these"=>"params"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 1) | 302 Found [http://test.host/newsfeeds/37?newsfeed%5Bthese%5D=params]
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:44:45) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 1) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#update (for 0.0.0.0 at 2010-11-22 20:44:46) [PUT]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/1]
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 20:44:46) [POST]
+  Parameters: {"newsfeed"=>{"these"=>"params"}}
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 20:44:46) [POST]
+  Parameters: {"newsfeed"=>{}}
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 20:44:46) [POST]
+  Parameters: {"newsfeed"=>{"these"=>"params"}}
+
+
+Processing NewsfeedsController#create (for 0.0.0.0 at 2010-11-22 20:44:46) [POST]
+  Parameters: {"newsfeed"=>{}}
+
+
+Processing NewsfeedsController#edit (for 0.0.0.0 at 2010-11-22 20:44:46) [GET]
+  Parameters: {"id"=>"37"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37/edit]
+
+
+Processing NewsfeedsController#new (for 0.0.0.0 at 2010-11-22 20:44:46) [GET]
+
+
+Processing NewsfeedsController#show (for 0.0.0.0 at 2010-11-22 20:44:46) [GET]
+  Parameters: {"id"=>"37"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds/37]
+
+
+Processing NewsfeedsController#index (for 0.0.0.0 at 2010-11-22 20:44:46) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Redirected to http://test.host/users/login
+Filter chain halted as [:authorize] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/newsfeeds]
+  [4;36;1mGroup Create (1.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:44:46', '2010-11-23 04:44:46', 'description')[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Create (0.0ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 04:44:46', NULL, NULL, '2010-11-23 04:44:46', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;35;1mUpload Load (0.0ms)[0m   [0mSELECT * FROM "uploads" [0m
+[paperclip] Deleting attachments.
+  [4;36;1mUpload Destroy (1.0ms)[0m   [0;1mDELETE FROM "uploads" WHERE "id" = 1[0m
+  [4;35;1mUpload Load (0.0ms)[0m   [0mSELECT * FROM "uploads" WHERE ("uploads"."filename" = 'abc.pdf') LIMIT 1[0m
+  [4;36;1mGroup Create (0.0ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:44:46', '2010-11-23 04:44:46', 'description')[0m
+  [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mUpload Create (0.0ms)[0m   [0;1mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 04:44:46', NULL, NULL, '2010-11-23 04:44:46', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;35;1mGroup Create (1.0ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "description") VALUES('GroupName', '2010-11-23 04:44:46', '2010-11-23 04:44:46', 'description')[0m
+  [4;36;1mGroup Load (0.0ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mUpload Create (0.0ms)[0m   [0mINSERT INTO "uploads" ("attachment_file_name", "created_at", "attachment_content_type", "attachment_file_size", "updated_at", "group_id", "filename", "description", "attachment_updated_at") VALUES(NULL, '2010-11-23 04:44:46', NULL, NULL, '2010-11-23 04:44:46', 1, 'abc.pdf', 'description of the file here', NULL)[0m
+[paperclip] Saving attachments.
+  [4;36;1mPost Create (1.0ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 04:44:46', 'test', 'hi', '2010-11-23 04:44:46', 1, 1, 'bob')[0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."title" = 'test') LIMIT 1[0m
+  [4;36;1mPost Create (0.0ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at", "group_id", "user_id", "user") VALUES('2010-11-23 04:44:46', 'test', 'hi', '2010-11-23 04:44:46', 1, 1, 'bob')[0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSELECT * FROM "posts" [0m
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;35;1mPost Destroy (0.0ms)[0m   [0mDELETE FROM "posts" WHERE "id" = 1[0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."title" = 'test') LIMIT 1[0m
+  [4;35;1mComment Create (1.0ms)[0m   [0mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id", "user_id") VALUES('2010-11-23 04:44:46', 'hi', '2010-11-23 04:44:46', 1, 1)[0m
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments"."body" = 'hi') LIMIT 1[0m
+  [4;35;1mComment Create (1.0ms)[0m   [0mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id", "user_id") VALUES('2010-11-23 04:44:46', 'hi', '2010-11-23 04:44:46', 1, 1)[0m
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" [0m
+  [4;35;1mComment Destroy (0.0ms)[0m   [0mDELETE FROM "comments" WHERE "id" = 1[0m
+  [4;36;1mComment Load (0.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments"."body" = 'hi') LIMIT 1[0m
