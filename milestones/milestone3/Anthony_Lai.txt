@@ -1,0 +1,4 @@
+I looked into the white-board team's project, and the feature that I liked
+was how multiple users on the site could collaborate on the same project
+and draw on the same "whiteboard" at the same time (in theory). I ran into
+some trouble regarding clicking on a layer other than the base layers making the layer bar on the left nonfunctional, so they could improve on that.
