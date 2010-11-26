@@ -60,7 +60,7 @@ class MembershipsController < ApplicationController
     @membership = Membership.new(params[:membership])
     respond_to do |format|
       if @membership.save
-        Newsfeed.create!(:descriptions => User.find(@membership.user_id).name + ' has joined the group.', :time => @membership.created_at, :group_id => @membership.group_id, :link => group_users_path(@group))
+        Newsfeed.create!(:descriptions => User.find(@membership.user_id).name + ' has joined the group.', :time => @membership.created_at, :group_id => @membership.group_id, :link => group_users_path(@membership.group_id))
         format.html { redirect_to(@membership, :notice => 'Membership was successfully created.') }
         format.xml  { render :xml => @membership, :status => :created, :location => @membership }
       else

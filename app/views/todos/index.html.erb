@@ -9,7 +9,8 @@
 			<th>Task</th>
 			<th>Due Date</th>
 			<th>Status</th>
-			<th>Created by</th>
+			<th>Added by</th>
+			<th>Finished by</th>
 		  </tr>
 
 		<% @group.todos.each do |todo| %>
@@ -24,6 +25,11 @@
 									:action => "finish", :id => todo.id, :group_id => @group.id
 				end %></td>
 			<td><%=h User.find(todo.user_id).name %></td>
+			<% if todo.finished_by != nil %>
+				<td><%=h User.find(todo.finished_by).name %></td>
+				<% else %>
+				<td></td>
+			<% end %>
 			<td><%= link_to 'edit', edit_group_todo_path(@group, todo) %></td>
 			<td><%= link_to 'delete', [@group, todo], :confirm => 'Are you sure?', :method => :delete %></td>
 		  </tr>
