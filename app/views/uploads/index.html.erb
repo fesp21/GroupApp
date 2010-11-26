@@ -8,12 +8,14 @@
 		  <tr>
 			<th>Filename</th>
 			<th>Description</th>
+			<th>Uploaded by</th>
 		  </tr>
 
 		<% @uploads.each do |upload| %>
 		  <tr>
 			<td><%=h upload.filename %></td>
 			<td><%=h upload.description %></td>
+			<td><%=h User.find(upload.user_id).name %></td>
 			<td><%= link_to 'Edit', edit_group_upload_path(@group, upload) %></td>
 			<td><%= link_to 'Download', upload.attachment.url%></td>
 			<td><%= link_to 'Destroy', [@group, upload], :confirm => 'Are you sure?', :method => :delete %></td>

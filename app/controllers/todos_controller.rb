@@ -61,6 +61,7 @@ class TodosController < ApplicationController
   # POST /todos.xml
   def create
     @todo = @group.todos.build(params[:todo])
+    @todo.user_id = session[:user_id]
 
     respond_to do |format|
       if @todo.save

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101123000028) do
+ActiveRecord::Schema.define(:version => 20101126003251) do
 
   create_table "chats", :force => true do |t|
     t.datetime "created_at"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20101123000028) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "group_id"
+    t.integer  "user_id"
   end
 
   create_table "uploads", :force => true do |t|
@@ -84,6 +85,7 @@ ActiveRecord::Schema.define(:version => 20101123000028) do
     t.integer  "attachment_file_size"
     t.datetime "attachment_updated_at"
     t.integer  "group_id"
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|

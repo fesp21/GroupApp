@@ -50,6 +50,7 @@ class UploadsController < ApplicationController
   # POST /uploads.xml
   def create
     @upload = @group.uploads.build(params[:upload])
+    @upload.user_id = session[:user_id]
 
     respond_to do |format|
       if @upload.save

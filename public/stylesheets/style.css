@@ -63,6 +63,7 @@ padding: 0;
 	clear: both;
 	background: #e2e2e2 url('../images/bottom.gif');
 	background-repeat: repeat-x;
+	z-index: 3;
 }
 
 

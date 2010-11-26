@@ -9,6 +9,7 @@
 			<th>Task</th>
 			<th>Due Date</th>
 			<th>Status</th>
+			<th>Created by</th>
 		  </tr>
 
 		<% @group.todos.each do |todo| %>
@@ -22,6 +23,7 @@
 					link_to 'mark finished', :controller => "todos",
 									:action => "finish", :id => todo.id, :group_id => @group.id
 				end %></td>
+			<td><%=h User.find(todo.user_id).name %></td>
 			<td><%= link_to 'edit', edit_group_todo_path(@group, todo) %></td>
 			<td><%= link_to 'delete', [@group, todo], :confirm => 'Are you sure?', :method => :delete %></td>
 		  </tr>
