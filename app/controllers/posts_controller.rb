@@ -47,13 +47,13 @@ class PostsController < ApplicationController
   # POST /posts.xml
   def create
 	@user = User.find(session[:user_id])
-    @post = @group.posts.build(params[:post])
+  @post = @group.posts.build(params[:post])
 	@post.user = @user.name
 	@post.user_id = @user.id
 
     respond_to do |format|
       if @post.save
-        Newsfeed.create!(:descriptions => 'Post ' + @post.id.to_s() + ' created', :time => @post.created_at, :group_id => @group.id)
+        Newsfeed.create!(:descriptions => @user.name + ' created a new post.', :time => @post.created_at, :group_id => @group.id, :link => group_posts_path(@group))
         format.html { redirect_to([@group, @post], :notice => 'Post was successfully created.') }
         format.xml  { render :xml => @post, :status => :created, :location => @post }
       else
@@ -70,7 +70,6 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
-        Newsfeed.create!(:descriptions => 'Post ' + @post.id.to_s() + ' updated', :time => @post.updated_at, :group_id => @group.id)
         format.html { redirect_to([@group, @post], :notice => 'Post was successfully updated.') }
         format.xml  { head :ok }
       else
@@ -87,7 +86,6 @@ class PostsController < ApplicationController
     @post.destroy
 
     respond_to do |format|
-      Newsfeed.create!(:descriptions => 'Post ' + @post.id.to_s() + ' destroyed', :group_id => @group.id)
       format.html { redirect_to(group_posts_path(@group)) }
       format.xml  { head :ok }
     end

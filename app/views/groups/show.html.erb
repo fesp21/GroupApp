@@ -18,15 +18,10 @@
 	</div>
 	<div id="maincontent-body">
 		<table>
-		  <tr>
-			<th>Description</th>
-			<th>Time</th>
-		  </tr>
 
-		<% @group.newsfeeds.each do |newsfeed| %>
+		<% @group.newsfeeds.reverse.first(20).each do |newsfeed| %>
 		  <tr>
-			<td><%=h newsfeed.descriptions %></td>
-			<td><%=h newsfeed.time %></td>
+			<td><%=h link_to(newsfeed.descriptions, newsfeed.link) %></td>
 		  </tr>
 		<% end %>
 

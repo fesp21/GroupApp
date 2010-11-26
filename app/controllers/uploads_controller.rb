@@ -49,12 +49,13 @@ class UploadsController < ApplicationController
   # POST /uploads
   # POST /uploads.xml
   def create
+    @user = User.find(session[:user_id])
     @upload = @group.uploads.build(params[:upload])
     @upload.user_id = session[:user_id]
 
     respond_to do |format|
       if @upload.save
-        Newsfeed.create!(:descriptions => 'Uplodad ' + @upload.id.to_s() + ' created', :time => @upload.created_at, :group_id => @group.id)
+        Newsfeed.create!(:descriptions => @user.name + ' uploaded a new file.', :time => @upload.created_at, :group_id => @group.id, :link => group_uploads_path(@group))
         format.html { redirect_to(group_uploads_path(@group)) }
         format.xml  { render :xml => @upload, :status => :created, :location => @upload }
       else
@@ -71,7 +72,6 @@ class UploadsController < ApplicationController
 
     respond_to do |format|
       if @upload.update_attributes(params[:upload])
-        Newsfeed.create!(:descriptions => 'Uplodad ' + @upload.id.to_s() + ' updated', :time => @upload.updated_at, :group_id => @group.id)
         format.html { redirect_to(group_uploads_path(@group)) }
         format.xml  { head :ok }
       else
@@ -85,7 +85,6 @@ class UploadsController < ApplicationController
   # DELETE /uploads/1.xml
   def destroy
     @upload = @group.uploads.find(params[:id])
-    Newsfeed.create!(:descriptions => 'Uplodad ' + @upload.id.to_s() + ' destroyed', :group_id => @group.id)
     @upload.destroy
 
     respond_to do |format|

@@ -33,12 +33,12 @@ class GroupsController < ApplicationController
   end
 
   def join
-    Membership.create!(:user_id => session[:user_id], :group_id => params[:id], :permission => "1")
+    @membership = Membership.create!(:user_id => session[:user_id], :group_id => params[:id], :permission => "1")
     redirect_to(groups_url)
   end
   
   def unjoin
-    Membership.destroy(Membership.find_by_user_id_and_group_id(session[:user_id], params[:id]))
+    @membership = Membership.destroy(Membership.find_by_user_id_and_group_id(session[:user_id], params[:id]))
     redirect_to(groups_url)
   end
   
