@@ -16,6 +16,16 @@ class MembershipsController < ApplicationController
     redirect_to(group_users_path(@group))
   end
   
+  def confirm
+    @group = Group.find(params[:group_id])
+    @membership = Membership.find(params[:id])
+    @membership.request = false
+    @membership.invitation = false
+    @membership.established = true
+    @membership.save
+    redirect_to(group_users_path(@group))
+  end
+  
   # GET /memberships
   # GET /memberships.xml
   def index

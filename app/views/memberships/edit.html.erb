@@ -12,6 +12,18 @@
     <%= f.text_field :group_id %>
   </p>
   <p>
+	<%= f.label :established %><br />
+	<%= f.check_box :established %>
+  </p>
+  <p>
+	<%= f.label :request %><br />
+	<%= f.check_box :request %>
+  </p>
+  <p>
+	<%= f.label :invitation %><br />
+	<%= f.check_box :invitation %>
+  </p>
+  <p>
     <%= f.submit 'Update' %>
   </p>
 <% end %>

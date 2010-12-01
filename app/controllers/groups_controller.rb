@@ -33,12 +33,22 @@ class GroupsController < ApplicationController
   end
 
   def join
-    @membership = Membership.create!(:user_id => session[:user_id], :group_id => params[:id], :permission => "1")
+    @membership = Membership.create!(:user_id => session[:user_id], :group_id => params[:id], :permission => "1", :established => true)
     Newsfeed.create!(:descriptions => User.find(@membership.user_id).name + ' has joined the group.', :time => @membership.created_at, :group_id => @membership.group_id, :link => group_users_path(@membership.group_id))
     redirect_to(groups_url)
   end
   
   def unjoin
+    @membership = Membership.destroy(Membership.find_by_user_id_and_group_id(session[:user_id], params[:id]))
+    redirect_to(groups_url)
+  end
+  
+  def joinrequest
+    @membership = Membership.create!(:user_id => session[:user_id], :group_id => params[:id], :permission => "1", :request => true)
+    redirect_to(groups_url)
+  end
+  
+  def removerequest
     @membership = Membership.destroy(Membership.find_by_user_id_and_group_id(session[:user_id], params[:id]))
     redirect_to(groups_url)
   end
@@ -69,7 +79,7 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.save
-        Membership.create!(:user_id => session[:user_id], :group_id => @group.id, :permission => "0")
+        Membership.create!(:user_id => session[:user_id], :group_id => @group.id, :permission => "0", :established => true)
         format.html { redirect_to(@group, :notice => 'Group was successfully created.') }
         format.xml  { render :xml => @group, :status => :created, :location => @group }
       else

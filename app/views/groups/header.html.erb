@@ -3,7 +3,9 @@
 						<li>My Groups
 						  <ul class="sub">
 							 <% @user.groups.each do |group| %>
-								<li><%= link_to group.name, group %></li>
+								<% if Membership.find_by_user_id_and_group_id(@user.id, group.id).established%>
+									<li><%= link_to group.name, group %></li>
+								<% end %>
 							 <% end %>
 						  </ul>
 						</li>

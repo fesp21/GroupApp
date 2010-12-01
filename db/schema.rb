@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101126070133) do
+ActiveRecord::Schema.define(:version => 20101201071630) do
 
   create_table "chats", :force => true do |t|
     t.datetime "created_at"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20101126070133) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "private"
   end
 
   create_table "memberships", :force => true do |t|
@@ -45,6 +46,9 @@ ActiveRecord::Schema.define(:version => 20101126070133) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "permission"
+    t.boolean  "established"
+    t.boolean  "request"
+    t.boolean  "invitation"
   end
 
   create_table "newsfeeds", :force => true do |t|

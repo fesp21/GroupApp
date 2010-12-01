@@ -12,24 +12,43 @@
 
 		<% for user in @group.users %>
 		  <tr>
-			<td><%=h user.name %></td>
-			<td>
-				<% if Membership.find_by_user_id_and_group_id(user.id, @group.id).permission==0 %>
-				<%=h "Administrator" %>
-				<% else %>
-				<%=h "User"%>
-				<% end %>
-			</td>
-			<% if @admin %>
-				<% @membership = Membership.find_by_user_id_and_group_id(user.id, @group.id) %>
-				<% if @membership.permission != 0%>
-				<td><%= link_to 'Remove User', [@group, @membership], :confirm => 'Are you sure?', :method => :delete %></td>
-				<td><%= link_to 'Make Administrator', :controller => "memberships",
-								:action => "makeAdmin", :id => @membership.id, :group_id => @group.id %></td>
+			<% @membership = Membership.find_by_user_id_and_group_id(user.id, @group.id) %>
+			<% if @membership.established%>
+				<td><%=h user.name %></td>
+				<td>
+					<% if @membership.permission==0 %>
+					<%=h "Administrator" %>
+					<% else %>
+					<%=h "User"%>
+					<% end %>
+				</td>
+				<% if @admin %>
+					<% if @membership.permission != 0%>
+					<td><%= link_to 'Remove User', [@group, @membership], :confirm => 'Are you sure?', :method => :delete %></td>
+					<td><%= link_to 'Make Administrator', :controller => "memberships",
+									:action => "makeAdmin", :id => @membership.id, :group_id => @group.id %></td>
+					<% end %>
 				<% end %>
 			<% end %>
-			
 		  </tr>
+		<% end %>
+		</table>
+
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Action</th>
+			</tr>
+		
+		<% for user in @group.users %>
+			<tr>
+				<% @membership = Membership.find_by_user_id_and_group_id(user.id, @group.id) %>
+				<% if @membership.request%>
+					<td><%=h user.name %></td>
+					<td><%= link_to 'Confirm Request', :controller => "memberships", :action => "confirm", :id => @membership.id, :group_id => @group.id %></td>
+					<td><%= link_to 'Reject Request', [@group, @membership], :confirm => 'Are you sure?', :method => :delete %></td>
+				<% end %>
+			</tr>
 		<% end %>
 		</table>
 	</div>

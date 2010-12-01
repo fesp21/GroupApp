@@ -8,17 +8,32 @@
   <tr>
     <th>Name</th>
     <th>Description</th>
+	<th>Privacy</th>
   </tr>
 
 <% @groups.each do |group| %>
   <tr>
     <td><%=h group.name %></td>
     <td><%=h group.description %></td>
-    <td><%= link_to 'Show', group %></td>
-	<td><% if group.users.member?(User.find(session[:user_id]))%>
-		<%= link_to 'Unjoin', :id => group.id, :controller => "groups", :action => "unjoin"%>
+	<td><% if group.private %>
+			<%=h 'Private'%>
 		<% else %>
-		<%= link_to 'Join', :id => group.id, :controller => "groups", :action => "join"%>
+			<%=h 'Public'%>
+		<% end %>
+	<td><% if group.users.member?(User.find(session[:user_id]))%>
+			<% if Membership.find_by_user_id_and_group_id(session[:user_id], group.id).established == true %>
+				<%= link_to 'Leave', :id => group.id, :controller => "groups", :action => "unjoin"%>
+				<%= link_to 'Show', group %>
+			<% else %>
+				<%=h 'Requested'%>
+				<%= link_to 'Remove Request', :id => group.id, :controller => "groups", :action => "removerequest"%>
+			<% end %>
+		<% else %>
+			<% if group.private %>
+				<%= link_to 'Request to Join', :id => group.id, :controller => "groups", :action => "joinrequest"%>
+			<% else %>
+				<%= link_to 'Join', :id => group.id, :controller => "groups", :action => "join"%>
+			<% end %>
 		<% end %></td>
 	
   </tr>
