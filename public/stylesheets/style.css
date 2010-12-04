@@ -1,4 +1,7 @@
-/* @override http://0.0.0.0:3000/stylesheets/style.css?1290225458 */
+/* @override 
+	http://0.0.0.0:3000/stylesheets/style.css?1290225458
+	http://0.0.0.0:3000/stylesheets/style.css?1291457427
+*/
 
 html, body {
 height: 100%;
@@ -119,6 +122,10 @@ padding: 0;
 	padding: 42px 0 0 68px;
 }
 #register-pwconfirm
+{
+	padding: 42px 0 0 68px;
+}
+#register-email
 {
 	padding: 42px 0 0 68px;
 }

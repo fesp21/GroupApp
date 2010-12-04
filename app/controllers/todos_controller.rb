@@ -20,7 +20,6 @@ class TodosController < ApplicationController
   # GET /todos
   # GET /todos.xml
   def index
-    @user = User.find(session[:user_id])
     @todos = @group.todos
 
     respond_to do |format|
@@ -32,7 +31,6 @@ class TodosController < ApplicationController
   # GET /todos/1
   # GET /todos/1.xml
   def show
-    @user = User.find(session[:user_id])
     @todo = @group.todos.find(params[:id])
 
     respond_to do |format|
@@ -44,7 +42,6 @@ class TodosController < ApplicationController
   # GET /todos/new
   # GET /todos/new.xml
   def new
-    @user = User.find(session[:user_id])
     @todo = @group.todos.build
 
     respond_to do |format|
@@ -55,20 +52,18 @@ class TodosController < ApplicationController
 
   # GET /todos/1/edit
   def edit
-    @user = User.find(session[:user_id])
     @todo = @group.todos.find(params[:id])
   end
 
   # POST /todos
   # POST /todos.xml
   def create
-    @user = User.find(session[:user_id])
     @todo = @group.todos.build(params[:todo])
-    @todo.user_id = session[:user_id]
+    @todo.user_id = current_user.id
 
     respond_to do |format|
       if @todo.save
-        Newsfeed.create!(:descriptions => @user.name + ' added a new item on the To-Do list.', :time => @todo.created_at, :group_id => @group.id, :link => group_todos_path(@group))
+        Newsfeed.create!(:descriptions => current_user.username + ' added a new item on the To-Do list.', :time => @todo.created_at, :group_id => @group.id, :link => group_todos_path(@group))
         format.html { redirect_to(group_todos_path(@group)) }
         format.xml  { render :xml => @todo, :status => :created, :location => @todo }
       else

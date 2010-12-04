@@ -3,10 +3,10 @@
 
 It's <%= Time.now %>
 <p>
-Your ID is <%= session[:user_id] %>
+Your ID is <%= current_user.id %>
 <p>
   <b>Name:</b>
-  <%=h @user.name %>
+  <%=h current_user.username %>
 </p>
 
 <div id="messaging">
@@ -15,7 +15,7 @@ Your ID is <%= session[:user_id] %>
 	<% if @conversations != nil %>
 	
 	<% @conversations.each do |conversation| %>
-	  <% if conversation.origin == @user.name %>
+	  <% if conversation.origin == current_user.username %>
 	  <tr>
 		<td><bold>TO:</bold></td>
 	    <td><%=h conversation.target %></td>
@@ -23,7 +23,7 @@ Your ID is <%= session[:user_id] %>
 	    <td><%= link_to 'x', conversation, :confirm => 'Are you sure you want to delete this message?', :method => :delete %></td>
 	  </tr>
 	  <% end %>
-	  <% if conversation.target == @user.name %>
+	  <% if conversation.target == current_user.username %>
 	  <tr>
 		<td><bold>FROM:</bold></td>
 	    <td><%=h conversation.origin %></td>
@@ -40,4 +40,4 @@ Your ID is <%= session[:user_id] %>
 
 </p>
 <%= link_to 'Groups', :controller => 'groups', :action => 'index' %>   
-<%= link_to 'Logout', :controller => 'users', :action => 'logout' %>
+<%= link_to 'Logout', logout_path %>

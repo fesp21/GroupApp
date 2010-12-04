@@ -1,0 +1,24 @@
+<%= render :file => 'users/header-nogroups.html.erb' %>
+
+<div class="depot-form">
+	<% form_for @user_session do |f| %>
+	  <%= f.error_messages %>
+		<div id="login">
+	  		<div id="login-name">
+				<%= f.text_field :username, :size => 30 %>
+			</div>
+
+			<div id="login-pw">
+			    <%= f.password_field :password,:size => 30 %>
+			</div>
+
+			<div id="login-signup">
+				<%= link_to image_tag("button-register.gif", :border=>0), new_user_path %>
+			</div>
+			
+			<div id="login-signin">
+				<%= image_submit_tag "button-signin.gif" %>
+			</div>
+		</div>
+	<% end %>
+</div>

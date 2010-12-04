@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101201071630) do
+ActiveRecord::Schema.define(:version => 20101204090150) do
 
   create_table "chats", :force => true do |t|
     t.datetime "created_at"
@@ -95,11 +95,13 @@ ActiveRecord::Schema.define(:version => 20101201071630) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "name"
-    t.string   "hash_password"
-    t.string   "salt"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username"
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
   end
 
 end

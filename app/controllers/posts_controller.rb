@@ -4,7 +4,6 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @user = User.find(session[:user_id])
     @posts = @group.posts
 	
     respond_to do |format|
@@ -16,7 +15,6 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.xml
   def show
-	@user = User.find(session[:user_id])
     @post = @group.posts.find(params[:id])
 
     respond_to do |format|
@@ -28,7 +26,6 @@ class PostsController < ApplicationController
   # GET /posts/new
   # GET /posts/new.xml
   def new
-	@user = User.find(session[:user_id])
     @post = @group.posts.build
 
     respond_to do |format|
@@ -39,21 +36,19 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    @user = User.find(session[:user_id])
     @post = @group.posts.find(params[:id])
   end
 
   # POST /posts
   # POST /posts.xml
   def create
-	@user = User.find(session[:user_id])
-  @post = @group.posts.build(params[:post])
-	@post.user = @user.name
-	@post.user_id = @user.id
+    @post = @group.posts.build(params[:post])
+  	@post.user = current_user.username
+  	@post.user_id = current_user.id
 
     respond_to do |format|
       if @post.save
-        Newsfeed.create!(:descriptions => @user.name + ' created a new post.', :time => @post.created_at, :group_id => @group.id, :link => group_posts_path(@group))
+        Newsfeed.create!(:descriptions => current_user.username + ' created a new post.', :time => @post.created_at, :group_id => @group.id, :link => group_posts_path(@group))
         format.html { redirect_to([@group, @post], :notice => 'Post was successfully created.') }
         format.xml  { render :xml => @post, :status => :created, :location => @post }
       else

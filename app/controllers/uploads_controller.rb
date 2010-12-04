@@ -4,22 +4,20 @@ class UploadsController < ApplicationController
   # GET /uploads
   # GET /uploads.xml
   def index
-    @user = User.find(session[:user_id])
     @uploads = @group.uploads
-	if !@group.users.member?(User.find(session[:user_id]))
-		redirect_to(:controller => 'users', :action => 'login')
-	else
-		respond_to do |format|
-		  format.html # index.html.erb
-		  format.xml  { render :xml => @uploads }
-		end
-	end
+	  if !@group.users.member?(current_user)
+		  redirect_to(:controller => 'users', :action => 'login')
+	  else
+		  respond_to do |format|
+		    format.html # index.html.erb
+		    format.xml  { render :xml => @uploads }
+		  end
+	  end
   end
 
   # GET /uploads/1
   # GET /uploads/1.xml
   def show
-    @user = User.find(session[:user_id])
     @upload = @group.uploads.find(params[:id])
 
     respond_to do |format|
@@ -31,7 +29,6 @@ class UploadsController < ApplicationController
   # GET /uploads/new
   # GET /uploads/new.xml
   def new
-    @user = User.find(session[:user_id])
     @upload = @group.uploads.build
 
     respond_to do |format|
@@ -42,20 +39,18 @@ class UploadsController < ApplicationController
 
   # GET /uploads/1/edit
   def edit
-    @user = User.find(session[:user_id])
     @upload = @group.uploads.find(params[:id])
   end
 
   # POST /uploads
   # POST /uploads.xml
   def create
-    @user = User.find(session[:user_id])
     @upload = @group.uploads.build(params[:upload])
-    @upload.user_id = session[:user_id]
+    @upload.user_id = current_user.id
 
     respond_to do |format|
       if @upload.save
-        Newsfeed.create!(:descriptions => @user.name + ' uploaded a new file.', :time => @upload.created_at, :group_id => @group.id, :link => group_uploads_path(@group))
+        Newsfeed.create!(:descriptions => current_user.username + ' uploaded a new file.', :time => @upload.created_at, :group_id => @group.id, :link => group_uploads_path(@group))
         format.html { redirect_to(group_uploads_path(@group)) }
         format.xml  { render :xml => @upload, :status => :created, :location => @upload }
       else

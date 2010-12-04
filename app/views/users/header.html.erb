@@ -2,9 +2,12 @@
 					<ul id="groupnav">
 						<li>My Groups
 						  <ul class="sub">
-							 <% @user.groups.each do |group| %>
-								<% if Membership.find_by_user_id_and_group_id(@user.id, group.id).established%>
-									<li><%= link_to group.name, group %></li>
+							 <% current_user.groups.each do |group| %>
+								<% @membership = Membership.find_by_user_id_and_group_id(current_user.id, group.id) %>
+								<% if @membership%>
+									<% if @membership.established%>
+										<li><%= link_to group.name, group %></li>
+									<% end %>
 								<% end %>
 							 <% end %>
 						  </ul>
@@ -13,9 +16,9 @@
 					<ul id="usercontrol">
 						<li>User
 							<ul>
-								<li><%= link_to 'Home', @user%></li>
-								<li><%= link_to 'Settings', edit_user_path(@user)%></li>
-								<li><%= link_to 'Logout', :controller => 'users', :action => 'logout'%></li>
+								<li><%= link_to 'Home', current_user%></li>
+								<li><%= link_to 'Settings', edit_user_path(current_user)%></li>
+								<li><%= link_to 'Logout', logout_path%></li>
 							</ul>
 						</li>
 					</ul>

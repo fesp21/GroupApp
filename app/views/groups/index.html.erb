@@ -20,8 +20,8 @@
 		<% else %>
 			<%=h 'Public'%>
 		<% end %>
-	<td><% if group.users.member?(User.find(session[:user_id]))%>
-			<% if Membership.find_by_user_id_and_group_id(session[:user_id], group.id).established == true %>
+	<td><% if group.users.member?(current_user)%>
+			<% if Membership.find_by_user_id_and_group_id(current_user.id, group.id).established == true %>
 				<%= link_to 'Leave', :id => group.id, :controller => "groups", :action => "unjoin"%>
 				<%= link_to 'Show', group %>
 			<% else %>
@@ -43,4 +43,4 @@
 <br />
 
 <%= link_to 'New group', new_group_path %>
-<%= link_to 'Back', @user %>
+<%= link_to 'Back', current_user %>

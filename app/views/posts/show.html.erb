@@ -8,7 +8,7 @@
 
 		<p>
 			<%= link_to 'Edit', edit_group_post_path(@group,@post) %> |
-			<% if @post.user_id == session[:user_id]%>
+			<% if @post.user_id == current_user.id%>
 				<%= link_to 'Destroy', [@group, @post], :method => :delete, :confirm => "Are you sure?" %> |
 				<% end %>	
 			<%= link_to 'See All Posts', group_posts_path(@group) %>

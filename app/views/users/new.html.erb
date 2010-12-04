@@ -5,7 +5,7 @@
 	  <%= f.error_messages %>
 		<div id="register">
 			<div id="register-name">
-				<%= f.text_field :name, :size => 30 %>
+				<%= f.text_field :username, :size => 30 %>
 			</div>
 			<div id="register-pw">
 				<%= f.password_field :password, :size => 30 %>
@@ -13,8 +13,12 @@
 			<div id="register-pwconfirm">
 				<%= f.password_field :password_confirmation, :size => 30 %>
 			</div>
+			<div id="register-email">
+				<%= f.label "Email"%>
+				<%= f.text_field :email, :size => 30%>
+			</div>
 			<div id="register-back">
-				<%= link_to image_tag("button-back.gif", :border=>0), users_path %>
+				<%= link_to image_tag("button-back.gif", :border=>0), root_url %>
 			</div>
 			<div id="register-signup">
 				<%= image_submit_tag("button-register.gif") %>

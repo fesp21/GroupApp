@@ -24,9 +24,9 @@
 					link_to 'mark finished', :controller => "todos",
 									:action => "finish", :id => todo.id, :group_id => @group.id
 				end %></td>
-			<td><%=h User.find(todo.user_id).name %></td>
+			<td><%=h User.find(todo.user_id).username %></td>
 			<% if todo.finished_by != nil %>
-				<td><%=h User.find(todo.finished_by).name %></td>
+				<td><%=h User.find(todo.finished_by).username %></td>
 				<% else %>
 				<td></td>
 			<% end %>

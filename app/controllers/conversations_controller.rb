@@ -41,8 +41,7 @@ class ConversationsController < ApplicationController
   # POST /conversations.xml
   def create
     @conversation = Conversation.new(params[:conversation])
-    @user = User.find(session[:user_id])
-    @conversation.origin = @user.name
+    @conversation.origin = current_user.username
 
     respond_to do |format|
       if @conversation.save
@@ -78,7 +77,7 @@ class ConversationsController < ApplicationController
     @conversation.destroy
 
     respond_to do |format|
-      format.html { redirect_to(:controller => 'users', :action => 'show', :id => session[:user_id]) }
+      format.html { redirect_to(current_user) }
       format.xml  { head :ok }
     end
   end

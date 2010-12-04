@@ -2,7 +2,6 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.xml
   def index
-    @user = User.find(session[:user_id])
     @groups = Group.all
 
     respond_to do |format|
@@ -14,49 +13,48 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.xml
   def show
-    @user = User.find(session[:user_id])
     @group = Group.find(params[:id])
-    @member = Membership.find_by_user_id_and_group_id(@user.id, @group.id)
-	if !@group.users.member?(User.find(session[:user_id]))
-		redirect_to(groups_url)
-	else
-		respond_to do |format|
-		  format.html # show.html.erb
-		  format.xml  { render :xml => @group }
-		end
-	end
+    @member = Membership.find_by_user_id_and_group_id(current_user.id, @group.id)
+	  if !@group.users.member?(current_user)
+  		redirect_to(groups_url)
+  	else
+  		respond_to do |format|
+  		  format.html # show.html.erb
+  		  format.xml  { render :xml => @group }
+  	  end
+	  end
   end
   
   def search
-    @user = User.find(session[:user_id])
     @groups = Group.search params[:search]
   end
 
   def join
-    @membership = Membership.create!(:user_id => session[:user_id], :group_id => params[:id], :permission => "1", :established => true)
-    Newsfeed.create!(:descriptions => User.find(@membership.user_id).name + ' has joined the group.', :time => @membership.created_at, :group_id => @membership.group_id, :link => group_users_path(@membership.group_id))
+    @membership = Membership.create!(:user_id => current_user.id, :group_id => params[:id], :permission => "1", :established => true)
+    Newsfeed.create!(:descriptions => current_user.username + ' has joined the group.', :time => @membership.created_at, :group_id => @membership.group_id, :link => group_users_path(@membership.group_id))
     redirect_to(groups_url)
   end
   
   def unjoin
-    @membership = Membership.destroy(Membership.find_by_user_id_and_group_id(session[:user_id], params[:id]))
+    @membership = Membership.find_by_user_id_and_group_id(current_user.id, params[:id])
+    Newsfeed.create!(:descriptions => current_user.username + ' has left the group.', :time => Time.now, :group_id => @membership.group_id, :link => group_users_path(@membership.group_id))
+    Membership.destroy(@membership)
     redirect_to(groups_url)
   end
   
   def joinrequest
-    @membership = Membership.create!(:user_id => session[:user_id], :group_id => params[:id], :permission => "1", :request => true)
+    @membership = Membership.create!(:user_id => current_user.id, :group_id => params[:id], :permission => "1", :request => true)
     redirect_to(groups_url)
   end
   
   def removerequest
-    @membership = Membership.destroy(Membership.find_by_user_id_and_group_id(session[:user_id], params[:id]))
+    @membership = Membership.destroy(Membership.find_by_user_id_and_group_id(current_user.id, params[:id]))
     redirect_to(groups_url)
   end
   
   # GET /groups/new
   # GET /groups/new.xml
   def new
-    @user = User.find(session[:user_id])
     @group = Group.new
     
 
@@ -68,7 +66,6 @@ class GroupsController < ApplicationController
 
   # GET /groups/1/edit
   def edit
-    @user = User.find(session[:user_id])
     @group = Group.find(params[:id])
   end
 
@@ -79,7 +76,7 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.save
-        Membership.create!(:user_id => session[:user_id], :group_id => @group.id, :permission => "0", :established => true)
+        Membership.create!(:user_id => current_user.id, :group_id => @group.id, :permission => "0", :established => true)
         format.html { redirect_to(@group, :notice => 'Group was successfully created.') }
         format.xml  { render :xml => @group, :status => :created, :location => @group }
       else

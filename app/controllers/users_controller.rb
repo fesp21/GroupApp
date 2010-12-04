@@ -1,31 +1,11 @@
 class UsersController < ApplicationController
-  def login
-    if session[:user_id] != nil
-      @user = User.find(session[:user_id])
-      redirect_to(:action => "show", :id => @user.id)
-    end
-    if request.post?
-      user = User.authenticate(params[:name], params[:password])
-      if user
-        session[:user_id] = user.id
-        redirect_to(:action => "show", :id => user.id)
-      else
-        flash.now[:notice] = "Invalid user/password combination"
-      end
-    end
-  end
-
-  def logout
-    session[:user_id] = nil
-    redirect_to(:action => "login")
-  end
 
   # GET /users
   # GET /users.xml
   def index
-    @user = User.find(session[:user_id])
-	  @group=Group.find(params[:group_id])
-	  if Membership.find_by_user_id_and_group_id(@user.id, @group.id).permission==0
+	  @group= Group.find(params[:group_id])
+	  @membership = Membership.find_by_user_id_and_group_id(current_user.id, @group.id)
+	  if @membership.permission==0 && @membership.established
       @admin = true
     else
       @admin = false
@@ -33,7 +13,7 @@ class UsersController < ApplicationController
   end
   
   def user_manage
-    @users = User.find(:all, :order => :name)
+    @users = User.find(:all, :order => :username)
 
     respond_to do |format|
       format.html # user_manage.html.erb
@@ -44,7 +24,6 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.xml
   def show
-    @user = User.find(session[:user_id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -65,7 +44,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   # POST /users
@@ -75,8 +54,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        flash[:notice] = "User #{@user.name} was successfully created."
-        format.html { redirect_to(:action=>'user_manage') }
+        flash[:notice] = "User #{@user.username} was successfully created."
+        format.html { redirect_to(root_url) }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }
@@ -88,12 +67,12 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.xml
   def update
-    @user = User.find(params[:id])
+    @user = current_user
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        flash[:notice] = "User #{@user.name} was successfully updated."
-        format.html { redirect_to(:action=>'index') }
+        flash[:notice] = "User #{@user.username} was successfully updated."
+        format.html { redirect_to(@user) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -106,15 +85,15 @@ class UsersController < ApplicationController
   # DELETE /users/1.xml
   def destroy
     @user = User.find(params[:id])
-	if session[:user_id]==@user.id
-		redirect_to(:action => "logout")
-		@user.destroy
-	else
-	@user.destroy
-		respond_to do |format|
-		  format.html { redirect_to(:action => 'user_manage') }
-		  format.xml  { head :ok }
-		end
-	end
+	  if current_user.id==@user.id
+		  redirect_to(logout_path)
+		  @user.destroy
+	  else
+	    @user.destroy
+		  respond_to do |format|
+		    format.html { redirect_to(:action => 'user_manage') }
+		    format.xml  { head :ok }
+		  end
+	  end
   end
 end

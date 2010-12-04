@@ -11,7 +11,7 @@
   <p>
 	<% @users = User.all %>
     <%= f.label :target %><br />
-    <%= f.select(:target, @users.collect {|u| u.name }) %>
+    <%= f.select(:target, @users.collect {|u| u.username }) %>
   </p>
   <p>
     <%= f.label :message %><br />

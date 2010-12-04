@@ -1,9 +1,9 @@
 <% div_for comment do %>
 	<p>
 		<strong>Posted <%= time_ago_in_words(comment.created_at) %> ago </strong><br />
-		<strong>By <%= h(User.find_by_id(comment.user_id).name) %></strong><br />
+		<strong>By <%= h(User.find_by_id(comment.user_id).username) %></strong><br />
 		<%= h(comment.body) %><br />
-		<% if comment.user_id == session[:user_id]%>
+		<% if comment.user_id == current_user.id%>
 		<%= link_to 'Destroy', [comment.post, comment], :method => :delete, :confirm => "Are you sure?" %>
 		<% end %>
 	</p>
