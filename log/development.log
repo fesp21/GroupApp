@@ -47744,3 +47744,1469 @@ Rendering users/show
   [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "memberships" WHERE ("memberships"."group_id" = 4 AND "memberships"."user_id" = 5) LIMIT 1[0m
   [4;36;1mConversation Load (1.0ms)[0m   [0;1mSELECT * FROM "conversations" [0m
 Completed in 136ms (View: 130, DB: 2) | 200 OK [http://127.0.0.1/users/5]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-12-05 13:59:23) [GET]
+Rendering template within layouts/user_sessions
+Rendering user_sessions/new
+Completed in 70ms (View: 24, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-12-05 13:59:25) [POST]
+  Parameters: {"user_session"=>{"username"=>"kevin", "password"=>"1234"}, "x"=>"0", "y"=>"0", "authenticity_token"=>"12Cn2S8lrjReZDoqXcq/XhqKqemnKpmzgcQ21RurODo="}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".username) = 'kevin') LIMIT 1[0m
+Rendering template within layouts/user_sessions
+Rendering user_sessions/new
+Completed in 255ms (View: 6, DB: 0) | 200 OK [http://localhost/user_sessions]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-05 13:59:27) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 28ms (View: 16, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-12-05 13:59:34) [POST]
+  Parameters: {"x"=>"41", "y"=>"6", "authenticity_token"=>"12Cn2S8lrjReZDoqXcq/XhqKqemnKpmzgcQ21RurODo=", "user"=>{"password_confirmation"=>"1234", "username"=>"kevin", "password"=>"1234", "email"=>"kevinkchan@gmail.com"}}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'kevinkchan@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'kevin') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '3') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [4;36;1mUser Create (0.5ms)[0m   [0;1mINSERT INTO "users" ("created_at", "crypted_password", "updated_at", "username", "password_salt", "persistence_token", "email") VALUES('2010-12-05 21:59:34', '7d36bef9b52b64bd5d9f15dfc92954c99f2192d70033323075e63e6208b499e3ab79b70015c9dcde30e2cb942f571e5e52310bba2e5ecad99caf9758c2ea2233', '2010-12-05 21:59:34', 'kevin', 'cVqUnRY4GYuCLWRevAX', 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b', 'kevinkchan@gmail.com')[0m
+Redirected to http://localhost:3000/users/show
+Completed in 128ms (DB: 2) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 13:59:34) [GET]
+  Parameters: {"id"=>"show"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;35;1mConversation Load (0.3ms)[0m   [0mSELECT * FROM "conversations" [0m
+Completed in 139ms (View: 135, DB: 1) | 200 OK [http://localhost/users/show]
+
+
+Processing ConversationsController#new (for 127.0.0.1 at 2010-12-05 14:00:03) [GET]
+Rendering template within layouts/conversations
+Rendering conversations/new
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" [0m
+Completed in 35ms (View: 27, DB: 1) | 200 OK [http://localhost/conversations/new]
+
+
+Processing ConversationsController#create (for 127.0.0.1 at 2010-12-05 14:00:05) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"12Cn2S8lrjReZDoqXcq/XhqKqemnKpmzgcQ21RurODo=", "conversation"=>{"target"=>"jianda", "message"=>"weg"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+  [4;36;1mConversation Create (0.5ms)[0m   [0;1mINSERT INTO "conversations" ("created_at", "updated_at", "origin", "target", "message") VALUES('2010-12-05 22:00:05', '2010-12-05 22:00:05', 'kevin', 'jianda', 'weg')[0m
+Redirected to http://localhost:3000/conversations/2
+Completed in 311ms (DB: 1) | 302 Found [http://localhost/conversations]
+
+
+Processing ConversationsController#show (for 127.0.0.1 at 2010-12-05 14:00:05) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mConversation Load (0.4ms)[0m   [0mSELECT * FROM "conversations" WHERE ("conversations"."id" = 2) [0m
+Rendering template within layouts/conversations
+Rendering conversations/show
+Completed in 21ms (View: 12, DB: 0) | 200 OK [http://localhost/conversations/2]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:00:07) [GET]
+  Parameters: {"id"=>"show"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+  [4;35;1mGroup Load (0.4ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;36;1mConversation Load (0.4ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 179ms (View: 175, DB: 1) | 200 OK [http://localhost/users/show]
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20101022014901)
+Migrating to CreateGroups (20101022055643)
+Migrating to CreateUserlists (20101022060356)
+Migrating to CreatePermissions (20101022060532)
+Migrating to CreateChats (20101101005126)
+Migrating to CreatePosts (20101101014053)
+Migrating to CreateComments (20101101015844)
+Migrating to CreateUploads (20101101075939)
+Migrating to AddAttachmentsFileToUpload (20101101080046)
+Migrating to CreateTodos (20101101200150)
+Migrating to AddGroupIdToUpload (20101106020926)
+Migrating to AddGroupIdToTodo (20101106041329)
+Migrating to CreateMemberships (20101110234740)
+Migrating to AddGroupIdToPost (20101111072209)
+Migrating to CreateConversations (20101116210731)
+Migrating to CreateNewsfeeds (20101121060326)
+Migrating to CreateCalendars (20101121061120)
+Migrating to AddGroupIdToNewsfeed (20101121062213)
+Migrating to AddUserIdToPost (20101121070214)
+Migrating to AddPermissionToMembership (20101121221703)
+Migrating to AddUserIdToComment (20101121231349)
+Migrating to RemoveUserlistsAndPermissionsAndCalendars (20101123000028)
+Migrating to AddUserIdToUploads (20101126002619)
+Migrating to AddUserIdToTodos (20101126003251)
+Migrating to AddLinkToNewsfeed (20101126010029)
+Migrating to AddFinishedByToTodos (20101126070133)
+Migrating to AddColumnToGroups (20101201071430)
+Migrating to AddColumnsToMemberships (20101201071630)
+Migrating to RemoveColumnFromUser (20101204085551)
+Migrating to AddColumnsToUser (20101204090150)
+Migrating to AddPhoneNumberToUser (20101205220122)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (13.9ms)[0m   [0mALTER TABLE "users" ADD "phone_number" varchar(255)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101205220122')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("chats")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("comments")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("conversations")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("groups")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("memberships")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("newsfeeds")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("posts")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("todos")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("uploads")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20101022014901)
+Migrating to CreateGroups (20101022055643)
+Migrating to CreateUserlists (20101022060356)
+Migrating to CreatePermissions (20101022060532)
+Migrating to CreateChats (20101101005126)
+Migrating to CreatePosts (20101101014053)
+Migrating to CreateComments (20101101015844)
+Migrating to CreateUploads (20101101075939)
+Migrating to AddAttachmentsFileToUpload (20101101080046)
+Migrating to CreateTodos (20101101200150)
+Migrating to AddGroupIdToUpload (20101106020926)
+Migrating to AddGroupIdToTodo (20101106041329)
+Migrating to CreateMemberships (20101110234740)
+Migrating to AddGroupIdToPost (20101111072209)
+Migrating to CreateConversations (20101116210731)
+Migrating to CreateNewsfeeds (20101121060326)
+Migrating to CreateCalendars (20101121061120)
+Migrating to AddGroupIdToNewsfeed (20101121062213)
+Migrating to AddUserIdToPost (20101121070214)
+Migrating to AddPermissionToMembership (20101121221703)
+Migrating to AddUserIdToComment (20101121231349)
+Migrating to RemoveUserlistsAndPermissionsAndCalendars (20101123000028)
+Migrating to AddUserIdToUploads (20101126002619)
+Migrating to AddUserIdToTodos (20101126003251)
+Migrating to AddLinkToNewsfeed (20101126010029)
+Migrating to AddFinishedByToTodos (20101126070133)
+Migrating to AddColumnToGroups (20101201071430)
+Migrating to AddColumnsToMemberships (20101201071630)
+Migrating to RemoveColumnFromUser (20101204085551)
+Migrating to AddColumnsToUser (20101204090150)
+Migrating to AddPhoneNumberToUser (20101205220122)
+Migrating to AddPhoneCarrierToUser (20101205220247)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mALTER TABLE "users" ADD "phone_carrier" varchar(255)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101205220247')[0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("chats")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("comments")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("conversations")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("groups")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("memberships")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("newsfeeds")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("posts")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("todos")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("uploads")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20101022014901)
+Migrating to CreateGroups (20101022055643)
+Migrating to CreateUserlists (20101022060356)
+Migrating to CreatePermissions (20101022060532)
+Migrating to CreateChats (20101101005126)
+Migrating to CreatePosts (20101101014053)
+Migrating to CreateComments (20101101015844)
+Migrating to CreateUploads (20101101075939)
+Migrating to AddAttachmentsFileToUpload (20101101080046)
+Migrating to CreateTodos (20101101200150)
+Migrating to AddGroupIdToUpload (20101106020926)
+Migrating to AddGroupIdToTodo (20101106041329)
+Migrating to CreateMemberships (20101110234740)
+Migrating to AddGroupIdToPost (20101111072209)
+Migrating to CreateConversations (20101116210731)
+Migrating to CreateNewsfeeds (20101121060326)
+Migrating to CreateCalendars (20101121061120)
+Migrating to AddGroupIdToNewsfeed (20101121062213)
+Migrating to AddUserIdToPost (20101121070214)
+Migrating to AddPermissionToMembership (20101121221703)
+Migrating to AddUserIdToComment (20101121231349)
+Migrating to RemoveUserlistsAndPermissionsAndCalendars (20101123000028)
+Migrating to AddUserIdToUploads (20101126002619)
+Migrating to AddUserIdToTodos (20101126003251)
+Migrating to AddLinkToNewsfeed (20101126010029)
+Migrating to AddFinishedByToTodos (20101126070133)
+Migrating to AddColumnToGroups (20101201071430)
+Migrating to AddColumnsToMemberships (20101201071630)
+Migrating to RemoveColumnFromUser (20101204085551)
+Migrating to AddColumnsToUser (20101204090150)
+Migrating to AddPhoneNumberToUser (20101205220122)
+Migrating to AddPhoneCarrierToUser (20101205220247)
+Migrating to AddAllowTextToUser (20101205220400)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mALTER TABLE "users" ADD "allow_text" boolean[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101205220400')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("chats")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("comments")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("conversations")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("groups")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("memberships")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("newsfeeds")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("posts")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("todos")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("uploads")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-12-05 14:04:06) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/edit
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+Completed in 164ms (View: 139, DB: 1) | 200 OK [http://localhost/users/6/edit]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-12-05 14:06:57) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/edit
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+Completed in 141ms (View: 124, DB: 1) | 200 OK [http://localhost/users/6/edit]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-12-05 14:07:22) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/edit
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+Completed in 142ms (View: 125, DB: 1) | 200 OK [http://localhost/users/6/edit]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-12-05 14:07:48) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/edit
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+Completed in 146ms (View: 127, DB: 1) | 200 OK [http://localhost/users/6/edit]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-12-05 14:07:48) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/edit
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+Completed in 37ms (View: 20, DB: 1) | 200 OK [http://localhost/users/6/edit]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-12-05 14:09:16) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/edit
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.collect) on line #22 of app/views/users/edit.html.erb:
+19:   </p>
+20:   <p>
+21:     <%= f.label :phone_carrier %><br />
+22:     <%= f.select(:phone_carrier, @users.collect {|u| u.username }) %>
+23:   </p>
+24:   <p>
+25:     <%= f.label :allow_text %><br />
+
+    app/views/users/edit.html.erb:22
+    app/views/users/edit.html.erb:5
+
+Rendered rescues/_trace (141.1ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-12-05 14:09:20) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/edit
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.collect) on line #22 of app/views/users/edit.html.erb:
+19:   </p>
+20:   <p>
+21:     <%= f.label :phone_carrier %><br />
+22:     <%= f.select(:phone_carrier, @users.collect {|u| u.username }) %>
+23:   </p>
+24:   <p>
+25:     <%= f.label :allow_text %><br />
+
+    app/views/users/edit.html.erb:22
+    app/views/users/edit.html.erb:5
+
+Rendered rescues/_trace (43.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-12-05 14:09:21) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/edit
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.collect) on line #22 of app/views/users/edit.html.erb:
+19:   </p>
+20:   <p>
+21:     <%= f.label :phone_carrier %><br />
+22:     <%= f.select(:phone_carrier, @users.collect {|u| u.username }) %>
+23:   </p>
+24:   <p>
+25:     <%= f.label :allow_text %><br />
+
+    app/views/users/edit.html.erb:22
+    app/views/users/edit.html.erb:5
+
+Rendered rescues/_trace (44.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-12-05 14:09:21) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/edit
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.collect) on line #22 of app/views/users/edit.html.erb:
+19:   </p>
+20:   <p>
+21:     <%= f.label :phone_carrier %><br />
+22:     <%= f.select(:phone_carrier, @users.collect {|u| u.username }) %>
+23:   </p>
+24:   <p>
+25:     <%= f.label :allow_text %><br />
+
+    app/views/users/edit.html.erb:22
+    app/views/users/edit.html.erb:5
+
+Rendered rescues/_trace (143.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-12-05 14:09:22) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/edit
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.collect) on line #22 of app/views/users/edit.html.erb:
+19:   </p>
+20:   <p>
+21:     <%= f.label :phone_carrier %><br />
+22:     <%= f.select(:phone_carrier, @users.collect {|u| u.username }) %>
+23:   </p>
+24:   <p>
+25:     <%= f.label :allow_text %><br />
+
+    app/views/users/edit.html.erb:22
+    app/views/users/edit.html.erb:5
+
+Rendered rescues/_trace (45.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-12-05 14:09:33) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/edit
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.collect) on line #22 of app/views/users/edit.html.erb:
+19:   </p>
+20:   <p>
+21:     <%= f.label :phone_carrier %><br />
+22:     <%= f.select(:target, @users.collect {|u| u.username }) %>
+23:   </p>
+24:   <p>
+25:     <%= f.label :allow_text %><br />
+
+    app/views/users/edit.html.erb:22
+    app/views/users/edit.html.erb:5
+
+Rendered rescues/_trace (45.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-12-05 14:09:34) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/edit
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.collect) on line #22 of app/views/users/edit.html.erb:
+19:   </p>
+20:   <p>
+21:     <%= f.label :phone_carrier %><br />
+22:     <%= f.select(:target, @users.collect {|u| u.username }) %>
+23:   </p>
+24:   <p>
+25:     <%= f.label :allow_text %><br />
+
+    app/views/users/edit.html.erb:22
+    app/views/users/edit.html.erb:5
+
+Rendered rescues/_trace (153.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-12-05 14:09:34) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/edit
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.collect) on line #22 of app/views/users/edit.html.erb:
+19:   </p>
+20:   <p>
+21:     <%= f.label :phone_carrier %><br />
+22:     <%= f.select(:target, @users.collect {|u| u.username }) %>
+23:   </p>
+24:   <p>
+25:     <%= f.label :allow_text %><br />
+
+    app/views/users/edit.html.erb:22
+    app/views/users/edit.html.erb:5
+
+Rendered rescues/_trace (44.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-12-05 14:09:34) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/edit
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.collect) on line #22 of app/views/users/edit.html.erb:
+19:   </p>
+20:   <p>
+21:     <%= f.label :phone_carrier %><br />
+22:     <%= f.select(:target, @users.collect {|u| u.username }) %>
+23:   </p>
+24:   <p>
+25:     <%= f.label :allow_text %><br />
+
+    app/views/users/edit.html.erb:22
+    app/views/users/edit.html.erb:5
+
+Rendered rescues/_trace (42.9ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-12-05 14:09:35) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/edit
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.collect) on line #22 of app/views/users/edit.html.erb:
+19:   </p>
+20:   <p>
+21:     <%= f.label :phone_carrier %><br />
+22:     <%= f.select(:target, @users.collect {|u| u.username }) %>
+23:   </p>
+24:   <p>
+25:     <%= f.label :allow_text %><br />
+
+    app/views/users/edit.html.erb:22
+    app/views/users/edit.html.erb:5
+
+Rendered rescues/_trace (44.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-12-05 14:10:00) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/edit
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" [0m
+Completed in 42ms (View: 24, DB: 1) | 200 OK [http://localhost/users/6/edit]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-12-05 14:10:49) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/edit
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+Completed in 43ms (View: 25, DB: 1) | 200 OK [http://localhost/users/6/edit]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-12-05 14:10:49) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/edit
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+Completed in 138ms (View: 19, DB: 1) | 200 OK [http://localhost/users/6/edit]
+
+
+Processing UsersController#update (for 127.0.0.1 at 2010-12-05 14:10:53) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"12Cn2S8lrjReZDoqXcq/XhqKqemnKpmzgcQ21RurODo=", "id"=>"6", "user"=>{"username"=>"kevin", "allow_text"=>"1", "phone_number"=>"3107551632", "phone_carrier"=>"at&t", "password"=>""}}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+  [4;35;1mUser Update (0.4ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-05 22:10:53', "phone_number" = '3107551632', "phone_carrier" = 'at&t', "allow_text" = 't' WHERE "id" = 6[0m
+Redirected to http://localhost:3000/users/6
+Completed in 24ms (DB: 1) | 302 Found [http://localhost/users/6]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:10:54) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;36;1mConversation Load (0.3ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 43ms (View: 39, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing GroupsController#index (for 127.0.0.1 at 2010-12-05 14:10:56) [GET]
+  [4;35;1mGroup Load (0.8ms)[0m   [0mSELECT * FROM "groups" [0m
+Rendering template within layouts/groups
+Rendering groups/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+Rendered groups/_search (2.4ms)
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 2)) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 3)) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 4)) [0m
+Completed in 57ms (View: 46, DB: 3) | 200 OK [http://localhost/groups]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:10:58) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;36;1mConversation Load (0.3ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 46ms (View: 42, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing ConversationsController#new (for 127.0.0.1 at 2010-12-05 14:11:00) [GET]
+Rendering template within layouts/conversations
+Rendering conversations/new
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" [0m
+Completed in 25ms (View: 18, DB: 1) | 200 OK [http://localhost/conversations/new]
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2010-12-05 14:12:43) [GET]
+
+SyntaxError (/Users/Kevin/Desktop/GroupApp/app/controllers/conversations_controller.rb:10: syntax error, unexpected kEND, expecting ')'
+/Users/Kevin/Desktop/GroupApp/app/controllers/conversations_controller.rb:94: syntax error, unexpected $end, expecting kEND):
+  
+
+Rendered rescues/_trace (30.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2010-12-05 14:12:45) [GET]
+
+SyntaxError (/Users/Kevin/Desktop/GroupApp/app/controllers/conversations_controller.rb:10: syntax error, unexpected kEND, expecting ')'
+/Users/Kevin/Desktop/GroupApp/app/controllers/conversations_controller.rb:94: syntax error, unexpected $end, expecting kEND):
+  
+
+Rendered rescues/_trace (138.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2010-12-05 14:12:45) [GET]
+
+SyntaxError (/Users/Kevin/Desktop/GroupApp/app/controllers/conversations_controller.rb:10: syntax error, unexpected kEND, expecting ')'
+/Users/Kevin/Desktop/GroupApp/app/controllers/conversations_controller.rb:94: syntax error, unexpected $end, expecting kEND):
+  
+
+Rendered rescues/_trace (29.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2010-12-05 14:12:46) [GET]
+
+SyntaxError (/Users/Kevin/Desktop/GroupApp/app/controllers/conversations_controller.rb:10: syntax error, unexpected kEND, expecting ')'
+/Users/Kevin/Desktop/GroupApp/app/controllers/conversations_controller.rb:94: syntax error, unexpected $end, expecting kEND):
+  
+
+Rendered rescues/_trace (146.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ConversationsController#new (for 127.0.0.1 at 2010-12-05 14:12:53) [GET]
+Rendering template within layouts/conversations
+Rendering conversations/new
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" [0m
+Completed in 26ms (View: 18, DB: 1) | 200 OK [http://localhost/conversations/new]
+
+
+Processing ConversationsController#create (for 127.0.0.1 at 2010-12-05 14:12:55) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"12Cn2S8lrjReZDoqXcq/XhqKqemnKpmzgcQ21RurODo=", "conversation"=>{"target"=>"jianda", "message"=>"weg"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+  [4;36;1mConversation Create (0.4ms)[0m   [0;1mINSERT INTO "conversations" ("created_at", "updated_at", "origin", "target", "message") VALUES('2010-12-05 22:12:55', '2010-12-05 22:12:55', 'kevin', 'jianda', 'weg')[0m
+Redirected to http://localhost:3000/conversations/3
+Completed in 27ms (DB: 1) | 302 Found [http://localhost/conversations]
+
+
+Processing ConversationsController#show (for 127.0.0.1 at 2010-12-05 14:12:55) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mConversation Load (0.2ms)[0m   [0mSELECT * FROM "conversations" WHERE ("conversations"."id" = 3) [0m
+Rendering template within layouts/conversations
+Rendering conversations/show
+Completed in 11ms (View: 3, DB: 0) | 200 OK [http://localhost/conversations/3]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:12:57) [GET]
+  Parameters: {"id"=>"show"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;36;1mConversation Load (0.4ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 142ms (View: 139, DB: 1) | 200 OK [http://localhost/users/show]
+
+
+Processing GroupsController#index (for 127.0.0.1 at 2010-12-05 14:13:46) [GET]
+  [4;35;1mGroup Load (0.9ms)[0m   [0mSELECT * FROM "groups" [0m
+Rendering template within layouts/groups
+Rendering groups/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+Rendered groups/_search (1.2ms)
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 2)) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 3)) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 4)) [0m
+Completed in 148ms (View: 136, DB: 3) | 200 OK [http://localhost/groups]
+
+
+Processing GroupsController#index (for 127.0.0.1 at 2010-12-05 14:14:33) [GET]
+  [4;36;1mGroup Load (0.9ms)[0m   [0;1mSELECT * FROM "groups" [0m
+Rendering template within layouts/groups
+Rendering groups/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+Rendered groups/_search (1.3ms)
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 2)) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 3)) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 4)) [0m
+Completed in 42ms (View: 31, DB: 3) | 200 OK [http://localhost/groups]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:14:34) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'af23158374b4cf87959a5720f898cf33ef517abdf2e35c3930d018dfde329feb6c1531ad2b5e2da6fd85a7a0ec617e1c6d3894a40b0dbb80e7a1c0728c279e2b') LIMIT 1[0m
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;35;1mConversation Load (0.4ms)[0m   [0mSELECT * FROM "conversations" [0m
+Completed in 153ms (View: 41, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing ConversationsController#new (for 127.0.0.1 at 2010-12-05 14:14:36) [GET]
+Rendering template within layouts/conversations
+Rendering conversations/new
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" [0m
+Completed in 24ms (View: 17, DB: 1) | 200 OK [http://localhost/conversations/new]
+
+
+Processing ConversationsController#new (for 127.0.0.1 at 2010-12-05 14:18:34) [GET]
+Rendering template within layouts/conversations
+Rendering conversations/new
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" [0m
+Completed in 25ms (View: 18, DB: 1) | 200 OK [http://localhost/conversations/new]
+
+
+Processing ConversationsController#new (for 127.0.0.1 at 2010-12-05 14:18:34) [GET]
+Rendering template within layouts/conversations
+Rendering conversations/new
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" [0m
+Completed in 127ms (View: 120, DB: 1) | 200 OK [http://localhost/conversations/new]
+
+
+Processing ConversationsController#new (for 127.0.0.1 at 2010-12-05 14:20:08) [GET]
+Rendering template within layouts/conversations
+Rendering conversations/new
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" [0m
+Completed in 30ms (View: 23, DB: 1) | 200 OK [http://localhost/conversations/new]
+
+
+Processing ConversationsController#new (for 127.0.0.1 at 2010-12-05 14:20:09) [GET]
+Rendering template within layouts/conversations
+Rendering conversations/new
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" [0m
+Completed in 24ms (View: 18, DB: 1) | 200 OK [http://localhost/conversations/new]
+
+
+Processing ConversationsController#new (for 127.0.0.1 at 2010-12-05 14:20:10) [GET]
+Rendering template within layouts/conversations
+Rendering conversations/new
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" [0m
+Completed in 26ms (View: 19, DB: 1) | 200 OK [http://localhost/conversations/new]
+
+
+Processing ConversationsController#new (for 127.0.0.1 at 2010-12-05 14:20:18) [GET]
+Rendering template within layouts/conversations
+Rendering conversations/new
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" [0m
+Completed in 30ms (View: 23, DB: 1) | 200 OK [http://localhost/conversations/new]
+
+
+Processing ConversationsController#new (for 127.0.0.1 at 2010-12-05 14:20:22) [GET]
+Rendering template within layouts/conversations
+Rendering conversations/new
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" [0m
+Completed in 29ms (View: 21, DB: 1) | 200 OK [http://localhost/conversations/new]
+
+
+Processing ConversationsController#show (for 127.0.0.1 at 2010-12-05 14:20:31) [GET]
+  Parameters: {"id"=>"send_text"}
+  [4;36;1mConversation Load (0.1ms)[0m   [0;1mSELECT * FROM "conversations" WHERE ("conversations"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Conversation with ID=send_text):
+  app/controllers/conversations_controller.rb:27:in `show'
+
+Rendered rescues/_trace (33.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ConversationsController#show (for 127.0.0.1 at 2010-12-05 14:21:07) [GET]
+  Parameters: {"id"=>"send_text"}
+  [4;35;1mConversation Load (0.1ms)[0m   [0mSELECT * FROM "conversations" WHERE ("conversations"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Conversation with ID=send_text):
+  app/controllers/conversations_controller.rb:27:in `show'
+
+Rendered rescues/_trace (32.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ConversationsController#show (for 127.0.0.1 at 2010-12-05 14:21:08) [GET]
+  Parameters: {"id"=>"send_text"}
+  [4;36;1mConversation Load (0.1ms)[0m   [0;1mSELECT * FROM "conversations" WHERE ("conversations"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Conversation with ID=send_text):
+  app/controllers/conversations_controller.rb:27:in `show'
+
+Rendered rescues/_trace (34.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ConversationsController#show (for 127.0.0.1 at 2010-12-05 14:21:09) [GET]
+  Parameters: {"id"=>"send_text"}
+  [4;35;1mConversation Load (0.1ms)[0m   [0mSELECT * FROM "conversations" WHERE ("conversations"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Conversation with ID=send_text):
+  app/controllers/conversations_controller.rb:27:in `show'
+
+Rendered rescues/_trace (34.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ConversationsController#show (for 127.0.0.1 at 2010-12-05 14:21:09) [GET]
+  Parameters: {"id"=>"send_text"}
+  [4;36;1mConversation Load (0.1ms)[0m   [0;1mSELECT * FROM "conversations" WHERE ("conversations"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Conversation with ID=send_text):
+  app/controllers/conversations_controller.rb:27:in `show'
+
+Rendered rescues/_trace (146.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ConversationsController#show (for 127.0.0.1 at 2010-12-05 14:24:47) [GET]
+  Parameters: {"id"=>"send_text"}
+  [4;35;1mConversation Load (0.1ms)[0m   [0mSELECT * FROM "conversations" WHERE ("conversations"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Conversation with ID=send_text):
+  app/controllers/conversations_controller.rb:27:in `show'
+
+Rendered rescues/_trace (34.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ConversationsController#index (for 127.0.0.1 at 2010-12-05 14:24:50) [GET]
+  [4;36;1mConversation Load (0.8ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Rendering template within layouts/conversations
+Rendering conversations/index
+Completed in 20ms (View: 14, DB: 1) | 200 OK [http://localhost/conversations/]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-12-05 14:24:53) [GET]
+Rendering template within layouts/user_sessions
+Rendering user_sessions/new
+Completed in 20ms (View: 5, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-12-05 14:24:57) [POST]
+  Parameters: {"user_session"=>{"username"=>"kevin", "password"=>"1234"}, "x"=>"0", "y"=>"0", "authenticity_token"=>"12Cn2S8lrjReZDoqXcq/XhqKqemnKpmzgcQ21RurODo="}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE (LOWER("users".username) = 'kevin') LIMIT 1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+Redirected to http://localhost:3000/users/6
+Completed in 21ms (DB: 1) | 302 Found [http://localhost/user_sessions]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:24:57) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;35;1mConversation Load (0.4ms)[0m   [0mSELECT * FROM "conversations" [0m
+Completed in 150ms (View: 146, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:25:25) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;36;1mConversation Load (0.4ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 144ms (View: 140, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:25:26) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;35;1mConversation Load (0.4ms)[0m   [0mSELECT * FROM "conversations" [0m
+Completed in 155ms (View: 151, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing ConversationsController#new (for 127.0.0.1 at 2010-12-05 14:25:27) [GET]
+Rendering template within layouts/conversations
+Rendering conversations/new
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" [0m
+Completed in 30ms (View: 22, DB: 1) | 200 OK [http://localhost/conversations/new]
+
+
+Processing ConversationsController#create (for 127.0.0.1 at 2010-12-05 14:25:33) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"12Cn2S8lrjReZDoqXcq/XhqKqemnKpmzgcQ21RurODo=", "conversation"=>{"target"=>"kevin", "message"=>"weg"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."username" = 'kevin') LIMIT 1[0m
+Redirected to http://localhost:3000/users/6
+Completed in 423ms (DB: 1) | 302 Found [http://localhost/conversations]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:25:33) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;35;1mConversation Load (0.4ms)[0m   [0mSELECT * FROM "conversations" [0m
+Completed in 196ms (View: 191, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:26:16) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;36;1mConversation Load (0.4ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 153ms (View: 149, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:26:17) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;35;1mConversation Load (0.5ms)[0m   [0mSELECT * FROM "conversations" [0m
+Completed in 47ms (View: 43, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:26:17) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;36;1mConversation Load (0.4ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 45ms (View: 41, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing ConversationsController#new (for 127.0.0.1 at 2010-12-05 14:26:20) [GET]
+Rendering template within layouts/conversations
+Rendering conversations/new
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" [0m
+Completed in 26ms (View: 19, DB: 1) | 200 OK [http://localhost/conversations/new]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:26:21) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;36;1mConversation Load (0.4ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 145ms (View: 141, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing ConversationsController#index (for 127.0.0.1 at 2010-12-05 14:26:26) [GET]
+  [4;35;1mConversation Load (0.8ms)[0m   [0mSELECT * FROM "conversations" [0m
+Rendering template within layouts/conversations
+Rendering conversations/index
+Completed in 16ms (View: 10, DB: 1) | 200 OK [http://localhost/conversations]
+
+
+Processing ConversationsController#new (for 127.0.0.1 at 2010-12-05 14:26:36) [GET]
+Rendering template within layouts/conversations
+Rendering conversations/new
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" [0m
+Completed in 132ms (View: 125, DB: 1) | 200 OK [http://localhost/conversations/new]
+
+
+Processing ConversationsController#create (for 127.0.0.1 at 2010-12-05 14:26:38) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"12Cn2S8lrjReZDoqXcq/XhqKqemnKpmzgcQ21RurODo=", "conversation"=>{"target"=>"jianda", "message"=>"weg"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."username" = 'jianda') LIMIT 1[0m
+
+SMSFuException (Missing number or carrier):
+  app/controllers/conversations_controller.rb:58:in `create'
+
+Rendered rescues/_trace (34.1ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ConversationsController#new (for 127.0.0.1 at 2010-12-05 14:27:11) [GET]
+Rendering template within layouts/conversations
+Rendering conversations/new
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" [0m
+Completed in 26ms (View: 18, DB: 1) | 200 OK [http://localhost/conversations/new]
+
+
+Processing ConversationsController#create (for 127.0.0.1 at 2010-12-05 14:27:12) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"12Cn2S8lrjReZDoqXcq/XhqKqemnKpmzgcQ21RurODo=", "conversation"=>{"target"=>"jianda", "message"=>"weg"}}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."username" = 'jianda') LIMIT 1[0m
+Redirected to http://localhost:3000/users/6
+Completed in 23ms (DB: 1) | 302 Found [http://localhost/conversations]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:27:12) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;36;1mConversation Load (0.4ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 154ms (View: 149, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:27:14) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;35;1mConversation Load (0.4ms)[0m   [0mSELECT * FROM "conversations" [0m
+Completed in 149ms (View: 145, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:27:15) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;36;1mConversation Load (0.4ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 152ms (View: 148, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing GroupsController#index (for 127.0.0.1 at 2010-12-05 14:27:19) [GET]
+  [4;35;1mGroup Load (0.9ms)[0m   [0mSELECT * FROM "groups" [0m
+Rendering template within layouts/groups
+Rendering groups/index
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+Rendered groups/_search (2.0ms)
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 2)) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 3)) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 4)) [0m
+Completed in 46ms (View: 34, DB: 3) | 200 OK [http://localhost/groups]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:27:21) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;36;1mConversation Load (0.4ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 150ms (View: 146, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing ConversationsController#new (for 127.0.0.1 at 2010-12-05 14:27:22) [GET]
+Rendering template within layouts/conversations
+Rendering conversations/new
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" [0m
+Completed in 128ms (View: 121, DB: 1) | 200 OK [http://localhost/conversations/new]
+
+
+Processing ConversationsController#create (for 127.0.0.1 at 2010-12-05 14:27:25) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"12Cn2S8lrjReZDoqXcq/XhqKqemnKpmzgcQ21RurODo=", "conversation"=>{"target"=>"jianda", "message"=>"sdgojsdg\\"}}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."username" = 'jianda') LIMIT 1[0m
+Redirected to http://localhost:3000/users/6
+Completed in 24ms (DB: 1) | 302 Found [http://localhost/conversations]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:27:25) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;36;1mConversation Load (0.4ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 153ms (View: 149, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:28:16) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;35;1mConversation Load (0.4ms)[0m   [0mSELECT * FROM "conversations" [0m
+Completed in 149ms (View: 145, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:28:16) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;36;1mConversation Load (0.5ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 155ms (View: 151, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing ConversationsController#new (for 127.0.0.1 at 2010-12-05 14:28:18) [GET]
+Rendering template within layouts/conversations
+Rendering conversations/new
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" [0m
+Completed in 128ms (View: 121, DB: 1) | 200 OK [http://localhost/conversations/new]
+
+
+Processing ConversationsController#create (for 127.0.0.1 at 2010-12-05 14:28:20) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"12Cn2S8lrjReZDoqXcq/XhqKqemnKpmzgcQ21RurODo=", "conversation"=>{"target"=>"jianda", "message"=>"wegeg"}}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."username" = 'jianda') LIMIT 1[0m
+  [4;36;1mConversation Create (0.4ms)[0m   [0;1mINSERT INTO "conversations" ("created_at", "updated_at", "origin", "target", "message") VALUES('2010-12-05 22:28:20', '2010-12-05 22:28:20', 'kevin', 'jianda', 'wegeg')[0m
+Redirected to http://localhost:3000/users/6
+Completed in 29ms (DB: 1) | 302 Found [http://localhost/conversations]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:28:20) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;35;1mConversation Load (0.5ms)[0m   [0mSELECT * FROM "conversations" [0m
+Completed in 155ms (View: 151, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing ConversationsController#new (for 127.0.0.1 at 2010-12-05 14:28:39) [GET]
+Rendering template within layouts/conversations
+Rendering conversations/new
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" [0m
+Completed in 24ms (View: 17, DB: 1) | 200 OK [http://localhost/conversations/new]
+
+
+Processing ConversationsController#create (for 127.0.0.1 at 2010-12-05 14:28:44) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"12Cn2S8lrjReZDoqXcq/XhqKqemnKpmzgcQ21RurODo=", "conversation"=>{"target"=>"kevin", "message"=>"testing"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."username" = 'kevin') LIMIT 1[0m
+  [4;35;1mConversation Create (0.5ms)[0m   [0mINSERT INTO "conversations" ("created_at", "updated_at", "origin", "target", "message") VALUES('2010-12-05 22:28:45', '2010-12-05 22:28:45', 'kevin', 'kevin', 'testing')[0m
+Redirected to http://localhost:3000/users/6
+Completed in 151ms (DB: 1) | 302 Found [http://localhost/conversations]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:28:45) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;36;1mConversation Load (0.6ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 211ms (View: 206, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:28:48) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;35;1mConversation Load (0.6ms)[0m   [0mSELECT * FROM "conversations" [0m
+Completed in 161ms (View: 156, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing ConversationsController#new (for 127.0.0.1 at 2010-12-05 14:29:20) [GET]
+Rendering template within layouts/conversations
+Rendering conversations/new
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" [0m
+Completed in 25ms (View: 18, DB: 1) | 200 OK [http://localhost/conversations/new]
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20101022014901)
+Migrating to CreateGroups (20101022055643)
+Migrating to CreateUserlists (20101022060356)
+Migrating to CreatePermissions (20101022060532)
+Migrating to CreateChats (20101101005126)
+Migrating to CreatePosts (20101101014053)
+Migrating to CreateComments (20101101015844)
+Migrating to CreateUploads (20101101075939)
+Migrating to AddAttachmentsFileToUpload (20101101080046)
+Migrating to CreateTodos (20101101200150)
+Migrating to AddGroupIdToUpload (20101106020926)
+Migrating to AddGroupIdToTodo (20101106041329)
+Migrating to CreateMemberships (20101110234740)
+Migrating to AddGroupIdToPost (20101111072209)
+Migrating to CreateConversations (20101116210731)
+Migrating to CreateNewsfeeds (20101121060326)
+Migrating to CreateCalendars (20101121061120)
+Migrating to AddGroupIdToNewsfeed (20101121062213)
+Migrating to AddUserIdToPost (20101121070214)
+Migrating to AddPermissionToMembership (20101121221703)
+Migrating to AddUserIdToComment (20101121231349)
+Migrating to RemoveUserlistsAndPermissionsAndCalendars (20101123000028)
+Migrating to AddUserIdToUploads (20101126002619)
+Migrating to AddUserIdToTodos (20101126003251)
+Migrating to AddLinkToNewsfeed (20101126010029)
+Migrating to AddFinishedByToTodos (20101126070133)
+Migrating to AddColumnToGroups (20101201071430)
+Migrating to AddColumnsToMemberships (20101201071630)
+Migrating to RemoveColumnFromUser (20101204085551)
+Migrating to AddColumnsToUser (20101204090150)
+Migrating to AddPhoneNumberToUser (20101205220122)
+Migrating to AddPhoneCarrierToUser (20101205220247)
+Migrating to AddAllowTextToUser (20101205220400)
+Migrating to AddAlsoTextToConversation (20101205222959)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mALTER TABLE "conversations" ADD "also_text" boolean[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101205222959')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("chats")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("comments")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("conversations")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("groups")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("memberships")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("newsfeeds")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("posts")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("todos")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("uploads")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+
+
+Processing ConversationsController#new (for 127.0.0.1 at 2010-12-05 14:30:56) [GET]
+Rendering template within layouts/conversations
+Rendering conversations/new
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" [0m
+Completed in 29ms (View: 22, DB: 1) | 200 OK [http://localhost/conversations/new]
+
+
+Processing ConversationsController#new (for 127.0.0.1 at 2010-12-05 14:30:56) [GET]
+Rendering template within layouts/conversations
+Rendering conversations/new
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" [0m
+Completed in 26ms (View: 19, DB: 1) | 200 OK [http://localhost/conversations/new]
+
+
+Processing ConversationsController#new (for 127.0.0.1 at 2010-12-05 14:31:21) [GET]
+Rendering template within layouts/conversations
+Rendering conversations/new
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" [0m
+Completed in 27ms (View: 19, DB: 1) | 200 OK [http://localhost/conversations/new]
+
+
+Processing ConversationsController#new (for 127.0.0.1 at 2010-12-05 14:31:21) [GET]
+Rendering template within layouts/conversations
+Rendering conversations/new
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" [0m
+Completed in 26ms (View: 19, DB: 1) | 200 OK [http://localhost/conversations/new]
+
+
+Processing ConversationsController#new (for 127.0.0.1 at 2010-12-05 14:31:22) [GET]
+Rendering template within layouts/conversations
+Rendering conversations/new
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM "users" [0m
+Completed in 134ms (View: 127, DB: 1) | 200 OK [http://localhost/conversations/new]
+
+
+Processing ConversationsController#create (for 127.0.0.1 at 2010-12-05 14:31:27) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"12Cn2S8lrjReZDoqXcq/XhqKqemnKpmzgcQ21RurODo=", "conversation"=>{"also_text"=>"0", "target"=>"kevin", "message"=>"weg"}}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."username" = 'kevin') LIMIT 1[0m
+  [4;36;1mConversation Create (0.4ms)[0m   [0;1mINSERT INTO "conversations" ("created_at", "updated_at", "also_text", "origin", "target", "message") VALUES('2010-12-05 22:31:27', '2010-12-05 22:31:27', 'f', 'kevin', 'kevin', 'weg')[0m
+Redirected to http://localhost:3000/users/6
+Completed in 27ms (DB: 1) | 302 Found [http://localhost/conversations]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:31:27) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;35;1mConversation Load (0.6ms)[0m   [0mSELECT * FROM "conversations" [0m
+Completed in 161ms (View: 157, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing ConversationsController#new (for 127.0.0.1 at 2010-12-05 14:31:29) [GET]
+Rendering template within layouts/conversations
+Rendering conversations/new
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" [0m
+Completed in 126ms (View: 119, DB: 1) | 200 OK [http://localhost/conversations/new]
+
+
+Processing ConversationsController#create (for 127.0.0.1 at 2010-12-05 14:31:34) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"12Cn2S8lrjReZDoqXcq/XhqKqemnKpmzgcQ21RurODo=", "conversation"=>{"also_text"=>"1", "target"=>"kevin", "message"=>"testing"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."username" = 'kevin') LIMIT 1[0m
+  [4;35;1mConversation Create (0.7ms)[0m   [0mINSERT INTO "conversations" ("created_at", "updated_at", "also_text", "origin", "target", "message") VALUES('2010-12-05 22:31:34', '2010-12-05 22:31:34', 't', 'kevin', 'kevin', 'testing')[0m
+Redirected to http://localhost:3000/users/6
+Completed in 138ms (DB: 1) | 302 Found [http://localhost/conversations]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:31:34) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;36;1mConversation Load (0.7ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 203ms (View: 198, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:31:55) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;35;1mConversation Load (0.7ms)[0m   [0mSELECT * FROM "conversations" [0m
+Completed in 165ms (View: 161, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:31:55) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;36;1mConversation Load (0.7ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 164ms (View: 160, DB: 2) | 200 OK [http://localhost/users/6]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:31:56) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;35;1mConversation Load (0.9ms)[0m   [0mSELECT * FROM "conversations" [0m
+Completed in 64ms (View: 60, DB: 2) | 200 OK [http://localhost/users/6]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:31:56) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;36;1mConversation Load (0.7ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 161ms (View: 156, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:31:56) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;35;1mConversation Load (0.6ms)[0m   [0mSELECT * FROM "conversations" [0m
+Completed in 166ms (View: 162, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing ConversationsController#new (for 127.0.0.1 at 2010-12-05 14:32:00) [GET]
+Rendering template within layouts/conversations
+Rendering conversations/new
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" [0m
+Completed in 27ms (View: 20, DB: 1) | 200 OK [http://localhost/conversations/new]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:32:02) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;35;1mConversation Load (0.7ms)[0m   [0mSELECT * FROM "conversations" [0m
+Completed in 176ms (View: 171, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing GroupsController#index (for 127.0.0.1 at 2010-12-05 14:32:11) [GET]
+  [4;36;1mGroup Load (0.9ms)[0m   [0;1mSELECT * FROM "groups" [0m
+Rendering template within layouts/groups
+Rendering groups/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mGroup Load (0.2ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+Rendered groups/_search (1.2ms)
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 2)) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 3)) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 4)) [0m
+Completed in 145ms (View: 31, DB: 3) | 200 OK [http://localhost/groups]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:32:13) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;35;1mConversation Load (0.7ms)[0m   [0mSELECT * FROM "conversations" [0m
+Completed in 157ms (View: 153, DB: 1) | 200 OK [http://localhost/users/6]
+
+
+Processing ConversationsController#new (for 127.0.0.1 at 2010-12-05 14:32:27) [GET]
+Rendering template within layouts/conversations
+Rendering conversations/new
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM "users" [0m
+Completed in 26ms (View: 19, DB: 1) | 200 OK [http://localhost/conversations/new]
+
+
+Processing ConversationsController#new (for 127.0.0.1 at 2010-12-05 14:33:04) [GET]
+Rendering template within layouts/conversations
+Rendering conversations/new
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" [0m
+Completed in 30ms (View: 23, DB: 1) | 200 OK [http://localhost/conversations/new]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-05 14:33:09) [GET]
+  Parameters: {"id"=>"6"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '6') LIMIT 1[0m
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 6)) [0m
+  [4;36;1mConversation Load (0.7ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+Completed in 160ms (View: 155, DB: 1) | 200 OK [http://localhost/users/6]

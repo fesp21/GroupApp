@@ -18,6 +18,10 @@
     <%= f.text_area :message %>
   </p>
   <p>
+    <%= f.label :Check_to_also_send_a_text_message %><br />
+    <%= f.check_box :also_text %>
+  </p>
+  <p>
     <%= f.submit 'Create' %>
   </p>
 <% end %>

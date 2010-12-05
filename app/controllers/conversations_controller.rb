@@ -1,4 +1,15 @@
 class ConversationsController < ApplicationController
+  require 'sms_fu'
+  
+  def send_text
+    @conversation = Conversation.new(params[:conversation])
+    @conversation.origin = current_user.username
+    sms_fu = SMSFu::Client.configure(:delivery => :pony,:pony_config => { :via => :sendmail })
+    @user_target = User.find_by_username(@conversation.target)
+    sms_fu.deliver(@user_target.phone_number,@user_target.phone_carrier,@conversation.message)
+    redirect_to(current_user)
+  end
+  
   # GET /conversations
   # GET /conversations.xml
   def index
@@ -42,10 +53,14 @@ class ConversationsController < ApplicationController
   def create
     @conversation = Conversation.new(params[:conversation])
     @conversation.origin = current_user.username
-
+    sms_fu = SMSFu::Client.configure(:delivery => :pony,:pony_config => { :via => :sendmail })
+    @user_target = User.find_by_username(@conversation.target)
+    if @user_target.allow_text && @conversation.also_text
+      sms_fu.deliver(@user_target.phone_number,@user_target.phone_carrier,@conversation.message)
+    end
     respond_to do |format|
       if @conversation.save
-        format.html { redirect_to(@conversation, :notice => 'Conversation was successfully created.') }
+        format.html { redirect_to(current_user, :notice => 'Conversation was successfully created.') }
         format.xml  { render :xml => @conversation, :status => :created, :location => @conversation }
       else
         format.html { render :action => "new" }
