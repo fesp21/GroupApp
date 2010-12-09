@@ -1,5 +1,40 @@
-<%div_for post do %>
-	<h2><%= link_to_unless_current h(post.title), [post.group, post] %></h2> 
-	<h4> by <%= h(post.user) %></h4>
-	<%= simple_format h(post.body) %>
+<h2><%= link_to_unless_current h(post.title), [post.group, post] %></h2>  
+<p>Posted by 
+<strong><%= h(post.user) %></strong>
+<% @posttime = post.created_on %>
+	
+<% if @posttime != nil%>
+	<% if @posttime > 48.hours.ago%>
+		<%= time_ago_in_words(@posttime) %> ago
+	<% else %>
+		on <%= @posttime.strftime("%m/%d/%y") %>
+	<% end %>
 <% end %>
+</p>
+<div id="maincontent-line">
+</div>
+
+<div class="postcontent">
+<%= simple_format( h(post.body)) %>
+<% if post.user_id == current_user.id%>
+	<%= link_to 'Edit', edit_group_post_path(@group,post) %> |
+	<%= link_to 'Delete', [@group, post], :method => :delete, :confirm => "Are you sure?" %>
+<% end %>
+<div id="maincontent-line"></div>
+<div class="commentcontent">
+	<% @class="comments_"+post.id.to_s %>
+	<div id= "<%=h @class %>" >
+	<%= render :partial => post.comments %>
+	</div>
+	<% form_for [post, Comment.new] do |f| %>
+		<p>
+			<%= f.label :body, "Add Comment:" %><br />
+			<%= f.text_area :body, :rows => '4' %>
+		</p>
+		<p><%= f.submit "Add Comment" %></p>
+	<% end %>
+</div>
+<div class="commentshow">Show/Hide Comments</div>
+<div id="maincontent-line"></div>
+</div>
+<div class="postshow">Show/Hide Post</div>

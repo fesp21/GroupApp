@@ -4,9 +4,36 @@
 		<strong><%=h @group.name %> - Posts</strong>
 	</div>
 	<div id="maincontent-body">
-		<%= render :partial => @posts %>
+		<div class="postnew">
+			<% form_for ([@group, Post.new]) do |f| %>
+			  <%= f.error_messages %>
 
-		<%= link_to 'New post', new_group_post_path(@group) %>
-		<%= link_to 'Back', @group %>
+			  <p>
+				<%= f.label :title %><br />
+				<%= f.text_field :title %>
+			  </p>
+			  <p>
+				<%= f.label :body %><br />
+				<%= f.text_area :body %>
+			  </p>
+			  <p>
+				<%= f.submit 'Create' %>
+			  </p>
+			<% end %>
+		</div>
+		<div class="postnewshow">Create a New Post</div>
 	</div>
 </div>
+
+<% @posts.reverse.each do |post|%>
+<div id="maincontent-box">
+	<div id="maincontent-body">
+		<div id="post">
+			<%= render :partial => post %>
+		</div>
+	</div>
+</div>
+<% end %>
+
+
+

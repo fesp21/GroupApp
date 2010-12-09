@@ -338,6 +338,58 @@ li:hover ul, li.over ul {
 	color: #fff;
 }
 
+#maincontent-line {
+	border-bottom: 1px solid #36617d;
+}
+
 #maincontent-body {
 	padding: 0 10px 10px 10px;
+}
+
+#post a,h2{
+	margin: 4px 0 0 0;
+	color: #000;
+	text-decoration: underline;
+}
+
+#post p{
+	margin: 0;
+	color: #000;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+#post strong{
+	color: #0000FF;
+	text-decoration: none;
+	text-transform: capitalize;
+}
+
+.postcontent{
+}
+
+.commentcontent{
+	padding: 10px;
+}
+
+.postnewshow{
+	padding: 10px 0 0 0;
+	cursor: pointer;
+	color: #0000FF;
+}
+
+.postshow{
+	cursor: pointer;
+	color: #0000FF;
+}
+
+.commentshow{
+	cursor: pointer;
+	color: #0000FF;
+}
+
+#boldname{
+	color: #000;
+	font-weight: bold;
+	text-transform: capitalize;
 }

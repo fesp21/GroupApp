@@ -56,7 +56,10 @@ class CommentsController < ApplicationController
 	@comment = @post.comments.create!(params[:comment])
 	@comment.user_id = current_user.id
 	@comment.save
-	redirect_to [@post.group, @post]
+	respond_to do |format|
+	  format.html { redirect_to(group_posts_path(@post.group)) }
+	  format.js
+	end
   end
 
   # PUT /comments/1
@@ -89,7 +92,9 @@ class CommentsController < ApplicationController
 	@post = Post.find(params[:post_id])
 	@comment = @post.comments.find(params[:id])
 	@comment.destroy
-	redirect_to [@post.group, @post]
+	respond_to do |format|
+	  format.html { redirect_to(group_posts_path(@post.group)) }
+	end
 	
   end
 end

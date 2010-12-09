@@ -1,0 +1,4 @@
+$("#comments_"+<%=h @post.id.to_s %>).append("<%= escape_javascript(render(:partial => @comment)) %>");
+for( var i = 0; i < $(".new_comment").length; i++ ){
+	$(".new_comment")[i].reset();
+}
