@@ -33,7 +33,15 @@
 		  </tr>
 		<% end %>
 		</table>
+	</div>
+</div>
 
+<% if @group.private %>
+<div id="maincontent-box">
+	<div id="maincontent-head">
+		<strong><%=h @group.name %> - Pending Users</strong>
+	</div>
+	<div id="maincontent-body">
 		<table>
 			<tr>
 				<th>Name</th>
@@ -53,4 +61,4 @@
 		</table>
 	</div>
 </div>
-
+<% end %>

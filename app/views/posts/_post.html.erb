@@ -1,4 +1,7 @@
-<h2><%= link_to_unless_current h(post.title), [post.group, post] %></h2>  
+<div id="maincontent-box">
+	<div id="maincontent-body">
+		<div id="post">
+<h2><%= h(post.title) %></h2>  
 <p>Posted by 
 <strong><%= h(post.user) %></strong>
 <% @posttime = post.created_on %>
@@ -38,3 +41,6 @@
 <div id="maincontent-line"></div>
 </div>
 <div class="postshow">Show/Hide Post</div>
+</div>
+</div>
+</div>

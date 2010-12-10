@@ -1,0 +1,17 @@
+$("#allposts").prepend("<%= escape_javascript(render(:partial => @post)) %>");
+$("#new_post")[0].reset();
+jQuery(".postnew").hide();
+jQuery(".postcontent").hide();
+jQuery(".commentcontent").hide();
+jQuery(".postnewshow").click(function()
+{
+  jQuery(this).prev(".postnew").slideToggle(500);
+});
+jQuery(".postshow").click(function()
+{
+  jQuery(this).prev(".postcontent").slideToggle(500);
+});
+jQuery(".commentshow").click(function()
+{
+  jQuery(this).prev(".commentcontent").slideToggle(500);
+});

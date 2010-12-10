@@ -15,3 +15,8 @@ jQuery.fn.submitWithAjax = function() {
 $(document).ready(function() {
   $(".new_comment").submitWithAjax();
 })
+
+$(document).ready(function() {
+  $(".new_post").submitWithAjax();
+})
+

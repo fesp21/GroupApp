@@ -50,7 +50,7 @@ class PostsController < ApplicationController
       if @post.save
         Newsfeed.create!(:descriptions => current_user.username + ' created a new post.', :time => @post.created_at, :group_id => @group.id, :link => group_posts_path(@group))
         format.html { redirect_to(group_posts_path(@group)) }
-        format.xml  { render :xml => @post, :status => :created, :location => @post }
+        format.js
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
@@ -82,7 +82,6 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to(group_posts_path(@group)) }
-      format.xml  { head :ok }
     end
   end
   

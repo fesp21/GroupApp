@@ -24,16 +24,9 @@
 		<div class="postnewshow">Create a New Post</div>
 	</div>
 </div>
-
-<% @posts.reverse.each do |post|%>
-<div id="maincontent-box">
-	<div id="maincontent-body">
-		<div id="post">
-			<%= render :partial => post %>
-		</div>
-	</div>
+<div id="allposts">
+<%= render :partial => @posts.reverse %>
 </div>
-<% end %>
 
 
 
