@@ -19,4 +19,3 @@ $(document).ready(function() {
 $(document).ready(function() {
   $(".new_post").submitWithAjax();
 })
-

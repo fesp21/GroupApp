@@ -15,22 +15,49 @@
 
 
 <div id="maincontent-box">
-	<% @conversations = Conversation.find(:all) %>
+	<div id="maincontent-head">
+		<strong>Conversations</strong>
+	</div>
+	<div class="conversationnew">
+		<% form_for([@group, Conversation.new]) do |f| %>
+		  <p>
+			<% @users = @group.users %>
+		    <%= f.label :target %>
+		    <%= f.select(:target, @users.collect {|u| u.username }) %>
+		  </p>
+		  <p>
+		    <%= f.label :message %><br/>
+		    <%= f.text_area :message, :rows => 5 %>
+		  </p>
+		  <p>
+		    <%= f.label :Check_to_also_send_a_text_message %>
+		    <%= f.check_box :also_text %>
+		  </p>
+		  <p>
+		    <%= f.submit 'Create' %>
+		  </p>
+		<% end %>
+	</div>
+	<div class="conversationnewshow">Send a message</div>
+	<div id="maincontent-line"></div>
+	<% @conversations = @group.conversations.find(:all) %>
 	<table>
 	<% if @conversations != nil %>
 	
 	<% @conversations.each do |conversation| %>
 	  <% if conversation.origin == current_user.username && conversation.group_id == @group.id%>
 	  <tr>
-		<td><bold>TO:</bold></td>
+		<td><bold>To:</bold></td>
 	    <td><%=h conversation.target %></td>
+	  </tr>
+	  <tr>
 	    <td><%=h conversation.message %></td>
 	    <td><%= link_to 'x', [@group, conversation], :confirm => 'Are you sure you want to delete this message?', :method => :delete %></td>
 	  </tr>
 	  <% end %>
 	  <% if conversation.target == current_user.username && conversation.group_id == @group.id%>
 	  <tr>
-		<td><bold>FROM:</bold></td>
+		<td><bold>From:</bold></td>
 	    <td><%=h conversation.origin %></td>
 	    <td><%=h conversation.message %></td>
 	    <td><%= link_to 'x', [@group, conversation], :method => :delete %></td>
@@ -38,8 +65,8 @@
 	  <% end %>
 	<% end %>
 	<% end %>
-	<%= link_to 'New conversation', new_group_conversation_path(@group) %>
 	</table>
+	
 </div>
 <div id="maincontent-box">
 	<div id="maincontent-head">
