@@ -12,6 +12,35 @@
 			<%= link_to 'Back', groups_path %>
 	</div>
 </div>
+
+
+<div id="maincontent-box">
+	<% @conversations = Conversation.find(:all) %>
+	<table>
+	<% if @conversations != nil %>
+	
+	<% @conversations.each do |conversation| %>
+	  <% if conversation.origin == current_user.username && conversation.group_id == @group.id%>
+	  <tr>
+		<td><bold>TO:</bold></td>
+	    <td><%=h conversation.target %></td>
+	    <td><%=h conversation.message %></td>
+	    <td><%= link_to 'x', [@group, conversation], :confirm => 'Are you sure you want to delete this message?', :method => :delete %></td>
+	  </tr>
+	  <% end %>
+	  <% if conversation.target == current_user.username && conversation.group_id == @group.id%>
+	  <tr>
+		<td><bold>FROM:</bold></td>
+	    <td><%=h conversation.origin %></td>
+	    <td><%=h conversation.message %></td>
+	    <td><%= link_to 'x', [@group, conversation], :method => :delete %></td>
+	  </tr>
+	  <% end %>
+	<% end %>
+	<% end %>
+	<%= link_to 'New conversation', new_group_conversation_path(@group) %>
+	</table>
+</div>
 <div id="maincontent-box">
 	<div id="maincontent-head">
 		<strong>News Feed</strong>

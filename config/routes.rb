@@ -17,7 +17,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :userlists
 
-  map.resources :groups, :has_many => [:uploads, :todos, :posts, :newsfeeds, :users, :memberships]
+  map.resources :groups, :has_many => [:uploads, :todos, :posts, :newsfeeds, :users, :memberships, :conversations]
 
   map.resources :users, :collection => { :user_manage => :get }
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,5 +1,5 @@
 class NewsfeedsController < ApplicationController
-  before_filter :get_group
+
   
   # GET /newsfeeds
   # GET /newsfeeds.xml

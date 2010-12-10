@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101209052044) do
+ActiveRecord::Schema.define(:version => 20101210020824) do
 
   create_table "chats", :force => true do |t|
     t.datetime "created_at"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20101209052044) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "also_text"
+    t.integer  "group_id"
   end
 
   create_table "groups", :force => true do |t|
