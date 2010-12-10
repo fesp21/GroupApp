@@ -1,0 +1,318 @@
+# Logfile created on Thu Dec 09 23:57:45 -0800 2010
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-12-09 23:58:28) [GET]
+Rendering template within layouts/user_sessions
+Rendering user_sessions/new
+Completed in 112ms (View: 22, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-09 23:58:30) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 28ms (View: 16, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:00:00) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 23ms (View: 11, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:00:00) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 95ms (View: 83, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:00:05) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 19ms (View: 6, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:00:09) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 18ms (View: 7, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:00:10) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 95ms (View: 7, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:00:15) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 19ms (View: 7, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:00:16) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 18ms (View: 6, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:00:23) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 18ms (View: 6, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:00:23) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 18ms (View: 7, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:00:24) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 17ms (View: 6, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:00:30) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 18ms (View: 6, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:00:30) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 17ms (View: 6, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:00:34) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 99ms (View: 8, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:00:34) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 18ms (View: 6, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:00:40) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 18ms (View: 7, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:00:44) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 18ms (View: 6, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:00:44) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 17ms (View: 6, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:00:55) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 18ms (View: 7, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:00:56) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 18ms (View: 7, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:01:08) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 18ms (View: 7, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:01:08) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 93ms (View: 7, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:01:20) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 18ms (View: 7, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:01:21) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 18ms (View: 6, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:01:27) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 18ms (View: 7, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:01:28) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 17ms (View: 6, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:01:40) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 21ms (View: 10, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:01:40) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 18ms (View: 6, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:01:47) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 18ms (View: 6, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:01:47) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 93ms (View: 6, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:01:48) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 17ms (View: 6, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:02:09) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 21ms (View: 10, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:02:10) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 18ms (View: 7, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:02:10) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 17ms (View: 6, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-12-10 00:02:13) [GET]
+Rendering template within layouts/user_sessions
+Rendering user_sessions/new
+Completed in 18ms (View: 4, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:02:16) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 17ms (View: 6, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-12-10 00:02:17) [GET]
+Rendering template within layouts/user_sessions
+Rendering user_sessions/new
+Completed in 17ms (View: 4, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:02:17) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 18ms (View: 6, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-12-10 00:02:19) [GET]
+Rendering template within layouts/user_sessions
+Rendering user_sessions/new
+Completed in 17ms (View: 4, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:02:19) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 17ms (View: 6, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-12-10 00:02:20) [GET]
+Rendering template within layouts/user_sessions
+Rendering user_sessions/new
+Completed in 17ms (View: 4, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:02:20) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 18ms (View: 6, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-12-10 00:02:21) [GET]
+Rendering template within layouts/user_sessions
+Rendering user_sessions/new
+Completed in 18ms (View: 4, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:02:22) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 19ms (View: 7, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-12-10 00:02:22) [GET]
+Rendering template within layouts/user_sessions
+Rendering user_sessions/new
+Completed in 24ms (View: 6, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:02:23) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 18ms (View: 6, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-12-10 00:02:23) [GET]
+Rendering template within layouts/user_sessions
+Rendering user_sessions/new
+Completed in 17ms (View: 4, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:02:24) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 18ms (View: 6, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-12-10 00:02:25) [GET]
+Rendering template within layouts/user_sessions
+Rendering user_sessions/new
+Completed in 18ms (View: 5, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:02:26) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 17ms (View: 6, DB: 0) | 200 OK [http://localhost/users/new]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-12-10 00:02:26) [GET]
+Rendering template within layouts/user_sessions
+Rendering user_sessions/new
+Completed in 18ms (View: 5, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-10 00:02:27) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 17ms (View: 6, DB: 0) | 200 OK [http://localhost/users/new]
