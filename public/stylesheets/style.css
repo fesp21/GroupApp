@@ -396,9 +396,35 @@ li:hover ul, li.over ul {
 }
 
 .conversationnewshow{
+	padding: 10px 10px 5px 10px;
 	cursor: pointer;
 	color: #0000FF;
 }
 
 .conversationnew{
+	padding: 10px;
+}
+
+#conversation{
+	margin: 5px 10px 5px 10px;
+}
+
+.conversation-header{
+	padding: 5px 0 0 0;
+	text-transform: capitalize;
+	cursor: pointer;
+}
+
+#conversation-delete {
+	float: right;
+	margin: 12px 0 0 0;
+	line-height: 0;
+}
+
+#conversation-delete a{
+	text-decoration: none;
+}
+
+.conversation-body {
+	margin: 0;
 }

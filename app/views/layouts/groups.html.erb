@@ -8,9 +8,14 @@
 	  <script type="text/javascript">
 		jQuery(document).ready(function() {
 		  jQuery(".conversationnew").hide();
+		  jQuery(".conversation-body").hide();
 		  jQuery(".conversationnewshow").click(function()
 		  {
 		    jQuery(this).prev(".conversationnew").slideToggle(500);
+		  });
+		  jQuery(".conversation-header").click(function()
+		  {
+		    jQuery(this).next(".conversation-body").slideToggle(500);
 		  });
 		});
 	  </script>
