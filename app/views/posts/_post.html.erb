@@ -21,7 +21,7 @@
 <%= simple_format( h(post.body)) %>
 <% if post.user_id == current_user.id%>
 	<%= link_to 'Edit', edit_group_post_path(@group,post) %> |
-	<%= link_to 'Delete', [@group, post], :method => :delete, :confirm => "Are you sure?" %>
+	<%= link_to 'Delete', [@group, post], :method => :delete, :class => 'delete' %>
 <% end %>
 <div id="maincontent-line"></div>
 <div class="commentcontent">
