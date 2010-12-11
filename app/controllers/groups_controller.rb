@@ -74,7 +74,7 @@ class GroupsController < ApplicationController
   # POST /groups.xml
   def create
     @group = Group.new(params[:group])
-
+    @group.conference = Conference.create!(:group_id => @group.id)
     respond_to do |format|
       if @group.save
         Membership.create!(:user_id => current_user.id, :group_id => @group.id, :permission => "0", :established => true)

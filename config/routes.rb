@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :conferences
+
   map.logout "logout", :controller => "user_sessions", :action => "destroy"
   
   map.resources :user_sessions
@@ -17,7 +19,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :userlists
 
-  map.resources :groups, :has_many => [:uploads, :todos, :posts, :newsfeeds, :users, :memberships, :conversations]
+  map.resources :groups, :has_one => :conference, :has_many => [:uploads, :todos, :posts, :newsfeeds, :users, :memberships, :conversations]
 
   map.resources :users, :collection => { :user_manage => :get }
   # The priority is based upon order of creation: first created -> highest priority.

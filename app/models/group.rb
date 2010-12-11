@@ -6,6 +6,7 @@ class Group < ActiveRecord::Base
   has_many :users, :through => :memberships
   has_many :newsfeeds, :dependent => :destroy
   has_many :conversations, :dependent => :destroy
+  has_one :conference, :dependent => :destroy
   
   def self.search(search)
     search_condition = "%" + search + "%"
