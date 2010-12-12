@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
   
-  helper_method :current_user_session, :current_user
+  helper_method :current_user_session, :current_user, :conferences
   
   private
   
@@ -20,5 +20,10 @@ class ApplicationController < ActionController::Base
   def current_user
     return @current_user if defined?(@current_user)
     @current_user = current_user_session && current_user_session.record
+  end
+  
+  def conferences
+    @conferences = ["hf390otgveponuho", "268j1spb3t3f4z4f", "6etbl814r6cu6j3h", "s0zu45ryx2advocd", "f3292vc61t5unzzt", "hn7vxnq0yjbh3cws", "9bchssjv681aptiy", "5fwpv8f0lec4zc3a", "f7r64xrsdzyzkoz5", "f7r64xrsdzyzkoz5"]
+    return @conferences
   end
 end

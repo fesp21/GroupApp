@@ -4,13 +4,13 @@
 		<strong><%=h @group.name %> - Conference</strong>
 	</div>
 	<div id="maincontent-body">
-		<object type="application/x-shockwave-flash" data="http://me.tokbox.com/vc/hf390otgveponuho/10" width="700" height="500">
-			<param name="movie" value="http://me.tokbox.com/vc/hf390otgveponuho/10" />
+		<object type="application/x-shockwave-flash" data="http://me.tokbox.com/vc/<%=conferences[@group.id]%>/10" width="700" height="500">
+			<param name="movie" value="http://me.tokbox.com/vc/<%=conferences[@group.id]%>/10" />
 			<param name="allowFullScreen" value="true" />
 			<param name="allowScriptAccess" value="always" />
-			<param name="flashvars" value="guestList=false&textChat=true" />
+			<param name="flashvars" value="guestList=true&textChat=true&displayName=<%=current_user.username%>&showSocialInvite=false&observerMode=true&showInviteButton=false" />
 		</object>
-		<br/><br/><a href="http://www.tokbox.com/">TokBox - Free Video Chat and Video Messaging</a>
+		<br/><br/>
 		<%= link_to 'Back', @group %>
 	</div>
 </div>
