@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+  def search
+    @users = User.search params[:search]
+    redirect_to group_users_path(Group.find(params[:group_id]))
+  end
+  
   # GET /users
   # GET /users.xml
   def index

@@ -53,6 +53,11 @@ class GroupsController < ApplicationController
     redirect_to(groups_url)
   end
   
+  def invite
+    @membership = Membership.create!(:user_id => params[:id_2], :group_id => params[:id], :permission => "1", :invite => true)
+    redirect_to(group_users_path(Group.find(params[:id])))
+  end
+  
   # GET /groups/new
   # GET /groups/new.xml
   def new

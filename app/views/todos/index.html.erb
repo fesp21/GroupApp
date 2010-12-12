@@ -7,6 +7,7 @@
 		<table>
 		  <tr>
 			<th>Task</th>
+			<th>Added on</th>
 			<th>Due Date</th>
 			<th>Status</th>
 			<th>Added by</th>
@@ -16,13 +17,18 @@
 		<% @group.todos.each do |todo| %>
 		  <tr>
 			<td><%=h todo.task %></td>
+			<td><% if todo.created_at > 48.hours.ago%>
+				<%= time_ago_in_words(todo.created_at) %> ago
+			<% else %>
+				on <%= todo.created_at.strftime("%m/%d/%y") %>
+			<% end %></td>
 			<td><%=h todo.duedate %></td>
 			<td><%= if todo.finished
-					link_to 'unmark finished', :controller => "todos",
-									:action => "unfinish", :id => todo.id, :group_id => @group.id
+					"finished"
+				elsif todo.duedate < Date.today
+					"expired"
 				else
-					link_to 'mark finished', :controller => "todos",
-									:action => "finish", :id => todo.id, :group_id => @group.id
+					"in progress"
 				end %></td>
 			<td><%=h User.find(todo.user_id).username %></td>
 			<% if todo.finished_by != nil %>
@@ -30,6 +36,13 @@
 				<% else %>
 				<td></td>
 			<% end %>
+			<td><%= if todo.finished
+					link_to 'unmark finished', :controller => "todos",
+									:action => "unfinish", :id => todo.id, :group_id => @group.id
+				else
+					link_to 'mark finished', :controller => "todos",
+									:action => "finish", :id => todo.id, :group_id => @group.id
+				end %></td>
 			<td><%= link_to 'edit', edit_group_todo_path(@group, todo) %></td>
 			<td><%= link_to 'delete', [@group, todo], :confirm => 'Are you sure?', :method => :delete %></td>
 		  </tr>

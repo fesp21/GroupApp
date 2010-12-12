@@ -35,6 +35,31 @@
 		</table>
 	</div>
 </div>
+<div id="maincontent-box">
+	<div id="maincontent-head">
+		<strong><%=h @group.name %> - Invite Users</strong>
+	</div>
+	<div id="maincontent-body">
+		<% form_tag :controller => 'users', :group_id => @group.id, :action => 'search', :method => 'get' do %>
+		  <%= text_field_tag :search, params[:search], :group_id =>@group.id, :id => 'search_field' %>
+		  <%= submit_tag "Search", :name => nil %>
+		<% end %>
+	</div>
+	<% if @users != nil && @users.length>0 %>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Action</th>
+			</tr>
+			<% @users.each do |user| %>
+				<tr>
+					<td><%= user.username%></td>
+					<td><%= link_to 'Invite', :id => group.id, :id_2 => user.id, :controller => "groups", :action => "invite"%></td>
+				</tr>
+			<% end %>
+		</table>
+	<% end %>
+</div>
 
 <% if @group.private %>
 <div id="maincontent-box">

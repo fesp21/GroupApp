@@ -4,7 +4,7 @@ class TodosController < ApplicationController
   def finish
     @todo = @group.todos.find(params[:id])
     @todo.finished = true
-    @todo.finished_by = session[:user_id]
+    @todo.finished_by = current_user.id
     @todo.save
     redirect_to(group_todos_path(@group))
   end
