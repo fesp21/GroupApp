@@ -6,7 +6,7 @@ I want to be able to use posts and comments
   Scenario: Administrator deleting bad post
     Given that I am an administrator
 	When I see a bad post
-	Then I should be able to delete it
+	Then I should be able to delete the bad post
 
 
   Scenario: User posting a message

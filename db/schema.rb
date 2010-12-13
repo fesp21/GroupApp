@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101211082820) do
+ActiveRecord::Schema.define(:version => 20101213021237) do
 
   create_table "chats", :force => true do |t|
     t.datetime "created_at"
@@ -115,6 +115,9 @@ ActiveRecord::Schema.define(:version => 20101211082820) do
     t.string   "phone_number"
     t.string   "phone_carrier"
     t.boolean  "allow_text"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
   end
 
 end

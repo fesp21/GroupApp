@@ -31,14 +31,13 @@ class GroupsController < ApplicationController
 
   def join
     @membership = Membership.create!(:user_id => current_user.id, :group_id => params[:id], :permission => "1", :established => true)
-	@group = Group.find(params[:id])
+	  @group = Group.find(params[:id])
     Newsfeed.create!(:descriptions => current_user.username + ' has joined the group.', :time => @membership.created_at, :group_id => @membership.group_id, :link => group_users_path(@membership.group_id))
     redirect_to(@group)
   end
   
   def unjoin
     @membership = Membership.find_by_user_id_and_group_id(current_user.id, params[:id])
-    Newsfeed.create!(:descriptions => current_user.username + ' has left the group.', :time => Time.now, :group_id => @membership.group_id, :link => group_users_path(@membership.group_id))
     Membership.destroy(@membership)
     redirect_to(groups_url)
   end
@@ -63,7 +62,6 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @group }

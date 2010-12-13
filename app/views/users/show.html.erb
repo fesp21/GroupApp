@@ -1,15 +1,17 @@
 <%= render :file => 'users/header.html.erb' %>
-<h1>Welcome</h1>
 
-It's <%= Time.now %>
-<p>
-Your ID is <%= current_user.id %>
-<p>
-  <b>Name:</b>
-  <%=h current_user.username %>
-</p>
+<div id="userNF">
+  <% @all_newsfeeds = User.findNewsFeed(current_user.id) %>
+  
+  <% @all_newsfeeds.first(20).each do |newsfeed| %>
+	<div id="newsfeed">
+	<%=h link_to(newsfeed.descriptions + " for " + newsfeed.group.name, newsfeed.link) %>
+	</div>
+  <% end %>
+  
+</div>
 
-
-</p>
+<%= image_tag current_user.photo.url%>
+<%= image_tag current_user.photo.url(:thumb)%>
 <%= link_to 'Groups', :controller => 'groups', :action => 'index' %>   
 <%= link_to 'Logout', logout_path %>
