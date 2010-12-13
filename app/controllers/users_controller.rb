@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def search
     @users = User.search params[:search]
-    redirect_to group_users_path(Group.find(params[:group_id]))
+    @group = Group.find(params[:group_id])
   end
   
   # GET /users
@@ -50,10 +50,6 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = current_user
-  end
-
-  def search
-    @users = User.search params[:search]
   end
   
   # POST /users

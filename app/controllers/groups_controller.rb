@@ -53,7 +53,7 @@ class GroupsController < ApplicationController
   end
   
   def invite
-    @membership = Membership.create!(:user_id => params[:id_2], :group_id => params[:id], :permission => "1", :invite => true)
+    @membership = Membership.create!(:user_id => params[:id_2], :group_id => params[:id], :permission => "1", :invitation => true)
     redirect_to(group_users_path(Group.find(params[:id])))
   end
   

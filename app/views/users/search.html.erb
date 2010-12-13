@@ -1,0 +1,35 @@
+<%= render :file => 'groups/header.html.erb', :id => @group.id %>
+<div id="maincontent-box">
+	<div id="maincontent-head">
+		<strong><%=h @group.name %> - Invitation</strong>
+	</div>
+	<h>Search Results</h>
+	<div id="maincontent-body">
+		<div id="search">
+		    <%= render :partial => 'users/search' %>
+		</div>
+		<% if @users.length>0 %>
+			<table>
+			  <tr>
+			    <th>Name</th>
+			    <th>Action</th>
+			  </tr>
+
+			<% @users.each do |user| %>
+			  <tr>
+				<% @membership = Membership.find_by_user_id_and_group_id(user.id, @group.id)%>
+				<% if (@membership != nil && !@membership.established) || @membership == nil%>
+			    <td><%=h user.username %></td>
+				<td><%= link_to 'Invite', :id => @group.id, :id_2 => user.id, :controller => "groups", :action => "invite"%></td>
+				<% end %>
+			  </tr>
+			<% end %>
+			</table>
+		<% else %>
+			<br />
+			<%=h "Search returned no results." %>
+			<br />
+		<% end %>
+		<br />
+	</div>
+</div>
