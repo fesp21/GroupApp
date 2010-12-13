@@ -8,6 +8,7 @@ class Group < ActiveRecord::Base
   has_many :conversations, :dependent => :destroy
   has_one :conference, :dependent => :destroy
   has_attached_file :photo,
+  :default_url => "/images/groupdefault.png",
   :storage => :s3,
   :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
   :path => ":photo/:id/:style/:basename.:extension",
