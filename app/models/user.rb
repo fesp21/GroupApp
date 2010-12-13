@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
     find(:all, :conditions => ['username LIKE ?', search_condition])
   end
   
-  def self.findNewsFeed(num)
+ def self.findNewsFeed(num)
 	@user = User.find(:all, :conditions => :id == num)[0]
 	if(@user != nil)
 		@my_groups = @user.groups
@@ -26,9 +26,8 @@ class User < ActiveRecord::Base
 				@all_newsfeeds << newsfeed
 			end
 		end
-		
-	
-		return @all_newsfeeds.sort!{|a,b| a.created_at <=> b.created_at}.reverse.first(20)
+    return @all_newsfeeds.sort!{|a,b| a.created_at <=> b.created_at}.reverse.first(20)
 	end  
+ end
 end
 
