@@ -37,6 +37,8 @@
 								<li><%= link_to 'Files', group_uploads_path(@group) %></li>
 								<li><%= link_to 'Posts', group_posts_path(@group) %></li>
 								<li><%= link_to 'Conference', group_conference_path(@group) %></li>
+								<li><%= link_to 'Calendar', :controller => 'calendar', :action => 'show', :id => @group.id, :requirements => {:year => /d{4}/, :month => /d{1,2}/}, :year => nil, :month => nil
+								%></li>
 								<li><%= link_to 'Members', group_users_path(@group)%></li>
 								<% if Membership.find_by_user_id_and_group_id(current_user.id, @group.id).permission == 0 %>
 									<li><%= link_to 'Settings', edit_group_path(@group)%></li>

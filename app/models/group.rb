@@ -7,6 +7,7 @@ class Group < ActiveRecord::Base
   has_many :newsfeeds, :dependent => :destroy
   has_many :conversations, :dependent => :destroy
   has_one :conference, :dependent => :destroy
+  has_many :events, :dependent => :destroy
   has_attached_file :photo,
   :default_url => "/images/groupdefault.png",
   :storage => :s3,
