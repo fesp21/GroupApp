@@ -52,6 +52,10 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def search
+    @users = User.search params[:search]
+  end
+  
   # POST /users
   # POST /users.xml
   def create
