@@ -2,7 +2,7 @@
  * Smart event highlighting
  * Handles when events span rows, or don't have a background color
  */
-jQuery(document).ready(function($) {
+$(document).ready(function() {
   var highlight_color = "#2EAC6A";
   
   // highlight events that have a background color

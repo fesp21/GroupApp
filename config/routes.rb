@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :events
+
+  map.calendar 'calendar/:year/:month', :controller => 'calendar', :action => 'show', :requirements => {:year => /d{4}/, :month => /d{1,2}/}, :year => nil, :month => nil
+  
   map.resources :conferences
 
   map.logout "logout", :controller => "user_sessions", :action => "destroy"
