@@ -1,49 +1,56 @@
 <%= render :file => 'users/header.html.erb' %>
-<h1>Groups</h1>
-<div id="search">
-    <%= render :partial => 'groups/search' %>
-</div>
-<% if @groups.length>0 %>
-	<table>
-	  <tr>
-	    <th>Name</th>
-	    <th>Description</th>
-		<th>Privacy</th>
-	  </tr>
+<div id="user-maincontent-box4">
+	<div id="user-maincontent-head4">
+		<strong>All Groups</strong>
+	</div>
+	<div id="user-maincontent-body4">
+		<div id="search">
+		    <%= render :partial => 'groups/search' %>
+		</div>
+		<% if @groups.length>0 %>
+			<table>
+			  <tr>
+			    <th>Name</th>
+			    <th>Description</th>
+				<th>Privacy</th>
+			  </tr>
 
-	<% @groups.each do |group| %>
-	  <tr>
-	    <td><%=h group.name %></td>
-	    <td><%=h group.description %></td>
-		<td><% if group.private %>
-				<%=h 'Private'%>
-			<% else %>
-				<%=h 'Public'%>
+			<% @groups.each do |group| %>
+			  <tr>
+			    <td><%=h group.name %></td>
+			    <td><%=h group.description %></td>
+				<td><% if group.private %>
+						<%=h 'Private'%>
+					<% else %>
+						<%=h 'Public'%>
+					<% end %>
+				<td><% if group.users.member?(current_user)%>
+						<% if Membership.find_by_user_id_and_group_id(current_user.id, group.id).established == true %>
+							<%= link_to 'Leave', :id => group.id, :controller => "groups", :action => "unjoin"%>
+							<%= link_to 'Show', group %>
+						<% else %>
+							<%=h 'Requested'%>
+							<%= link_to 'Remove Request', :id => group.id, :controller => "groups", :action => "removerequest"%>
+						<% end %>
+					<% else %>
+						<% if group.private %>
+							<%= link_to 'Request to Join', :id => group.id, :controller => "groups", :action => "joinrequest"%>
+						<% else %>
+							<%= link_to 'Join', :id => group.id, :controller => "groups", :action => "join"%>
+						<% end %>
+					<% end %></td>
+
+			  </tr>
 			<% end %>
-		<td><% if group.users.member?(current_user)%>
-				<% if Membership.find_by_user_id_and_group_id(current_user.id, group.id).established == true %>
-					<%= link_to 'Leave', :id => group.id, :controller => "groups", :action => "unjoin"%>
-					<%= link_to 'Show', group %>
-				<% else %>
-					<%=h 'Requested'%>
-					<%= link_to 'Remove Request', :id => group.id, :controller => "groups", :action => "removerequest"%>
-				<% end %>
-			<% else %>
-				<% if group.private %>
-					<%= link_to 'Request to Join', :id => group.id, :controller => "groups", :action => "joinrequest"%>
-				<% else %>
-					<%= link_to 'Join', :id => group.id, :controller => "groups", :action => "join"%>
-				<% end %>
-			<% end %></td>
-
-	  </tr>
-	<% end %>
-	</table>
-<% else %>
-	<br />
-	<%=h "Search returned no results." %>
-	<br />
-<% end %>
-<br />
-<%= link_to 'New group', new_group_path %>
-<%= link_to 'Back', groups_path %>
+			</table>
+		<% else %>
+			<br />
+			<%=h "Search returned no results." %>
+			<br />
+		<% end %>
+		<br />
+		<%= link_to 'New group', new_group_path %>
+		<%= link_to 'Back', groups_path %>
+		
+	</div>
+</div>
