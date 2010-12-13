@@ -43,3 +43,19 @@
 	 	</table>
 	</div>
 </div>
+
+<div id="user-maincontent-box">
+	<div id="user-maincontent-head">
+		<strong>Messages</strong>
+	</div>
+	<div id="user-maincontent-body">
+		<% @convo = Conversation.find(:all) %>
+		<% @convo.each do |conv| %>
+		  <div id="conversation">
+		  <div class="conversation-header">From: <%=h conv.origin %> (<%=h conv.created_at.strftime("%I:%M %p - %m/%d/%y") %>)</div>
+		    <div class="conversation-body"><%= simple_format(h(conv.message)) %></div>
+		  </div>
+		<div id="maincontent-line"></div>
+		<% end %>
+	</div>
+</div>
