@@ -8,8 +8,8 @@ Your ID is <%= current_user.id %>
   <b>Name:</b>
   <%=h current_user.username %>
 </p>
-
-
 </p>
+<%= image_tag current_user.photo.url%>
+<%= image_tag current_user.photo.url(:thumb)%>
 <%= link_to 'Groups', :controller => 'groups', :action => 'index' %>   
 <%= link_to 'Logout', logout_path %>

@@ -2,7 +2,7 @@
 
 <h1>Settings</h1>
 
-<% form_for(current_user) do |f| %>
+<% form_for current_user, :html => {:multipart => true} do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -32,6 +32,10 @@
   <p>
     <%= f.label :allow_text %><br />
     <%= f.check_box :allow_text %>
+  </p>
+  <p>
+	<%= "Add a Profile Picture: " %>
+	<%= f.file_field :photo %>
   </p>
   <p>
     <%= f.submit 'Update' %>
