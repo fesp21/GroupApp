@@ -108,4 +108,15 @@ class MembershipsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def decline
+    @group=Group.find(params[:group_id])
+    @membership = Membership.find(params[:id])
+    @membership.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(current_user) }
+      format.xml  { head :ok }
+    end
+  end
 end

@@ -37,7 +37,7 @@
 					<% @group = Group.find_by_id(@membership.group_id)%>
 					<td><%=h @group.name%></td>
 					<td><%= link_to 'Accept Invitation', :controller => "memberships", :action => "confirm", :id => @membership.id, :group_id => @group.id %></td>
-					<td><%= link_to 'Decline Invitation', [@group, @membership], :confirm => 'Are you sure?', :method => :delete %></td>
+					<td><%= link_to 'Decline Invitation', :controller => "memberships", :confirm => 'Are you sure?', :action => "decline", :id => @membership.id, :group_id => @group.id %></td>
 				<% end %>
 			<% end %>
 	 	</table>
