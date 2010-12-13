@@ -1,7 +1,7 @@
 html, body {
-height: 100%;
-margin: 0;
-padding: 0;
+	height: 100%;
+	margin: 0;
+	padding: 0;
 	background: #f0f0f0;
 }
 
@@ -334,8 +334,8 @@ li:hover ul, li.over ul {
 }
 
 #user-maincontent-box{
-	display: block;
-	margin: 0 auto 10px auto;
+	position: relative;
+	margin: 0 auto 10px 220px;
 	height: 100%;
 	width: 500px;
 	z-index: 2;
@@ -355,6 +355,32 @@ li:hover ul, li.over ul {
 }
 
 #user-maincontent-body {
+	padding: 10px;
+}
+
+#user-maincontent-box2{
+	position: relative;
+	margin: 16px 10px 10px auto;
+	height: 100%;
+	width: 250px;
+	top: -100px;
+	z-index: 2;
+	background: #fff url(../images/popupbg.gif) repeat-x top;
+	border: 1px solid #d0cfc4;
+}
+
+#user-maincontent-head2 {
+	background: #91b2c7;
+	border-top: 1px solid #dfe7eb;
+	border-bottom: 1px solid #36617d;
+	height: 20px;
+	width: 248px;
+	padding: 0 0 0 2px;
+	color: #fff;
+	text-transform: capitalize;
+}
+
+#user-maincontent-body2 {
 	padding: 10px;
 }
 
@@ -426,6 +452,10 @@ li:hover ul, li.over ul {
 
 #conversation{
 	margin: 5px 10px 5px 10px;
+}
+
+#conversation2{
+	margin: 0;
 }
 
 .conversation-header{
@@ -503,4 +533,12 @@ li:hover ul, li.over ul {
 	position: absolute;
 	text-transform: capitalize;
 	padding: 220px 10px 0 10px;
+}
+
+#groupname {
+	text-transform: capitalize;
+}
+
+#noul a {
+	text-decoration: none;
 }
