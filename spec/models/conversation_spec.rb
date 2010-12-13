@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe Conversation do
   before(:each) do
-    @user = User.create!(:name => "UserName", :password => "pass")
-    @user2 = User.create!(:name => "UserName2", :password => "pass")
+    @user = User.create!(:username => "UserName", :email => "test@yahoo.com", :password => "pass", :password_confirmation => "pass")
+    @user2 = User.create!(:username => "UserName2", :email => "test@gmail.com", :password => "pass", :password_confirmation => "pass")
     @valid_attributes = {
 	  :origin => "UserName",
 	  :target => "UserName2",

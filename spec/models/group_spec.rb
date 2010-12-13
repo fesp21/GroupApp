@@ -13,13 +13,13 @@ describe Group do
   end
   
   it "should be able to have admins" do
-	@user = User.create!(:name => "username", :password => "password")
+	@user = User.create!(:username => "UserName", :email => "test@yahoo.com", :password => "pass", :password_confirmation => "pass")
     @group = Group.create!(@valid_attributes)
 	Membership.create!(:group_id => @group.id, :user_id => @user.id, :permission => 0)
   end
   
   it "should be able to have normal users" do
-    @user = User.create!(:name => "username", :password => "password")
+    @user = User.create!(:username => "UserName", :email => "test@gmail.com", :password => "pass", :password_confirmation => "pass")
     @group = Group.create!(@valid_attributes)
 	Membership.create!(:group_id => @group.id, :user_id => @user.id, :permission => 1)
   end
