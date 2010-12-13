@@ -2,11 +2,40 @@
 <div id="userphoto">
 	<img src = <%=h current_user.photo.url%> height="200" width="200"></img>
 </div>
-<div id="usersettings">
-	<%=h current_user.username %>
-	<br/>
-	<%=h link_to('User Settings', edit_user_path(current_user)) %>
-</div>
+	<div id="user-maincontent-box2">
+		<div id="user-maincontent-head2">
+			<strong>Messages</strong>
+		</div>
+		<div id="user-maincontent-body2">
+			<% @convo = Conversation.find(:all) %>
+			<% @convo.last(10).reverse.each do |conv| %>
+			<% if conv.target == current_user.username %>
+			  <div id="conversation2">
+			  <div class="conversation-header">From: <%=h conv.origin %> (<%=h conv.group.name %>)<br/><%=h conv.created_at.strftime("%m/%d/%y - %I:%M %p") %></div>
+			    <div class="conversation-body"><%= simple_format(h(conv.message)) %></div>
+			  </div>
+			<div id="maincontent-line"></div>
+			<% end %>
+			<% end %>
+		</div>
+		<div id="user-maincontent-head2">
+			<strong>Invitations</strong>
+		</div>
+		<div id="user-maincontent-body2">
+	  			<% @memberships = Membership.find_all_by_user_id(current_user.id) %>
+	  			<% for @membership in @memberships%>
+					<% if !@membership.established && @membership.invitation%>
+						<% @group = Group.find_by_id(@membership.group_id)%>
+						<div id="groupname"><%=h @group.name%></div>
+						<div id="noul">
+						<%= link_to 'Accept', :controller => "memberships", :action => "confirm", :id => @membership.id, :group_id => @group.id %>
+						<%= link_to 'Decline', :controller => "memberships", :confirm => 'Are you sure?', :action => "decline", :id => @membership.id, :group_id => @group.id %>
+						</div>
+						<div id="maincontent-line"></div>
+					<% end %>
+				<% end %>
+		</div>
+	</div>
 <div id="user-maincontent-box">
 	<div id="user-maincontent-head">
 		<strong>News Feed</strong>
@@ -15,46 +44,10 @@
   <% @all_newsfeeds = User.findNewsFeed(current_user.id) %>
   
   <% @all_newsfeeds.first(20).each do |newsfeed| %>
-	<div id="newsfeed"><%= newsfeed.group.name %>:
+	<div id="newsfeed"><%=h newsfeed.group.name %>: 
 	<%=h link_to(newsfeed.descriptions, newsfeed.link) %>
 	</div>
   <% end %>
   </div>
-</div>
-<div id="user-maincontent-box2">
-	<div id="user-maincontent-head2">
-		<strong>Messages</strong>
-	</div>
-	<div id="user-maincontent-body2">
-		<% @convo = Conversation.find(:all) %>
-		<% @convo.last(10).reverse.each do |conv| %>
-		<% if conv.target == current_user.username %>
-		  <div id="conversation2">
-		  <div class="conversation-header">From: <%=h conv.origin %> (<%=h conv.group.name %>)<br/><%=h conv.created_at.strftime("%m/%d/%y - %I:%M %p") %></div>
-		    <div class="conversation-body"><%= simple_format(h(conv.message)) %></div>
-		  </div>
-		<div id="maincontent-line"></div>
-		<% end %>
-		<% end %>
-	</div>
-</div>
-<div id="user-maincontent-box2">
-	<div id="user-maincontent-head2">
-		<strong>Invitations</strong>
-	</div>
-	<div id="user-maincontent-body2">
-  			<% @memberships = Membership.find_all_by_user_id(current_user.id) %>
-  			<% for @membership in @memberships%>
-				<% if !@membership.established && @membership.invitation%>
-					<% @group = Group.find_by_id(@membership.group_id)%>
-					<div id="groupname"><%=h @group.name%></div>
-					<div id="noul">
-					<%= link_to 'Accept', :controller => "memberships", :action => "confirm", :id => @membership.id, :group_id => @group.id %>
-					<%= link_to 'Decline', :controller => "memberships", :confirm => 'Are you sure?', :action => "decline", :id => @membership.id, :group_id => @group.id %>
-					</div>
-					<div id="maincontent-line"></div>
-				<% end %>
-			<% end %>
-	</div>
 </div>
 

@@ -214,6 +214,7 @@ ul#usercontrol {
 	padding: 0;
 	margin: 0;
 	top: 50px;
+	z-index: 3;
 }
 
 ul#usercontrol li a{
@@ -360,10 +361,9 @@ li:hover ul, li.over ul {
 
 #user-maincontent-box2{
 	position: relative;
-	margin: 16px 10px 10px auto;
+	float: right;
 	height: 100%;
 	width: 250px;
-	top: -100px;
 	z-index: 2;
 	background: #fff url(../images/popupbg.gif) repeat-x top;
 	border: 1px solid #d0cfc4;
@@ -381,6 +381,31 @@ li:hover ul, li.over ul {
 }
 
 #user-maincontent-body2 {
+	padding: 10px;
+}
+
+#user-maincontent-box3{
+	position: relative;
+	float: right;
+	height: 100%;
+	width: 250px;
+	z-index: 2;
+	background: #fff url(../images/popupbg.gif) repeat-x top;
+	border: 1px solid #d0cfc4;
+}
+
+#user-maincontent-head3 {
+	background: #91b2c7;
+	border-top: 1px solid #dfe7eb;
+	border-bottom: 1px solid #36617d;
+	height: 20px;
+	width: 248px;
+	padding: 0 0 0 2px;
+	color: #fff;
+	text-transform: capitalize;
+}
+
+#user-maincontent-body3 {
 	padding: 10px;
 }
 
@@ -505,6 +530,7 @@ li:hover ul, li.over ul {
 #newsfeed a{
   text-decoration: none;
 }
+
 
 #userphoto {
 	position: absolute;
