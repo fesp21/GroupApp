@@ -434,3 +434,21 @@ li:hover ul, li.over ul {
 	cursor: pointer;
 	color: #0000FF;
 }
+
+
+#tablecontainerheader {
+  display: table;
+}
+
+#tablecontainermain {
+  display: table;
+}
+
+#tablerow  {
+  display: table-row;
+}
+
+#tablecol {
+  display: table-cell;
+  width: 10%;
+}

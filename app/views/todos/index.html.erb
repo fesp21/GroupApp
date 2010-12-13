@@ -26,50 +26,50 @@
 </div>
 <div id="maincontent-box">
 	<div id="maincontent-body">
-		<table>
-		  <tr>
-			<th>Task</th>
-			<th>Added on</th>
-			<th>Due Date</th>
-			<th>Status</th>
-			<th>Added by</th>
-			<th>Finished by</th>
-		  </tr>
-
-		<% @group.todos.each do |todo| %>
-		  <tr>
-			<td><%=h todo.task %></td>
-			<td><% if todo.created_at > 48.hours.ago%>
-				<%= time_ago_in_words(todo.created_at) %> ago
-			<% else %>
-				on <%= todo.created_at.strftime("%m/%d/%y") %>
-			<% end %></td>
-			<td><%=h todo.duedate %></td>
-			<td><%= if todo.finished
-					"finished"
-				elsif todo.duedate < Date.today
-					"expired"
-				else
-					"in progress"
-				end %></td>
-			<td><%=h User.find(todo.user_id).username %></td>
-			<% if todo.finished_by != nil %>
-				<td><%=h User.find(todo.finished_by).username %></td>
-				<% else %>
-				<td></td>
+		<div id="tablecontainerheader">
+			<div id="tablerow">
+				<div id="tablecol"><strong>Task</strong></div>
+				<div id="tablecol"><strong>Status</strong></div>
+				<div id="tablecol"><strong>Due Date</strong></div>
+				<div id="tablecol"><strong>Added By</strong></div>
+				<div id="tablecol"><strong>Finished By</strong></div>
+				<div id="tablecol"></div>
+				<div id="tablecol"></div>
+				<div id="tablecol"></div>
+			</div>
+		</div>
+		<div id="tablecontainermain">
+			<% @group.todos.reverse.each do |todo| %>
+			  <div id="tablerow">
+				<div id="tablecol"><%=h todo.task %></div>
+				<div id="tablecol">
+				<%= if todo.finished
+						"finished"
+					elsif todo.duedate < Date.today
+						"expired"
+					else
+						"in progress"
+					end %></div>
+				<div id="tablecol"><%=h todo.duedate.strftime("%m/%d/%y") %></div>
+				<div id="tablecol"><%=h User.find(todo.user_id).username %></div>
+				<% if todo.finished_by != nil %>
+					<div id="tablecol"><%=h User.find(todo.finished_by).username %></div>
+					<% else %>
+					<div id="tablecol"></div>
+				<% end %>
+				<div id="tablecol"><%= if todo.finished
+						link_to 'unmark finished', :controller => "todos",
+										:action => "unfinish", :id => todo.id, :group_id => @group.id
+					else
+						link_to 'mark finished', :controller => "todos",
+										:action => "finish", :id => todo.id, :group_id => @group.id
+					end %></div>
+				<div id="tablecol"><%= link_to 'edit', edit_group_todo_path(@group, todo) %></div>
+				<div id="tablecol"><%= link_to 'delete', [@group, todo], :confirm => 'Are you sure?', :method => :delete %></div>
+			  </div>
 			<% end %>
-			<td><%= if todo.finished
-					link_to 'unmark finished', :controller => "todos",
-									:action => "unfinish", :id => todo.id, :group_id => @group.id
-				else
-					link_to 'mark finished', :controller => "todos",
-									:action => "finish", :id => todo.id, :group_id => @group.id
-				end %></td>
-			<td><%= link_to 'edit', edit_group_todo_path(@group, todo) %></td>
-			<td><%= link_to 'delete', [@group, todo], :confirm => 'Are you sure?', :method => :delete %></td>
-		  </tr>
-		<% end %>
-
-		</table>
+		</div>
 	</div>
+</div>
+
 </div>

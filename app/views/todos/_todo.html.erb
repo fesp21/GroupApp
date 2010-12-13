@@ -1,0 +1,27 @@
+<div id="tablerow">
+	<div id="tablecol"><%=h @todo.task %></div>
+	<div id="tablecol">
+	<%= if @todo.finished
+			"finished"
+		elsif @todo.duedate < Date.today
+			"expired"
+		else
+			"in progress"
+		end %></div>
+	<div id="tablecol"><%=h @todo.duedate.strftime("%m/%d/%y") %></div>
+	<div id="tablecol"><%=h User.find(@todo.user_id).username %></div>
+	<% if @todo.finished_by != nil %>
+		<div id="tablecol"><%=h User.find(@todo.finished_by).username %></div>
+		<% else %>
+		<div id="tablecol"></div>
+	<% end %>
+	<div id="tablecol"><%= if @todo.finished
+			link_to 'unmark finished', :controller => "todos",
+							:action => "unfinish", :id => @todo.id, :group_id => @group.id
+		else
+			link_to 'mark finished', :controller => "todos",
+							:action => "finish", :id => @todo.id, :group_id => @group.id
+		end %></div>
+	<div id="tablecol"><%= link_to 'edit', edit_group_todo_path(@group, todo) %></div>
+	<div id="tablecol"><%= link_to 'delete', [@group, todo], :confirm => 'Are you sure?', :method => :delete %></div>
+  </div>
