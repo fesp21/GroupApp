@@ -9,7 +9,6 @@ Your ID is <%= current_user.id %>
   <%=h current_user.username %>
 </p>
 </p>
-<%= image_tag current_user.photo.url%>
-<%= image_tag current_user.photo.url(:thumb)%>
+<img src="<%= current_user.photo.url%>" width="200" height="150">
 <%= link_to 'Groups', :controller => 'groups', :action => 'index' %>   
 <%= link_to 'Logout', logout_path %>
