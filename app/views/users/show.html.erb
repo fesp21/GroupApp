@@ -9,7 +9,7 @@ Your ID is <%= current_user.id %>
   <%=h current_user.username %>
 </p>
 </p>
-<img src="<%= current_user.photo.url%>" width="200" height="150">
+<img src="<%= current_user.photo.url%>" width="50" height="50"></img>
 <div id="userNF">
   <% @all_newsfeeds = User.findNewsFeed(current_user.id) %>
   
