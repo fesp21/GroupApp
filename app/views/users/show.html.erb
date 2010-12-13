@@ -1,4 +1,12 @@
 <%= render :file => 'users/header.html.erb' %>
+<div id="userphoto">
+	<img src = <%=h current_user.photo.url%> height="200" width="200"></img>
+</div>
+<div id="usersettings">
+	<%=h current_user.username %>
+	<br/>
+	<%=h link_to('User Settings', edit_user_path(current_user)) %>
+</div>
 <div id="user-maincontent-box">
 	<div id="user-maincontent-head">
 		<strong>News Feed</strong>

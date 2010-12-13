@@ -5,11 +5,15 @@
 		<strong><%=h @group.name %></strong>
 	</div>
 	<div id="maincontent-body">
+			<div id="groupphoto">
+			<img src="<%= @group.photo.url%>" width="200" height="200"></img>
+			</div>
+			<div id="groupdescription">
 			<p>
 			  <b>Group Description:</b>
 			  <%=h @group.description %>
 			</p>
-			<img src="<%= @group.photo.url%>" width="200" height="200"></img>
+			</div>
 	</div>
 </div>
 
