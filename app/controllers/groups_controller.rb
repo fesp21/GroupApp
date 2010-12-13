@@ -43,17 +43,17 @@ class GroupsController < ApplicationController
   end
   
   def joinrequest
-    @membership = Membership.create!(:user_id => current_user.id, :group_id => params[:id], :permission => "1", :request => true)
+    @membership = Membership.create!(:user_id => current_user.id, :group_id => params[:id], :permission => "1", :request => true, :established => false)
     redirect_to(groups_url)
   end
   
   def removerequest
-    @membership = Membership.destroy(Membership.find_by_user_id_and_group_id(current_user.id, params[:id]))
+    @membership = Membership.destroy(Membership.find_by_user_id_and_group_id_and_request(current_user.id, params[:id]), true)
     redirect_to(groups_url)
   end
   
   def invite
-    @membership = Membership.create!(:user_id => params[:id_2], :group_id => params[:id], :permission => "1", :invitation => true)
+    @membership = Membership.create!(:user_id => params[:id_2], :group_id => params[:id], :permission => "1", :invitation => true, :established => false)
     redirect_to(group_users_path(Group.find(params[:id])))
   end
   
@@ -81,6 +81,7 @@ class GroupsController < ApplicationController
     respond_to do |format|
       if @group.save
         Membership.create!(:user_id => current_user.id, :group_id => @group.id, :permission => "0", :established => true)
+        Newsfeed.create!(:descriptions => current_user.username + ' has created the group', :time => @group.created_at, :group_id => @group.id, :link => group_path(@group))
         format.html { redirect_to(@group, :notice => 'Group was successfully created.') }
         format.xml  { render :xml => @group, :status => :created, :location => @group }
       else

@@ -22,9 +22,12 @@ class User < ActiveRecord::Base
 		@my_groups = @user.groups
 		@all_newsfeeds = []
 		@my_groups.each do |group|
-			group.newsfeeds.reverse.first(20).each do |newsfeed|
-				@all_newsfeeds << newsfeed
-			end
+		  @membership = Membership.find_by_user_id_and_group_id(num, group.id)
+		  if @membership.established
+			  group.newsfeeds.reverse.first(20).each do |newsfeed|
+				  @all_newsfeeds << newsfeed
+			  end
+		  end
 		end
     return @all_newsfeeds.sort!{|a,b| a.created_at <=> b.created_at}.reverse.first(20)
 	end  

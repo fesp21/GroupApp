@@ -8,9 +8,14 @@
 		<% form_for([@group, @conversation]) do |f| %>
 		  <%= f.error_messages %>
 		  <p>
-			<% @users = @group.users %>
+			<% @members = []%>
+			<% for @user in @group.users%>
+				<% if Membership.find_by_user_id_and_group_id(@user.id, @group.id).established %>
+					<% @members << @user %>
+				<% end %>
+			<% end %>
 		    <%= f.label :target %><br />
-		    <%= f.select(:target, @users.collect {|u| u.username }) %>
+		    <%= f.select(:target, @members.collect {|u| u.username }) %>
 		  </p>
 		  <p>
 		    <%= f.label :message %><br />

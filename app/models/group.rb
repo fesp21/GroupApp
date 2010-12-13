@@ -8,6 +8,7 @@ class Group < ActiveRecord::Base
   has_many :conversations, :dependent => :destroy
   has_one :conference, :dependent => :destroy
   has_many :events, :dependent => :destroy
+  validates_uniqueness_of :name
   has_attached_file :photo,
   :default_url => "/images/groupdefault.png",
   :storage => :s3,

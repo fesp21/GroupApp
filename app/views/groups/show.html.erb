@@ -25,9 +25,14 @@
 	<div class="conversationnew">
 		<% form_for([@group, Conversation.new]) do |f| %>
 		  <p>
-			<% @users = @group.users %>
+			<% @members = []%>
+			<% for @user in @group.users%>
+				<% if Membership.find_by_user_id_and_group_id(@user.id, @group.id).established %>
+					<% @members << @user %>
+				<% end %>
+			<% end %>
 		    <%= f.label :target %>
-		    <%= f.select(:target, @users.collect {|u| u.username }) %>
+		    <%= f.select(:target, @members.collect {|u| u.username }) %>
 		  </p>
 		  <p>
 		    <%= f.label :message %><br/>
@@ -85,7 +90,12 @@
 
 		<% @group.newsfeeds.reverse.first(20).each do |newsfeed| %>
 		  <tr>
-			<td><%=h link_to(newsfeed.descriptions, newsfeed.link) %></td>
+			<td><%=h link_to(newsfeed.descriptions, newsfeed.link) %>
+			<% if newsfeed.created_at > 48.hours.ago%>
+				<%= time_ago_in_words(newsfeed.created_at) %> ago		
+			<% else %>
+				on <%= newsfeed.created_at.strftime("%m/%d/%y") %>
+			<% end %></td>
 		  </tr>
 		<% end %>
 

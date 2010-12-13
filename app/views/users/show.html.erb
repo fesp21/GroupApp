@@ -46,6 +46,11 @@
   <% @all_newsfeeds.first(20).each do |newsfeed| %>
 	<div id="newsfeed"><%=h newsfeed.group.name %>: 
 	<%=h link_to(newsfeed.descriptions, newsfeed.link) %>
+	<% if newsfeed.created_at > 48.hours.ago%>
+		<%= time_ago_in_words(newsfeed.created_at) %> ago		
+	<% else %>
+		on <%= newsfeed.created_at.strftime("%m/%d/%y") %>
+	<% end %>
 	</div>
   <% end %>
   </div>
