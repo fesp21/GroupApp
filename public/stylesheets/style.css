@@ -66,7 +66,7 @@ padding: 0;
 	clear: both;
 	background: #e2e2e2 url('../images/bottom.gif');
 	background-repeat: repeat-x;
-	z-index: 3;
+	z-index: 5;
 }
 
 
@@ -319,7 +319,7 @@ li:hover ul, li.over ul {
 
 #maincontent-box{
 	position: relative;
-	top: -150px;
+	top: -180px;
 	left: 200px;
 	height: 100%;
 	width: 780px;
@@ -427,4 +427,10 @@ li:hover ul, li.over ul {
 
 .conversation-body {
 	margin: 0;
+}
+
+.todonewshow{
+	padding: 10px 0 0 0;
+	cursor: pointer;
+	color: #0000FF;
 }

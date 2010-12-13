@@ -4,6 +4,28 @@
 		<strong><%=h @group.name %> - To-Do List</strong>
 	</div>
 	<div id="maincontent-body">
+	<div class="todonew">
+		<% form_for([@group, Todo.new]) do |f| %>
+		  <%= f.error_messages %>
+
+		  <p>
+			<%= f.label :task %><br />
+			<%= f.text_field :task %>
+		  </p>
+		  <p>
+			<%= f.label :duedate %><br />
+			<%= f.date_select :duedate %>
+		  </p>
+		  <p>
+			<%= f.submit 'Create' %>
+		  </p>
+		<% end %>
+	</div>
+	<div class="todonewshow">New Task</div>
+	</div>
+</div>
+<div id="maincontent-box">
+	<div id="maincontent-body">
 		<table>
 		  <tr>
 			<th>Task</th>
@@ -49,8 +71,5 @@
 		<% end %>
 
 		</table>
-		<br/>
-		<%= link_to 'New To-Do', new_group_todo_path(@group) %> |
-		<%= link_to 'Back', @group %>
 	</div>
 </div>
