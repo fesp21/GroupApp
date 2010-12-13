@@ -1,11 +1,12 @@
 Given /^that I am an administrator$/ do
-  @user = User.create!(:name => "UserName", :password => "pass")
+  @user = User.create!(:username => "UserName", :email => "test@yahoo.com", :password => "pass", :password_confirmation => "pass")
   @group = Group.create!(:name => "GroupName", :description => "description")
   @membership = Membership.create!(:group_id => @group.id, :user_id => @user.id)
-  visit users_url
-  fill_in "name", :with => "UserName"
-  fill_in "password", :with => "pass"
-  click_button "submit"
+  #visit root_url
+  @user_session = User_session.create!(:username => "UserName", :password => "pass")
+  #fill_in "name", :with => "UserName"
+  #fill_in "password", :with => "pass"
+  #click_button "submit"
 end
 
 When /^I see a bad post$/ do
@@ -13,14 +14,14 @@ When /^I see a bad post$/ do
   visit group_posts_url(@group)
 end
 
-Then /^I should be able to delete it$/ do
+Then /^I should be able to delete the bad post$/ do
   click_link "test post"
   click_link "Destroy"
   response.should_not contain("test post")
 end
 
 Given /^that I am a post user$/ do
-  @user = User.create!(:name => "UserName", :password => "pass")
+  @user = User.create!(:username => "UserName", :email => "test@yahoo.com", :password => "pass", :password_confirmation => "pass")
   @group = Group.create!(:name => "GroupName", :description => "description")
   @membership = Membership.create!(:group_id => @group.id, :user_id => @user.id)
   visit users_url
@@ -54,7 +55,7 @@ Then /^I should be able to comment on it$/ do
 end
 
 Given /^that I am a comment user$/ do
-  @user = User.create!(:name => "UserName", :password => "pass")
+  @user = User.create!(:username => "UserName", :email => "test@yahoo.com", :password => "pass", :password_confirmation => "pass")
   @group = Group.create!(:name => "GroupName", :description => "description")
   @membership = Membership.create!(:group_id => @group.id, :user_id => @user.id)
   visit users_url
