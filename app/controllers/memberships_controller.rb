@@ -22,6 +22,7 @@ class MembershipsController < ApplicationController
     @membership.request = false
     @membership.invitation = false
     @membership.established = true
+    Newsfeed.create!(:descriptions => User.find_by_id(@membership.user_id).username + ' has joined the group', :time => @membership.created_at, :group_id => @membership.group_id, :link => group_users_path(@membership.group_id))
     @membership.save
     redirect_to(group_users_path(@group))
   end

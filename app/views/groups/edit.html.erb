@@ -1,22 +1,35 @@
-<%= render :file => 'users/header.html.erb' %>
+<%= render :file => 'groups/header.html.erb' %>
+<div id="maincontent-box">
+	<div id="maincontent-head">
+		<strong><%=h @group.name %></strong>
+	</div>
+	<div id="maincontent-body">
+	<p>Group Settings</p>
+		<% form_for(@group, :html => {:multipart => true}) do |f| %>
+		  <%= f.error_messages %>
 
-<h1>Editing group</h1>
+		  <p>
+		    <%= f.label :name %><br />
+		    <%= f.text_field :name %>
+		  </p>
+		  <p>
+		    <%= f.label :description %><br />
+		    <%= f.text_area :description %>
+		  </p>
+		  <p>
+			<%= "Add a picture for the group(Optional): " %>
+			<%= f.file_field :photo %>
+		  </p>
+		  <p>
+			<%= f.label :private %><br />
+			<%= f.check_box :private %>
+		  </p>
+		  <p>
+		    <%= f.submit 'Update' %>
+		  </p>
+		<% end %>
 
-<% form_for(@group) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
-<% end %>
-
-<%= link_to 'Show', @group %> |
-<%= link_to 'Back', groups_path %>
+		<%= link_to 'Show', @group %> |
+		<%= link_to 'Back', groups_path %>
+	</div>
+</div>

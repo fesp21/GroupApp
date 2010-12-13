@@ -50,7 +50,7 @@ class UploadsController < ApplicationController
 
     respond_to do |format|
       if @upload.save
-        Newsfeed.create!(:descriptions => current_user.username + ' uploaded a new file.', :time => @upload.created_at, :group_id => @group.id, :link => group_uploads_path(@group))
+        Newsfeed.create!(:descriptions => current_user.username + ' uploaded a new file', :time => @upload.created_at, :group_id => @group.id, :link => group_uploads_path(@group))
         format.html { redirect_to(group_uploads_path(@group)) }
         format.xml  { render :xml => @upload, :status => :created, :location => @upload }
       else

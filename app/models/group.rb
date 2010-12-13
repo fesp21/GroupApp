@@ -7,6 +7,12 @@ class Group < ActiveRecord::Base
   has_many :newsfeeds, :dependent => :destroy
   has_many :conversations, :dependent => :destroy
   has_one :conference, :dependent => :destroy
+  has_attached_file :photo,
+  :storage => :s3,
+  :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+  :path => ":photo/:id/:style/:basename.:extension",
+  :bucket => 'storagebucket'
+  validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/gif', 'image/png', 'image/emp']
   
   def self.search(search)
     search_condition = "%" + search + "%"

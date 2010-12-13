@@ -32,7 +32,7 @@ class GroupsController < ApplicationController
   def join
     @membership = Membership.create!(:user_id => current_user.id, :group_id => params[:id], :permission => "1", :established => true)
 	  @group = Group.find(params[:id])
-    Newsfeed.create!(:descriptions => current_user.username + ' has joined the group.', :time => @membership.created_at, :group_id => @membership.group_id, :link => group_users_path(@membership.group_id))
+    Newsfeed.create!(:descriptions => current_user.username + ' has joined the group', :time => @membership.created_at, :group_id => @membership.group_id, :link => group_users_path(@membership.group_id))
     redirect_to(@group)
   end
   

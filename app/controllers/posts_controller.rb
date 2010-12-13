@@ -48,7 +48,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        Newsfeed.create!(:descriptions => current_user.username + ' created a new post.', :time => @post.created_at, :group_id => @group.id, :link => group_posts_path(@group))
+        Newsfeed.create!(:descriptions => current_user.username + ' created a new post', :time => @post.created_at, :group_id => @group.id, :link => group_posts_path(@group))
         format.html { redirect_to(group_posts_path(@group)) }
         format.js
       else
