@@ -41,11 +41,8 @@
 	<div id="maincontent-head">
 		<strong><%=h @group.name %> - Invite Users</strong>
 	</div>
-	<div id="maincontent-body">
-		<% form_tag :controller => 'users', :group_id => @group.id, :action => 'search', :method => 'get' do %>
-		  <%= text_field_tag :search, params[:search], :group_id =>@group.id, :id => 'search_field' %>
-		  <%= submit_tag "Search", :name => nil %>
-		<% end %>
+	<div id="search">
+		<%= render :partial => 'users/search' %>
 	</div>
 	<% if @users != nil && @users.length>0 %>
 		<table>

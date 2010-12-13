@@ -316,7 +316,6 @@ li:hover ul, li.over ul {
 #maincontent{
 
 }
-
 #maincontent-box{
 	position: relative;
 	top: -210px;
@@ -337,6 +336,31 @@ li:hover ul, li.over ul {
 	width: 778px;
 	padding: 0 0 0 2px;
 	color: #fff;
+}
+
+#user-maincontent-box{
+	display: block;
+	margin: 0 auto 10px auto;
+	height: 100%;
+	width: 500px;
+	z-index: 2;
+	background: #fff url(../images/popupbg.gif) repeat-x top;
+	border: 1px solid #d0cfc4;
+}
+
+#user-maincontent-head {
+	background: #91b2c7;
+	border-top: 1px solid #dfe7eb;
+	border-bottom: 1px solid #36617d;
+	height: 20px;
+	width: 498px;
+	padding: 0 0 0 2px;
+	color: #fff;
+	text-transform: capitalize;
+}
+
+#user-maincontent-body {
+	padding: 10px;
 }
 
 #maincontent-line {
@@ -451,4 +475,8 @@ li:hover ul, li.over ul {
 #tablecol {
   display: table-cell;
   width: 10%;
+}
+
+#newsfeed a{
+  text-decoration: none;
 }

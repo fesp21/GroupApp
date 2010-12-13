@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   end
   
  def self.findNewsFeed(num)
-	@user = User.find(:all, :conditions => :id == num)[0]
+	@user = User.find(:all, :conditions => {:id => num})[0]
 	if(@user != nil)
 		@my_groups = @user.groups
 		@all_newsfeeds = []

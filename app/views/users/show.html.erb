@@ -1,25 +1,17 @@
 <%= render :file => 'users/header.html.erb' %>
-
-
-It's <%= Time.now %>
-<p>
-Your ID is <%= current_user.id %>
-<p>
-  <b>Name:</b>
-  <%=h current_user.username %>
-</p>
-</p>
-<img src="<%= current_user.photo.url%>" width="50" height="50"></img>
-<div id="userNF">
+<div id="user-maincontent-box">
+	<div id="user-maincontent-head">
+		<strong>News Feed</strong>
+	</div>
+	<div id="user-maincontent-body">
   <% @all_newsfeeds = User.findNewsFeed(current_user.id) %>
   
   <% @all_newsfeeds.first(20).each do |newsfeed| %>
-	<div id="newsfeed">
-	<%=h link_to(newsfeed.descriptions + " for " + newsfeed.group.name, newsfeed.link) %>
+	<div id="newsfeed"><%= newsfeed.group.name %>:
+	<%=h link_to(newsfeed.descriptions, newsfeed.link) %>
 	</div>
   <% end %>
   
 </div>
-
-<%= link_to 'Groups', :controller => 'groups', :action => 'index' %>   
-<%= link_to 'Logout', logout_path %>
+</div>
+</div>
