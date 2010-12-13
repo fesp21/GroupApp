@@ -32046,3 +32046,915 @@ Rendered rescues/_request_and_response (1.6ms)
 Rendering rescues/layout (internal_server_error)
 >>>>>>> c643696fd1caea3860d6688122631fc7fb29b749
 >>>>>>> 0f709be8d979c89c5a42537ea5a222e274cd8949
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-12-12 19:50:35) [GET]
+Rendering template within layouts/user_sessions
+Rendering user_sessions/new
+Completed in 60ms (View: 29, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-12-12 19:50:38) [POST]
+  Parameters: {"user_session"=>{"username"=>"jianda", "password"=>"1234"}, "x"=>"0", "y"=>"0", "authenticity_token"=>"8jg+jsvis0u7io4UTX7bqzS27gaOXVOYIUFsRO5gxkM="}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".username) = 'jianda') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Redirected to http://0.0.0.0:3000/users/1
+Completed in 277ms (DB: 1) | 302 Found [http://0.0.0.0/user_sessions]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 19:50:38) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mMembership Load (0.3ms)[0m   [0;1mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 1 AND "memberships"."group_id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mNewsfeed Load (0.3ms)[0m   [0mSELECT * FROM "newsfeeds" WHERE ("newsfeeds".group_id = 1) [0m
+  [4;36;1mGroup Load (0.2ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Completed in 722ms (View: 717, DB: 2) | 200 OK [http://0.0.0.0/users/1]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-12-12 19:50:39) [GET]
+
+ActionController::RoutingError (No route matches "/photos/original/missing.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-12-12 19:50:39) [GET]
+
+ActionController::RoutingError (No route matches "/photos/thumb/missing.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-12-12 19:50:39) [GET]
+
+ActionController::RoutingError (No route matches "/photos/original/missing.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GroupsController#show (for 127.0.0.1 at 2010-12-12 19:50:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mMembership Load (0.3ms)[0m   [0mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 1 AND "memberships"."group_id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+Rendering template within layouts/groups
+Rendering groups/show
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 1 AND "memberships"."group_id" = 1) LIMIT 1[0m
+  [4;35;1mConversation Load (0.2ms)[0m   [0mSELECT * FROM "conversations" WHERE ("conversations".group_id = 1) [0m
+  [4;36;1mNewsfeed Load (0.3ms)[0m   [0;1mSELECT * FROM "newsfeeds" WHERE ("newsfeeds".group_id = 1) [0m
+Completed in 260ms (View: 49, DB: 2) | 200 OK [http://0.0.0.0/groups/1]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-12-12 19:50:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/edit
+  [4;36;1mGroup Load (0.6ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mMembership Load (0.5ms)[0m   [0mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 1 AND "memberships"."group_id" = 1) LIMIT 1[0m
+Completed in 125ms (View: 80, DB: 2) | 200 OK [http://0.0.0.0/users/1/edit]
+
+
+Processing UsersController#update (for 127.0.0.1 at 2010-12-12 19:50:56) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"8jg+jsvis0u7io4UTX7bqzS27gaOXVOYIUFsRO5gxkM=", "id"=>"1", "user"=>{"photo"=>#<File:/var/folders/Zg/ZgavvQulGsGDveGVYS81UE+++TI/-Tmp-/RackMultipart20101212-395-51ocxr-0>, "password_confirmation"=>"", "username"=>"jianda", "allow_text"=>"0", "phone_number"=>"", "phone_carrier"=>"at&t", "password"=>"", "email"=>"jianda@gmail.com"}}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.6ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-12-13 03:50:56', "photo_file_name" = 'button-signin.gif', "photo_file_size" = 936, "phone_number" = '', "phone_carrier" = 'at&t', "allow_text" = 'f', "photo_content_type" = 'image/gif' WHERE "id" = 1[0m
+[paperclip] Saving attachments.
+[paperclip] saving :photo/1/original/button-signin.gif
+Redirected to http://0.0.0.0:3000/users/1
+Completed in 356ms (DB: 1) | 302 Found [http://0.0.0.0/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 19:50:57) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mGroup Load (0.6ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mMembership Load (0.3ms)[0m   [0;1mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 1 AND "memberships"."group_id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mNewsfeed Load (0.3ms)[0m   [0mSELECT * FROM "newsfeeds" WHERE ("newsfeeds".group_id = 1) [0m
+  [4;36;1mGroup Load (0.2ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Completed in 197ms (View: 189, DB: 2) | 200 OK [http://0.0.0.0/users/1]
+
+
+Processing GroupsController#show (for 127.0.0.1 at 2010-12-12 19:51:04) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mMembership Load (0.4ms)[0m   [0mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 1 AND "memberships"."group_id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+Rendering template within layouts/groups
+Rendering groups/show
+  [4;35;1mGroup Load (0.5ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 1 AND "memberships"."group_id" = 1) LIMIT 1[0m
+  [4;35;1mConversation Load (0.3ms)[0m   [0mSELECT * FROM "conversations" WHERE ("conversations".group_id = 1) [0m
+  [4;36;1mNewsfeed Load (0.4ms)[0m   [0;1mSELECT * FROM "newsfeeds" WHERE ("newsfeeds".group_id = 1) [0m
+Completed in 117ms (View: 45, DB: 3) | 200 OK [http://0.0.0.0/groups/1]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2010-12-12 19:51:08) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;35;1mGroup Load (0.2ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mMembership Load (0.3ms)[0m   [0;1mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 1 AND "memberships"."group_id" = 1) LIMIT 1[0m
+  [4;35;1mTodo Load (0.2ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos".group_id = 1) [0m
+Completed in 250ms (View: 65, DB: 1) | 200 OK [http://0.0.0.0/groups/1/todos]
+
+
+Processing TodosController#create (for 127.0.0.1 at 2010-12-12 19:51:14) [POST]
+  Parameters: {"authenticity_token"=>"8jg+jsvis0u7io4UTX7bqzS27gaOXVOYIUFsRO5gxkM=", "group_id"=>"1", "todo"=>{"duedate(1i)"=>"2010", "duedate(2i)"=>"12", "duedate(3i)"=>"13", "task"=>"adf"}}
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mGroup Load (0.2ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mTodo Create (0.5ms)[0m   [0mINSERT INTO "todos" ("created_at", "updated_at", "group_id", "duedate", "user_id", "finished_by", "task", "finished") VALUES('2010-12-13 03:51:14', '2010-12-13 03:51:14', 1, '2010-12-13', 1, NULL, 'adf', NULL)[0m
+  [4;36;1mNewsfeed Create (0.5ms)[0m   [0;1mINSERT INTO "newsfeeds" ("descriptions", "created_at", "updated_at", "time", "group_id", "link") VALUES('jianda added a new item on the To-Do list.', '2010-12-13 03:51:14', '2010-12-13 03:51:14', '2010-12-13 03:51:14', 1, '/groups/1/todos')[0m
+Rendering todos/create
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered todos/_todo (10.3ms)
+Completed in 149ms (View: 28, DB: 3) | 200 OK [http://0.0.0.0/groups/1/todos]
+
+
+Processing TodosController#create (for 127.0.0.1 at 2010-12-12 19:51:19) [POST]
+  Parameters: {"authenticity_token"=>"8jg+jsvis0u7io4UTX7bqzS27gaOXVOYIUFsRO5gxkM=", "group_id"=>"1", "todo"=>{"duedate(1i)"=>"2010", "duedate(2i)"=>"12", "duedate(3i)"=>"11", "task"=>"asdf"}}
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mGroup Load (0.2ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mTodo Create (0.9ms)[0m   [0mINSERT INTO "todos" ("created_at", "updated_at", "group_id", "duedate", "user_id", "finished_by", "task", "finished") VALUES('2010-12-13 03:51:19', '2010-12-13 03:51:19', 1, '2010-12-11', 1, NULL, 'asdf', NULL)[0m
+  [4;36;1mNewsfeed Create (0.6ms)[0m   [0;1mINSERT INTO "newsfeeds" ("descriptions", "created_at", "updated_at", "time", "group_id", "link") VALUES('jianda added a new item on the To-Do list.', '2010-12-13 03:51:19', '2010-12-13 03:51:19', '2010-12-13 03:51:19', 1, '/groups/1/todos')[0m
+Rendering todos/create
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered todos/_todo (7.8ms)
+Completed in 83ms (View: 10, DB: 3) | 200 OK [http://0.0.0.0/groups/1/todos]
+
+
+Processing TodosController#finish (for 127.0.0.1 at 2010-12-12 19:51:22) [GET]
+  Parameters: {"id"=>"2", "group_id"=>"1"}
+  [4;36;1mGroup Load (0.5ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos"."id" = 2 AND ("todos".group_id = 1)) [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mTodo Update (0.4ms)[0m   [0;1mUPDATE "todos" SET "updated_at" = '2010-12-13 03:51:22', "finished_by" = 1, "finished" = 't' WHERE "id" = 2[0m
+Redirected to http://0.0.0.0:3000/groups/1/todos
+Completed in 71ms (DB: 2) | 302 Found [http://0.0.0.0/todos/finish/2?group_id=1]
+
+
+Processing TodosController#index (for 127.0.0.1 at 2010-12-12 19:51:22) [GET]
+  Parameters: {"group_id"=>"1"}
+  [4;35;1mGroup Load (0.4ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Rendering template within layouts/todos
+Rendering todos/index
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mMembership Load (0.3ms)[0m   [0;1mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 1 AND "memberships"."group_id" = 1) LIMIT 1[0m
+  [4;35;1mTodo Load (0.4ms)[0m   [0mSELECT * FROM "todos" WHERE ("todos".group_id = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 204ms (View: 174, DB: 2) | 200 OK [http://0.0.0.0/groups/1/todos]
+
+
+Processing GroupsController#show (for 127.0.0.1 at 2010-12-12 19:51:26) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mMembership Load (0.4ms)[0m   [0mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 1 AND "memberships"."group_id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+Rendering template within layouts/groups
+Rendering groups/show
+  [4;35;1mGroup Load (0.6ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 1 AND "memberships"."group_id" = 1) LIMIT 1[0m
+  [4;35;1mConversation Load (0.3ms)[0m   [0mSELECT * FROM "conversations" WHERE ("conversations".group_id = 1) [0m
+  [4;36;1mNewsfeed Load (0.5ms)[0m   [0;1mSELECT * FROM "newsfeeds" WHERE ("newsfeeds".group_id = 1) [0m
+Completed in 121ms (View: 46, DB: 3) | 200 OK [http://0.0.0.0/groups/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 19:51:28) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mGroup Load (0.4ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mMembership Load (0.3ms)[0m   [0mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 1 AND "memberships"."group_id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mNewsfeed Load (0.4ms)[0m   [0;1mSELECT * FROM "newsfeeds" WHERE ("newsfeeds".group_id = 1) [0m
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Completed in 267ms (View: 259, DB: 2) | 200 OK [http://0.0.0.0/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 19:52:10) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mGroup Load (0.4ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mMembership Load (0.3ms)[0m   [0;1mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 1 AND "memberships"."group_id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mNewsfeed Load (0.5ms)[0m   [0mSELECT * FROM "newsfeeds" WHERE ("newsfeeds".group_id = 1) [0m
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Completed in 271ms (View: 262, DB: 3) | 200 OK [http://0.0.0.0/users/1]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-12-12 19:52:12) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/edit
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mMembership Load (0.3ms)[0m   [0mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 1 AND "memberships"."group_id" = 1) LIMIT 1[0m
+Completed in 213ms (View: 176, DB: 1) | 200 OK [http://0.0.0.0/users/1/edit]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 19:52:55) [GET]
+  Parameters: {"id"=>"1"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mGroup Load (0.4ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;36;1mMembership Load (0.4ms)[0m   [0;1mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 1 AND "memberships"."group_id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+  [4;35;1mNewsfeed Load (0.6ms)[0m   [0mSELECT * FROM "newsfeeds" WHERE ("newsfeeds".group_id = 1) [0m
+  [4;36;1mGroup Load (0.4ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+Completed in 117ms (View: 107, DB: 3) | 200 OK [http://0.0.0.0/users/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE TABLE "chats" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "post_id" integer, "body" text, "created_at" datetime, "updated_at" datetime, "user_id" integer) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mCREATE TABLE "conferences" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "group_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mCREATE TABLE "conversations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "origin" varchar(255), "target" varchar(255), "message" text, "created_at" datetime, "updated_at" datetime, "also_text" boolean, "group_id" integer) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE TABLE "groups" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime, "private" boolean) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE TABLE "memberships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "group_id" integer, "created_at" datetime, "updated_at" datetime, "permission" integer, "established" boolean, "request" boolean, "invitation" boolean) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE TABLE "newsfeeds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "descriptions" text, "time" datetime, "created_at" datetime, "updated_at" datetime, "group_id" integer, "link" varchar(255)) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "user" varchar(255), "created_at" datetime, "updated_at" datetime, "group_id" integer, "user_id" integer, "created_on" datetime, "updated_on" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mCREATE TABLE "todos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "task" varchar(255), "duedate" date, "finished" boolean, "created_at" datetime, "updated_at" datetime, "group_id" integer, "user_id" integer, "finished_by" integer) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE TABLE "uploads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "filename" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime, "attachment_file_name" varchar(255), "attachment_content_type" varchar(255), "attachment_file_size" integer, "attachment_updated_at" datetime, "group_id" integer, "user_id" integer) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "username" varchar(255), "email" varchar(255), "crypted_password" varchar(255), "password_salt" varchar(255), "persistence_token" varchar(255), "phone_number" varchar(255), "phone_carrier" varchar(255), "allow_text" boolean, "photo_file_name" varchar(255), "photo_content_type" varchar(255), "photo_file_size" integer) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM "schema_migrations"[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101213021237')[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101022014901')[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101022055643')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101022060356')[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101022060532')[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101005126')[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101014053')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101015844')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101075939')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101101080046')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101101200150')[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101106020926')[0m
+  [4;35;1mSQL (2.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101106041329')[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101110234740')[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101111072209')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101116210731')[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101121060326')[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101121061120')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101121062213')[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101121070214')[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101121221703')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101121231349')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101123000028')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101126002619')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101126003251')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101126010029')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101126070133')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101201071430')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101201071630')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101204085551')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101204090150')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101205220122')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101205220247')[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101205220400')[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101205222959')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101209052044')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20101210020824')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20101211082820')[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20101022014901)
+Migrating to CreateGroups (20101022055643)
+Migrating to CreateUserlists (20101022060356)
+Migrating to CreatePermissions (20101022060532)
+Migrating to CreateChats (20101101005126)
+Migrating to CreatePosts (20101101014053)
+Migrating to CreateComments (20101101015844)
+Migrating to CreateUploads (20101101075939)
+Migrating to AddAttachmentsFileToUpload (20101101080046)
+Migrating to CreateTodos (20101101200150)
+Migrating to AddGroupIdToUpload (20101106020926)
+Migrating to AddGroupIdToTodo (20101106041329)
+Migrating to CreateMemberships (20101110234740)
+Migrating to AddGroupIdToPost (20101111072209)
+Migrating to CreateConversations (20101116210731)
+Migrating to CreateNewsfeeds (20101121060326)
+Migrating to CreateCalendars (20101121061120)
+Migrating to AddGroupIdToNewsfeed (20101121062213)
+Migrating to AddUserIdToPost (20101121070214)
+Migrating to AddPermissionToMembership (20101121221703)
+Migrating to AddUserIdToComment (20101121231349)
+Migrating to RemoveUserlistsAndPermissionsAndCalendars (20101123000028)
+Migrating to AddUserIdToUploads (20101126002619)
+Migrating to AddUserIdToTodos (20101126003251)
+Migrating to AddLinkToNewsfeed (20101126010029)
+Migrating to AddFinishedByToTodos (20101126070133)
+Migrating to AddColumnToGroups (20101201071430)
+Migrating to AddColumnsToMemberships (20101201071630)
+Migrating to RemoveColumnFromUser (20101204085551)
+Migrating to AddColumnsToUser (20101204090150)
+Migrating to AddPhoneNumberToUser (20101205220122)
+Migrating to AddPhoneCarrierToUser (20101205220247)
+Migrating to AddAllowTextToUser (20101205220400)
+Migrating to AddAlsoTextToConversation (20101205222959)
+Migrating to AddCreatedOnAndUpdatedOnToPosts (20101209052044)
+Migrating to AddGroupIdToConversations (20101210020824)
+Migrating to CreateConferences (20101211082820)
+Migrating to AddColumnToUser (20101213021237)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("chats")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("comments")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("conferences")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("conversations")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("groups")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("memberships")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("newsfeeds")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("posts")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("todos")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("uploads")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("users")[0m
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-12-12 19:53:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/users
+Rendering users/edit
+
+ActionView::TemplateError (undefined method `groups' for nil:NilClass) on line #5 of app/views/users/header.html.erb:
+2: 					<ul id="groupnav">
+3: 						<li>My Groups
+4: 						  <ul class="sub">
+5: 							 <% current_user.groups.each do |group| %>
+6: 								<% @membership = Membership.find_by_user_id_and_group_id(current_user.id, group.id) %>
+7: 								<% if @membership%>
+8: 									<% if @membership.established%>
+
+    app/views/users/header.html.erb:5
+    app/views/users/edit.html.erb:1
+
+Rendered rescues/_trace (69.5ms)
+Rendered rescues/_request_and_response (1.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-12-12 19:53:47) [GET]
+Rendering template within layouts/user_sessions
+Rendering user_sessions/new
+Completed in 54ms (View: 30, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-12 19:53:49) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 58ms (View: 29, DB: 0) | 200 OK [http://0.0.0.0/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-12-12 19:54:06) [POST]
+  Parameters: {"x"=>"57", "y"=>"8", "authenticity_token"=>"8jg+jsvis0u7io4UTX7bqzS27gaOXVOYIUFsRO5gxkM=", "user"=>{"password_confirmation"=>"1234", "username"=>"kevin", "password"=>"1234", "email"=>"kevin@kevin.com"}}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'kevin@kevin.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'kevin') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'fee8bc9829621f67d879b91075cca9071f1616410371998daf1cc664697b213b14a5cae55e5394c1ebfb7a8db84859de5652d5565b57ae33d1edb6db3955e2bf') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Create (0.6ms)[0m   [0mINSERT INTO "users" ("created_at", "photo_file_size", "crypted_password", "updated_at", "photo_file_name", "username", "photo_content_type", "allow_text", "password_salt", "phone_number", "persistence_token", "phone_carrier", "email") VALUES('2010-12-13 03:54:07', NULL, 'c32fbbc68a7fdaac5ea3e306c1dd14fe68d3f8d620ac5483e56614895be0f031fae1da5c4e5add3dbdc9c93bd927af40d4101693e31326b05fb95138ad8a80e9', '2010-12-13 03:54:07', NULL, 'kevin', NULL, NULL, 'V2qepM7idqv4MIIiYxp', NULL, 'fee8bc9829621f67d879b91075cca9071f1616410371998daf1cc664697b213b14a5cae55e5394c1ebfb7a8db84859de5652d5565b57ae33d1edb6db3955e2bf', NULL, 'kevin@kevin.com')[0m
+[paperclip] Saving attachments.
+Redirected to http://0.0.0.0:3000/
+Completed in 843ms (DB: 1) | 302 Found [http://0.0.0.0/users]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-12-12 19:54:07) [GET]
+Rendering template within layouts/user_sessions
+Rendering user_sessions/new
+Completed in 24ms (View: 6, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-12 19:54:08) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 45ms (View: 16, DB: 0) | 200 OK [http://0.0.0.0/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-12-12 19:54:16) [POST]
+  Parameters: {"x"=>"22", "y"=>"3", "authenticity_token"=>"8jg+jsvis0u7io4UTX7bqzS27gaOXVOYIUFsRO5gxkM=", "user"=>{"password_confirmation"=>"1234", "username"=>"jianda", "password"=>"1234", "email"=>"jianda@gmail.com"}}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'jianda@gmail.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'jianda') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'c4fa764b3fd3fc8bba6ac2d4208be232f2a472d0f9c25a9d87a0ecc16e0200560ef464c545b4c2be5ad8cd0d6b627a2a3b86f60526ecd366764ca8ae367fc7c6') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'fee8bc9829621f67d879b91075cca9071f1616410371998daf1cc664697b213b14a5cae55e5394c1ebfb7a8db84859de5652d5565b57ae33d1edb6db3955e2bf') LIMIT 1[0m
+  [4;36;1mUser Create (0.4ms)[0m   [0;1mINSERT INTO "users" ("created_at", "photo_file_size", "crypted_password", "updated_at", "photo_file_name", "username", "photo_content_type", "allow_text", "password_salt", "phone_number", "persistence_token", "phone_carrier", "email") VALUES('2010-12-13 03:54:16', NULL, 'c1e12fc5aa090f64d8d231f6e5dd28a92170b40de7f9ea0157f49820dd6ddcbc4e237f97b33efab8efe7ab6dc895586929460388c33bcf8f4d300727a1dc4c61', '2010-12-13 03:54:16', NULL, 'jianda', NULL, NULL, 'EaN4cN6OGYzK8smg4t8', NULL, 'c4fa764b3fd3fc8bba6ac2d4208be232f2a472d0f9c25a9d87a0ecc16e0200560ef464c545b4c2be5ad8cd0d6b627a2a3b86f60526ecd366764ca8ae367fc7c6', NULL, 'jianda@gmail.com')[0m
+[paperclip] Saving attachments.
+Redirected to http://0.0.0.0:3000/
+Completed in 54ms (DB: 1) | 302 Found [http://0.0.0.0/users]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-12-12 19:54:16) [GET]
+Rendering template within layouts/user_sessions
+Rendering user_sessions/new
+Completed in 25ms (View: 7, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-12 19:54:20) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 41ms (View: 14, DB: 0) | 200 OK [http://0.0.0.0/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-12-12 19:54:28) [POST]
+  Parameters: {"x"=>"31", "y"=>"3", "authenticity_token"=>"8jg+jsvis0u7io4UTX7bqzS27gaOXVOYIUFsRO5gxkM=", "user"=>{"password_confirmation"=>"1234", "username"=>"jason", "password"=>"1234", "email"=>"jason@jason.com"}}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'jason@jason.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'jason') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '9932301d53722af092e1bbe4ed96ba27504638dd00176be892ce60c5e4ecac9ebdc1081c0caa7db80fe9eede7430cf78b1eeb4f75c76c367b3ca2c7a58af09ef') LIMIT 1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'fee8bc9829621f67d879b91075cca9071f1616410371998daf1cc664697b213b14a5cae55e5394c1ebfb7a8db84859de5652d5565b57ae33d1edb6db3955e2bf') LIMIT 1[0m
+  [4;35;1mUser Create (0.6ms)[0m   [0mINSERT INTO "users" ("created_at", "photo_file_size", "crypted_password", "updated_at", "photo_file_name", "username", "photo_content_type", "allow_text", "password_salt", "phone_number", "persistence_token", "phone_carrier", "email") VALUES('2010-12-13 03:54:28', NULL, '2de4e1be3f0f14a279ab07ba3a56549d0e09513a0364f18cc77613cc74c5b7177a153fa31e3f2f61471a48d3c614638d6d0dfa8e95ab5fd3bc6446c239b144a6', '2010-12-13 03:54:28', NULL, 'jason', NULL, NULL, 'W3EX8lQBmGXdOPNc8ej', NULL, '9932301d53722af092e1bbe4ed96ba27504638dd00176be892ce60c5e4ecac9ebdc1081c0caa7db80fe9eede7430cf78b1eeb4f75c76c367b3ca2c7a58af09ef', NULL, 'jason@jason.com')[0m
+[paperclip] Saving attachments.
+Redirected to http://0.0.0.0:3000/
+Completed in 103ms (DB: 2) | 302 Found [http://0.0.0.0/users]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-12-12 19:54:29) [GET]
+Rendering template within layouts/user_sessions
+Rendering user_sessions/new
+Completed in 25ms (View: 6, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-12 19:54:34) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 37ms (View: 13, DB: 0) | 200 OK [http://0.0.0.0/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-12-12 19:54:43) [POST]
+  Parameters: {"x"=>"14", "y"=>"13", "authenticity_token"=>"8jg+jsvis0u7io4UTX7bqzS27gaOXVOYIUFsRO5gxkM=", "user"=>{"password_confirmation"=>"1234", "username"=>"grant", "password"=>"1234", "email"=>"grant@grant.com"}}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'grant@grant.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'grant') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '4f00edd63c246542205d9fb9836508920414a836c7acab013fa2073392a9f0a12b0ae01f15a9f15c0cdaf5183eb8adbf9488e0b391fdf67993567c446bf1e1ed') LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'fee8bc9829621f67d879b91075cca9071f1616410371998daf1cc664697b213b14a5cae55e5394c1ebfb7a8db84859de5652d5565b57ae33d1edb6db3955e2bf') LIMIT 1[0m
+  [4;36;1mUser Create (0.6ms)[0m   [0;1mINSERT INTO "users" ("created_at", "photo_file_size", "crypted_password", "updated_at", "photo_file_name", "username", "photo_content_type", "allow_text", "password_salt", "phone_number", "persistence_token", "phone_carrier", "email") VALUES('2010-12-13 03:54:43', NULL, '795fc1d77998f873acd38680a34a551920be0f0966d66b32c16f1dc155ccb03c44fe9221480677600b8f475d159828120ae4796baa91cf303770e8f7e89b53be', '2010-12-13 03:54:43', NULL, 'grant', NULL, NULL, 'gRA7qBisDvj85geAkQVe', NULL, '4f00edd63c246542205d9fb9836508920414a836c7acab013fa2073392a9f0a12b0ae01f15a9f15c0cdaf5183eb8adbf9488e0b391fdf67993567c446bf1e1ed', NULL, 'grant@grant.com')[0m
+[paperclip] Saving attachments.
+Redirected to http://0.0.0.0:3000/
+Completed in 99ms (DB: 2) | 302 Found [http://0.0.0.0/users]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-12-12 19:54:43) [GET]
+Rendering template within layouts/user_sessions
+Rendering user_sessions/new
+Completed in 35ms (View: 10, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-12-12 19:54:44) [GET]
+Rendering template within layouts/users
+Rendering users/new
+Completed in 44ms (View: 16, DB: 0) | 200 OK [http://0.0.0.0/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-12-12 19:54:51) [POST]
+  Parameters: {"x"=>"24", "y"=>"16", "authenticity_token"=>"8jg+jsvis0u7io4UTX7bqzS27gaOXVOYIUFsRO5gxkM=", "user"=>{"password_confirmation"=>"1234", "username"=>"anthony", "password"=>"1234", "email"=>"123@gmail.com"}}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = '123@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'anthony') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '6e24ff3c587a7aca569b521cf8978de2ed13c1922f3156e39e5d3faebf4eee33b4440bf8a520a28d18ff7a8b82588af7bea4038cbac89091e0e31914b3c87d06') LIMIT 1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'fee8bc9829621f67d879b91075cca9071f1616410371998daf1cc664697b213b14a5cae55e5394c1ebfb7a8db84859de5652d5565b57ae33d1edb6db3955e2bf') LIMIT 1[0m
+  [4;35;1mUser Create (0.6ms)[0m   [0mINSERT INTO "users" ("created_at", "photo_file_size", "crypted_password", "updated_at", "photo_file_name", "username", "photo_content_type", "allow_text", "password_salt", "phone_number", "persistence_token", "phone_carrier", "email") VALUES('2010-12-13 03:54:51', NULL, '05f5ca57deacd4f3a44377286b30de682baf34d93cc308e8c9ca2a7cbd7331b2af9f297c267482cfa3d3bf184e4c2a7d48cf3e305e74555dfec3cdbc49b1432a', '2010-12-13 03:54:51', NULL, 'anthony', NULL, NULL, 'ZbXvj9WcHWN3onjJuEX', NULL, '6e24ff3c587a7aca569b521cf8978de2ed13c1922f3156e39e5d3faebf4eee33b4440bf8a520a28d18ff7a8b82588af7bea4038cbac89091e0e31914b3c87d06', NULL, '123@gmail.com')[0m
+[paperclip] Saving attachments.
+Redirected to http://0.0.0.0:3000/
+Completed in 104ms (DB: 2) | 302 Found [http://0.0.0.0/users]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-12-12 19:54:51) [GET]
+Rendering template within layouts/user_sessions
+Rendering user_sessions/new
+Completed in 33ms (View: 8, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-12-12 19:54:57) [POST]
+  Parameters: {"user_session"=>{"username"=>"jianda", "password"=>"1234"}, "x"=>"26", "y"=>"14", "authenticity_token"=>"8jg+jsvis0u7io4UTX7bqzS27gaOXVOYIUFsRO5gxkM="}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE (LOWER("users".username) = 'jianda') LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+Redirected to http://0.0.0.0:3000/users/2
+Completed in 176ms (DB: 1) | 302 Found [http://0.0.0.0/user_sessions]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 19:54:57) [GET]
+  Parameters: {"id"=>"2"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 2)) [0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mGroup Load (0.2ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+Completed in 74ms (View: 68, DB: 1) | 200 OK [http://0.0.0.0/users/2]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-12-12 19:54:57) [GET]
+
+ActionController::RoutingError (No route matches "/photos/original/missing.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 19:55:31) [GET]
+  Parameters: {"id"=>"2"}
+Rendering template within layouts/users
+Rendering users/show
+ERROR: compiling _run_erb_app47views47users47show46html46erb RAISED compile error
+/Users/jianda/GroupApp2/app/views/users/show.html.erb:12: syntax error, unexpected ')', expecting kTHEN or ':' or '\n' or ';'
+... if current_user.photo != nil).to_s); @output_buffer.concat ...
+                              ^
+/Users/jianda/GroupApp2/app/views/users/show.html.erb:28: syntax error, unexpected kENSURE, expecting $end
+Function body:           def _run_erb_app47views47users47show46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat(( render :file => 'users/header.html.erb' ).to_s); @output_buffer.concat "\n\n\nIt's "
+
+
+; @output_buffer.concat(( Time.now ).to_s); @output_buffer.concat "\n<p>\nYour ID is "
+
+; @output_buffer.concat(( current_user.id ).to_s); @output_buffer.concat "\n<p>\n  <b>Name:</b>\n  "
+
+
+; @output_buffer.concat((h current_user.username ).to_s); @output_buffer.concat "\n</p>\n</p>\n"
+
+
+; @output_buffer.concat(( if current_user.photo != nil).to_s); @output_buffer.concat "\n\t<img src=\""
+; @output_buffer.concat(( current_user.photo.url).to_s); @output_buffer.concat "\" width=\"200\" height=\"150\">\n"
+;  end ; @output_buffer.concat "\n<div id=\"userNF\">\n  "
+
+;  @all_newsfeeds = User.findNewsFeed(current_user.id) ; @output_buffer.concat "\n  \n  "
+
+;  @all_newsfeeds.first(20).each do |newsfeed| ; @output_buffer.concat "\n\t<div id=\"newsfeed\">\n\t"
+
+; @output_buffer.concat((h link_to(newsfeed.descriptions + " for " + newsfeed.group.name, newsfeed.link) ).to_s); @output_buffer.concat "\n\t</div>\n  "
+
+;  end ; @output_buffer.concat "\n  \n</div>\n"
+
+
+; @output_buffer.concat(( link_to 'Groups', :controller => 'groups', :action => 'index' ).to_s); @output_buffer.concat "   \n"
+; @output_buffer.concat(( link_to 'Logout', logout_path ).to_s); @output_buffer.concat "\n"
+; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/jianda/GroupApp2/app/views/users/show.html.erb:28:in `compile!'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:61:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:28:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:265:in `render_without_juggernaut'
+/Users/jianda/GroupApp2/vendor/plugins/juggernaut/lib/juggernaut.rb:151:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:348:in `_render_with_layout'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:262:in `render_without_juggernaut'
+/Users/jianda/GroupApp2/vendor/plugins/juggernaut/lib/juggernaut.rb:151:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1250:in `render_for_file'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:942:in `render_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render_without_juggernaut'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render_without_juggernaut'
+/Users/jianda/GroupApp2/vendor/plugins/juggernaut/lib/juggernaut.rb:151:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:135:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:135:in `custom'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:179:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:179:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:173:in `each'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:173:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/Users/jianda/GroupApp2/app/controllers/users_controller.rb:33:in `show'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1331:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1331:in `perform_action_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/chunked.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/handler/mongrel.rb:67:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+/Library/Ruby/Gems/1.8/gems/rack-1.1.0/lib/rack/handler/mongrel.rb:38:in `run'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/jianda/GroupApp2/app/views/users/show.html.erb:12: syntax error, unexpected ')', expecting kTHEN or ':' or '\n' or ';'
+... if current_user.photo != nil).to_s); @output_buffer.concat ...
+                              ^
+/Users/jianda/GroupApp2/app/views/users/show.html.erb:28: syntax error, unexpected kENSURE, expecting $end) on line #12 of app/views/users/show.html.erb:
+9:   <%=h current_user.username %>
+10: </p>
+11: </p>
+12: <%= if current_user.photo != nil%>
+13: 	<img src="<%= current_user.photo.url%>" width="200" height="150">
+14: <% end %>
+15: <div id="userNF">
+
+    app/views/users/show.html.erb:28:in `compile!'
+    app/controllers/users_controller.rb:33:in `show'
+
+Rendered rescues/_trace (96.3ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 19:55:56) [GET]
+  Parameters: {"id"=>"2"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 2)) [0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mGroup Load (0.2ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+Completed in 241ms (View: 232, DB: 2) | 200 OK [http://0.0.0.0/users/2]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-12-12 19:55:56) [GET]
+
+ActionController::RoutingError (No route matches "/photos/original/missing.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 19:56:16) [GET]
+  Parameters: {"id"=>"2"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+  [4;35;1mGroup Load (0.3ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 2)) [0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" [0m
+  [4;35;1mGroup Load (0.2ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+Completed in 283ms (View: 275, DB: 2) | 200 OK [http://0.0.0.0/users/2]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-12-12 19:56:16) [GET]
+
+ActionController::RoutingError (No route matches "/photos/original/missing.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GroupsController#index (for 127.0.0.1 at 2010-12-12 19:56:19) [GET]
+  [4;36;1mGroup Load (1.2ms)[0m   [0;1mSELECT * FROM "groups" [0m
+Rendering template within layouts/groups
+Rendering groups/index
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+  [4;36;1mGroup Load (0.5ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 2)) [0m
+Rendered groups/_search (4.3ms)
+Completed in 272ms (View: 247, DB: 2) | 200 OK [http://0.0.0.0/groups]
+
+
+Processing GroupsController#new (for 127.0.0.1 at 2010-12-12 19:56:22) [GET]
+Rendering template within layouts/groups
+Rendering groups/new
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+  [4;36;1mGroup Load (0.4ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 2)) [0m
+Completed in 107ms (View: 81, DB: 1) | 200 OK [http://0.0.0.0/groups/new]
+
+
+Processing GroupsController#create (for 127.0.0.1 at 2010-12-12 19:56:27) [POST]
+  Parameters: {"group"=>{"name"=>"group1", "private"=>"0", "description"=>"1"}, "commit"=>"Create", "authenticity_token"=>"8jg+jsvis0u7io4UTX7bqzS27gaOXVOYIUFsRO5gxkM="}
+  [4;35;1mConference Create (0.7ms)[0m   [0mINSERT INTO "conferences" ("created_at", "updated_at", "group_id") VALUES('2010-12-13 03:56:27', '2010-12-13 03:56:27', NULL)[0m
+  [4;36;1mGroup Create (0.6ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "private", "description") VALUES('group1', '2010-12-13 03:56:27', '2010-12-13 03:56:27', 'f', '1')[0m
+  [4;35;1mConference Update (0.2ms)[0m   [0mUPDATE "conferences" SET "updated_at" = '2010-12-13 03:56:27', "group_id" = 1 WHERE "id" = 1[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+  [4;35;1mMembership Create (0.5ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "invitation", "user_id", "permission", "established", "request") VALUES('2010-12-13 03:56:27', '2010-12-13 03:56:27', 1, NULL, 2, 0, 't', NULL)[0m
+Redirected to http://0.0.0.0:3000/groups/1
+Completed in 319ms (DB: 2) | 302 Found [http://0.0.0.0/groups]
+
+
+Processing GroupsController#show (for 127.0.0.1 at 2010-12-12 19:56:27) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mGroup Load (0.2ms)[0m   [0;1mSELECT * FROM "groups" WHERE ("groups"."id" = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+  [4;36;1mMembership Load (0.3ms)[0m   [0;1mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 2 AND "memberships"."group_id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+Rendering template within layouts/groups
+Rendering groups/show
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 2)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 2 AND "memberships"."group_id" = 1) LIMIT 1[0m
+  [4;36;1mConversation Load (0.2ms)[0m   [0;1mSELECT * FROM "conversations" WHERE ("conversations".group_id = 1) [0m
+  [4;35;1mNewsfeed Load (0.2ms)[0m   [0mSELECT * FROM "newsfeeds" WHERE ("newsfeeds".group_id = 1) [0m
+Completed in 84ms (View: 42, DB: 2) | 200 OK [http://0.0.0.0/groups/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-12-12 19:56:30) [GET]
+  Parameters: {"id"=>"2"}
+Rendering template within layouts/users
+Rendering users/show
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+  [4;35;1mGroup Load (0.4ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 2)) [0m
+  [4;36;1mMembership Load (0.4ms)[0m   [0;1mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 2 AND "memberships"."group_id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" [0m
+  [4;36;1mGroup Load (0.3ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
+Completed in 268ms (View: 258, DB: 2) | 200 OK [http://0.0.0.0/users/2]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-12-12 19:56:30) [GET]
+
+ActionController::RoutingError (No route matches "/photos/original/missing.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GroupsController#index (for 127.0.0.1 at 2010-12-12 19:56:31) [GET]
+  [4;35;1mGroup Load (1.4ms)[0m   [0mSELECT * FROM "groups" [0m
+Rendering template within layouts/groups
+Rendering groups/index
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+  [4;35;1mGroup Load (0.4ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 2)) [0m
+  [4;36;1mMembership Load (0.4ms)[0m   [0;1mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 2 AND "memberships"."group_id" = 1) LIMIT 1[0m
+Rendered groups/_search (2.2ms)
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 1)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 2 AND "memberships"."group_id" = 1) LIMIT 1[0m
+Completed in 274ms (View: 248, DB: 3) | 200 OK [http://0.0.0.0/groups]
+
+
+Processing GroupsController#new (for 127.0.0.1 at 2010-12-12 19:56:33) [GET]
+Rendering template within layouts/groups
+Rendering groups/new
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+  [4;36;1mGroup Load (0.5ms)[0m   [0;1mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 2)) [0m
+  [4;35;1mMembership Load (0.4ms)[0m   [0mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 2 AND "memberships"."group_id" = 1) LIMIT 1[0m
+Completed in 87ms (View: 65, DB: 1) | 200 OK [http://0.0.0.0/groups/new]
+
+
+Processing GroupsController#create (for 127.0.0.1 at 2010-12-12 19:56:40) [POST]
+  Parameters: {"group"=>{"name"=>"group", "private"=>"1", "description"=>"adfa"}, "commit"=>"Create", "authenticity_token"=>"8jg+jsvis0u7io4UTX7bqzS27gaOXVOYIUFsRO5gxkM="}
+  [4;36;1mConference Create (0.6ms)[0m   [0;1mINSERT INTO "conferences" ("created_at", "updated_at", "group_id") VALUES('2010-12-13 03:56:40', '2010-12-13 03:56:40', NULL)[0m
+  [4;35;1mGroup Create (0.6ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "updated_at", "private", "description") VALUES('group', '2010-12-13 03:56:40', '2010-12-13 03:56:40', 't', 'adfa')[0m
+  [4;36;1mConference Update (0.2ms)[0m   [0;1mUPDATE "conferences" SET "updated_at" = '2010-12-13 03:56:40', "group_id" = 2 WHERE "id" = 2[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+  [4;36;1mMembership Create (0.6ms)[0m   [0;1mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "invitation", "user_id", "permission", "established", "request") VALUES('2010-12-13 03:56:40', '2010-12-13 03:56:40', 2, NULL, 2, 0, 't', NULL)[0m
+Redirected to http://0.0.0.0:3000/groups/2
+Completed in 164ms (DB: 3) | 302 Found [http://0.0.0.0/groups]
+
+
+Processing GroupsController#show (for 127.0.0.1 at 2010-12-12 19:56:40) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mGroup Load (0.2ms)[0m   [0mSELECT * FROM "groups" WHERE ("groups"."id" = 2) [0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+  [4;35;1mMembership Load (0.3ms)[0m   [0mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 2 AND "memberships"."group_id" = 2) LIMIT 1[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT "users".* FROM "users" INNER JOIN "memberships" ON "users".id = "memberships".user_id WHERE (("memberships".group_id = 2)) [0m
+Rendering template within layouts/groups
+Rendering groups/show
+  [4;35;1mGroup Load (0.4ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 2)) [0m
+  [4;36;1mMembership Load (0.3ms)[0m   [0;1mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 2 AND "memberships"."group_id" = 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "memberships" WHERE ("memberships"."user_id" = 2 AND "memberships"."group_id" = 2) LIMIT 1[0m
+  [4;36;1mConversation Load (0.2ms)[0m   [0;1mSELECT * FROM "conversations" WHERE ("conversations".group_id = 2) [0m
+  [4;35;1mNewsfeed Load (0.2ms)[0m   [0mSELECT * FROM "newsfeeds" WHERE ("newsfeeds".group_id = 2) [0m
+Completed in 90ms (View: 35, DB: 3) | 200 OK [http://0.0.0.0/groups/2]
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-12-12 19:56:42) [GET]
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+Redirected to http://0.0.0.0:3000/
+Completed in 37ms (DB: 1) | 302 Found [http://0.0.0.0/logout]
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-12-12 19:56:42) [GET]
+Rendering template within layouts/user_sessions
+Rendering user_sessions/new
+Completed in 27ms (View: 6, DB: 0) | 200 OK [http://0.0.0.0/]
