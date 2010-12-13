@@ -1,6 +1,6 @@
 <%= render :file => 'users/header.html.erb' %>
-<h1>Welcome</h1>
 
+<<<<<<< HEAD
 It's <%= Time.now %>
 <p>
 Your ID is <%= current_user.id %>
@@ -10,5 +10,20 @@ Your ID is <%= current_user.id %>
 </p>
 </p>
 <img src="<%= current_user.photo.url%>" width="200" height="150">
+=======
+<div id="userNF">
+  <% @all_newsfeeds = User.findNewsFeed(current_user.id) %>
+  
+  <% @all_newsfeeds.first(20).each do |newsfeed| %>
+	<div id="newsfeed">
+	<%=h link_to(newsfeed.descriptions + " for " + newsfeed.group.name, newsfeed.link) %>
+	</div>
+  <% end %>
+  
+</div>
+
+<%= image_tag current_user.photo.url%>
+<%= image_tag current_user.photo.url(:thumb)%>
+>>>>>>> 0f709be8d979c89c5a42537ea5a222e274cd8949
 <%= link_to 'Groups', :controller => 'groups', :action => 'index' %>   
 <%= link_to 'Logout', logout_path %>

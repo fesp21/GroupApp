@@ -49617,3 +49617,106 @@ Rendering users/show
   [4;35;1mGroup Load (0.0ms)[0m   [0mSELECT "groups".* FROM "groups" INNER JOIN "memberships" ON "groups".id = "memberships".group_id WHERE (("memberships".user_id = 1)) [0m
   [4;36;1mConversation Load (0.0ms)[0m   [0;1mSELECT * FROM "conversations" [0m
 Completed in 6ms (View: 4, DB: 0) | 200 OK [http://www.example.com/users/1]
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'test@yahoo.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'username') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '9ccd0cdd1a4506eb5973b91985f5252fcdc2f3a086538547b75a7690b5a5c652e6379db8f47e5d05d13462114d9a678d56b7bd64712d83f7009094d445ed866b') LIMIT 1[0m
+  [4;35;1mUser Create (0.5ms)[0m   [0mINSERT INTO "users" ("created_at", "photo_file_size", "crypted_password", "updated_at", "photo_file_name", "username", "photo_content_type", "allow_text", "password_salt", "phone_number", "persistence_token", "phone_carrier", "email") VALUES('2010-12-13 03:17:24', NULL, '05ae21ced8d0b460fd612eaf7b0ba7283432d8e92018ee43e4ca2c4c38c59c9a96b3654c264a44962b8790ed68b8f10e21644cefc04ef480423c2c812e0fa34a', '2010-12-13 03:17:24', NULL, 'UserName', NULL, NULL, 'QcgyEe5d0oxXUefROSR', NULL, '9ccd0cdd1a4506eb5973b91985f5252fcdc2f3a086538547b75a7690b5a5c652e6379db8f47e5d05d13462114d9a678d56b7bd64712d83f7009094d445ed866b', NULL, 'test@yahoo.com')[0m
+[paperclip] Saving attachments.
+  [4;36;1mGroup Create (0.2ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "private", "description") VALUES('GroupName', '2010-12-13 03:17:24', '2010-12-13 03:17:24', NULL, 'description')[0m
+  [4;35;1mMembership Create (0.2ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "invitation", "user_id", "permission", "established", "request") VALUES('2010-12-13 03:17:24', '2010-12-13 03:17:24', 1, NULL, 1, NULL, NULL, NULL)[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'test@yahoo.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'username') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'ad34e59e657cb567e066d563c0a3d78bb1b09e630bea042ff5666ee9093a2f077cb72bc732498d7219bb08b6c99bf108db8a309b51d05d3a1fc0cd157d33dba0') LIMIT 1[0m
+  [4;35;1mUser Create (0.4ms)[0m   [0mINSERT INTO "users" ("created_at", "photo_file_size", "crypted_password", "updated_at", "photo_file_name", "username", "photo_content_type", "allow_text", "password_salt", "phone_number", "persistence_token", "phone_carrier", "email") VALUES('2010-12-13 03:17:24', NULL, '41788a1356a81ab40611daf153d95b6f0fd3e9bcb4d34fd4ea7aa48647e5c38faad6c2c6a0fdd9a6626968e6a8672bd4610b1f0d4436e968ee41a80e8f60f280', '2010-12-13 03:17:24', NULL, 'UserName', NULL, NULL, 'suaKVMJdetudGEAN8wTm', NULL, 'ad34e59e657cb567e066d563c0a3d78bb1b09e630bea042ff5666ee9093a2f077cb72bc732498d7219bb08b6c99bf108db8a309b51d05d3a1fc0cd157d33dba0', NULL, 'test@yahoo.com')[0m
+[paperclip] Saving attachments.
+  [4;36;1mGroup Create (0.1ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "private", "description") VALUES('GroupName', '2010-12-13 03:17:24', '2010-12-13 03:17:24', NULL, 'description')[0m
+  [4;35;1mMembership Create (0.2ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "invitation", "user_id", "permission", "established", "request") VALUES('2010-12-13 03:17:24', '2010-12-13 03:17:24', 1, NULL, 1, NULL, NULL, NULL)[0m
+REQUESTING PAGE: GET http://www.example.com/users with {} and HTTP headers {}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-12-12 19:17:24) [GET]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-12-12 19:17:24) [GET]
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'test@yahoo.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'username') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'f1dfd12224d7f6374fcae9817bada264f729008bbb6d7cde77035b22e2d9065ed200536e3db04c97898cb08afb52866540cdbf50d35f9c070f810c757bcd79ba') LIMIT 1[0m
+  [4;35;1mUser Create (0.4ms)[0m   [0mINSERT INTO "users" ("created_at", "photo_file_size", "crypted_password", "updated_at", "photo_file_name", "username", "photo_content_type", "allow_text", "password_salt", "phone_number", "persistence_token", "phone_carrier", "email") VALUES('2010-12-13 03:17:24', NULL, '1d2501fdb64388001ea3d289d6005704c7229ce54b420ca9b5d1779c01cb1c2b0c7e790e5424d1d532046defac9e390ede0765db1976156d49c86425c4e7eaa5', '2010-12-13 03:17:24', NULL, 'UserName', NULL, NULL, 'DJLIpW6i30YX2TGD5KKT', NULL, 'f1dfd12224d7f6374fcae9817bada264f729008bbb6d7cde77035b22e2d9065ed200536e3db04c97898cb08afb52866540cdbf50d35f9c070f810c757bcd79ba', NULL, 'test@yahoo.com')[0m
+[paperclip] Saving attachments.
+  [4;36;1mGroup Create (0.2ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "private", "description") VALUES('GroupName', '2010-12-13 03:17:24', '2010-12-13 03:17:24', NULL, 'description')[0m
+  [4;35;1mMembership Create (0.3ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "invitation", "user_id", "permission", "established", "request") VALUES('2010-12-13 03:17:24', '2010-12-13 03:17:24', 1, NULL, 1, NULL, NULL, NULL)[0m
+REQUESTING PAGE: GET http://www.example.com/users with {} and HTTP headers {}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-12-12 19:17:24) [GET]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-12-12 19:17:24) [GET]
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'test@yahoo.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'username') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '3b303b523cd0bdb8529c57cfaf589bf21573106809accb53d14d0d064aa5f44034554c5e2c114479d55dd4cb75e59b94d9a66d5ab4de833cb289dad513928d46') LIMIT 1[0m
+  [4;35;1mUser Create (0.4ms)[0m   [0mINSERT INTO "users" ("created_at", "photo_file_size", "crypted_password", "updated_at", "photo_file_name", "username", "photo_content_type", "allow_text", "password_salt", "phone_number", "persistence_token", "phone_carrier", "email") VALUES('2010-12-13 03:17:24', NULL, '186fa7f2a8ebd4c9fd096a3f449c80ea98d020b2395897e1255fc82c6d877c19cafe5e25c9d78ffcc6fbafb8d4e9b951d27c3cde1170efedcfc5e63596872ce0', '2010-12-13 03:17:24', NULL, 'UserName', NULL, NULL, 'TiEJA6IttSuHkhZgS5bF', NULL, '3b303b523cd0bdb8529c57cfaf589bf21573106809accb53d14d0d064aa5f44034554c5e2c114479d55dd4cb75e59b94d9a66d5ab4de833cb289dad513928d46', NULL, 'test@yahoo.com')[0m
+[paperclip] Saving attachments.
+  [4;36;1mGroup Create (0.1ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "updated_at", "private", "description") VALUES('GroupName', '2010-12-13 03:17:24', '2010-12-13 03:17:24', NULL, 'description')[0m
+  [4;35;1mMembership Create (0.2ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "invitation", "user_id", "permission", "established", "request") VALUES('2010-12-13 03:17:24', '2010-12-13 03:17:24', 1, NULL, 1, NULL, NULL, NULL)[0m
+REQUESTING PAGE: GET http://www.example.com/users with {} and HTTP headers {}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-12-12 19:17:24) [GET]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-12-12 19:17:24) [GET]
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'test@yahoo.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'username') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '793d480b050e2925324d8a333326bc0059400d4e860e38c78d7c5625c97cd473dbd7a9569005bda096db33a7958caf3bf936736561dd63b67822aab0e9667800') LIMIT 1[0m
+  [4;35;1mUser Create (0.4ms)[0m   [0mINSERT INTO "users" ("created_at", "photo_file_size", "crypted_password", "updated_at", "photo_file_name", "username", "photo_content_type", "allow_text", "password_salt", "phone_number", "persistence_token", "phone_carrier", "email") VALUES('2010-12-13 03:17:24', NULL, '75adf2163d2b6ea3da5e5f168655c7dcb5ea7c201522c2d1c4bcc2f1ec6e9a7a5031e35c0dba4dd844b7d7951b03ceaa2e477b9c7f2472db84bb31857a7dfc7f', '2010-12-13 03:17:24', NULL, 'UserName', NULL, NULL, 'r73e8GWaQSedvkxgPkIa', NULL, '793d480b050e2925324d8a333326bc0059400d4e860e38c78d7c5625c97cd473dbd7a9569005bda096db33a7958caf3bf936736561dd63b67822aab0e9667800', NULL, 'test@yahoo.com')[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'test2@yahoo.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'username2') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '30495e8556599e5ea5ed6df82848445728c546f491352bd50dc60753466e86ea96ddb7a1eacad983a520ab38c6edb0ddd1e7d137b0f03cc337ad0bc280548896') LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = '793d480b050e2925324d8a333326bc0059400d4e860e38c78d7c5625c97cd473dbd7a9569005bda096db33a7958caf3bf936736561dd63b67822aab0e9667800') LIMIT 1[0m
+  [4;36;1mUser Create (0.1ms)[0m   [0;1mINSERT INTO "users" ("created_at", "photo_file_size", "crypted_password", "updated_at", "photo_file_name", "username", "photo_content_type", "allow_text", "password_salt", "phone_number", "persistence_token", "phone_carrier", "email") VALUES('2010-12-13 03:17:24', NULL, 'e951b1a065f626db46d0af43fb8e3246213dfa07c1a8feaf22606bfffc39ad4e5b5270e0f8e3a17c97ee96dcf9ffda1f41d537433d537e08894085a6eb773288', '2010-12-13 03:17:24', NULL, 'UserName2', NULL, NULL, 'aeRENpX4e5W3vfKZ3NZ', NULL, '30495e8556599e5ea5ed6df82848445728c546f491352bd50dc60753466e86ea96ddb7a1eacad983a520ab38c6edb0ddd1e7d137b0f03cc337ad0bc280548896', NULL, 'test2@yahoo.com')[0m
+[paperclip] Saving attachments.
+REQUESTING PAGE: GET http://www.example.com/users with {} and HTTP headers {}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-12-12 19:17:24) [GET]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-12-12 19:17:24) [GET]
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'test@yahoo.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'username') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'f826cbc5d64ff12c2798f179a8f65238169a6e07b2fe23960d50b8b96ae98b27e2f65ae6c12c6b4f9c09dfc42d466365673155d3514a7bfde48b3b20ba4bcd23') LIMIT 1[0m
+  [4;36;1mUser Create (0.5ms)[0m   [0;1mINSERT INTO "users" ("created_at", "photo_file_size", "crypted_password", "updated_at", "photo_file_name", "username", "photo_content_type", "allow_text", "password_salt", "phone_number", "persistence_token", "phone_carrier", "email") VALUES('2010-12-13 03:17:24', NULL, '4429bb32a55f1b001867c92c2ae1ad25ee2c1179ee7cb77a27c4658a913b372676d97652ac508272ac52e8789e8eb32c1fe901cf003cd5af7997b8cfadcb3490', '2010-12-13 03:17:24', NULL, 'UserName', NULL, NULL, 'STRyM136eeZ48oO2aUCq', NULL, 'f826cbc5d64ff12c2798f179a8f65238169a6e07b2fe23960d50b8b96ae98b27e2f65ae6c12c6b4f9c09dfc42d466365673155d3514a7bfde48b3b20ba4bcd23', NULL, 'test@yahoo.com')[0m
+[paperclip] Saving attachments.
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'test2@yahoo.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'username2') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '9bc0a6d1f3448b5eaca4f9572ac58a0d4c90925a5433f54ad99e185f217622c5b643afb78ccc312e7882729acc73d88cb05f052f3707074554dae9f0d21ee0b5') LIMIT 1[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'f826cbc5d64ff12c2798f179a8f65238169a6e07b2fe23960d50b8b96ae98b27e2f65ae6c12c6b4f9c09dfc42d466365673155d3514a7bfde48b3b20ba4bcd23') LIMIT 1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO "users" ("created_at", "photo_file_size", "crypted_password", "updated_at", "photo_file_name", "username", "photo_content_type", "allow_text", "password_salt", "phone_number", "persistence_token", "phone_carrier", "email") VALUES('2010-12-13 03:17:25', NULL, '4a170130b1f20a7a57765a211005690f3675847c1e53851c1402b99fc17642b446a91990ce5283932e358a9d3b89498c59671e9bdd34bbb91cb80cfd8a5d31a1', '2010-12-13 03:17:25', NULL, 'UserName2', NULL, NULL, 'OCXuQGSNwvx9vYkTR', NULL, '9bc0a6d1f3448b5eaca4f9572ac58a0d4c90925a5433f54ad99e185f217622c5b643afb78ccc312e7882729acc73d88cb05f052f3707074554dae9f0d21ee0b5', NULL, 'test2@yahoo.com')[0m
+[paperclip] Saving attachments.
+REQUESTING PAGE: GET http://www.example.com/users with {} and HTTP headers {}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-12-12 19:17:25) [GET]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-12-12 19:17:25) [GET]
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'test@yahoo.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'username') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'fc06b294fa903ab2f4efca9e8abf1105b3179541505ebe644ee992fb85785c295c0dc244b8e776d5736fbe385be6dd866549ae3be9e6289055a889c23af08950') LIMIT 1[0m
+  [4;35;1mUser Create (209.7ms)[0m   [0mINSERT INTO "users" ("created_at", "photo_file_size", "crypted_password", "updated_at", "photo_file_name", "username", "photo_content_type", "allow_text", "password_salt", "phone_number", "persistence_token", "phone_carrier", "email") VALUES('2010-12-13 03:17:25', NULL, 'dbdc01952090549b7a5f0b6399f76e1470382ccc8283a67161f8f788c4eda7ae43a67a524e301d3d1e86653857794e9314be84cf3e192981b58d4a894ad8a838', '2010-12-13 03:17:25', NULL, 'UserName', NULL, NULL, 'dPHILNG6FYNj1yj5sdR', NULL, 'fc06b294fa903ab2f4efca9e8abf1105b3179541505ebe644ee992fb85785c295c0dc244b8e776d5736fbe385be6dd866549ae3be9e6289055a889c23af08950', NULL, 'test@yahoo.com')[0m
+[paperclip] Saving attachments.
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'test2@yahoo.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'username2') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '54c39c3ae24fdbec106773245c7dbaaf91c7b110d55092a786063fffcc6982d8c900297a07ad61dde75a8e27fc2e96f3ce88f0ad03bcf4bb19884ae1ecab5841') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."persistence_token" = 'fc06b294fa903ab2f4efca9e8abf1105b3179541505ebe644ee992fb85785c295c0dc244b8e776d5736fbe385be6dd866549ae3be9e6289055a889c23af08950') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO "users" ("created_at", "photo_file_size", "crypted_password", "updated_at", "photo_file_name", "username", "photo_content_type", "allow_text", "password_salt", "phone_number", "persistence_token", "phone_carrier", "email") VALUES('2010-12-13 03:17:25', NULL, '4225c474edf95fd6f26a866674c672a05bfcc7224ddc3834c4049dc235a8ff47de7103f9f54088ce98acf60570a67e4cb50ffd1786a1f78bc2371f5129db4ae3', '2010-12-13 03:17:25', NULL, 'UserName2', NULL, NULL, '5UbQwPxB3Qtt4dIpTHHr', NULL, '54c39c3ae24fdbec106773245c7dbaaf91c7b110d55092a786063fffcc6982d8c900297a07ad61dde75a8e27fc2e96f3ce88f0ad03bcf4bb19884ae1ecab5841', NULL, 'test2@yahoo.com')[0m
+[paperclip] Saving attachments.
+REQUESTING PAGE: GET http://www.example.com/users with {} and HTTP headers {}
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-12-12 19:17:25) [GET]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-12-12 19:17:25) [GET]

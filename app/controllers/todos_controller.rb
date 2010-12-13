@@ -65,6 +65,7 @@ class TodosController < ApplicationController
       if @todo.save
         Newsfeed.create!(:descriptions => current_user.username + ' added a new item on the To-Do list.', :time => @todo.created_at, :group_id => @group.id, :link => group_todos_path(@group))
         format.html { redirect_to(group_todos_path(@group)) }
+        format.js
         format.xml  { render :xml => @todo, :status => :created, :location => @todo }
       else
         format.html { render :action => "new" }

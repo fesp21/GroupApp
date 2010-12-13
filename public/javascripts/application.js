@@ -21,5 +21,5 @@ $(document).ready(function() {
 })
 
 $(document).ready(function() {
-  $(".new_task").submitWithAjax();
+  $(".new_todo").submitWithAjax();
 })
