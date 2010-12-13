@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_many :memberships
   has_many  :groups, :through => :memberships
   has_attached_file :photo,
+  :default_url => "/images/default.png",
   :storage => :s3,
   :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
   :path => ":photo/:id/:style/:basename.:extension",
