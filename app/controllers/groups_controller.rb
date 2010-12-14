@@ -48,7 +48,7 @@ class GroupsController < ApplicationController
   end
   
   def removerequest
-    @membership = Membership.destroy(Membership.find_by_user_id_and_group_id_and_request(current_user.id, params[:id]), true)
+    @membership = Membership.destroy(Membership.find_by_user_id_and_group_id_and_request(current_user.id, params[:id], true))
     redirect_to(groups_url)
   end
   
