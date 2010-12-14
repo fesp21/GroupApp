@@ -4230,3 +4230,95 @@ Rendering newsfeeds/edit.html.erb
   [4;35;1mComment Load (0.0ms)[0m   [0mSELECT * FROM "comments" [0m
   [4;36;1mComment Destroy (0.0ms)[0m   [0;1mDELETE FROM "comments" WHERE "id" = 1[0m
   [4;35;1mComment Load (0.0ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments"."body" = 'hi') LIMIT 1[0m
+Rendering newsfeeds/show.html.erb
+Rendering newsfeeds/new.html.erb
+Rendering newsfeeds/index.html.erb
+Rendering newsfeeds/edit.html.erb
+  [4;36;1mGroup Load (0.2ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."name" = 'GroupName') LIMIT 1[0m
+  [4;35;1mGroup Create (0.4ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "photo_file_size", "updated_at", "private", "photo_file_name", "photo_content_type", "description") VALUES('GroupName', '2010-12-14 17:54:29', NULL, '2010-12-14 17:54:29', NULL, NULL, NULL, 'description')[0m
+[paperclip] Saving attachments.
+  [4;36;1mGroup Load (0.1ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mTodo Create (0.2ms)[0m   [0mINSERT INTO "todos" ("created_at", "updated_at", "group_id", "duedate", "user_id", "finished_by", "task", "finished") VALUES('2010-12-14 17:54:29', '2010-12-14 17:54:29', 1, '2010-12-14 09:54:29', NULL, NULL, 'Milestone', 'f')[0m
+  [4;36;1mGroup Load (0.2ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."name" = 'GroupName') LIMIT 1[0m
+  [4;35;1mGroup Create (0.4ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "photo_file_size", "updated_at", "private", "photo_file_name", "photo_content_type", "description") VALUES('GroupName', '2010-12-14 17:54:29', NULL, '2010-12-14 17:54:29', NULL, NULL, NULL, 'description')[0m
+[paperclip] Saving attachments.
+  [4;36;1mGroup Load (0.1ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;35;1mTodo Create (0.1ms)[0m   [0mINSERT INTO "todos" ("created_at", "updated_at", "group_id", "duedate", "user_id", "finished_by", "task", "finished") VALUES('2010-12-14 17:54:29', '2010-12-14 17:54:29', 1, '2010-12-14 09:54:29', NULL, NULL, 'Milestone', 'f')[0m
+  [4;36;1mTodo Load (0.2ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."id" = 1) LIMIT 1[0m
+  [4;35;1mTodo Destroy (0.1ms)[0m   [0mDELETE FROM "todos" WHERE "id" = 1[0m
+  [4;36;1mTodo Load (0.1ms)[0m   [0;1mSELECT * FROM "todos" WHERE ("todos"."task" = 'Milestone') LIMIT 1[0m
+  [4;35;1mGroup Load (0.2ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."name" = 'GroupName') LIMIT 1[0m
+  [4;36;1mGroup Create (0.4ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "photo_file_size", "updated_at", "private", "photo_file_name", "photo_content_type", "description") VALUES('GroupName', '2010-12-14 17:54:29', NULL, '2010-12-14 17:54:29', NULL, NULL, NULL, 'description')[0m
+[paperclip] Saving attachments.
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mTodo Create (0.1ms)[0m   [0;1mINSERT INTO "todos" ("created_at", "updated_at", "group_id", "duedate", "user_id", "finished_by", "task", "finished") VALUES('2010-12-14 17:54:29', '2010-12-14 17:54:29', 1, '2010-12-14 09:54:29', NULL, NULL, 'Milestone', 'f')[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mTodo Update (0.1ms)[0m   [0;1mUPDATE "todos" SET "updated_at" = '2010-12-14 17:54:29', "finished" = 't' WHERE "id" = 1[0m
+  [4;35;1mGroup Load (0.2ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."name" = 'GroupName') LIMIT 1[0m
+  [4;36;1mGroup Create (0.4ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "photo_file_size", "updated_at", "private", "photo_file_name", "photo_content_type", "description") VALUES('GroupName', '2010-12-14 17:54:29', NULL, '2010-12-14 17:54:29', NULL, NULL, NULL, 'description')[0m
+[paperclip] Saving attachments.
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mTodo Create (0.1ms)[0m   [0;1mINSERT INTO "todos" ("created_at", "updated_at", "group_id", "duedate", "user_id", "finished_by", "task", "finished") VALUES('2010-12-14 17:54:29', '2010-12-14 17:54:29', 1, '2010-12-14 09:54:29', NULL, NULL, 'Milestone', 't')[0m
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."id" = 1) LIMIT 1[0m
+  [4;36;1mTodo Update (0.1ms)[0m   [0;1mUPDATE "todos" SET "updated_at" = '2010-12-14 17:54:29', "finished" = 'f' WHERE "id" = 1[0m
+  [4;35;1mPost Create (0.4ms)[0m   [0mINSERT INTO "posts" ("created_at", "title", "body", "created_on", "updated_at", "group_id", "updated_on", "user_id", "user") VALUES('2010-12-14 17:54:29', 'test', 'hi', '2010-12-14 17:54:29', '2010-12-14 17:54:29', 1, '2010-12-14 17:54:29', 1, 'bob')[0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."title" = 'test') LIMIT 1[0m
+  [4;35;1mPost Create (0.4ms)[0m   [0mINSERT INTO "posts" ("created_at", "title", "body", "created_on", "updated_at", "group_id", "updated_on", "user_id", "user") VALUES('2010-12-14 17:54:29', 'test', 'hi', '2010-12-14 17:54:29', '2010-12-14 17:54:29', 1, '2010-12-14 17:54:29', 1, 'bob')[0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM "posts" [0m
+  [4;35;1mComment Load (0.1ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+  [4;36;1mPost Destroy (0.1ms)[0m   [0;1mDELETE FROM "posts" WHERE "id" = 1[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."title" = 'test') LIMIT 1[0m
+  [4;36;1mNewsfeed Create (0.4ms)[0m   [0;1mINSERT INTO "newsfeeds" ("descriptions", "created_at", "updated_at", "time", "group_id", "link") VALUES('value for descriptions', '2010-12-14 17:54:29', '2010-12-14 17:54:29', '2010-12-14 17:54:29', NULL, NULL)[0m
+  [4;35;1mGroup Load (0.2ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."name" = 'GroupName') LIMIT 1[0m
+  [4;36;1mGroup Create (0.4ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "photo_file_size", "updated_at", "private", "photo_file_name", "photo_content_type", "description") VALUES('GroupName', '2010-12-14 17:54:29', NULL, '2010-12-14 17:54:29', NULL, NULL, NULL, 'description')[0m
+[paperclip] Saving attachments.
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'test@yahoo.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'username') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'ce57aba3abe3dd95a67d77275842cae6116d38f7fa6f8c4ab3f1c5b56dd17cbbcadfda195c0c0aa3fe210d39cd88309f7b3e975a9a3664198fd5b37615828a15') LIMIT 1[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO "users" ("created_at", "photo_file_size", "crypted_password", "updated_at", "photo_file_name", "username", "photo_content_type", "allow_text", "password_salt", "phone_number", "persistence_token", "phone_carrier", "email") VALUES('2010-12-14 17:54:30', NULL, '3f369e031e5a79de490a9d4c4da18f34d00e975a35016b408f12a2ceecc9f4023669ba5d247523bc118cdebf4eca5cfa56e6dee2a278452721c39bae5a68a7b1', '2010-12-14 17:54:30', NULL, 'UserName', NULL, NULL, 'ySUW3MiyQVZ8WDJpsK0U', NULL, 'ce57aba3abe3dd95a67d77275842cae6116d38f7fa6f8c4ab3f1c5b56dd17cbbcadfda195c0c0aa3fe210d39cd88309f7b3e975a9a3664198fd5b37615828a15', NULL, 'test@yahoo.com')[0m
+[paperclip] Saving attachments.
+  [4;35;1mGroup Load (0.1ms)[0m   [0mSELECT "groups".id FROM "groups" WHERE ("groups"."name" = 'GroupName') LIMIT 1[0m
+  [4;36;1mGroup Create (0.2ms)[0m   [0;1mINSERT INTO "groups" ("name", "created_at", "photo_file_size", "updated_at", "private", "photo_file_name", "photo_content_type", "description") VALUES('GroupName', '2010-12-14 17:54:30', NULL, '2010-12-14 17:54:30', NULL, NULL, NULL, 'description')[0m
+[paperclip] Saving attachments.
+  [4;35;1mMembership Create (0.2ms)[0m   [0mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "invitation", "user_id", "permission", "established", "request") VALUES('2010-12-14 17:54:30', '2010-12-14 17:54:30', 1, NULL, 1, 0, NULL, NULL)[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'test@gmail.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'username') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'f91cac25702cbaeec291aaf286d11e280b960d86ae525c889652b484d59623dab43213e2fd8542fb2ac60c01fcd39701355d908ab0031919755a9f76c3559b50') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("created_at", "photo_file_size", "crypted_password", "updated_at", "photo_file_name", "username", "photo_content_type", "allow_text", "password_salt", "phone_number", "persistence_token", "phone_carrier", "email") VALUES('2010-12-14 17:54:30', NULL, '3f8045529ad3988befdda54c2e16b6f3035de2a84725244296f55db4c44618d74fcb7959fb415290f538e50c9fea796de8958e0b02a914f0fbbc61a1c4ca9966', '2010-12-14 17:54:30', NULL, 'UserName', NULL, NULL, 'EfYIMG4DngU1zTFezff', NULL, 'f91cac25702cbaeec291aaf286d11e280b960d86ae525c889652b484d59623dab43213e2fd8542fb2ac60c01fcd39701355d908ab0031919755a9f76c3559b50', NULL, 'test@gmail.com')[0m
+[paperclip] Saving attachments.
+  [4;36;1mGroup Load (0.1ms)[0m   [0;1mSELECT "groups".id FROM "groups" WHERE ("groups"."name" = 'GroupName') LIMIT 1[0m
+  [4;35;1mGroup Create (0.2ms)[0m   [0mINSERT INTO "groups" ("name", "created_at", "photo_file_size", "updated_at", "private", "photo_file_name", "photo_content_type", "description") VALUES('GroupName', '2010-12-14 17:54:30', NULL, '2010-12-14 17:54:30', NULL, NULL, NULL, 'description')[0m
+[paperclip] Saving attachments.
+  [4;36;1mMembership Create (0.2ms)[0m   [0;1mINSERT INTO "memberships" ("created_at", "updated_at", "group_id", "invitation", "user_id", "permission", "established", "request") VALUES('2010-12-14 17:54:30', '2010-12-14 17:54:30', 1, NULL, 1, 1, NULL, NULL)[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'test@yahoo.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'username') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = '532717815180bb15b744ed17780daac22c4da17cfd57c917ce3fdd75064609bf185e50f9f84774d778290fe1e07821757c76f94cc04570dc7996a698944fc3f9') LIMIT 1[0m
+  [4;36;1mUser Create (0.5ms)[0m   [0;1mINSERT INTO "users" ("created_at", "photo_file_size", "crypted_password", "updated_at", "photo_file_name", "username", "photo_content_type", "allow_text", "password_salt", "phone_number", "persistence_token", "phone_carrier", "email") VALUES('2010-12-14 17:54:30', NULL, '7753577f9d69b9bc0e49c7935eef7887bc210e563c7c16c97134663066be77b32ddf34807e8504e2b3d49d831d70b282ff21044e8a97a86444d15b86db49592d', '2010-12-14 17:54:30', NULL, 'UserName', NULL, NULL, 'yRG4RQfItSdDuaoR3F', NULL, '532717815180bb15b744ed17780daac22c4da17cfd57c917ce3fdd75064609bf185e50f9f84774d778290fe1e07821757c76f94cc04570dc7996a698944fc3f9', NULL, 'test@yahoo.com')[0m
+[paperclip] Saving attachments.
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'test@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'username2') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'beeb85d67f89f135ebd8dbb73f986822f16af55f8ea021700981260d69cde55d9cebb87904f06ada2483de766a002af0fe855fcbdbed47f60a36f169e6939a4e') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO "users" ("created_at", "photo_file_size", "crypted_password", "updated_at", "photo_file_name", "username", "photo_content_type", "allow_text", "password_salt", "phone_number", "persistence_token", "phone_carrier", "email") VALUES('2010-12-14 17:54:30', NULL, 'f5779e063322e1227359a165cb1b9e76bd2d4c1ce9194d90e71a926987a986e6e9f8e7ed0fcab82b8750359d11721800f88ef0eada060c07054712a1986993db', '2010-12-14 17:54:30', NULL, 'UserName2', NULL, NULL, 'TCWU3PUCxm5uSP72JWCj', NULL, 'beeb85d67f89f135ebd8dbb73f986822f16af55f8ea021700981260d69cde55d9cebb87904f06ada2483de766a002af0fe855fcbdbed47f60a36f169e6939a4e', NULL, 'test@gmail.com')[0m
+[paperclip] Saving attachments.
+  [4;35;1mConversation Create (0.2ms)[0m   [0mINSERT INTO "conversations" ("created_at", "updated_at", "also_text", "group_id", "origin", "target", "message") VALUES('2010-12-14 17:54:30', '2010-12-14 17:54:30', NULL, NULL, 'UserName', 'UserName2', 'hi')[0m
+  [4;36;1mConversation Load (0.2ms)[0m   [0;1mSELECT * FROM "conversations" WHERE ("conversations"."message" = 'hi') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'test@yahoo.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'username') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'b7a2d6933ab541cd9a5a43923f0fed7d2a44855ada8c08de10d1de215c762d5febd9554400bd805d1fe8a5b72b5a5d3f4a2ad8d52f96f57557892ed04ba5edb5') LIMIT 1[0m
+  [4;36;1mUser Create (0.3ms)[0m   [0;1mINSERT INTO "users" ("created_at", "photo_file_size", "crypted_password", "updated_at", "photo_file_name", "username", "photo_content_type", "allow_text", "password_salt", "phone_number", "persistence_token", "phone_carrier", "email") VALUES('2010-12-14 17:54:30', NULL, 'b0699e36e9e2b806757bf260a7421d650edb83355a08994d26b9fd621524733d3ef67775d44a14f6d1b76d2ad824b3b58f1d696f0d9b721558717b448a998e4d', '2010-12-14 17:54:30', NULL, 'UserName', NULL, NULL, 'bJ1eCjsac1evnPYubtT', NULL, 'b7a2d6933ab541cd9a5a43923f0fed7d2a44855ada8c08de10d1de215c762d5febd9554400bd805d1fe8a5b72b5a5d3f4a2ad8d52f96f57557892ed04ba5edb5', NULL, 'test@yahoo.com')[0m
+[paperclip] Saving attachments.
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email") = 'test@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."username") = 'username2') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."persistence_token" = 'b7ff45cd6d668da07cd55dc1a0dafa0121d132bb80c9f4cc8f2cdb328b6c9052606925d9f8b17c7a7ecaaea5eb1e19f1170d6087ac49da3b6ae1ed0c35215224') LIMIT 1[0m
+  [4;36;1mUser Create (0.1ms)[0m   [0;1mINSERT INTO "users" ("created_at", "photo_file_size", "crypted_password", "updated_at", "photo_file_name", "username", "photo_content_type", "allow_text", "password_salt", "phone_number", "persistence_token", "phone_carrier", "email") VALUES('2010-12-14 17:54:30', NULL, '864c135a622f91f4c95bf87f1a3643b4ecc2a59c9f180ad795d5597c841cd9c7ffcf3c2def30c13fe8300ac9c5f5dd2a0db43f619563aa7b779146c856612e72', '2010-12-14 17:54:30', NULL, 'UserName2', NULL, NULL, '4Jk9tAD5jk0eXB1On4', NULL, 'b7ff45cd6d668da07cd55dc1a0dafa0121d132bb80c9f4cc8f2cdb328b6c9052606925d9f8b17c7a7ecaaea5eb1e19f1170d6087ac49da3b6ae1ed0c35215224', NULL, 'test@gmail.com')[0m
+[paperclip] Saving attachments.
+  [4;35;1mConversation Create (0.1ms)[0m   [0mINSERT INTO "conversations" ("created_at", "updated_at", "also_text", "group_id", "origin", "target", "message") VALUES('2010-12-14 17:54:30', '2010-12-14 17:54:30', NULL, NULL, 'UserName', 'UserName2', 'hi')[0m
+  [4;36;1mConversation Load (0.1ms)[0m   [0;1mSELECT * FROM "conversations" [0m
+  [4;35;1mConversation Destroy (0.1ms)[0m   [0mDELETE FROM "conversations" WHERE "id" = 1[0m
+  [4;36;1mConversation Load (0.1ms)[0m   [0;1mSELECT * FROM "conversations" WHERE ("conversations"."message" = 'hi') LIMIT 1[0m
+  [4;35;1mComment Create (0.4ms)[0m   [0mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id", "user_id") VALUES('2010-12-14 17:54:30', 'hi', '2010-12-14 17:54:30', 1, 1)[0m
+  [4;36;1mComment Load (0.2ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments"."body" = 'hi') LIMIT 1[0m
+  [4;35;1mComment Create (0.4ms)[0m   [0mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id", "user_id") VALUES('2010-12-14 17:54:30', 'hi', '2010-12-14 17:54:30', 1, 1)[0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM "comments" [0m
+  [4;35;1mComment Destroy (0.1ms)[0m   [0mDELETE FROM "comments" WHERE "id" = 1[0m
+  [4;36;1mComment Load (0.1ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments"."body" = 'hi') LIMIT 1[0m
