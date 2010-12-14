@@ -1,15 +1,15 @@
 Given /^that I am a user$/ do
-  @user = User.create!(:name => "UserName", :password => "pass")
+  @user = User.create!(:username => "UserName", :email => "test@yahoo.com", :password => "pass", :password_confirmation => "pass")
+  visit root_url
+  fill_in "user_session_username", :with => "UserName"
+  fill_in "user_session_password", :with => "pass"
+  click_button "submit"
   @group = Group.create!(:name => "GroupName", :description => "description")
   @membership = Membership.create!(:group_id => @group.id, :user_id => @user.id)
-  visit users_url
-  fill_in "name", :with => "UserName"
-  fill_in "password", :with => "pass"
-  click_button "submit"
 end
 
 When /^I click on "([^"]*)" for "([^"]*)" on the uploads page$/ do |arg1, arg2|
-  @file = Upload.create!(:filename => "a.pdf", :description => "a file", :group_id => @group.id)
+  @file = Upload.create!(:filename => "a.pdf", :description => "a file", :group_id => @group.id, :user_id => @user.id, :attachment_file_name => "a.pdf")
   visit group_uploads_url(@group.id)
 end
 
@@ -22,7 +22,7 @@ Then /^I should be prompted to destroy the file$/ do
 end
 
 When /^I add a file named "([^"]*)"$/ do |arg1|
-  @file = Upload.create!(:filename => "a.pdf", :description => "a file", :group_id => @group.id)
+  @file = Upload.create!(:filename => "a.pdf", :description => "a file", :group_id => @group.id, :user_id => @user.id, :attachment_file_name => "a.pdf")
 end
 
 Then /^I should see "([^"]*)" in the index upload page$/ do |arg1|
@@ -31,7 +31,7 @@ Then /^I should see "([^"]*)" in the index upload page$/ do |arg1|
 end
 
 When /^I try to edit a file named "([^"]*)"$/ do |arg1|
-  @file = Upload.create!(:filename => "a.pdf", :description => "a file", :group_id => @group.id)
+  @file = Upload.create!(:filename => "a.pdf", :description => "a file", :group_id => @group.id, :user_id => @user.id, :attachment_file_name => "a.pdf")
   visit group_uploads_url(@group.id)
   click_link "Edit"
 end
@@ -42,25 +42,25 @@ end
 
 When /^I try to download a file named "([^"]*)" to a group that I am not in$/ do |arg1|
   @group = Group.create!(:name => "GroupName2", :description => "description2")
-  @file = Upload.create!(:filename => "a.pdf", :description => "a file", :group_id => @group.id)
+  @file = Upload.create!(:filename => "a.pdf", :description => "a file", :group_id => @group.id, :user_id => @user.id, :attachment_file_name => "a.pdf")
   visit group_uploads_url(@group.id)
 end
 
 When /^I try to delete a file named "([^"]*)" to a group that I am not in$/ do |arg1|
   @group = Group.create!(:name => "GroupName2", :description => "description2")
-  @file = Upload.create!(:filename => "a.pdf", :description => "a file", :group_id => @group.id)
+  @file = Upload.create!(:filename => "a.pdf", :description => "a file", :group_id => @group.id, :user_id => @user.id, :attachment_file_name => "a.pdf")
   visit group_uploads_url(@group.id)
 end
 
 When /^I try to add a file named "([^"]*)" to a group that I am not in$/ do |arg1|
   @group = Group.create!(:name => "GroupName2", :description => "description2")
-  @file = Upload.create!(:filename => "a.pdf", :description => "a file", :group_id => @group.id)
+  @file = Upload.create!(:filename => "a.pdf", :description => "a file", :group_id => @group.id, :user_id => @user.id, :attachment_file_name => "a.pdf")
   visit group_uploads_url(@group.id)
 end
 
 When /^I try to edit a file named "([^"]*)" in a group that I am not in$/ do |arg1|
   @group = Group.create!(:name => "GroupName2", :description => "description2")
-  @file = Upload.create!(:filename => "a.pdf", :description => "a file", :group_id => @group.id)
+  @file = Upload.create!(:filename => "a.pdf", :description => "a file", :group_id => @group.id, :user_id => @user.id, :attachment_file_name => "a.pdf")
   visit group_uploads_url(@group.id)
 end
 
